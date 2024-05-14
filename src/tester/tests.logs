@@ -1,0 +1,669 @@
+john
+oops
+oops"
+""
+"oops
+
+echo "hello world!"
+echo "this is me again"
+echo "and again!"
+test this
+and that
+exit
+echo hello
+echo "hello world!"
+echo "this is me again"
+echo hello
+hello
+sarah
+da
+lol
+test 1
+test 2
+test 3
+test 4
+test 5
+test 6
+test6
+test7
+eqweqwqw
+cbsdh jds|        bjcd
+vdmh djksb|          jkds
+vdmh djksb      |          jkds
+"hello'john'hello"
+"hello"john"hello"
+"hellook'hello"
+"hellook"hello"
+"
+$"HOME"
+echo $?
+8yi jfdsv |b < CBHJB
+8yi 'jfdsv '|b < CBHJB "cjb"
+8yi 'jfdsv $hfd'|b < CBHJB "cjb"
+yi 'jfdsv $hfd'|b < CBHJB "cjb"~
+$HOME
+ewqe$HOME
+echo $HOME $OK
+john$HOME
+$home
+e$home
+john$home
+john${HOME}
+testing print
+testing "print"
+john | ls -l
+>> john | ls -l
+john | ls -l -a
+ls -l
+ls -l | john
+ls -l | o
+ls - l
+ls -l | john fine >> maybe
+ls -l | john fine >> new
+evk, |cjnk
+ls$home
+a${HOME}
+a$HOME
+hfe${HOME}
+hfe$HOME
+${HOME}
+$HOME$PATH
+$HOME $PATH
+$HOME${PATH}
+${HOME}$PATH
+${HOME}${PATH}
+${PATH}$HOME
+${PATH}
+${PATH}$LANG
+${PATH}${LANG}
+${PATH}${LANG
+$HOME${PATH
+$$
+home $HOME '$PATH'
+$HOME "$HOME" '$HOME'
+$HOME '$HOME'
+$HOME$LANG
+$HOME$LANG $SHELL$
+$HOME$LANG $SHELL$$
+$$$
+$"$"$
+$"$"'$'
+$"$"' $'
+$$ $ "$"
+$$ $ "$" | ls -l
+< infile cat ${HOME} | cat $PATH > outfile
+< infile cat argz | cat arg2  > outfile
+< infile cat argz | cat arg2  > outfile~
+< infile cat argz | cat arg2  > outfile~~
+< infile cat argz | cat arg2  > out
+<< infile cat argz | cat arg2  > outfile
+<< infile cat argz | cat arg2  >> outfile
+< infile cmd1 arg1 | cat -e arg2 arg3 > oufile
+< infile cmd -option >> some | cmd arg arg arg | smthg
+cat -e Makefile | grep "minishell" | wc -l
+cat -e ${HOME} | $?
+john"
+$?
+"hello"
+"Hello"
+hello "hello" <
+hello "hello" <
+hello "hello" < infile
+"hello" hello |
+hello "hello" 'hello' |
+### PRINTING 5 TOKENS ###
+token[0] content [index]   = hello  [0]
+     [0] block             = 0
+     [0] category          = COMMAND
+     [0] type (quotes)     = WORD (UNQUOTED)
+
+token[1] content [index]   = hello  [1]
+     [1] block             = 0
+     [1] category          = ARGUMENT
+     [1] type (quotes)     = WORD (DOUBLE-QUOTED)
+
+token[2] content [index]   = hello  [2]
+     [2] block             = 0
+     [2] category          = ARGUMENT
+     [2] type (quotes)     = WORD (SINGLE-QUOTED)
+
+token[3] content [index]   = |  [3]
+     [3] block             = 0
+     [3] category & type   = CONTROL OPERATOR
+
+token[4] content [index]   = newline  [5]
+     [4] block             = 1
+     [4] category & type   = CONTROL OPERATOR
+### 5 TOKENS PRINTED ###
+HELLO
+
+;     ;
+		if (tmp->next && tmp->next->block != tmp->block)
+		{
+cat ls -l
+ls -l -a
+ls l
+ls -l | cat -e john
+ls -a -e
+ls -l -a | cat -e john
+ls -l -a >> john
+ls -l -a >> cat -e
+ls -l -a | cat -e infile
+ls -l -a infilezzz | cat -e infile
+ls -l -a infileeazezaazeazzzz | cat -e infile
+ls -l eazidnazldna
+ls -l eazidnazldnaeazeazeaz
+ls -l eazidnazldnaeazez
+ls -l eazidnazldnae
+ls -l eazidnazldnaez
+ls -l eazidnazldnaefse
+ls -l eazidnazldnaeeazeazdqqdqsd
+ls -l eazidnazldnaeeazeazdqqdqsd | cat -l outfile dazedaadzdazd
+ls -l eazidnazldnaeazeazeaz | vive le rock
+ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that
+"/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+
+dqfqdqqsdqsdqsdqsdqs
+dazaqcdvskdvsdkvndslk | "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+ls -l | john fine >> maybe
+
+"/   /" ft_printf | ( "     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+"/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+"/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+"/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+\033[0m
+cat
+slfihsdl;fhsd;lihgsdiohg
+"      slfihsdl;fhsd;lihgsdiohg            "
+c"at"
+ls -l -a john | cat outfile
+ls -l >> -a john | cat > outfile
+c"at" outfile
+ cat
+">" ">"
+">"">"
+">>" john
+< infile "ca"t | ls
+< infile "c"'a't | ls
+< "in"fi'le' cat | ls
+<
+ "in"fi'le' cat | ls
+<
+"in"fi'le' cat | ls
+< "in"fi'le' cat | "ls
+ls -lol
+< "in"fi'le' cat | "ls~
+< "in"fi'le' cat | "ls"
+print_token(entry.token);
+[200~< "in"fi'le' cat | "ls~
+< | comm
+cnd jckdsb
+< < dsh
+< infile hdf -ds << hdbc | dhcb
+<< stop
+ls << john | bonjour ca va > oui
+bon << john
+john ls << youhou
+<<
+<< john
+<< okqwe dasa
+<< efsjfsdfjsdlfdgjsgjslfgjvsfg
+afvsdm < okadfopedk\
+dwqqwfc
+dwaas
+efa
+das
+john >> bonjour | oui < non | encore << delli;itter?
+> dernier
+fsg > oui
+< infile cmd1 | cmd2 > outfile
+john ko
+john k  |md rf
+john | john
+< infile cat hello | << pewpew cat > outfile >> outfile_app
+hello << john
+< infile cat hello
+< infile cat hello | john
+< infile cat hello | << pewpew
+< infile cat hello | << pewpew cat
+< infile cat hello | << pewpew cat > outfile
+< infile cat hello | << pewpew cat > outfile >>
+< infile cat hello | << pewpew cat > outfile >> john
+< infile cat hello | << pewpew cat > outfile >> outfile_app eazeazeazeazeazazeaz
+< infile cat hello | << pewpew cat > outfile >> outfile_app fzefesdfsdfsdfsdfsdf
+< infile cat hello | << pewpew cat > outfile >> outfile_app aeaihazidhqidhqs
+< infile cat hello | << pewpew cat > outfile >> outfile_app aeaihazidhqidhqs
+< infile cat hello | << "pewpew" cat > 'outfile' >> outfile_app
+  e
+Problem with indexes
+-----------
+	ft_printf("%?35s\n", "...");
+
+	ft_printf("%?35s\n", "...");
+
+bsd fhd > chdbsa << lbcd
+ls -l -a | john << stop
+ls -l -a | << stop grep out
+ls -l | cat << | grep file
+< infile cat hello | << pewpew cat > outfile >> outfile_app aeaihazidhqidhqs
+
+< infile cat hello | << pewpew cat > outfile >> outfile_app aeaihazidhqidhqs
+
+< infile cat hello | << pewpew cat > outfile >> outfile_app aeaihazidhqidhqs
+
+< Makefile cat
+john hello nope
+echo john fine
+echo john
+echo john > outfile
+< infile echo john > outfile
+< infile echo john > outfile | bonjourno cat << delimiter
+hello john john john | encore john
+< infile cmd -option >> some | cmd arg arg arg | smthg~
+V// ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index);ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that
+	ft_printf("block = %d\nelems = %d\n", block, elems);
+
+void	upd_token_heads(t_token *token)
+	ft_printf("token->content = %s\ntoken->head->content = %s\n", entry->token->content, entry->token->head->content);
+
+< Makefie < infile cat
+void	init_pipe(t_token **token, int *pipe_fd)
+
+[200~ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that~
+ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that >> app
+ls -l eazidnazldnaeazeazeaz | vive le rock | < infile do this << and that >> app > outfile
+cat bonjour > john | oui >> non
+john bonjour
+john bonjour | oui et non
+bonjour john > ici | hop >> par_la
+bonjour john > ici | hop >> par_la encore
+bonjour john > ici << tac < toc_pof | hop >> par_la encore ici
+		ft_printf("here, tmp_bis = %s\n", tmp_bis->content);
+
+bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial
+bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+john bonjour > truc ici < la >> john << bof
+john bonjour > truc ici < la >> john << bof << nouveau_delimiter
+john bonjour > truc ici < la >> john << bof| zbim << nouveau_delimiter
+bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+	bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+	bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+	bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+	bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+	bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+	bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+	bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+	bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+	bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes4
+\033bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes4
+- pipe activated bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+(%d, %d)
+pipe activated bonjour john > ici | hop >> par_la encore | cat < encore >> un << test > trop_genial | infinite pipes
+
+  • cmd[0] = infinite
+%d
+another one for the road
+  •
+ls -l | grep minishell > outfile
+cat "" -e
+<< $HOME | < $HOME > $HOME
+< hello
+> hello
+< hello john john
+< hello john
+cur->prev
+[200~<< $HOME | < $HOME > $HOME^C~
+<< $HOME | < $HOME > $HOME^C
+cur->prev && (ft_strcmp(cur->prev->content, "<<") != 0))
+[200~<< $HOME | < $HOME > $HOME~
+[200~if ((cur->prev && (ft_strcmp(cur->prev->content, "<<") != 0)))
+{
+ft_printf("cur->prev = %s\n", cur->prev->content);
+expand_token(entry, cur, env);
+$HOME | < $HOME > $HOME
+< infile cat > outfile1 > outfile2 | john
+make re
+ls
+cat infile2
+cat infile2 -e
+john bonjour >>  coucou << infile
+cat << infile >> outfile >> ls << re
+cat infile
+< infile cat > outfile
+cat hello
+cat hello -e
+" "
+test
+new commqnd
+new command
+testing
+une nouvelle command
+john encore
+okokk
+super ça fonctionne
+ici
+Encore un
+testing watcher
+< infile cat -e infile2
+< infile cat infile2
+we
+we"
+echo something
+echo -n something
+pwd
+cd src
+unset PATH
+env
+env -i
+cat infile
+export PATH=truc
+< infile cat | cat > outfile
+cat infile | ls
+cat infile | wc -l
+[200~cat infile | wc -l~
+cat infile | wc -l~
+cat < infile
+cat < infile | wc -l
+echo salut
+export
+cd
+echo -n salut
+bash
+cat infile | wc -;
+cat infile | wc -l > infile
+cat < infile | wc -l > infile
+cat < infile | wc -l > outfile
+cat < infile | wc -l >> outfile
+cat < infile | grep e >> outfile | < outfile wc -l > john
+cat < infile | grep e >> outfile | <  wc -l > john
+cat < infile | grep e >> outfile | < new wc -l > john
+cat < infile | grep e | wc -l > john
+cat < infile | grep e | wc -l | echo salut > john
+cat < infile | grep e
+init_dup(exe, entry, exe->pipe_fd1[1], STDIN_FILENO);
+cat < infile | grep e | wc -l
+hello > bonjour
+hello > cat infile
+hello goodbye obladi > oblada
+echo -n fine | cat hello > outfile
+echo -n fine | < hello cat > outfile | echo end >> outfile
+echo -n fine | < hello cat > outfile | echo end >> outfile
+$> \n (touche entrée)
+$> [que des espaces]
+$> [que des tabulations]
+$> :
+\n
+:
+!
+>
+>>
+<>
+>>>>>
+>>>>>>>>>>>>>>>
+<<<<<
+<<<<<<<<<<<<<<<<
+> > > >
+>> >> >> >>
+>>>> >> >> >>
+/
+//
+/.
+/./../../../../..
+///////
+\\
+\\\\
+\\\\\\\\
+-
+|
+| hola
+| | |
+||
+|||||
+|||||||||||||
+>>|><
+&&
+&&&&&
+&&&&&&&&&&&&&&
+;;
+;;;;;
+;;;;;;;;;;;;;;;
+()
+( ( ) )
+( ( ( ( ) ) ) )
+"hola"
+'hola'
+''
+*
+*/*
+.
+..
+~
+ABC=hola
+4ABC=hola
+hola
+hola que tal
+Makefile
+! john
+!john
+fine
+this
+cat infilez
+cat empty
+bonjour
+cat nono
+cat infile | grep e
+john
+john john | pillow fissa
+john john"
+john john"  | cat infile
+john john"  | cat infile | cat README.md
+cat infile  | john infile | cat README.md
+cat infile  | cat README.md
+cat infile  | cat README.md | john infile
+john infile | cat infile  | cat README.md
+cat infile  | cat README.md | john infile
+cat infile  | john infile | cat README.md
+john infile | cat infile | cat README.md
+cat infile | cat README.md | john infile
+john infile | cat infile  | cat README.md
+cat john
+john "
+ok3
+cat john
+cat doggy
+helol
+good doggo
+if (tmp->next && tmp->next->block != tmp->block)
+cat ls -l
+dazaqcdvskdvsdkvndslk | "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+cati john
+cat john$HOME
+cat eqwe$HOME
+eqwe $HOME
+eqwe$HOME
+/bin/cati
+/bin/cat
+/bin/cat john
+< "in"fi'le' cat | "ls~
+ for non RH/Debian xterm, can't hurt for RH/Debi�
+< "in"fi'le' cat | "ls~
+ for non RH/Debian xterm, can't hurt for RH/Debi�
+voidupd_token_heads(t_token *token)
+voidinit_pipe(t_token **token, int *pipe_fd)
+ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that~
+H/Debi�
+< infile cat >> john > infile2
+cat infile | wc -l~
+f
+eqwe
+john/cat
+john/bin/cat
+eqwe/bin/cat
+eqwe$HELLO
+echo /home/john/stouitou
+cd /home/john/stouitou
+$HELLO
+l$b
+ls -la
+export b="s -la"
+cat Makefile
+cat | ls
+[A
+?
+$hello
+$HELLO"pierre"
+$HELLO"Pierre"
+< "in"fi'le' cat | "ls~
+ for non RH/Debian xterm, can't hurt for RH/Debi�
+ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that~
+H/Debi�
+cat infile | wc -l~
+f
+john john"
+john john"  | cat infile | cat README.md
+cat infile  | cat README.md
+[200~"hello"john"hello"~
+"hello"john"hello"~
+dif
+$'HOME'
+$"HELLO"
+salut$home"pierre"
+salut$home
+salut$pierre"hello"
+< "in"fi'le' cat | "ls~
+ for non RH/Debian xterm, can't hurt for RH/Debi�
+ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that~
+H/Debi�
+cat infile | wc -l~
+f
+$HOME"Sarah"
+$HOME"Sarah"'pierre'
+$HOME"Sarah"'pierre'john
+bonjour$HOME"Sarah"'pierre'john
+first bonjour$HOME"Sarah"'pierre'john
+first bonjour$HOME"Sarah"'pierre'john end
+first bonjour$home"Sarah"'pierre'john end
+$homefirst bonjour$home"Sarah"'pierre'john end
+$HOMEfirst bonjour$home"Sarah"'pierre'john end
+$home"john"
+	ft_printf("token->content = %s\n", token->content);
+
+$home"john'
+< infile | outfile >
+< infile |  > outfile
+< infile | > outfile
+< infile | > outfile
+
+< infile | > outfile
+
+$HOME"john"
+| "hello" hello
+make fclean
+clear
+exi
+"in"fi'le' cat | "ls
+cat Makefile |
+. ls
+ls /home/stouitou/.local/funcheck/
+...
+ls | .. cat Makefile
+cat README.md |
+cat infile > outfile > john
+cat < infile < new < maybe
+john < infile1 < infile2
+cat < infile < john < maybe
+cat < infile >> john > maybe
+cat < infile >> john > maybe >> john > another
+cat < infile >> john > maybe >> john > another > one
+cat < infile >> john > maybe >> john > another > one < no
+cat < infile >> john > maybe >> john > another > one < no
+
+cat < infile >> john > maybe >> john > another > one < no
+
+cat > infile > john > maybe
+cat < infile < john < maybe
+
+[200~cat < infile < john < maybe
+cat < infile < john < maybe
+
+cat < maybe > outfile >> john
+cat infile | cat ${PATH}${LANG
+cat "infile
+${LANG
+make
+$'$'
+$
+$"$""$""$"
+$"$"
+$"$ "
+$" $ "
+$"                            $ "
+$"$LANG"
+$"LANG"
+"$""$""$""$""$""$""$"
+"$""$""$""$""$""$""$""$"
+$"$"$"$"$"$"$
+$"$"$"$"$"$"
+"$"$
+?"cat" Makefile
+? "cat" Makefile
+? cat Makefile
+$?$
+"$"
+$"$"$"$"
+$"$"$"$"$
+"$"$"$"
+$"$"$"$""$"$"$"
+init_dup(exe, entry, exe->pipe_fd1[1], STDIN_FILENO)
+$>
+! test
+cat "            "
+echo hello world
+ok
+$LANG}
+$?LANG
+$!LANG
+$+LANG
+${LANG}OK
+${HOME
+${HOME}${PATH
+ok${HOME}
+${HOUME}
+${HOUME}OK
+${HOME}${PATHES
+${HOME}${PATHES}
+${HOMEZ}
+${HOMEW}
+$HOMEW
+ok$HOMEW
+"ok"$HOMEW
+ok${HOME }W
+ok${HOME }
+ok${ HOME }
+ok${ HOME}
+ok${=HOME}
+ok${?OME}
+oops${HOME}
+cat < infile > cat >> ok
+cat < infile >> cat >> ok
+cvdmh djksb|          jkds
+bonjour$HOME"Sarah"'pierre'oops
+bonjour$HOME"Sarah"'pierre
+bonjour$HOME"Sarah"'pierre'
+[200~${HOUME}OK~
+${HOUME}OK~
+�
+$HOUMEOK
+$HOUME{OK
+$HOUME{OK}

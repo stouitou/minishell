@@ -1,0 +1,462 @@
+""
+ls -l
+john
+oops
+oops"
+"oops
+test this
+and that
+sarah
+lol
+test 1
+test7
+eqweqwqw
+cbsdh jds|        bjcd
+vdmh djksb|          jkds
+"hello'john'hello"
+"hello"john"hello"
+"hellook'hello"
+"hellook"hello"
+$"HOME"
+8yi jfdsv |b < CBHJB
+8yi 'jfdsv '|b < CBHJB "cjb"
+8yi 'jfdsv $hfd'|b < CBHJB "cjb"
+$HOME
+ewqe$HOME
+john$HOME
+$home
+e$home
+john$home
+john${HOME}
+testing print
+testing "print"
+>> john | ls -l
+ls - l
+evk, |cjnk
+ls$home
+a${HOME}
+a$HOME
+hfe${HOME}
+hfe$HOME
+$HOME$PATH
+$HOME $PATH
+$HOME${PATH}
+${HOME}$PATH
+${HOME}${PATH}
+${PATH}$HOME
+${PATH}$LANG
+${PATH}${LANG}
+$$
+home $HOME '$PATH'
+$HOME "$HOME" '$HOME'
+$HOME '$HOME'
+$HOME$LANG
+$HOME$LANG $SHELL$
+$HOME$LANG $SHELL$$
+$$$
+$"$"$
+$"$"'$'
+$"$"' $'
+$$ $ "$"
+< infile cat ${HOME} | cat $PATH > outfile
+< infile cat argz | cat arg2  > outfile
+< infile cmd1 arg1 | cat -e arg2 arg3 > oufile
+< infile cmd -option >> some | cmd arg arg arg | smthg
+cat -e Makefile | grep "minishell" | wc -l
+cat -e ${HOME} | $?
+"Hello"
+hello "hello" <
+hello "hello" < infile
+"hello" hello |
+hello "hello" 'hello' |
+cat ls -l
+ls l
+ls -a -e
+ls -l -a | cat -e john
+ls -l -a >> john
+ls -l -a >> cat -e
+ls -l -a infilezzz | cat -e infile
+ls -l -a infileeazezaazeazzzz | cat -e infile
+ls -l eazidnazldnaeeazeazdqqdqsd
+dqfqdqqsdqsdqsdqsdqs
+slfihsdl;fhsd;lihgsdiohg
+"      slfihsdl;fhsd;lihgsdiohg            "
+ls -l -a john | cat outfile
+ls -l >> -a john | cat > outfile
+c"at" outfile
+">" ">"
+">"">"
+">>" john
+< infile "ca"t | ls
+< infile "c"'a't | ls
+< "in"fi'le' cat | ls
+ls -lol
+"in"fi'le' cat | "ls
+cnd jckdsb
+< < dsh
+< infile hdf -ds << hdbc | dhcb
+<< stop
+ls << john | bonjour ca va > oui
+bon << john
+john ls << youhou
+<< okqwe dasa
+<< efsjfsdfjsdlfdgjsgjslfgjvsfg
+afvsdm < okadfopedk\
+dwqqwfc
+dwaas
+efa
+john >> bonjour | oui < non | encore << delli;itter?
+> dernier
+fsg > oui
+john ko
+< infile cat hello | << pewpew cat > outfile >> outfile_app
+hello << john
+Problem with indexes
+-----------
+bsd fhd > chdbsa << lbcd
+< Makefile cat
+john hello nope
+echo john fine
+echo john > outfile
+< infile echo john > outfile
+hello john john john | encore john
+< Makefie < infile cat
+ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that
+< infile cat >> john > infile2
+" "
+test 4
+da
+test 6
+test6
+< infile cat argz | cat arg2  > outfile~
+hello
+test 2
+test 3
+test 5
+vdmh djksb      |          jkds
+"
+yi 'jfdsv $hfd'|b < CBHJB "cjb"~
+john | ls -l
+john | ls -l -a
+ls -l | john
+ls -l | o
+ls -l | john fine >> maybe
+ls -l | john fine >> new
+${HOME}
+${PATH}
+${PATH}${LANG
+$HOME${PATH
+$$ $ "$" | ls -l
+< infile cat argz | cat arg2  > outfile~~
+< infile cat argz | cat arg2  > out
+test
+new commqnd
+new command
+testing
+une nouvelle command
+john encore
+okokk
+super ça fonctionne
+ici
+Encore un
+testing watcher
+ls
+< infile cat -e infile2
+< infile cat infile2
+we
+we"
+cat infile
+$?
+echo something
+echo -n something
+echo $?
+pwd
+cd src
+unset PATH
+env
+env -i
+export PATH=truc
+< infile cat | cat > outfile
+cat infile | ls
+cat infile | wc -l
+cat < infile
+cat < infile | wc -l
+echo salut
+export
+cd
+echo -n salut
+cat infile | wc -;
+cat infile | wc -l > infile
+cat < infile | wc -l > infile
+cat < infile | wc -l > outfile
+cat < infile | wc -l >> outfile
+cat < infile | grep e >> outfile | < outfile wc -l > john
+cat < infile | grep e >> outfile | <  wc -l > john
+cat < infile | grep e >> outfile | < new wc -l > john
+cat < infile | grep e | wc -l > john
+cat < infile | grep e | wc -l | echo salut > john
+cat < infile | grep e
+cat < infile | grep e | wc -l
+hello > bonjour
+hello > cat infile
+hello goodbye obladi > oblada
+echo -n fine | cat hello > outfile
+echo -n fine | < hello cat > outfile | echo end >> outfile
+$> \n (touche entrée)
+$> [que des espaces]
+$> [que des tabulations]
+$> :
+\n
+:
+!
+>
+<
+>>
+<<
+<>
+>>>>>
+>>>>>>>>>>>>>>>
+<<<<<
+<<<<<<<<<<<<<<<<
+> > > >
+>> >> >> >>
+>>>> >> >> >>
+/
+//
+/.
+/./../../../../..
+///////
+\\
+\\\\
+\\\\\\\\
+-
+|
+| hola
+| | |
+||
+|||||
+|||||||||||||
+>>|><
+&&
+&&&&&
+&&&&&&&&&&&&&&
+;;
+! john
+!john
+fine
+this
+cat infilez
+cat empty
+bonjour
+echo john
+cat nono
+cat infile | grep e
+john
+john john | pillow fissa
+john john"
+john john"  | cat infile
+john john"  | cat infile | cat README.md
+cat infile  | john infile | cat README.md
+cat infile  | cat README.md
+cat infile  | cat README.md | john infile
+john infile | cat infile | cat README.md
+cat infile | cat README.md | john infile
+ABC=hola
+john infile | cat infile  | cat README.md
+cat john
+john "
+ok3
+cat john
+cat doggy
+helol
+good doggo
+cati john
+cat john$HOME
+cat eqwe$HOME
+eqwe $HOME
+;;;;;
+/bin/cati
+< "in"fi'le' cat | "ls~
+ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that~
+eqwe$HOME
+eqwe
+john/cat
+john/bin/cat
+eqwe/bin/cat
+eqwe$HELLO
+echo /home/john/stouitou
+cd /home/john/stouitou
+$HELLO
+l$b
+ls -la
+export b="s -la"
+$hello
+$HELLO"pierre"
+$HELLO"Pierre"
+dif
+$'HOME'
+$"HELLO"
+salut$home"pierre"
+salut$home
+salut$pierre"hello"
+exit
+$HOME"Sarah"
+$HOME"Sarah"'pierre'
+$HOME"Sarah"'pierre'john
+bonjour$HOME"Sarah"'pierre'john
+first bonjour$HOME"Sarah"'pierre'john
+first bonjour$HOME"Sarah"'pierre'john end
+first bonjour$home"Sarah"'pierre'john end
+$homefirst bonjour$home"Sarah"'pierre'john end
+$HOMEfirst bonjour$home"Sarah"'pierre'john end
+$home"john"
+$home"john'
+< infile | outfile >
+< infile |  > outfile
+< infile | > outfile
+$HOME"john"
+echo "hello world!"
+echo "this is me again"
+echo "and again!"
+echo hello
+echo $HOME $OK
+cat Makefile
+make
+< infile cmd -option >> some | cmd arg arg arg | smthg
+exi
+< infile cmd -option >> some | cmd arg arg arg | smthg
+$'$'
+$
+$"$""$""$"
+$$
+$"$"
+$"$ "
+$" $ "
+$"                            $ "
+$"$"
+$"$LANG"
+$"LANG"
+$
+"$""$""$""$""$""$""$"
+"$""$""$""$""$""$""$""$"
+$"$"$"$"$"$"$
+$"$"$"$"$"$"
+$"$"
+"$"$
+?
+!
+?"cat" Makefile
+? "cat" Makefile
+exit
+? cat Makefile
+$?$
+$?$
+$?$
+$
+"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"
+$"$"$
+$"$"
+$"$"
+$"$"
+$"$"$
+$"$"$"$"
+$"$"$"$"$
+$$
+$$$
+"$"$
+"$"$"$"
+$"$"$"$""$"$"$"
+init_dup(exe, entry, exe->pipe_fd1[1], STDIN_FILENO);
+init_dup(exe, entry, exe->pipe_fd1[1], STDIN_FILENO)
+$>
+$>
+! john
+! test
+oops"
+john/cat
+cat "            "
+echo hello world
+oops"
+:
+echo hello world
+ok
+${LANG
+$LANG}
+${LANG
+$?LANG
+$!LANG
+$+LANG
+${LANG}OK
+${HOME
+${HOME}${PATH
+${HOME
+${HOME}${PATH
+
+${HOME}
+${HOME
+${HOME}${PATH
+${HOME
+${HOME
+${HOME}${PATH
+ok${HOME}
+${HOUME}
+${HOUME}OK
+${HOME
+${HOME}${PATH
+${HOME}${PATHES
+${HOME}${PATHES}
+${HOMEZ}
+${HOMEW}
+${HOME}${PATHES}
+$HOMEW
+ok$HOMEW
+"ok"$HOMEW
+${HOMEW}
+$HOMEW
+ok$HOMEW
+ok${HOME }W
+ok${HOME }
+ok${ HOME }
+ok${ HOME}
+ok${=HOME}
+ok${?OME}
+ok${HOME}
+john${HOME}
+oops${HOME}
+cat < infile > cat >> ok
+cat < infile >> cat >> ok
+cat < infile >> cat >> ok
+cvdmh djksb|          jkds
+bonjour$HOME"Sarah"'pierre'john
+bonjour$HOME"Sarah"'pierre'oops
+bonjour$HOME"Sarah"'pierre
+bonjour$HOME"Sarah"'pierre'
+[200~${HOUME}OK~
+${HOUME}OK~
+�
+${HOUME}OK
+${HOUME}OK
+${HOUME}OK
+${HOUME}OK
+${HOUME}OK
+${HOUME}OK
+$HOUMEOK
+$
+$
+$HOUMEOK
+$HOUME{OK
+$HOUME{OK}
+hello

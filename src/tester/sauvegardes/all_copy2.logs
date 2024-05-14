@@ -1,0 +1,765 @@
+ok
+oops
+oops"
+""
+"oops
+echo "hello world!"
+echo "this is me again"
+echo "and again!"
+test this
+and that
+exit
+echo hello
+sarah
+lol
+test 1
+test7
+eqweqwqw
+cbsdh jds|        bjcd
+vdmh djksb|          jkds
+"hello'ok'hello"
+"hello"ok"hello"
+"hellook'hello"
+"hellook"hello"
+$"HOME"
+echo $?
+8yi jfdsv |b < CBHJB
+8yi 'jfdsv '|b < CBHJB "cjb"
+8yi 'jfdsv $hfd'|b < CBHJB "cjb"
+$HOME
+ewqe$HOME
+echo $HOME $OK
+ok$HOME
+$home
+e$home
+ok$home
+ok${HOME}
+testing print
+testing "print"
+>> ok | ls -l
+ls - l
+evk, |cjnk
+ls$home
+a${HOME}
+a$HOME
+hfe${HOME}
+hfe$HOME
+$HOME$PATH
+$HOME $PATH
+$HOME${PATH}
+${HOME}$PATH
+${HOME}${PATH}
+${PATH}$HOME
+${PATH}$LANG
+${PATH}${LANG}
+$$
+home $HOME '$PATH'
+$HOME "$HOME" '$HOME'
+$HOME '$HOME'
+$HOME$LANG
+$HOME$LANG $SHELL$
+$HOME$LANG $SHELL$$
+$$$
+$"$"$
+$"$"'$'
+$"$"' $'
+$$ $ "$"
+< infile cat ${HOME} | cat $PATH > outfile
+< infile cat argz | cat arg2  > outfile
+<< infile cat argz | cat arg2  > outfile
+< infile cmd1 arg1 | cat -e arg2 arg3 > oufile
+< infile cmd -option >> some | cmd arg arg arg | smthg
+cat -e Makefile | grep "minishell" | wc -l
+cat -e ${HOME} | $?
+"Hello"
+hello "hello" <
+hello "hello" < infile
+"hello" hello |
+hello "hello" 'hello' |
+			// ft_printf("     [%d] index·········= %d\n", i, tmp->index);
+V// ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index);
+/ / ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index);
+< // ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index);
+< // cat -option ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index);
+"/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index);
+ "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+HELLO
+    "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+  /   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+V "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+;     ;
+		if (tmp->next && tmp->next->block != tmp->block)
+			// ft_printf("%?32s\n", "-------------------------------------------------");
+			ft_printf("\n%?32s %?32d %?32s\n", "### BLOCK", tmp->next->block, "###");
+			ft_printf("%?32s", "---------
+	ft_printf("%?34s\n", "...");
+	ft_printf("%?34s %?32d %?34s %?32d %?34s\n", "And...Done!",size, "tokens divided in", blocks, "blocks printed...");
+	ft_printf("%?34s %?32d %?34s %?32d %?34s\n", "Printing", size, "tokens divided in", blocks, "blocks...");
+cat ls -l
+ls l
+ls -a -e
+ls -l -a | cat -e ok
+ls -l -a >> ok
+ls -l -a >> cat -e
+ls -l -a infilezzz | cat -e infile
+ls -l -a infileeazezaazeazzzz | cat -e infile
+ls -l eazidnazldnaeeazeazdqqdqsd
+dqfqdqqsdqsdqsdqsdqs
+dazaqcdvskdvsdkvndslk | "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+"/   /" ft_printf | ( "     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+"/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+"/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index) minishell > "/   /" ft_printf | ("     [%d] index·········= %d\n"|, [i, tmp->index)
+\033[0m
+slfihsdl;fhsd;lihgsdiohg
+"      slfihsdl;fhsd;lihgsdiohg            "
+c"at"
+ls -l -a ok | cat outfile
+ls -l >> -a ok | cat > outfile
+c"at" outfile
+">" ">"
+">"">"
+">>" ok
+< infile "ca"t | ls
+< infile "c"'a't | ls
+< "in"fi'le' cat | ls
+ls -lol
+print_token(entry.token);
+[200~< "in"fi'le' cat | "ls~
+cnd jckdsb
+< < dsh
+< infile hdf -ds << hdbc | dhcb
+<< stop
+ls << ok | bonjour ca va > oui
+bon << ok
+ok ls << youhou
+<< okqwe dasa
+<< efsjfsdfjsdlfdgjsgjslfgjvsfg
+afvsdm < okadfopedk\
+dwqqwfc
+dwaas
+efa
+ok >> bonjour | oui < non | encore << delli;itter?
+> dernier
+fsg > oui
+ok ko
+< infile cat hello | << pewpew cat > outfile >> outfile_app
+hello << ok
+Problem with indexes
+-----------
+	ft_printf("%?35s\n", "...");
+bsd fhd > chdbsa << lbcd
+< Makefile cat
+ok hello nope
+echo ok fine
+echo ok > outfile
+< infile echo ok > outfile
+hello ok ok ok | encore ok
+	ft_printf("block = %d\nelems = %d\n", block, elems);
+void	upd_token_heads(t_token *token)
+	ft_printf("token->content = %s\ntoken->head->content = %s\n", entry->token->content, entry->token->head->content);
+< Makefie < infile cat
+void	init_pipe(t_token **token, int *pipe_fd)
+[200~ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that~
+< infile cat >> ok > infile2
+<< infile cat argz | cat arg2  >> outfile
+test this
+""
+" "
+
+oops
+echo "and again!"
+oops
+test 4
+da
+cat -e Makefile | grep "minishell" | wc -l
+test 6
+"hellook"hello"
+vdmh djksb|          jkds
+test6
+""
+< infile cat argz | cat arg2  > outfile~
+ok
+oops
+oops"
+""
+"oops
+
+echo "hello world!"
+echo "this is me again"
+echo "and again!"
+test this
+and that
+exit
+echo hello
+echo "hello world!"
+echo "this is me again"
+echo hello
+hello
+sarah
+da
+lol
+test 1
+test 2
+test 3
+test 4
+test 5
+test 6
+test6
+test7
+eqweqwqw
+cbsdh jds|        bjcd
+vdmh djksb|          jkds
+vdmh djksb      |          jkds
+"hello'ok'hello"
+"hello"ok"hello"
+"hellook'hello"
+"hellook"hello"
+"
+$"HOME"
+echo $?
+8yi jfdsv |b < CBHJB
+8yi 'jfdsv '|b < CBHJB "cjb"
+8yi 'jfdsv $hfd'|b < CBHJB "cjb"
+yi 'jfdsv $hfd'|b < CBHJB "cjb"~
+$HOME
+ewqe$HOME
+echo $HOME $OK
+ok$HOME
+$home
+e$home
+ok$home
+ok${HOME}
+sarah
+testing print
+testing "print"
+ok | ls -l
+>> ok | ls -l
+ok | ls -l -a
+ls -l
+ls -l | ok
+ls -l | o
+ls - l
+ls -l | ok fine >> maybe
+ls -l | ok fine >> new
+evk, |cjnk
+ls$home
+a${HOME}
+a$HOME
+hfe${HOME}
+hfe$HOME
+${HOME}
+$HOME$PATH
+$HOME $PATH
+$HOME${PATH}
+${HOME}$PATH
+${HOME}${PATH}
+${PATH}$HOME
+${PATH}
+${PATH}$LANG
+${PATH}${LANG}
+${PATH}${LANG
+$HOME${PATH
+$$
+home $HOME '$PATH'
+$HOME "$HOME" '$HOME'
+$HOME '$HOME'
+$HOME$LANG
+$HOME$LANG $SHELL$
+$HOME$LANG $SHELL$$
+$$$
+$"$"$
+$"$"'$'
+$"$"' $'
+$$ $ "$"
+$$ $ "$" | ls -l
+< infile cat ${HOME} | cat $PATH > outfile
+< infile cat argz | cat arg2  > outfile
+< infile cat argz | cat arg2  > outfile~
+< infile cat argz | cat arg2  > outfile~~
+< infile cat argz | cat arg2  > out
+<< infile cat argz | cat arg2  > outfile
+<< infile cat argz | cat arg2  >> outfile
+< infile cmd1 arg1 | cat -e arg2 arg3 > oufile
+< infile cmd -option >> some | cmd arg arg arg | smthg
+cat -e Makefile | grep "minishell" | wc -l
+hello
+hello
+ok
+test
+ok
+new commqnd
+new command
+testing
+new command
+une nouvelle command
+une nouvelle command
+test
+ok encore
+okokk
+ok
+super ça fonctionne
+ok
+oops
+oops
+oops"
+"oops
+"oops
+
+echo "this is me again"
+echo "and again!"
+echo "and again!"
+test this
+exit
+echo hello
+echo hello
+echo "hello world!"
+echo hello
+hello
+hello
+sarah
+lol
+lol
+test 1
+test 2
+test 4
+test 5
+test 5
+test6
+test7
+test7
+eqweqwqw
+vdmh djksb|          jkds
+vdmh djksb      |          jkds
+vdmh djksb      |          jkds
+"hello"ok"hello"
+"hellook'hello"
+"hellook'hello"
+"hellook"hello"
+$"HOME"
+echo $?
+echo $?
+8yi 'jfdsv '|b < CBHJB "cjb"
+8yi 'jfdsv $hfd'|b < CBHJB "cjb"
+8yi 'jfdsv $hfd'|b < CBHJB "cjb"
+yi 'jfdsv $hfd'|b < CBHJB "cjb"~
+ewqe$HOME
+echo $HOME $OK
+echo $HOME $OK
+ok$HOME
+e$home
+ok$home
+ok$home
+ok${HOME}
+testing "print"
+testing "print"
+ok | ls -l
+ok | ls -l -a
+ls -l
+ls -l
+ls -l | o
+ls - l
+ls - l
+ls -l | ok fine >> maybe
+evk, |cjnk
+evk, |cjnk
+ls$home
+a${HOME}
+hfe${HOME}
+hfe$HOME
+hfe$HOME
+$HOME$PATH
+$HOME $PATH
+$HOME $PATH
+$HOME${PATH}
+${HOME}${PATH}
+${PATH}$HOME
+${PATH}$HOME
+${PATH}
+${PATH}${LANG}
+${PATH}${LANG
+${PATH}${LANG
+$HOME${PATH
+home $HOME '$PATH'
+$HOME "$HOME" '$HOME'
+$HOME "$HOME" '$HOME'
+$HOME '$HOME'
+$HOME$LANG $SHELL$
+$HOME$LANG $SHELL$$
+$HOME$LANG $SHELL$$
+$$$
+$"$"'$'
+$"$"'$'
+$"$"' $'
+$$ $ "$" | ls -l
+< infile cat ${HOME} | cat $PATH > outfile
+< infile cat ${HOME} | cat $PATH > outfile
+< infile cat argz | cat arg2  > outfile
+< infile cat argz | cat arg2  > outfile~~
+< infile cat argz | cat arg2  > out
+< infile cat argz | cat arg2  > out
+<< infile cat argz | cat arg2  > outfile
+< infile cmd1 arg1 | cat -e arg2 arg3 > oufile
+< infile cmd1 arg1 | cat -e arg2 arg3 > oufile
+< infile cmd -option >> some | cmd arg arg arg | smthg
+ici
+Encore un
+testing watcher
+
+ls
+< infile cat -e infile2
+exit
+< infile cat infile2
+exit
+< infile cat infile2
+exit
+< infile cat infile2
+< infile cat infile2
+< infile cat infile2
+ok
+we
+we"
+< infile cat infile2
+hello
+hello
+cat infile
+cat infile
+ls
+cat infile
+$?
+ok
+echo something
+echo -n something
+
+pwd
+cd src
+echo $?
+unset PATH
+env
+env -i
+cat infile 
+export PATH=truc
+< infile cat | cat > outfile
+< infile cat | cat > outfile
+cat infile | ls
+cat infile | wc -l
+cat infile | wc -l
+[200~cat infile | wc -l~
+cat infile | wc -l~
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat < infile
+cat < infile | wc -l
+echo salut
+env
+export
+cd
+echo -n salut
+bash
+cat < infile | wc -l
+cat < infile | wc -l
+cat < infile | wc -l
+cat < infile | wc -l
+cat < infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -l
+cat infile | wc -;
+cat infile | wc -l
+cat infile | wc -l > infile
+cat infile | wc -l > infile
+cat infile | wc -l > infile
+cat infile | wc -l
+cat < infile | wc -l
+cat < infile | wc -l > infile
+cat < infile | wc -l > outfile
+cat < infile | wc -l >> outfile
+cat < infile | grep e >> outfile | < outfile wc -l > ok
+cat < infile | grep e >> outfile | <  wc -l > ok
+cat < infile | grep e >> outfile | < new wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l | echo salut > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l | echo salut > ok
+cat < infile | grep e | wc -l | echo salut > ok
+cat < infile | grep e | wc -l | echo salut > ok
+cat < infile | grep e | wc -l | echo salut > ok
+cat < infile | grep e
+cat < infile | wc -l > outfile
+
+cat < infile | wc -l > outfile
+cat < infile | wc -l > outfile
+cat < infile | wc -l > outfile
+cat < infile | wc -l > outfile
+cat < infile | grep e | wc -l | echo salut > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+init_dup(exe, entry, exe->pipe_fd1[1], STDIN_FILENO);
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l
+cat < infile | grep e | wc -l
+cat < infile | grep e | wc -l
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l > ok
+cat < infile | grep e | wc -l | echo salut > ok
+cat < infile | grep e | wc -l | echo salut > ok
+< infile cmd -option >> some | cmd arg arg arg | smthg
+< infile cmd -option >> some | cmd arg arg arg | smthg
+< infile cmd -option >> some | cmd arg arg arg | smthg
+< infile cmd -option >> some | cmd arg arg arg | smthg
+hello
+hello > bonjour
+hello
+hello
+hello
+hello
+hello
+< infile cmd -option >> some | cmd arg arg arg | smthg
+hello > cat infile
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+hello goodbye obladi > oblada
+echo -n fine | cat hello > outfile
+echo -n fine | < hello cat > outfile | echo end >> outfile 
+echo -n fine | < hello cat > outfile | echo end >> outfile
+echo -n fine | < hello cat > outfile | echo end >> outfile
+echo -n fine | < hello cat > outfile | echo end >> outfile
+echo -n fine | < hello cat > outfile | echo end >> outfile
+echo -n fine | < hello cat > outfile | echo end >> outfile 
+echo -n fine | < hello cat > outfile | echo end >> outfile 
+echo -n fine | < hello cat > outfile | echo end >> outfile 
+ok
+oops
+oops"
+""
+"oops
+
+echo "hello world!"
+echo "this is me again"
+echo "and again!"
+test this
+and that
+exit
+echo hello
+echo "hello world!"
+echo "this is me again"
+echo hello
+hello
+ok
+oops
+oops"
+""
+"oops
+
+echo "hello world!"
+echo "this is me again"
+echo "and again!"
+test this
+and that
+exit
+echo hello
+echo "hello world!"
+echo "this is me again"
+echo hello
+hello
+sarah
+ok
+oops
+oops"
+""
+"oops
+
+echo "hello world!"
+echo "this is me again"
+echo "and again!"
+test this
+and that
+exit
+echo hello
+echo "hello world!"
+echo "this is me again"
+echo hello
+hello
+sarah
+da
+lol
+test 1
+test 2
+test 3
+test 4
+test 5
+test 6
+test6
+test7
+eqweqwqw
+cbsdh jds|        bjcd
+ok
+oops
+oops"
+""
+"oops
+
+echo "hello world!"
+echo "this is me again"
+echo "and again!"
+$> \n (touche entrée)
+$> [que des espaces]
+$> [que des tabulations]
+$> :
+\n
+
+
+:
+!
+>
+<
+>>
+<<
+<>
+\n
+
+
+:
+!
+>
+<
+>>
+<<
+<>
+>>>>>
+>>>>>>>>>>>>>>>
+<<<<<
+<<<<<<<<<<<<<<<<
+> > > >
+>> >> >> >>
+>>>> >> >> >>
+/
+//
+/.
+/./../../../../..
+///////
+\\
+\\\\
+\\\\\\\\
+-
+|
+| hola
+| | |
+||
+|||||
+|||||||||||||
+>>|><
+&&
+&&&&&
+&&&&&&&&&&&&&&
+;;
+:
+:
+! ok
+!ok
+! ok
+hello
+fine
+this
+hello
+cat infile
+cat infilez
+cat empty
+bonjour
+bonjour
+bonjour
+bonjour
+bonjour
+echo ok
+cat nono
+ls
+cat infile | grep e
+cat infile | grep e
+john
+john ok | pillow fissa
+john ok | pillow fissa
+john ok | pillow fissa
+john ok | pillow fissa
+john ok | pillow fissa
+john ok | pillow fissa
+john ok | pillow fissa
+john ok | pillow fissa
+john ok | pillow fissa
+john ok" 
+john ok"  | cat infile
+john ok"  | cat infile | cat README.md 
+john ok"  | cat infile | cat README.md 
+john ok"  | cat infile | cat README.md 
+john ok"  | cat infile | cat README.md 
+john ok"  | cat infile | cat README.md 
+john ok"  | cat infile | cat README.md 
+john ok"  | cat infile | cat README.md 
+john ok"  | cat infile | cat README.md 
+john ok"  | cat infile | cat README.md 
+john ok"  | cat infile | cat README.md 
+cat infile  | john infile | cat README.md 
+cat infile  | john infile | cat README.md 
+cat infile  | john infile | cat README.md 
+cat infile  | john infile | cat README.md 
+cat infile  | john infile | cat README.md 
+cat infile  | john infile | cat README.md 
+cat infile  | john infile | cat README.md 
+cat infile  | john infile | cat README.md 
+cat infile  | cat README.md 
+cat infile  | cat README.md | john infile 
+john infile | cat infile  | cat README.md 
+cat infile  | cat README.md | john infile
+cat infile  | john infile | cat README.md
+cat infile  | john infile | cat README.md
+john infile | cat infile | cat README.md
+cat infile | cat README.md | john infile
+cat infile  | john infile | cat README.md
+cat infile | cat README.md | john infile
+cat infile  | john infile | cat README.md
+cat infile  | cat README.md | john infile
+john infile | cat infile  | cat README.md
