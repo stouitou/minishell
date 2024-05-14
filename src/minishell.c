@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:03:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/14 10:12:49 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:41:13 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	main(int argc, char **argv, char **env)
 			continue ;
 		}
 		handle_expansions(&entry, env);
+		// print_token(&entry, entry.token);
 		exec_token(&entry, entry.token, env);
 		// ft_printf("status = %d\n", entry.status);
 		token_clear(&(entry.token));

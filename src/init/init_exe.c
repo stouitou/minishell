@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:50:01 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/13 13:58:40 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:41:49 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,4 +142,5 @@ void	init_exe(t_entry *entry, t_exe *exe, char **env, int i)
 	exe->ioda_fd[3] = -1;
 	exe->cmd = NULL;
 	upd_exe(entry, exe, entry->token, i);
+	// print_exe(entry, entry->token, exe, i);
 }

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 09:44:52 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/13 10:18:33 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:10:58 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@ static void	join_contents(t_entry *entry, t_token *cur, t_token *prev)
 {
 	char	*new;
 
+	if (!cur->content && !prev->content)
+		return ;
 	if (!cur)
 		return ;
 	new = ft_strjoin(prev->content, cur->content);
 	if (!new)
+	{
+		ft_printf("oops\n");
 		free_token_and_exit(&(entry->token), ERR_MALLOC, cur->content, EXIT_FAILURE);
+	}
 	free(prev->content);
 	prev->content = NULL;
 	cur->content = new;

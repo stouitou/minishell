@@ -9,4 +9,6 @@
 [x] $$
 [x] ${HOME}${PATH
 [x] ?
-
+[ ] $"$ "
+[ ] $!LANG
+[x] $"$hello"

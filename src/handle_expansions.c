@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:16:07 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/13 10:27:42 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:25:23 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	classify_word(t_token *cur, int *cmd_found)
 	// ft_printf("in classify_word cmd_found = %d\n", *cmd_found);
 	if (!cur)
 		return ;
+	// ft_printf("cur = %s\n", cur->content);
 	if (cur->prev && ft_strcmp(cur->prev->content, "<") == 0)
 		cur->category = INFILE;
 	else if (cur->prev && ft_strcmp(cur->prev->content, ">") == 0)
@@ -88,7 +89,7 @@ static void	remove_null(t_token **token)
 	while (cur)
 	{
 		next = cur->next;
-		if (cur->content == NULL)
+		if (cur->category != CMD && cur->content == NULL)
 			remove_node(token, cur);
 		// ft_printf("inremoveop, next = %p\n", next);
 		cur = next;
@@ -118,6 +119,7 @@ void	classify_tokens(t_entry *entry)
 			cmd_found = 0;
 		cur = next;
 	}
+	// remove_null(&(entry->token));
 	remove_op(&(entry->token));
 	upd_token_heads_and_indexes(entry->token);
 }
@@ -137,77 +139,14 @@ void	handle_expansions(t_entry *entry, char **env)
 		next = cur->next;
 		if (cur->type == WORD && cur->quotes != SIMPLE && (!prev || ft_strcmp(prev->content, "<<") != 0))
 			expand_token(entry, cur, env);
+		if (cur->is_expand
+			&& cur->content && !cur->content[0]
+			&& (!prev || (prev && prev->index != cur->index))
+			&& (!next || (next && next->index != cur->index)))
+			cur->content = NULL;
 		cur = next;
 	}
 	gather_indexes(entry, entry->token);
 	remove_null(&(entry->token));
 	classify_tokens(entry);
 }
-
-// void	handle_expansions(t_entry *entry, char **env)
-// {
-// 	t_token	*cur;
-// 	t_token	*next;
-
-// 	if (!entry->token)
-// 		return ;
-// 	cur = entry->token;
-// 	while (cur)
-// 	{
-// 		next = cur->next;
-// 		if (cur->type == WORD)
-// 		{
-// 			if (cur->quotes != SIMPLE
-// 				&& (!cur->prev || (ft_strcmp(cur->prev->content, "<<") != 0)))
-// 			{
-// 				expand_token(entry, cur, env);
-// 				if (cur->content == NULL)
-// 					remove_node(&(entry->token), cur);
-// 			}
-// 			gather_indexes(entry, cur);
-// 		}
-// 		cur = next;
-// 	}
-// 	classify_tokens(entry);
-// }
-
-
-// void	classify_tokens(t_entry *entry, char **env)
-// {
-// 	t_token	*cur;
-// 	t_token	*next;
-// 	int		cmd_found;
-
-// 	if (!entry->token)
-// 		return ;
-// 	cur = entry->token;
-// 	cmd_found = 0;
-// 	while (cur)
-// 	{
-// 		next = cur->next;
-// 		// ft_printf("cur->content = %s\n", cur->content);
-// 		if (cur->type == WORD)
-// 		{
-// 			if (cur->quotes != SIMPLE
-// 				&& (!cur->prev || (ft_strcmp(cur->prev->content, "<<") != 0)))
-// 			{
-// 				expand_token(entry, cur, env);
-// 				if (cur->content == NULL)
-// 					remove_node(&(entry->token), cur);
-// 			}
-// 			ft_printf("in classify, cur = %p\n", cur);
-// 			gather_indexes(entry, cur);
-// 			ft_printf("in classify, cur = %p\n", cur);
-// 			classify_word(cur, &cmd_found);
-// 		}
-// 		else if (cur->type == OPERATOR)
-// 			classify_operator(cur);
-// 		if (cur && cur->next && cur->next->block != cur->block)
-// 			cmd_found = 0;
-// 		cur = next;
-// 	}
-// 	remove_op(&(entry->token));
-// 	upd_token_heads_and_indexes(entry->token);
-	// ft_printf("token in classify = %p\n", entry->token);
-	// ft_printf("IN CLASSIFY token->content = %s\n", entry->token->content);
-// }

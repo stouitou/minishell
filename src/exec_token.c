@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:05:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/14 11:42:53 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:15:27 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
 void	exec_token(t_entry *entry, t_token *token, char **env)
 {
 	t_exe	exe;
-	// int		blocks;
 	int		i;
 	int		status;
-	// t_error	error;
 
 	if (!entry->token)
 		return ;

@@ -95,7 +95,7 @@ compare_output_and_status() {
     fi
     echo "---------------------------------"
 
-    if [ "$actual_output" = "$expected_output" ] || [ "$similarity" -eq 100 ]; then
+    if [ "$actual_output" = "$expected_output" ] || [ "$similarity" -eq 100 ] && [ "$actual_lines" = "$expected_lines" ]; then
         echo -e "${CYAN}Output ${GREEN}OK  :${GREEN} $similarity% perfection${NC}"
     elif [ "$similarity" -ge "$threshold" ] && [ "$actual_lines" != "$expected_lines" ]; then
         echo -e "${CYAN}Expected   :${NC} $expected_output"

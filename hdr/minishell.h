@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/14 10:11:44 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:14:06 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ typedef struct s_token
 	int				block;
 	int				type;
 	int				category;
+	bool			is_expand;
 	struct s_token	*head;
 	struct s_token	*prev;
 	struct s_token	*next;

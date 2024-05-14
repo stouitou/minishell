@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:12:30 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/07 12:21:03 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:22:00 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	print_content_line(t_token *tmp, int i)
 		"REDIRECTION OPERATOR"
 	};
 
+	if (!tmp)
+		return ;
 	if (i < 9)
 	{
 		if (tmp->type == WORD)
@@ -66,6 +68,8 @@ static void	print_content_line(t_token *tmp, int i)
 
 static void	check_error_index(t_token *tmp)
 {
+	if (!tmp)
+		return ;
 	if (tmp->next && tmp->next->index == tmp->index)
 		ft_printf("%?31s\n", "           > Careful, next token has the same index !!");
 	else if (tmp->prev && tmp->prev->index == tmp->index)
@@ -126,6 +130,8 @@ static void	print_category_line(t_token *tmp)
 		"OPERATOR",
 	};
 
+	if (!tmp)
+		return ;
 	if (tmp->type != OPERATOR && tmp->category == CMD)
 		ft_printf("           - category     = %?32s \033[90m(%s %s)\033[0m\n", cat_strings[tmp->category], quotes_strings[tmp->quotes], type_strings[tmp->type]);
 	else if ((tmp->type != OPERATOR && tmp->category == ARG)
@@ -137,6 +143,8 @@ static void	print_category_line(t_token *tmp)
 
 static void	print_new_block(t_entry *entry, t_token *tmp, int i)
 {
+	if (!tmp)
+		return ;
 	if (!i)
 	{
 		ft_printf("%?32s %?32d %?32s", "### BLOCK", tmp->block, "###   ");
