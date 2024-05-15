@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_non_metachars.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:52:23 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/04 15:53:10 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/05/15 15:32:18 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	get_token(const char *str, t_entry *entry, t_token *new, char *set)
 		i++;
 	if (new->quotes && str[i] == '\0')
 	{
-		free_token_before_return(entry, "unexpected EOF while looking for matching", (char *)str, 2);
+		free_token_before_return(entry, ERR_QUOTES, (char *)str, 2);
 		return (0);
 	}
 	dup = ft_strndup(str, i);
@@ -42,20 +42,15 @@ static int	get_token(const char *str, t_entry *entry, t_token *new, char *set)
 
 void	handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i)
 {
-	char	*single_quote;
-	char	*double_quote;
-
-	single_quote = "'";
-	double_quote = "\"";
-	if (str[*i] == 39)
+	if (str[*i] == '\'')
 	{
 		new->quotes = SIMPLE;
-		*i += get_token(str + *i, entry, new, single_quote);
+		*i += get_token(str + *i, entry, new, "'");
 	}
-	else if (str[*i] == 34)
+	else if (str[*i] == '\"')
 	{
 		new->quotes = DOUBLE;
-		*i += get_token(str + *i, entry, new, double_quote);
+		*i += get_token(str + *i, entry, new, "\"");
 	}
 	else
 		*i += get_token(str + *i, entry, new, " \t\n\v|<>\"'");

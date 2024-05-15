@@ -6,122 +6,163 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:16:07 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/14 17:25:23 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:13:41 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	classify_operator(t_token *token)
+static char *extract_expand(t_entry *entry, char *str, int *index)
 {
-	char	*operator;
+	int		i;
+	char	*dup;
+	char	*var;
+	char	*empty;
 
-	operator = token->content;
-	if (ft_strcmp(operator, "|") == 0
-		|| ft_strcmp(operator, "newline") == 0)
-		token->category = CTL_OP;
-	else
-		token->category = REDIR_OP;
+	i = 1;
+	while (str[i] && (ft_isalpha(str[i]) || str[i] == '_'))
+		i++;
+	*index += i;
+	dup = ft_strndup(str + 1, i - 1);
+	if (!dup)
+		free_token_and_exit(&(entry->token), ERR_MALLOC, str, EXIT_FAILURE);
+	var = getenv(dup);
+	if (var)
+	{
+		free(dup);
+		return (var);
+	}
+	free(dup);
+	empty = ft_strdup("");
+	if (!empty)
+		free_token_and_exit(&(entry->token), ERR_MALLOC, str, EXIT_FAILURE);
+	return (empty);
 }
 
-static void	classify_word(t_token *cur, int *cmd_found)
+static char	*partition_content(t_entry *entry, char *content, int i)
 {
-	// ft_printf("in classify_word, cur = %p\n", cur);
-	// ft_printf("in classify_word cur->content = %s\n", cur->content);
-	// ft_printf("in classify_word cur->type = %d\n", cur->type);
-	// ft_printf("in classify_word cur->category = %d\n", cur->category);
-	// ft_printf("in classify_word cmd_found = %d\n", *cmd_found);
-	if (!cur)
-		return ;
-	// ft_printf("cur = %s\n", cur->content);
-	if (cur->prev && ft_strcmp(cur->prev->content, "<") == 0)
-		cur->category = INFILE;
-	else if (cur->prev && ft_strcmp(cur->prev->content, ">") == 0)
-		cur->category = OUTFILE;
-	else if (cur->prev && ft_strcmp(cur->prev->content, "<<") == 0)
-		cur->category = DELIMITER;
-	else if (cur->prev && ft_strcmp(cur->prev->content, ">>") == 0)
-		cur->category = APP_OUTFILE;
-	else
+	char	*new;
+	char	*expand;
+	char	*tmp;
+	char	*start;
+	char	*end;
+
+	start = ft_strndup(content, i);
+	if (!start && i)
+		free_token_and_exit(&(entry->token), ERR_MALLOC, content, EXIT_FAILURE);
+	expand = extract_expand(entry, content + i, &i);
+	end = ft_strdup(content + i);
+	if (!end)
 	{
-		if (!*cmd_found)
+		free(start);
+		free_token_and_exit(&(entry->token), ERR_MALLOC, content, EXIT_FAILURE);
+	}
+	tmp = ft_strjoin(start, expand);
+	if (!tmp)
+	{
+		free(start);
+		free(end);
+		free_token_and_exit(&(entry->token), ERR_MALLOC, content, EXIT_FAILURE);
+	}
+	free(start);
+	new = ft_strjoin(tmp, end);
+	if (!new)
+	{
+		free(end);
+		free(tmp);
+		free_token_and_exit(&(entry->token), ERR_MALLOC, content, EXIT_FAILURE);
+	}
+	free(tmp);
+	free(end);
+	return (new);
+}
+
+static char	*handle_status(t_entry *entry, char *content, int i)
+{
+	char	*new;
+	char	*expand;
+	char	*tmp;
+	char	*start;
+	char	*end;
+
+	start = ft_strndup(content, i);
+	if (!start && i)
+		free_token_and_exit(&(entry->token), ERR_MALLOC, content, EXIT_FAILURE);
+	expand = ft_itoa(entry->prev_status);
+	if (!expand)
+	{
+		free(start);
+		free_token_and_exit(&(entry->token), ERR_MALLOC, content, EXIT_FAILURE);
+	}
+	end = ft_strdup(content + i + 2);
+	if (!end)
+	{
+		free(start);
+		free(expand);
+		free_token_and_exit(&(entry->token), ERR_MALLOC, content, EXIT_FAILURE);
+	}
+	tmp = ft_strjoin(start, expand);
+	if (!tmp)
+	{
+		free(start);
+		free(expand);
+		free(end);
+		free_token_and_exit(&(entry->token), ERR_MALLOC, content, EXIT_FAILURE);
+	}
+	free(start);
+	free(expand);
+	new = ft_strjoin(tmp, end);
+	if (!new)
+	{
+		free(tmp);
+		free(end);
+		free_token_and_exit(&(entry->token), ERR_MALLOC, content, EXIT_FAILURE);
+	}
+	free(tmp);
+	free(end);
+	return (new);
+}
+
+static void	handle_dollar(t_token *token, int i)
+{
+	if (!token ->content[i + 1])
+	{
+		if (token->quotes == UNQUOTED
+			&& ((token->next && token->next->index == token->index)))
+			token->content = NULL;
+	}
+}
+
+void	expand_token(t_entry *entry, t_token *token, char **env)
+{
+	int		i;
+
+	if (!*env || !token->content || !ft_strchr(token->content, '$'))
+		return ;
+	i = 0;
+	while (token->content && token->content[i])
+	{
+		if (token->content[i] == '$')
 		{
-			cur->category = CMD;
-			*cmd_found = 1;
-		}
-		else
-		{
-			if (cur->content[0] == '-')
-				cur->category = OPTION;
+			if (token->content[i + 1] == '?')
+			{
+				token->content = handle_status(entry, token->content, i);
+				expand_token(entry, token, env);
+			}
+			else if (!token->content[i + 1]
+				|| !(ft_isalpha(token->content[i + 1])
+				|| token->content[i + 1] == '_'))
+				handle_dollar(token, i);
 			else
-				cur->category = ARG;
+			{
+				token->content = partition_content(entry, token->content, i);
+				if (token->content == NULL)
+					return ;
+				expand_token(entry, token, env);
+			}
 		}
+		i++;
 	}
-	// ft_printf("in classify_word cur->category = %d\n", cur->category);
-}
-
-static void	remove_op(t_token **token)
-{
-	t_token	*cur;
-	t_token	*next;
-
-	if (!token || !*token)
-		return ;
-	cur = *token;
-	while (cur)
-	{
-		next = cur->next;
-		if (cur->type == OPERATOR)
-			remove_node(token, cur);
-		// ft_printf("inremoveop, next = %p\n", next);
-		cur = next;
-	}
-}
-
-static void	remove_null(t_token **token)
-{
-	t_token	*cur;
-	t_token	*next;
-
-	if (!token || !*token)
-		return ;
-	cur = *token;
-	while (cur)
-	{
-		next = cur->next;
-		if (cur->category != CMD && cur->content == NULL)
-			remove_node(token, cur);
-		// ft_printf("inremoveop, next = %p\n", next);
-		cur = next;
-	}
-}
-
-void	classify_tokens(t_entry *entry)
-{
-	t_token	*cur;
-	t_token	*next;
-	int		cmd_found;
-
-	if (!entry->token)
-		return ;
-	cur = entry->token;
-	cmd_found = 0;
-	while (cur)
-	{
-		// ft_printf("%?33s cur->content = %s\n", "In classify token", cur->content);
-		// ft_printf("%?33s cur->type = %d\n", "In classify token", cur->type);
-		next = cur->next;
-		if (cur->type == WORD)
-			classify_word(cur, &cmd_found);
-		else if (cur->type == OPERATOR)
-			classify_operator(cur);
-		if (cur && cur->next && cur->next->block != cur->block)
-			cmd_found = 0;
-		cur = next;
-	}
-	// remove_null(&(entry->token));
-	remove_op(&(entry->token));
-	upd_token_heads_and_indexes(entry->token);
 }
 
 void	handle_expansions(t_entry *entry, char **env)
@@ -137,16 +178,14 @@ void	handle_expansions(t_entry *entry, char **env)
 	{
 		prev = cur->prev;
 		next = cur->next;
-		if (cur->type == WORD && cur->quotes != SIMPLE && (!prev || ft_strcmp(prev->content, "<<") != 0))
+		if (cur->type == WORD && cur->quotes != SIMPLE
+			&& (!prev || ft_strcmp(prev->content, "<<") != 0))
 			expand_token(entry, cur, env);
-		if (cur->is_expand
+		if (!cur->quotes
 			&& cur->content && !cur->content[0]
 			&& (!prev || (prev && prev->index != cur->index))
 			&& (!next || (next && next->index != cur->index)))
 			cur->content = NULL;
 		cur = next;
 	}
-	gather_indexes(entry, entry->token);
-	remove_null(&(entry->token));
-	classify_tokens(entry);
 }

@@ -9,6 +9,14 @@
 [x] $$
 [x] ${HOME}${PATH
 [x] ?
-[ ] $"$ "
-[ ] $!LANG
+[x] $"$ "
+[x] $!LANG
 [x] $"$hello"
+[ ] free(entry.str) ?
+
+/*
+	KEEP QUOTED TYPE OF NEXT NODE IF NECESSARY FOR HERE_DOC DELIMIMTER
+	Forgot everything?
+	Try : cat << EOF | cat << 'EOF' | cat << ho"la" | cat << "'EOF'"
+	with extensions as inputs
+*/

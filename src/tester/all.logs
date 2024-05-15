@@ -23,7 +23,6 @@ $"HOME"
 8yi 'jfdsv $hfd'|b < CBHJB "cjb"
 $HOME
 ewqe$HOME
-john$HOME
 $home
 e$home
 john$home
@@ -39,18 +38,18 @@ $HOME$PATH
 $HOME $PATH
 $PATH$HOME
 $PATH$LANG
-$$
+"$"$
 home $HOME '$PATH'
 $HOME "$HOME" '$HOME'
 $HOME '$HOME'
 $HOME$LANG
 $HOME$LANG $SHELL$
-$HOME$LANG $SHELL$$
-$$$
+$HOME$LANG $SHELL"$"$
+"$"$$
 $"$"$
 $"$"'$'
 $"$"' $'
-$$ $ "$"
+"$"$ $ "$"
 < infile cat $HOME | cat $PATH > outfile
 < infile cat argz | cat arg2  > outfile
 < infile cmd1 arg1 | cat -e arg2 arg3 > oufile
@@ -95,11 +94,8 @@ efa
 fsg > oui
 john ko
 Problem with indexes
------------
 < Makefile cat
 john hello nope
-echo john fine
-echo john > outfile
 < infile echo john > outfile
 hello john john john | encore john
 < Makefie < infile cat
@@ -123,7 +119,7 @@ ls -l | o
 ls -l | john fine >> maybe
 ls -l | john fine >> new
 $PATH
-$$ $ "$" | ls -l
+"$"$ $ "$" | ls -l
 < infile cat argz | cat arg2  > out
 test
 new commqnd
@@ -143,24 +139,11 @@ we
 we"
 cat infile
 $?
-echo something
-echo -n something
-echo $?
-pwd
-cd src
-unset PATH
-env
-env -i
-export PATH=truc
 < infile cat | cat > outfile
 cat infile | ls
 cat infile | wc -l
 cat < infile
 cat < infile | wc -l
-echo salut
-export
-cd
-echo -n salut
 cat infile | wc -
 cat infile | wc -l > infile
 cat < infile | wc -l > infile
@@ -170,18 +153,16 @@ cat < infile | grep e >> outfile | < outfile wc -l > john
 cat < infile | grep e >> outfile | <  wc -l > john
 cat < infile | grep e >> outfile | < new wc -l > john
 cat < infile | grep e | wc -l > john
-cat < infile | grep e | wc -l | echo salut > john
 cat < infile | grep e
 cat < infile | grep e | wc -l
 hello > bonjour
 hello > cat infile
 hello goodbye obladi > oblada
-echo -n fine | cat hello > outfile
 echo -n fine | < hello cat > outfile | echo end >> outfile
-$> \n (touche entrée)
-$> [que des espaces]
-$> [que des tabulations]
-$> :
+     
+				
+
+:
 \n
 :
 !
@@ -210,18 +191,12 @@ $> :
 |||||
 |||||||||||||
 >>|><
-&&
-&&&&&
-&&&&&&&&&&&&&&
-
-! john
 !john
 fine
 this
 cat infilez
 cat empty
 bonjour
-echo john
 cat nono
 cat infile | grep e
 john john | pillow fissa
@@ -233,7 +208,6 @@ cat infile  | cat README.md
 cat infile  | cat README.md | john infile
 john infile | cat infile | cat README.md
 cat infile | cat README.md | john infile
-ABC=hola
 john infile | cat infile  | cat README.md
 cat john
 john "
@@ -253,12 +227,9 @@ john/cat
 john/bin/cat
 eqwe/bin/cat
 eqwe$HELLO
-echo /home/john/stouitou
-cd /home/john/stouitou
 $HELLO
 l$b
 ls -la
-export b="s -la"
 $hello
 $HELLO"pierre"
 $HELLO"Pierre"
@@ -284,11 +255,6 @@ $home"john'
 < infile |  > outfile
 < infile | > outfile
 $HOME"john"
-echo "hello world!"
-echo "this is me again"
-echo "and again!"
-echo hello
-echo $HOME $OK
 cat Makefile
 make
 exi
@@ -306,11 +272,6 @@ $"LANG"
 $"$"$"$"$"$"$
 $"$"$"$"$"$"
 "$"$
-?
-?"cat" Makefile
-? "cat" Makefile
-? cat Makefile
-$?$
 "$"
 $"$"$"$"
 $"$"$"$"$
@@ -319,7 +280,6 @@ $"$"$"$""$"$"$"
 $>
 ! test
 cat "            "
-echo hello world
 ok
 $LANG
 $?LANG
@@ -361,21 +321,6 @@ $HOME-$LANG
 $HOMEW-$LANG
 $HOMEW-$LANG-
 $HOMEW-$LAN-G-
-ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that
-<<<<<
-<<
-bsd fhd > chdbsa << lbcd
-< infile cat hello | << pewpew cat > outfile >> outfile_app
-john >> bonjour | oui < non | encore << delliitter?
-< infile hdf -ds << hdbc | dhcb
-<<<<<<<<<<<<<<<<
-hello << john
-<< efsjfsdfjsdlfdgjsgjslfgjvsfg
-john ls << youhou
-ls << john | bonjour ca va > oui
-<< stop
-bon << john
-<< okqwe dasa
 yi jfdsv |b < CBHJB
 "$ "$
 $"$"$ infile
@@ -385,8 +330,6 @@ $"$**"
 $"$XXX"
 $"$oooooooo"
 $"$xyzw"
-	if (!tmp)
-		return ;
 $"$xyzw"
 $"$xyzw"
 entry->token->content
@@ -423,3 +366,121 @@ $"HOME"
 $"HOME"
 $"HOME"
 $!LANG
+-----------------------------
+john$HOME
+&&
+&&&&&
+&&&&&&&&&&&&&&
+?
+?"cat" Makefile
+? "cat" Makefile
+? cat Makefile
+$?$
+ABC=hola
+ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that
+<<<<<
+<<
+bsd fhd > chdbsa << lbcd
+< infile cat hello | << pewpew cat > outfile >> outfile_app
+john >> bonjour | oui < non | encore << delliitter?
+< infile hdf -ds << hdbc | dhcb
+<<<<<<<<<<<<<<<<
+hello << john
+<< efsjfsdfjsdlfdgjsgjslfgjvsfg
+john ls << youhou
+ls << john | bonjour ca va > oui
+<< stop
+bon << john
+<< okqwe dasa
+export b="s -la"
+export
+export PATH=truc
+cd /home/john/stouitou
+cd
+cd src
+echo hello world
+echo "hello world!"
+echo /home/john/stouitou
+echo john
+echo -n fine | cat hello > outfile
+echo salut
+echo something
+echo john fine
+cat < infile | grep e | wc -l | echo salut > john
+echo -n salut
+echo -n something
+echo john > outfile
+echo "this is me again"
+echo "and again!"
+echo hello
+echo $HOME $OK
+echo $?
+pwd
+unset PATH
+env
+env -i
+$"$ "
+$"$ >"
+$"$ "
+$"$ "
+$"$ >"
+$"$>"
+$"$>"
+$"$ "
+$"$>"
+$"$ "
+$"$ >"
+$"$ >"
+$"$ >"
+$"$ >"
+$"$ >"
+$"$ >"
+$>
+$+
+$"$ >"
+$+
+$!LANG
+< infile cmd -option >> some | cmd arg arg arg | smthg
+<
+:
+$home
+"$home"
+$home
+"$home"
+$home
+"$home"
+"$ home"
+> > > >
+?$HOME
+?$HOME
+ls | ls | echo hola | rev
+cat a
+cat < bonjour
+$$
+hello
+ok
+$$
+$'$ '"  $ $ "
+$'$ '"  $ $? $ "
+$'$ '"  $ $? $PATH$home$HOME "
+$'$ '"  $ $? $PATH$home$HOME$ "
+$'$ '"  $ $? $PATH$home$HOME$ " $"$'$'"
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+exit
+hello
+exit
+helll
+$HOME
+cat "Makef"'ile'
+echo $LANG
+echo $LANG
+lol
+test this
+eqweqwqw
+|||||

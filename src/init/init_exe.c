@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:50:01 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/14 15:41:49 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:07:06 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,45 +39,6 @@ static char	**init_cmd(t_entry *entry, t_exe *exe, t_token *token)
 	return (cmd);
 }
 
-static char	**find_files(t_exe *exe, t_entry *entry, t_token *token, int cat)
-{
-	char	**files;
-	int		nb;
-	int		block;
-	int		j;
-
-	if (cat == INFILE)
-		nb = exe->ioa_cnt[0];
-	if (cat == OUTFILE)
-		nb = exe->ioa_cnt[1];
-	if (cat == APP_OUTFILE)
-		nb = exe->ioa_cnt[2];
-	files = (char **)malloc((nb + 1) * sizeof(char *));
-	if (!files)
-	{
-		free_exe(exe);
-		free_token_and_exit(&(entry->token), ERR_MALLOC, NULL, EXIT_FAILURE);
-	}
-	block = token->block;
-	j = 0;
-	while (token && token->block == block)
-	{
-		if (token->category == cat)
-		{
-			files[j] = ft_strdup(token->content);
-			if (!files[j])
-			{
-				free_exe(exe);
-				free_token_and_exit(&(entry->token), ERR_MALLOC, NULL, EXIT_FAILURE);
-			}
-			j++;
-		}
-		token = token->next;
-	}
-	files[j] = NULL;
-	return (files);
-}
-
 static void	get_files_count(int ioa[3], t_token *token, int i)
 {
 	while (token && token->block == i)
@@ -92,6 +53,21 @@ static void	get_files_count(int ioa[3], t_token *token, int i)
 	}
 }
 
+static char	*protected_strdup(t_entry *entry, t_exe *exe, char *str)
+{
+	char	*dup;
+
+	if (!str)
+		return (NULL);
+	dup = ft_strdup(str);
+	if (!dup)
+	{
+		free_exe(exe);
+		free_token_and_exit(&(entry->token), ERR_MALLOC, str, 1);
+	}
+	return (dup);
+}
+
 static void	upd_exe(t_entry *entry, t_exe *exe, t_token *token, int i)
 {
 	int	j;
@@ -100,9 +76,7 @@ static void	upd_exe(t_entry *entry, t_exe *exe, t_token *token, int i)
 	while (token && token->block < i)
 		token = token->next;
 	get_files_count(exe->ioa_cnt, token, i);
-	exe->infile = find_files(exe, entry, token, INFILE);
-	exe->outfile = find_files(exe, entry, token, OUTFILE);
-	exe->app_outfile = find_files(exe, entry, token, APP_OUTFILE);
+	find_all_files(exe, entry, token);
 	while (token && token->block == i)
 	{
 		if (token->category == DELIMITER)
@@ -112,12 +86,7 @@ static void	upd_exe(t_entry *entry, t_exe *exe, t_token *token, int i)
 		{
 			if (token->category == CMD)
 				exe->cmd = init_cmd(entry, exe, token);
-			exe->cmd[j] = ft_strdup(token->content);
-			if (!exe->cmd[j])
-			{
-				free_exe(exe);
-				free_token_and_exit(&(entry->token), ERR_MALLOC, token->content, EXIT_FAILURE);
-			}
+			exe->cmd[j] = protected_strdup(entry, exe, token->content);
 			j++;
 		}
 		token = token->next;
@@ -142,5 +111,4 @@ void	init_exe(t_entry *entry, t_exe *exe, char **env, int i)
 	exe->ioda_fd[3] = -1;
 	exe->cmd = NULL;
 	upd_exe(entry, exe, entry->token, i);
-	// print_exe(entry, entry->token, exe, i);
 }

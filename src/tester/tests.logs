@@ -722,3 +722,246 @@ cat ok saluuuut
 ~
 cat "" Saluuuuut
 $"HOME
+$"$ >"
+$"$>"
+$+
+$HOME$LANG $SHELL"$"$
+"$"$$
+"$"$ $ "$"
+"$"$ $ "$" | ls -l
+-----------------------------
+          
+$?$?
+?$HOME
+$HOMEdskjhfkdshfsd
+"$HOMEdskjhfkdshfsd"
+'$HOMEdskjhfkdshfsd'
+$DONTEXIST
+$LESS$VAR
+"$home"
+"$ home"
+     
+ifconfig | grep ":"
+ifconfig | grep hola
+whoami | grep $USER
+whoami | grep $USER > /tmp/bonjour cat /tmp/bonjour
+whoami | cat -e | cat -e > /tmp/bonjour cat /tmp/bonjour
+whereis ls | cat -e | cat -e > /tmp/bonjour cat /tmp/bonjour
+ls | hola
+ls | ls hola
+ls | ls | hola
+ls | hola | ls
+ls | ls | hola | rev
+ls | ls | echo hola | rev
+ls -la | grep "."
+ls -la | grep "'.'"
+ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls
+cat Makefile | cat -e | cat -e
+cat Makefile | grep srcs | cat -e
+cat Makefile | grep srcs | grep srcs | cat -e
+cat Makefile | grep pr | head -n 5 | cd file_not_exist
+cat Makefile | grep pr | head -n 5 | hello
+sleep 3 | sleep 3
+time sleep 3 | sleep 3
+echo hola > bonjour | cat bonjour
+echo que tal >> bonjour | cat bonjour
+echo hola > bonjour | echo que tal >> bonjour | cat < bonjour
+echo hola > bonjour | rm bonjour | echo que tal >> bonjour | cat < bonjour
+echo hola que tal > bonjour | cat bonjour
+echo hola que tal > /tmp/bonjour | cat -e /tmp/bonjour
+export HOLA=hey | echo bonjour > $HOLA | echo $HOLA
+whereis grep > Docs/bonjour | cat Docs/bonjour
+ls -la > Docs/bonjour | cat Docs/bonjour
+pwd>bonjour | cat bonjour
+pwd >                     bonjour | cat bonjour
+echo hola > > bonjour | echo hola < < bonjour | echo hola >>> bonjour | > bonjour echo hola | cat bonjour
+> bonjour | echo hola | cat bonjour
+prout hola > bonjour | ls
+echo hola > hello >> hello >> hello | ls | cat hello
+echo hola > hello >> hello >> hello| echo hola >> hello | cat < hello
+echo hola > hello >> hello >> hello | echo hola >> hello | echo hola > hello >> hello >> hello | cat < hello
+echo hola >> hello >> hello > hello | echo hola >> hello | cat < hello
+echo hola >> hello >> hello > hello | echo hola >> hello | echo hola >> hello >> hello > hello | cat < hello
+echo hola > hello | echo hola >> hello >> hello >> hello | echo hola >> hello | cat < hello
+echo hola > hello | echo hey > bonjour | echo <bonjour <hello
+echo hola > hello | echo hey > bonjour | echo <hello <bonjour
+echo hola > bonjour | echo hey > hello | rm bonjour hello | echo hola > bonjour > hello > bonjour | cat bonjour | cat hello
+echo hola > bonjour | echo hey > hello | echo hola > bonjour > hello > bonjour | cat bonjour | cat hello
+echo hola > bonjour | echo hey > hello | rm bonjour hello | echo hola > bonjour >> hello > bonjour | cat bonjour | cat hello
+echo hola > bonjour | echo hey > hello | rm bonjour hello | echo hola > bonjour > hello >> bonjour | cat bonjour | cat hello
+echo hola > bonjour | echo hey > hello | echo hola > bonjour > hello >> bonjour | cat bonjour | cat hello
+echo hola > bonjour | echo hey > hello | rm bonjour hello | echo hola >> bonjour > hello > bonjour | cat bonjour | cat hello
+echo hola > bonjour | echo hey > hello | echo hola >> bonjour > hello > bonjour | cat bonjour | cat hello
+echo hola > bonjour | echo hey > hello | rm bonjour hello | echo hola >> bonjour >> hello >> bonjour | cat bonjour | cat hello
+echo hola > bonjour | echo hey > hello | echo hola >> bonjour >> hello >> bonjour | cat bonjour | cat hello
+> bonjour echo hola bonjour | cat bonjour
+>bonjour echo > hola>bonjour>hola>>bonjour>hola hey >bonjour hola >hola | cat bonjour | cat hola
+echo bonjour > hola1 | echo hello > hola2 | echo 2 >hola1 >> hola2 | ls | cat hola1 | cat hola2
+echo bonjour > hola1 | echo hello > hola2 | echo 2 >>hola1 > hola2 | ls | cat hola1 | cat hola2
+< Makefile .
+cat <pwd
+cat <srcs/pwd
+cat <../pwd
+cat >>
+cat >>>
+cat >> <<
+cat >> > >> << >>
+cat < ls
+cat < ls > ls
+cat > ls1 < ls2 | ls
+>>hola | cat hola
+echo hola > bonjour | cat < bonjour
+echo hola >bonjour | cat <bonjour
+echo hola>bonjour | cat<bonjour
+echo hola> bonjour | cat< bonjour
+echo hola               >bonjour | cat<                     bonjour
+echo hola          >     bonjour | cat            <         bonjour
+echo hola > srcs/bonjour | cat < srcs/bonjour
+echo hola >srcs/bonjour | cat <srcs/bonjour
+e'c'""h""o hola > bonjour | cat 'bo'""n""jour
+echo hola > bonjour\ 1 | ls | cat bonjour\ 1
+echo hola > bonjour hey | ls | cat bonjour | cat hey
+echo hola > srcs/bonjour | echo hey > srcs/hello | >srcs/bonjour >srcs/hello <prout | cat srcs/bonjour srcs/hello
+echo hola > srcs/bonjour | echo hey > srcs/hello | rm srcs/bonjour srcs/hello | >srcs/bonjour >srcs/hello <prout | ls srcs | cat srcs/bonjour srcs/hello
+echo hola > srcs/bonjour | echo hey > srcs/hello | >srcs/bonjour <prout >srcs/hello  | cat srcs/bonjour  | cat srcs/hello
+echo hola > srcs/bonjour | echo hey > srcs/hello | rm srcs/bonjour srcs/hello | >srcs/bonjour <prout >srcs/hello  | ls srcs | cat srcs/bonjour
+echo hola > ../bonjour | echo hey > ../hello | >../bonjour >../hello <prout | cat ../bonjour ../hello
+echo hola > ../bonjour | echo hey > ../hello | rm ../bonjour ../hello | >../bonjour >../hello <prout | ls .. | cat ../bonjour ../hello
+echo hola > ../bonjour | echo hey > ../hello | >../bonjour <prout >../hello  | cat ../bonjour  | cat ../hello
+echo hola > ../bonjour | echo hey > ../hello | rm ../bonjour ../hello | >../bonjour <prout >../hello  | ls .. | cat ../bonjour
+echo hola > srcs/bonjour | echo hey > srcs/hello | >srcs/bonjour >>srcs/hello <prout | cat srcs/bonjour  | cat srcs/hello
+echo hola > srcs/bonjour | echo hey > srcs/hello | >>srcs/bonjour >srcs/hello <prout | cat srcs/bonjour  | cat srcs/hello
+echo hola > srcs/bonjour | echo hey > srcs/hello | >>srcs/bonjour >>srcs/hello <prout | cat srcs/bonjour  | cat srcs/hello
+echo hola > srcs/bonjour | echo hey > srcs/hello | >srcs/bonjour <prout >>srcs/hello | cat srcs/bonjour  | cat srcs/hello
+echo hola > srcs/bonjour | echo hey > srcs/hello | >>srcs/bonjour <prout >srcs/hello | cat srcs/bonjour  | cat srcs/hello
+echo hola > srcs/bonjour | echo hey > srcs/hello | >>srcs/bonjour <prout >>srcs/hello | cat srcs/bonjour  | cat srcs/hello
+echo hola > srcs/bonjour | echo hey > srcs/hello | <prout >>srcs/bonjour >>srcs/hello | cat srcs/bonjour  | cat srcs/hello
+echo hola > bonjour | echo hey > hello | <bonjour >hello | cat bonjour  | cat hello
+echo hola > bonjour | echo hey > hello | >bonjour >hello < prout | cat bonjour  | cat hello
+echo hola > bonjour | echo hey > hello | rm bonjour hello | >bonjour >hello < prout | cat bonjour  | cat hello
+echo hola > bonjour | echo hey > hello | >bonjour <prout hello | cat bonjour  | cat hello
+echo hola > bonjour | echo hey > hello | rm bonjour hello | >bonjour <prout hello | cat bonjour 
+echo hola > bonjour
+<bonjour cat | wc > bonjour
+cat bonjour
+echo que tal >> bonjour
+cat < bonjour
+rm bonjour
+echo hola que tal > bonjour
+echo hola que tal > /tmp/bonjour
+cat -e /tmp/bonjour
+export HOLA=hey
+echo bonjour > $HOLA
+echo $HOLA
+whereis grep > Docs/bonjour
+cat Docs/bonjour
+ls -la > Docs/bonjour
+pwd>bonjour
+pwd >                     bonjour
+echo hola > > bonjour
+echo hola < < bonjour
+echo hola >>> bonjour
+> bonjour echo hola
+> bonjour | echo hola
+prout hola > bonjour
+echo hola > hello >> hello >> hello
+echo hola >> hello
+cat < hello
+echo hola >> hello >> hello > hello
+echo hola > hello
+echo hola >> hello >> hello >> hello
+echo hey > bonjour
+echo <bonjour <hello
+echo <hello <bonjour
+echo hey > hello
+rm bonjour hello
+echo hola > bonjour > hello > bonjour
+echo hola > bonjour >> hello > bonjour
+echo hola > bonjour > hello >> bonjour
+echo hola >> bonjour > hello > bonjour
+echo hola >> bonjour >> hello >> bonjour
+> bonjour echo hola bonjour
+>bonjour echo > hola>bonjour>hola>>bonjour>hola hey >bonjour hola >hola
+cat hola
+echo bonjour > hola1
+echo hello > hola2
+echo 2 >hola1 >> hola2
+cat hola1
+cat hola2
+echo 2 >>hola1 > hola2
+> pwd
+< pwd
+cat > ls1 < ls2
+>>hola
+echo hola >bonjour
+cat <bonjour
+echo hola>bonjour
+cat<bonjour
+echo hola> bonjour
+cat< bonjour
+echo hola               >bonjour
+cat<                     bonjour
+echo hola          >     bonjour
+cat            <         bonjour
+echo hola > srcs/bonjour
+cat < srcs/bonjour
+echo hola >srcs/bonjour
+cat <srcs/bonjour
+e'c'""h""o hola > bonjour
+cat 'bo'""n""jour
+echo hola > bonjour\ 1
+cat bonjour\ 1
+echo hola > bonjour hey
+cat hey
+echo hey > srcs/hello
+>srcs/bonjour >srcs/hello <prout
+cat srcs/bonjour srcs/hello
+rm srcs/bonjour srcs/hello
+ls srcs
+>srcs/bonjour <prout >srcs/hello 
+cat srcs/bonjour 
+cat srcs/hello
+cat srcs/bonjour
+echo hola > ../bonjour
+echo hey > ../hello
+>../bonjour >../hello <prout
+cat ../bonjour ../hello
+rm ../bonjour ../hello
+ls ..
+>../bonjour <prout >../hello 
+cat ../bonjour 
+cat ../hello
+cat ../bonjour
+>srcs/bonjour >>srcs/hello <prout
+>>srcs/bonjour >srcs/hello <prout
+>>srcs/bonjour >>srcs/hello <prout
+>srcs/bonjour <prout >>srcs/hello
+>>srcs/bonjour <prout >srcs/hello
+>>srcs/bonjour <prout >>srcs/hello
+<prout >>srcs/bonjour >>srcs/hello
+<bonjour >hello
+cat bonjour 
+>bonjour >hello < prout
+>bonjour <prout hello
+<a cat <b <c
+cat a
+cat b
+cat c
+>a ls >b >>c >d
+cat d
+echo hola > a > b > c
+mkdir dir
+ls -la > dir/bonjour
+cat dir/bonjour
+<a
+>d cat <a >>e
+cat e
+< a > b cat > hey >> d
+$'$ '"  $ $ "
+$'$ '"  $ $? $ "
+$'$ '"  $ $? $PATH$home$HOME "
+$'$ '"  $ $? $PATH$home$HOME$ "
+$'$ '"  $ $? $PATH$home$HOME$ " $"$'$'"
+helll
+cat "Makef"'ile'
+echo $LANG

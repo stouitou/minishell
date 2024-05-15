@@ -31,7 +31,8 @@ INIT_SRC =	init_exe.c \
 INIT = ${addprefix ${INIT_DIR}/, ${INIT_SRC}}
 
 UTILS_DIR = utils
-UTILS_SRC =	close_both_fd.c \
+UTILS_SRC =	skip_whitespace.c \
+			close_both_fd.c \
 			close_all_fd.c \
 			remove_node.c \
 			upd_token_heads_and_indexes.c
@@ -46,14 +47,15 @@ FREE_SRC =	free_token_and_exit.c \
 FREE = ${addprefix ${FREE_DIR}/, ${FREE_SRC}}
 
 SRC =	minishell.c \
-		stash_ent.c \
+		stash_str.c \
 		handle_non_metachars.c \
 		handle_metachars.c \
 		analyze_syntax.c \
 		handle_expansions.c \
-		expand_token.c \
+		classify_tokens.c \
 		gather_indexes.c \
 		exec_token.c \
+		find_files.c \
 		exec_subshell.c \
 		find_cmd.c \
 		${PRINT} \

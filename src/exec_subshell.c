@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/13 15:45:42 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:14:19 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static int	get_infile_fd(t_exe *exe)
 	i = 0;
 	while (exe->infile[i])
 	{
-		// ft_printf("in get_infile fd, exe->infile[%d] = %s\n", i, exe->infile[i]);
 		if (access(exe->infile[i], F_OK | R_OK) == -1)
 		{
 			init_error(exe, strerror(errno), exe->infile[i], EXIT_FAILURE);
@@ -38,7 +37,6 @@ static int	get_infile_fd(t_exe *exe)
 		if (exe->infile[i])
 			close(fd);
 	}
-	// ft_printf("in get_infile fd, fd= %d\n", fd);
 	return (fd);
 }
 
@@ -87,7 +85,7 @@ static int	get_app_outfile_fd(t_exe *exe)
 		{
 			if (access(exe->app_outfile[i], W_OK) == -1)
 			{
-				init_error(exe, strerror(errno), exe->app_outfile[i], EXIT_FAILURE);
+				init_error(exe, strerror(errno), exe->app_outfile[i], 1);
 				free_subshell_and_exit(exe);
 			}
 		}
@@ -131,11 +129,10 @@ static void	execute_command(t_exe *exe, char *command, int i)
 	free_subshell_and_exit(exe);
 }
 
-void	exec_subshell(t_entry *entry, t_exe *exe, int i)
+void	exec_subshell(t_exe *exe, int i)
 {
 	char		*command;
 
-	(void)entry;
 	if (exe->infile)
 		exe->ioda_fd[0] = get_infile_fd(exe);
 	if (exe->outfile)
@@ -148,6 +145,5 @@ void	exec_subshell(t_entry *entry, t_exe *exe, int i)
 		init_error(exe, NULL, NULL, 0);
 		free_subshell_and_exit(exe);
 	}
-	// print_exe(entry, entry->token, exe, i);
 	execute_command(exe, command, i);
 }

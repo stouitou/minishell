@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/14 17:14:06 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:09:50 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 #  define METACHARACTER " \t\n\v|<>"
 # endif
 
-# ifndef DOLLAR_SIGN
-#  define DOLLAR_SIGN "$"
+# ifndef ERR_QUOTES
+#  define ERR_QUOTES "unexpected EOF while looking for matching"
 # endif
 
 # ifndef ERR_MALLOC
@@ -128,16 +128,17 @@ typedef struct s_entry
 }			t_entry;
 
 int		main(int ac, char **av, char **env);
-void	stash_ent(t_entry *entry);
+void	stash_str(t_entry *entry, t_token **token, char *str);
 void	handle_metachars(t_entry *entry, t_token *new, int *i, int *ib);
 void	handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i);
 void	analyze_syntax(t_entry *entry);
 void	handle_expansions(t_entry *entry, char **env);
-// void	classify_tokens(t_entry *entry, char **env);
-void	expand_token(t_entry *entry, t_token *token, char **env);
+void	classify_tokens(t_entry *entry, t_token *token);
+// void	expand_token(t_entry *entry, t_token *token, char **env);
 void	gather_indexes(t_entry *entry, t_token *cur);
 void	exec_token(t_entry *entry, t_token *token, char **env);
-void	exec_subshell(t_entry *entry, t_exe *exe, int i);
+void	find_all_files(t_exe *exe, t_entry *entry, t_token *token);
+void	exec_subshell(t_exe *exe, int i);
 char	*find_cmd(t_exe *exe, char **cmd);
 
 /* LIST */
@@ -154,6 +155,7 @@ void	init_dup(t_exe *exe, int old_fd, int new_fd);
 void	init_error(t_exe *exe, char *msg, char *data, int status);
 
 /* UTILS */
+void	skip_whitespace(char *str, int *index);
 void	close_both_fd(int fd1, int fd2);
 void	close_all_fd(t_exe *exe);
 void	remove_node(t_token **token, t_token *cur);

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:52:23 by stouitou          #+#    #+#             */
-/*   Updated: 2024/04/29 09:32:32 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:19:06 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static char	*protected_strdup(t_entry *entry, char *str)
 		free_token_and_exit(&(entry->token), ERR_MALLOC, str, 1);
 	return (dup);
 }
-
 
 static int	get_operator(t_entry *entry, char *str, t_token *new)
 {
@@ -51,21 +50,24 @@ static int	get_operator(t_entry *entry, char *str, t_token *new)
 	return (i);
 }
 
-void	handle_metachars(t_entry *entry, t_token *new, int *i, int *ib)
+void	handle_metachars(t_entry *entry, t_token *new, int *index, int *ib)
 {
 	char	*str;
+	int		i;
 
 	str = entry->str;
-	if (*i && !ft_ischarset(str[*i - 1], " \t\n\v"))
+	i = *index;
+	if (i && !ft_ischarset(str[i - 1], " \t\n\v"))
 		ib[0]++;
 	new->index = ib[0];
-	while (str[*i] && ft_ischarset(str[*i], " \t\n\v"))
-		(*i)++;
-	if (str[*i] == '|')
+	while (str[i] && ft_ischarset(str[i], " \t\n\v"))
+		(i)++;
+	if (str[i] == '|')
 		ib[1]++;
-	if (ft_ischarset(str[*i], "|<>"))
+	if (ft_ischarset(str[i], "|<>"))
 	{
-		*i += get_operator(entry, str + *i, new);
+		i += get_operator(entry, str + i, new);
 		ib[0]++;
 	}
+	*index = i;
 }
