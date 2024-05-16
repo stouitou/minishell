@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dup.c                                         :+:      :+:    :+:   */
+/*   heredoc_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 15:17:50 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 16:13:55 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/16 17:26:48 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/16 17:36:24 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	init_dup(t_exe *exe, int old_fd, int new_fd)
+t_heredoc	*heredoc_new(t_exe *exe, char *content)
 {
-	int	ret;
+	t_heredoc	*new;
 
-	// dprintf(2, "1 dupped, %d %d\n", old_fd, new_fd);
-	ret = dup2(old_fd, new_fd);
-	if (ret == -1)
+	new = (t_heredoc *)malloc(sizeof(t_heredoc));
+	if (!new)
 	{
-		init_error(exe, strerror(errno), "dup2", EXIT_FAILURE);
+		init_error(exe, ERR_MALLOC, content, EXIT_FAILURE);
 		free_subshell_and_exit(exe);
 	}
-	// dprintf(2, "2 dupped, %d %d\n", old_fd, new_fd);
+	new->content = ft_strdup(content);
+	if (!new->content)
+	{
+		init_error(exe, ERR_MALLOC, content, EXIT_FAILURE);
+		free_subshell_and_exit(exe);
+	}
+	new->next = NULL;
 }

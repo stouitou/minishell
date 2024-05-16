@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dup.c                                         :+:      :+:    :+:   */
+/*   go_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 15:17:50 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 16:13:55 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/16 17:36:51 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/16 17:37:07 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	init_dup(t_exe *exe, int old_fd, int new_fd)
+void	go_heredoc(t_exe *exe, char *delimiter)
 {
-	int	ret;
+	t_heredoc	*heredoc;
+	t_heredoc	*new;
+	char		*str;
 
-	// dprintf(2, "1 dupped, %d %d\n", old_fd, new_fd);
-	ret = dup2(old_fd, new_fd);
-	if (ret == -1)
+	while (1)
 	{
-		init_error(exe, strerror(errno), "dup2", EXIT_FAILURE);
-		free_subshell_and_exit(exe);
+		str = readline(H_PROMPT);
+		if (ft_strcmp(str, delimiter) == 0)
+			break ;
+		new = heredoc_new(exe, str);
+		heredoc_addback(&heredoc, new);
 	}
-	// dprintf(2, "2 dupped, %d %d\n", old_fd, new_fd);
+	exe->heredoc = heredoc;
 }

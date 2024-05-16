@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dup.c                                         :+:      :+:    :+:   */
+/*   outfile_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 15:17:50 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 16:13:55 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/16 12:35:26 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/16 16:49:38 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	init_dup(t_exe *exe, int old_fd, int new_fd)
+void	outfile_clear(t_outfile **outfile)
 {
-	int	ret;
+	t_outfile	*cur;
+	t_outfile	*next;
 
-	// dprintf(2, "1 dupped, %d %d\n", old_fd, new_fd);
-	ret = dup2(old_fd, new_fd);
-	if (ret == -1)
+	if (!*outfile)
+		return ;
+	// ft_printf("outfile in outfile clear = %p (%s)\n", *outfile, (*outfile)->content);
+	cur = *outfile;
+	while (cur)
 	{
-		init_error(exe, strerror(errno), "dup2", EXIT_FAILURE);
-		free_subshell_and_exit(exe);
+		next = cur->next;
+		// ft_printf("In outfile clear, cur->content = %s\n", cur->content);
+		free(cur->content);
+		free(cur);
+		cur = next;
 	}
-	// dprintf(2, "2 dupped, %d %d\n", old_fd, new_fd);
+	*outfile = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:50:01 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/15 17:07:06 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:20:37 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,18 @@ static char	**init_cmd(t_entry *entry, t_exe *exe, t_token *token)
 	return (cmd);
 }
 
-static void	get_files_count(int ioa[3], t_token *token, int i)
+static int	get_infile_count(t_token *token, int i)
 {
+	int	count;
+	
+	count = 0;
 	while (token && token->block == i)
 	{
 		if (token->category == INFILE)
-			ioa[0]++;
-		if (token->category == OUTFILE)
-			ioa[1]++;
-		if (token->category == APP_OUTFILE)
-			ioa[2]++;
+			count++;
 		token = token->next;
 	}
+	return (count);
 }
 
 static char	*protected_strdup(t_entry *entry, t_exe *exe, char *str)
@@ -70,13 +70,14 @@ static char	*protected_strdup(t_entry *entry, t_exe *exe, char *str)
 
 static void	upd_exe(t_entry *entry, t_exe *exe, t_token *token, int i)
 {
+	int	infile_count;
 	int	j;
 
 	j = 0;
 	while (token && token->block < i)
 		token = token->next;
-	get_files_count(exe->ioa_cnt, token, i);
-	find_all_files(exe, entry, token);
+	infile_count = get_infile_count(token, i);
+	find_files(exe, entry, token, infile_count);
 	while (token && token->block == i)
 	{
 		if (token->category == DELIMITER)
@@ -100,15 +101,11 @@ void	init_exe(t_entry *entry, t_exe *exe, char **env, int i)
 	exe->env = env;
 	exe->infile = NULL;
 	exe->outfile = NULL;
+	exe->heredoc = NULL;
 	exe->delimiter = NULL;
-	exe->app_outfile = NULL;
-	exe->ioa_cnt[0] = 0;
-	exe->ioa_cnt[1] = 0;
-	exe->ioa_cnt[2] = 0;
-	exe->ioda_fd[0] = -1;
-	exe->ioda_fd[1] = -1;
-	exe->ioda_fd[2] = -1;
-	exe->ioda_fd[3] = -1;
+	exe->iod_fd[0] = -1;
+	exe->iod_fd[1] = -1;
+	exe->iod_fd[2] = -1;
 	exe->cmd = NULL;
 	upd_exe(entry, exe, entry->token, i);
 }

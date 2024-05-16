@@ -13,6 +13,9 @@
 [x] $!LANG
 [x] $"$hello"
 [ ] free(entry.str) ?
+[ ] retirer les entry dans exec subshell et execute command (param)
+[ ] retirer token dans exec subshell (param)
+
 
 /*
 	KEEP QUOTED TYPE OF NEXT NODE IF NECESSARY FOR HERE_DOC DELIMIMTER

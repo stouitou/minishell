@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:05:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/15 17:09:37 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:50:03 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	exec_token(t_entry *entry, t_token *token, char **env)
 			init_pipe(&token, &exe, exe.pipe_fd2);
 		exe.subshell = init_fork(&exe, &token);
 		if (exe.subshell == 0)
-			exec_subshell(&exe, i);
+			exec_subshell(entry, &exe, i);
+		// print_exe(entry, token, &exe, i);
 		free_exe(&exe);
 		close_pipe_fd_if_needed(&exe, i);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/15 17:09:50 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:43:36 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 
 # ifndef PROMPT
 #  define PROMPT "minishell > "
+# endif
+
+# ifndef H_PROMPT
+#  define H_PROMPT "> "
 # endif
 
 # ifndef METACHARACTER
@@ -102,22 +106,35 @@ typedef struct s_error
 	int		status;
 }			t_error;
 
+typedef struct s_outfile
+{
+	char				*content;
+	bool				append;
+	struct s_outfile	*next;
+}						t_outfile;
+
+typedef struct s_heredoc
+{
+	char				*content;
+	struct s_heredoc	*next;
+}						t_heredoc;
+
 typedef struct s_exe
 {
-	char	**env;
-	int		blocks;
-	int		pipe_fd1[2];
-	int		pipe_fd2[2];
-	pid_t	subshell;
-	char	**infile;
-	char	**outfile;
-	char	*delimiter;
-	char	**app_outfile;
-	int		ioa_cnt[3];
-	int		ioda_fd[4];
-	char	**cmd;
-	t_error	error;
-}			t_exe;
+	char		**env;
+	int			blocks;
+	int			pipe_fd1[2];
+	int			pipe_fd2[2];
+	pid_t		subshell;
+	char		**infile;
+	t_outfile	*outfile;
+	t_heredoc	*heredoc;
+	char		*delimiter;
+	int			iod_fd[3];
+	char		**cmd;
+	t_error		error;
+}				t_exe;
+
 
 typedef struct s_entry
 {
@@ -127,59 +144,66 @@ typedef struct s_entry
 	int		status;
 }			t_entry;
 
-int		main(int ac, char **av, char **env);
-void	stash_str(t_entry *entry, t_token **token, char *str);
-void	handle_metachars(t_entry *entry, t_token *new, int *i, int *ib);
-void	handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i);
-void	analyze_syntax(t_entry *entry);
-void	handle_expansions(t_entry *entry, char **env);
-void	classify_tokens(t_entry *entry, t_token *token);
+int			main(int ac, char **av, char **env);
+void		stash_str(t_entry *entry, t_token **token, char *str);
+void		handle_metachars(t_entry *entry, t_token *new, int *i, int *ib);
+void		handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i);
+void		analyze_syntax(t_entry *entry);
+void		handle_expansions(t_entry *entry, char **env);
+void		classify_tokens(t_entry *entry);
 // void	expand_token(t_entry *entry, t_token *token, char **env);
-void	gather_indexes(t_entry *entry, t_token *cur);
-void	exec_token(t_entry *entry, t_token *token, char **env);
-void	find_all_files(t_exe *exe, t_entry *entry, t_token *token);
-void	exec_subshell(t_exe *exe, int i);
-char	*find_cmd(t_exe *exe, char **cmd);
+void		gather_indexes(t_entry *entry, t_token *cur);
+void		exec_token(t_entry *entry, t_token *token, char **env);
+void		find_files(t_exe *exe, t_entry *entry, t_token *token, int count);
+void		go_heredoc(t_exe *exe, char *delimiter);
+void		exec_subshell(t_entry *entry, t_exe *exe, int i);
+char		*find_cmd(t_exe *exe, char **cmd);
 
 /* LIST */
-t_token	*token_new(int *ib);
-void	token_addback(t_token **token, t_token *new);
-void	token_clear(t_token **token);
-void	del_node(t_token **node);
+t_token		*token_new(int *ib);
+void		token_addback(t_token **token, t_token *new);
+void		token_clear(t_token **token);
+void		del_node(t_token **node);
+t_outfile	*outfile_new(t_entry *entry, t_exe *exe, t_token *token);
+void		outfile_addback(t_outfile **outfile, t_outfile *new);
+void		outfile_clear(t_outfile **outfile);
+t_heredoc	*heredoc_new(t_exe *exe, char *content);
+void		heredoc_addback(t_heredoc **heredoc, t_heredoc *new);
+void		heredoc_clear(t_heredoc **heredoc);
 
 /* INIT */
-void	init_exe(t_entry *entry, t_exe *exe, char **env, int i);
-void	init_pipe(t_token **token, t_exe *exe, int *pipe_fd);
-pid_t	init_fork(t_exe *exe, t_token **token);
-void	init_dup(t_exe *exe, int old_fd, int new_fd);
-void	init_error(t_exe *exe, char *msg, char *data, int status);
+void		init_exe(t_entry *entry, t_exe *exe, char **env, int i);
+void		init_pipe(t_token **token, t_exe *exe, int *pipe_fd);
+pid_t		init_fork(t_exe *exe, t_token **token);
+void		init_dup(t_exe *exe, int old_fd, int new_fd);
+void		init_error(t_exe *exe, char *msg, char *data, int status);
 
 /* UTILS */
-void	skip_whitespace(char *str, int *index);
-void	close_both_fd(int fd1, int fd2);
-void	close_all_fd(t_exe *exe);
-void	remove_node(t_token **token, t_token *cur);
-void	upd_token_heads_and_indexes(t_token *token);
+void		skip_whitespace(char *str, int *index);
+void		close_both_fd(int fd1, int fd2);
+void		close_all_fd(t_exe *exe);
+void		remove_node(t_token **token, t_token *cur);
+void		upd_token_heads_and_indexes(t_token *token);
 
 /* FREE */
-void	free_token_and_exit(t_token **token, char *err, char *str, int status);
-void	free_token_before_return(t_entry *entry, char *err, char *str, int error);
-void	free_exe(t_exe *exe);
-void	free_cmd(char **cmd);
-void	free_subshell_and_exit(t_exe *exe);
+void		free_token_and_exit(t_token **token, char *err, char *str, int status);
+void		free_token_before_return(t_entry *entry, char *err, char *str, int error);
+void		free_exe(t_exe *exe);
+void		free_cmd(char **cmd);
+void		free_subshell_and_exit(t_exe *exe);
 
 /* PRINT */
-void	print_env(char **env);
-void	print_full_command(t_entry *entry, t_token *token);
-void	print_token(t_entry *entry, t_token *token);
-void	print_block(t_token *token);
-void	print_exe(t_entry *entry, t_token *token, t_exe *exe, int block);
-int		print_utils_token_size(t_token *token);
-int		print_utils_token_blocks(t_token *token);
-int		print_utils_content_has_space(char *content);
+void		print_env(char **env);
+void		print_full_command(t_entry *entry, t_token *token);
+void		print_token(t_entry *entry, t_token *token);
+void		print_block(t_token *token);
+void		print_exe(t_entry *entry, t_token *token, t_exe *exe, int block);
+int			print_utils_token_size(t_token *token);
+int			print_utils_token_blocks(t_token *token);
+int			print_utils_content_has_space(char *content);
 
 /* TESTER */
-void	log_tests(const char *command);
-void	log_status(int status);
+void		log_tests(const char *command);
+void		log_status(int status);
 
 #endif

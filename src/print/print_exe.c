@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:34:57 by peoriou           #+#    #+#             */
-/*   Updated: 2024/05/13 15:34:15 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:10:36 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,22 @@ static void	print_infile(t_exe *exe)
 	ft_printf("\n");
 }
 
-static void	print_outfile(t_exe *exe)
+static void	print_outfile(t_outfile *outfile)
 {
 	int	i;
 
 	i = 0;
-	if (!exe->outfile)
+	if (!outfile)
 		ft_printf("\033[30mno outfile\033[0m\n");
 	else
 	{
-		while (exe->outfile[i])
+		while (outfile)
 		{
-			ft_printf("- \033[36moutfile[%d]\033[0m = %s  |  ", i, exe->outfile[i]);
+			if (outfile->append)
+				ft_printf("- \033[36moutfile[%d] (append)\033[0m = %s  |  ", i, outfile->content);
+			else
+				ft_printf("- \033[36moutfile[%d]\033[0m = %s  |  ", i, outfile->content);
+			outfile = outfile->next;
 			i++;
 		}
 	}
@@ -100,42 +104,22 @@ static void	print_delimiter(t_exe *exe)
 		ft_printf("\033[36mdelimiter\033[0m = %s  |  ", exe->delimiter);
 }
 
-static void	print_app_outfile(t_exe *exe)
-{
-	int	i;
-
-	i = 0;
-	if (!exe->app_outfile)
-		ft_printf("\033[30mno app_outfile\033[0m\n");
-	else
-	{
-		while (exe->app_outfile[i])
-		{
-			ft_printf("- \033[36mapp_outfile[%d]\033[0m = %s  |  ", i, exe->app_outfile[i]);
-			i++;
-		}
-	}
-	ft_printf("\n");
-}
-
 static void	print_files(t_exe *exe)
 {
 	print_infile(exe);
-	print_outfile(exe);
+	if (exe->outfile)
+		print_outfile(exe->outfile);
 	print_delimiter(exe);
-	print_app_outfile(exe);
 }
 
 static void	print_iofd(t_exe *exe)
 {
-	if (exe->ioda_fd[0])
-		ft_printf("\n  • \033[36minfile fd\033[0m => %d (ioda_fd[0])\n", exe->ioda_fd[0]);
-	if (exe->ioda_fd[1])
-		ft_printf("  • \033[36moutfile fd\033[0m => %d (ioda_fd[1])\n", exe->ioda_fd[1]);
-	if (exe->ioda_fd[2])
-		ft_printf("  • \033[36mdelimiter fd\033[0m => %d (ioda_fd[2])\n", exe->ioda_fd[2]);
-	if (exe->ioda_fd[3])
-		ft_printf("  • \033[36mapp_outfile fd\033[0m => %d (ioda_fd[3])\n", exe->ioda_fd[3]);
+	if (exe->iod_fd[0])
+		ft_printf("\n  • \033[36minfile fd\033[0m => %d\n", exe->iod_fd[0]);
+	if (exe->iod_fd[1])
+		ft_printf("  • \033[36moutfile fd\033[0m => %d\n", exe->iod_fd[1]);
+	if (exe->iod_fd[2])
+		ft_printf("  • \033[36mdelimiter fd\033[0m => %d\n", exe->iod_fd[2]);
 }
 
 static void	print_cmd(t_exe *exe, char **env)

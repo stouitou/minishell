@@ -6,55 +6,67 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:49:36 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/15 16:52:08 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:22:49 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char	**find_files(t_exe *exe, t_entry *entry, t_token *token, int cat)
+static char	**find_infiles(t_exe *exe, t_entry *entry, t_token *token, int count)
 {
 	char	**files;
-	int		nb;
 	int		block;
-	int		j;
+	int		i;
 
-	if (cat == INFILE)
-		nb = exe->ioa_cnt[0];
-	if (cat == OUTFILE)
-		nb = exe->ioa_cnt[1];
-	if (cat == APP_OUTFILE)
-		nb = exe->ioa_cnt[2];
-	files = (char **)malloc((nb + 1) * sizeof(char *));
+	files = (char **)malloc((count + 1) * sizeof(char *));
 	if (!files)
 	{
 		free_exe(exe);
 		free_token_and_exit(&(entry->token), ERR_MALLOC, NULL, 1);
 	}
 	block = token->block;
-	j = 0;
+	i = 0;
 	while (token && token->block == block)
 	{
-		if (token->category == cat)
+		if (token->category == INFILE)
 		{
-			files[j] = ft_strdup(token->content);
-			if (!files[j])
+			files[i] = ft_strdup(token->content);
+			if (!files[i])
 			{
 				free_exe(exe);
 				free_token_and_exit(&(entry->token), ERR_MALLOC, NULL, 1);
 			}
-			j++;
+			i++;
 		}
 		token = token->next;
 	}
-	files[j] = NULL;
+	files[i] = NULL;
 	return (files);
 }
 
-void	find_all_files(t_exe *exe, t_entry *entry, t_token *token)
+static t_outfile	*find_outfiles(t_exe *exe, t_entry *entry, t_token *token)
 {
-	exe->infile = find_files(exe, entry, token, INFILE);
-	exe->outfile = find_files(exe, entry, token, OUTFILE);
-	exe->app_outfile = find_files(exe, entry, token, APP_OUTFILE);
+	t_outfile	*new;
+	t_outfile	*outfiles;
+	int			block;
+
+	outfiles = NULL;
+	block = token->block;
+	while (token && token->block == block)
+	{
+		if (token->category == OUTFILE || token->category == APP_OUTFILE)
+		{
+			new = outfile_new(entry, exe, token);
+			outfile_addback(&outfiles, new);
+		}
+		token = token->next;
+	}
+	return (outfiles);
+}
+
+void	find_files(t_exe *exe, t_entry *entry, t_token *token, int count)
+{
+	exe->infile = find_infiles(exe, entry, token, count);
+	exe->outfile = find_outfiles(exe, entry, token);
 }
 

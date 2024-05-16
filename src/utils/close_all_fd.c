@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:38:19 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/13 13:41:51 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:34:36 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,13 @@ void	close_all_fd(t_exe *exe)
 	if (exe->pipe_fd2[1] != -1)
 		close(exe->pipe_fd2[1]);
 	i = 0;
-	while (i < 4)
+	while (i < 3)
 	{
-		if (exe->ioda_fd[i] != -1)
-			close(exe->ioda_fd[i]);
+		if (exe->iod_fd[i] != -1)
+		{
+			// ft_printf("closing exe->iod_fd[%d]", exe->iod_fd[i]);
+			close(exe->iod_fd[i]);
+		}
 		i++;
 	}
 }

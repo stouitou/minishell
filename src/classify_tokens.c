@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:52:53 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/15 16:24:55 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:05:43 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,17 +87,17 @@ static void	remove_operator(t_token **token)
 	}
 }
 
-void	classify_tokens(t_entry *entry, t_token *token)
+void	classify_tokens(t_entry *entry)
 {
 	t_token	*cur;
 	t_token	*next;
 	int		cmd_found;
 
-	if (!token)
+	if (!entry->token)
 		return ;
-	gather_indexes(entry, token);
-	remove_null(&token);
-	cur = token;
+	gather_indexes(entry, entry->token);
+	remove_null(&entry->token);
+	cur = entry->token;
 	cmd_found = 0;
 	while (cur)
 	{
@@ -110,6 +110,6 @@ void	classify_tokens(t_entry *entry, t_token *token)
 			cmd_found = 0;
 		cur = next;
 	}
-	remove_operator(&token);
-	upd_token_heads_and_indexes(token);
+	remove_operator(&entry->token);
+	upd_token_heads_and_indexes(entry->token);
 }

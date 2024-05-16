@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_full_command.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:18:45 by peoriou           #+#    #+#             */
-/*   Updated: 2024/05/01 13:19:09 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/05/16 14:59:29 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	print_full_command(t_entry *entry, t_token *token)
 		if (pipes_found == actual_block)
 			ft_printf("%?37c", str[i]);
 		else
-			ft_printf("%?30c", str[i]);
+			printf("\033[31m%c\033[0m", str[i]);
 		i++;
 	}
 	// while (str[i] && pipes_found < (actual_block + 1))

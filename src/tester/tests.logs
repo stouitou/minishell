@@ -965,3 +965,23 @@ $'$ '"  $ $? $PATH$home$HOME$ " $"$'$'"
 helll
 cat "Makef"'ile'
 echo $LANG
+cat < infile | grep 3 >> stop > outfile
+ft_printf("token->content = %s\n", token->content);
+	ft_printf("here1\n");
+
+exe->iod_fd[i]
+cat < infile > outfile
+cat < infile >> outfile
+	ft_fprintf(2, "exe->cmd[0] = %s\n", exe->cmd[0]);
+
+	ft_fprintf(2, "Here\n");
+cat < infile | grep 3 >> stop > outfile > outfile2
+cat < infile | grep 3 >> stop > outfile > outfile2 > outfile3
+cat < infile | grep 3 >> stop
+cat < infile | grep 3 > stop
+cat < infile | grep 3 > stop >> outfile
+cat outfile
+cat < infile | grep 3 > stop > outfile2 > outfile4
+< infile cat | grep 3 > outfile >> outfile1 > outfile2
+[200~printf("HERE\n");
+cat < infile | grep 3 > outfile >> outfile1 > outfile2

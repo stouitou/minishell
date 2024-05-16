@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_dup.c                                         :+:      :+:    :+:   */
+/*   heredoc_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 15:17:50 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 16:13:55 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/16 17:40:23 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/16 17:43:24 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	init_dup(t_exe *exe, int old_fd, int new_fd)
+void	heredoc_clear(t_heredoc **heredoc)
 {
-	int	ret;
-
-	// dprintf(2, "1 dupped, %d %d\n", old_fd, new_fd);
-	ret = dup2(old_fd, new_fd);
-	if (ret == -1)
+	t_heredoc	*cur;
+	t_heredoc	*next;
+	
+	if (!*heredoc)
+		return ;
+	cur = *heredoc;
+	while (cur)
 	{
-		init_error(exe, strerror(errno), "dup2", EXIT_FAILURE);
-		free_subshell_and_exit(exe);
+		next = cur->next;
+		free(cur->content);
+		free(cur);
+		cur = next;
 	}
-	// dprintf(2, "2 dupped, %d %d\n", old_fd, new_fd);
+	*heredoc = NULL;
 }
