@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:34:57 by peoriou           #+#    #+#             */
-/*   Updated: 2024/05/16 14:10:36 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/17 13:03:45 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,19 @@ static void	print_pipe(t_exe *exe)
 	// ft_printf("- pipe_fd1[0] = %?37d   |   pipe_fd1[1] = %?37d\n", exe->pipe_fd1[0], exe->pipe_fd1[1]);
 }
 
-static void	print_infile(t_exe *exe)
+static void	print_infile(t_infile *infile)
 {
 	int	i;
 
 	i = 0;
-	if (!exe->infile)
-		ft_printf("\033[30m- no infile\033[0m  |  ");
+	if (!infile)
+		ft_printf("\033[30mno infile\033[0m\n");
 	else
 	{
-		while (exe->infile[i])
+		while (infile)
 		{
-			ft_printf("- \033[36minfile[%d]\033[0m = %s  |  ", i, exe->infile[i]);
+			ft_printf("- \033[36minfile[%d]\033[0m = %s  |  ", i, infile->content);
+			infile = infile->next;
 			i++;
 		}
 	}
@@ -96,30 +97,20 @@ static void	print_outfile(t_outfile *outfile)
 	ft_printf("\n");
 }
 
-static void	print_delimiter(t_exe *exe)
-{
-	if (!exe->delimiter)
-		ft_printf("\033[30mno delimiter\033[0m\n");
-	else
-		ft_printf("\033[36mdelimiter\033[0m = %s  |  ", exe->delimiter);
-}
-
 static void	print_files(t_exe *exe)
 {
-	print_infile(exe);
+	if (exe->infile)
+		print_infile(exe->infile);
 	if (exe->outfile)
 		print_outfile(exe->outfile);
-	print_delimiter(exe);
 }
 
 static void	print_iofd(t_exe *exe)
 {
-	if (exe->iod_fd[0])
-		ft_printf("\n  • \033[36minfile fd\033[0m => %d\n", exe->iod_fd[0]);
-	if (exe->iod_fd[1])
-		ft_printf("  • \033[36moutfile fd\033[0m => %d\n", exe->iod_fd[1]);
-	if (exe->iod_fd[2])
-		ft_printf("  • \033[36mdelimiter fd\033[0m => %d\n", exe->iod_fd[2]);
+	if (exe->io_fd[0])
+		ft_printf("\n  • \033[36minfile fd\033[0m => %d\n", exe->io_fd[0]);
+	if (exe->io_fd[1])
+		ft_printf("  • \033[36moutfile fd\033[0m => %d\n", exe->io_fd[1]);
 }
 
 static void	print_cmd(t_exe *exe, char **env)

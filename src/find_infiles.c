@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_all_fd.c                                     :+:      :+:    :+:   */
+/*   find_infiles.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 14:38:19 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 12:53:00 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/15 16:49:36 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/17 13:02:34 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	close_all_fd(t_exe *exe)
+void	find_infiles(t_entry *entry, t_exe *exe, t_token *token)
 {
-	if (!exe)
-		return ;
-	if (exe->pipe_fd1[0] != -1)
-		close(exe->pipe_fd1[0]);
-	if (exe->pipe_fd1[1] != -1)
-		close(exe->pipe_fd1[1]);
-	if (exe->pipe_fd2[0] != -1)
-		close(exe->pipe_fd2[0]);
-	if (exe->pipe_fd2[1] != -1)
-		close(exe->pipe_fd2[1]);
-	if (exe->io_fd[0] != -1)
-		close(exe->io_fd[0]);
-	if (exe->io_fd[1] != -1)
-		close(exe->io_fd[1]);
+	t_infile	*new;
+
+	new = infile_new(entry, exe, token->content);
+	infile_addback(&(exe->infile), new);
 }
+

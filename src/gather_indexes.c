@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 09:44:52 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/15 16:54:10 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:12:10 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	join_contents(t_entry *entry, t_token *cur, t_token *prev)
 	free(prev->content);
 	prev->content = NULL;
 	cur->content = new;
+	if (prev->quotes && !cur->quotes)
+		cur->quotes = prev->quotes;
 }
 
 void	gather_indexes(t_entry *entry, t_token *cur)

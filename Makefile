@@ -20,12 +20,12 @@ LIST_SRC =	token_new.c \
 			token_addback.c \
 			token_clear.c \
 			del_node.c \
+			infile_new.c \
+			infile_addback.c \
+			infile_clear.c \
 			outfile_new.c \
 			outfile_addback.c \
 			outfile_clear.c
-			heredoc_new.c \
-			heredoc_addback.c \
-			heredoc_clear.c
 LIST = ${addprefix ${LIST_DIR}/, ${LIST_SRC}}
 
 INIT_DIR = init
@@ -58,11 +58,13 @@ SRC =	minishell.c \
 		handle_metachars.c \
 		analyze_syntax.c \
 		handle_expansions.c \
+		expand_token.c \
 		classify_tokens.c \
+		go_heredoc.c \
 		gather_indexes.c \
 		exec_token.c \
-		find_files.c \
-		go_heredoc.c \
+		find_infiles.c \
+		find_outfiles.c \
 		exec_subshell.c \
 		find_cmd.c \
 		${PRINT} \

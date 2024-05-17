@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:52:53 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 17:05:43 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:44:33 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	classify_operator(t_token *token)
 		token->category = REDIR_OP;
 }
 
-static void	classify_word(t_token *cur, int *cmd_found)
+static void	classify_word(t_entry *entry, t_token *cur, int *cmd_found)
 {
 	if (!cur)
 		return ;
@@ -50,7 +50,10 @@ static void	classify_word(t_token *cur, int *cmd_found)
 	else if (cur->prev && ft_strcmp(cur->prev->content, ">") == 0)
 		cur->category = OUTFILE;
 	else if (cur->prev && ft_strcmp(cur->prev->content, "<<") == 0)
+	{
 		cur->category = DELIMITER;
+		go_heredoc(entry, cur);
+	}
 	else if (cur->prev && ft_strcmp(cur->prev->content, ">>") == 0)
 		cur->category = APP_OUTFILE;
 	else
@@ -103,7 +106,7 @@ void	classify_tokens(t_entry *entry)
 	{
 		next = cur->next;
 		if (cur->type == WORD)
-			classify_word(cur, &cmd_found);
+			classify_word(entry, cur, &cmd_found);
 		else if (cur->type == OPERATOR)
 			classify_operator(cur);
 		if (cur && cur->next && cur->next->block != cur->block)

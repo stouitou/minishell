@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:52:23 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/15 15:32:18 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:14:57 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,4 @@ void	handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i)
 	else
 		*i += get_token(str + *i, entry, new, " \t\n\v|<>\"'");
 }
+

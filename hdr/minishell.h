@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 17:43:36 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:17:40 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct s_token
 	int				block;
 	int				type;
 	int				category;
-	bool			is_expand;
+	// bool			is_heredoc;
 	struct s_token	*head;
 	struct s_token	*prev;
 	struct s_token	*next;
@@ -113,11 +113,17 @@ typedef struct s_outfile
 	struct s_outfile	*next;
 }						t_outfile;
 
-typedef struct s_heredoc
+// typedef struct s_heredoc
+// {
+// 	char				*content;
+// 	struct s_heredoc	*next;
+// }						t_heredoc;
+
+typedef struct s_infile
 {
-	char				*content;
-	struct s_heredoc	*next;
-}						t_heredoc;
+	char			*content;
+	struct s_infile	*next;
+}					t_infile;
 
 typedef struct s_exe
 {
@@ -126,11 +132,12 @@ typedef struct s_exe
 	int			pipe_fd1[2];
 	int			pipe_fd2[2];
 	pid_t		subshell;
-	char		**infile;
+	// char		**infile;
+	t_infile	*infile;
 	t_outfile	*outfile;
-	t_heredoc	*heredoc;
+	// t_heredoc	*heredoc;
 	char		*delimiter;
-	int			iod_fd[3];
+	int			io_fd[2];
 	char		**cmd;
 	t_error		error;
 }				t_exe;
@@ -140,8 +147,10 @@ typedef struct s_entry
 {
 	char	*str;
 	t_token *token;
+	bool	heredoc;
 	int		prev_status;
 	int		status;
+	char	**env;
 }			t_entry;
 
 int			main(int ac, char **av, char **env);
@@ -150,12 +159,14 @@ void		handle_metachars(t_entry *entry, t_token *new, int *i, int *ib);
 void		handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i);
 void		analyze_syntax(t_entry *entry);
 void		handle_expansions(t_entry *entry, char **env);
+void		expand_token(t_entry *entry, t_token *token, char **env);
 void		classify_tokens(t_entry *entry);
+void		go_heredoc(t_entry *entry, t_token *cur);
 // void	expand_token(t_entry *entry, t_token *token, char **env);
 void		gather_indexes(t_entry *entry, t_token *cur);
 void		exec_token(t_entry *entry, t_token *token, char **env);
-void		find_files(t_exe *exe, t_entry *entry, t_token *token, int count);
-void		go_heredoc(t_exe *exe, char *delimiter);
+void		find_infiles(t_entry *entry, t_exe *exe, t_token *token);
+void		find_outfiles(t_entry *entry, t_exe *exe, t_token *token);
 void		exec_subshell(t_entry *entry, t_exe *exe, int i);
 char		*find_cmd(t_exe *exe, char **cmd);
 
@@ -167,9 +178,9 @@ void		del_node(t_token **node);
 t_outfile	*outfile_new(t_entry *entry, t_exe *exe, t_token *token);
 void		outfile_addback(t_outfile **outfile, t_outfile *new);
 void		outfile_clear(t_outfile **outfile);
-t_heredoc	*heredoc_new(t_exe *exe, char *content);
-void		heredoc_addback(t_heredoc **heredoc, t_heredoc *new);
-void		heredoc_clear(t_heredoc **heredoc);
+t_infile	*infile_new(t_entry *entry, t_exe *exe, char *content);
+void		infile_addback(t_infile **infile, t_infile *new);
+void		infile_clear(t_infile **infile);
 
 /* INIT */
 void		init_exe(t_entry *entry, t_exe *exe, char **env, int i);

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:20:00 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/14 12:48:28 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/17 16:43:40 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	analyze_operator(t_token *cur, t_entry *entry)
 	{
 		if (!cur->next || cur->next->type != WORD)
 		{
+			// ft_printf("HERE\n");
 			free_token_before_return(entry, ERR_SYNTAX, cur->next->content, 2);
 			return ;
 		}

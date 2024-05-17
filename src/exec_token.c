@@ -6,11 +6,20 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:05:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 16:50:03 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:23:27 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void	protected_unlink(t_token **token, char *file)
+{
+	int	ret;
+	
+	ret = unlink(file);
+	if (ret == -1)
+		free_token_and_exit(token, strerror(errno), file, EXIT_FAILURE);
+}
 
 static void	init_pipe_fd_and_block(t_entry *entry, t_exe *exe)
 {
@@ -50,6 +59,8 @@ void	exec_token(t_entry *entry, t_token *token, char **env)
 	while (i < exe.blocks)
 	{
 		init_exe(entry, &exe, env, i);
+		// if (exe.delimiter)
+		// 	go_heredoc(&exe, exe.delimiter);
 		if (i < (exe.blocks - 1) && (i % 2 == 0))
 			init_pipe(&token, &exe, exe.pipe_fd1);
 		if (i < (exe.blocks - 1) && (i % 2 != 0))
@@ -68,4 +79,6 @@ void	exec_token(t_entry *entry, t_token *token, char **env)
 		if (wait(&status) == exe.subshell && exe.blocks == i)
 			entry->status = WEXITSTATUS(status);
 	}
+	if (entry->heredoc)
+		protected_unlink(&(entry->token), "heredoc");
 }

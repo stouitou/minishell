@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_all_fd.c                                     :+:      :+:    :+:   */
+/*   infile_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 14:38:19 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 12:53:00 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/16 17:40:23 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/16 17:43:24 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	close_all_fd(t_exe *exe)
+void	infile_clear(t_infile **infile)
 {
-	if (!exe)
+	t_infile	*cur;
+	t_infile	*next;
+	
+	if (!*infile)
 		return ;
-	if (exe->pipe_fd1[0] != -1)
-		close(exe->pipe_fd1[0]);
-	if (exe->pipe_fd1[1] != -1)
-		close(exe->pipe_fd1[1]);
-	if (exe->pipe_fd2[0] != -1)
-		close(exe->pipe_fd2[0]);
-	if (exe->pipe_fd2[1] != -1)
-		close(exe->pipe_fd2[1]);
-	if (exe->io_fd[0] != -1)
-		close(exe->io_fd[0]);
-	if (exe->io_fd[1] != -1)
-		close(exe->io_fd[1]);
+	cur = *infile;
+	while (cur)
+	{
+		next = cur->next;
+		free(cur->content);
+		free(cur);
+		cur = next;
+	}
+	*infile = NULL;
 }

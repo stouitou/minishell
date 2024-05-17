@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 17:37:05 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:08:10 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,27 @@
 // 	}
 // }
 
-static int	get_infile_fd(t_exe *exe)
+static int	get_infile_fd(t_exe *exe, t_infile *infile)
 {
 	int	fd;
-	int	i;
 
-	if (exe->infile[0] == NULL)
+	if (!infile)
 		return (-1);
-	i = 0;
-	while (exe->infile[i])
+	while (infile)
 	{
-		if (access(exe->infile[i], F_OK | R_OK) == -1)
+		if (access(infile->content, F_OK | R_OK) == -1)
 		{
-			init_error(exe, strerror(errno), exe->infile[i], EXIT_FAILURE);
+			init_error(exe, strerror(errno), infile->content, EXIT_FAILURE);
 			free_subshell_and_exit(exe);
 		}
-		fd = open(exe->infile[i], O_RDONLY);
+		fd = open(infile->content, O_RDONLY);
 		if (fd == -1)
 		{
-			init_error(exe, strerror(errno), exe->infile[i], EXIT_FAILURE);
+			init_error(exe, strerror(errno), infile->content, EXIT_FAILURE);
 			free_subshell_and_exit(exe);
 		}
-		i++;
-		if (exe->infile[i])
+		infile = infile->next;
+		if (infile)
 			close(fd);
 	}
 	return (fd);
@@ -100,10 +98,6 @@ static void	execute_command(t_entry *entry, t_exe *exe, char *command, int i)
 {
 	(void)entry;
 	// print_exe(entry, entry->token, exe, i);
-	if (exe->iod_fd[0] != -1)
-		init_dup(exe, exe->iod_fd[0], STDIN_FILENO);
-	if (exe->iod_fd[1] != -1)
-		init_dup(exe, exe->iod_fd[1], STDOUT_FILENO);
 	if (i % 2 == 0)
 	{
 		if (i)
@@ -117,8 +111,12 @@ static void	execute_command(t_entry *entry, t_exe *exe, char *command, int i)
 		if (i < exe->blocks - 1)
 			init_dup(exe, exe->pipe_fd2[1], STDOUT_FILENO);
 	}
+	if (exe->io_fd[0] != -1)
+		init_dup(exe, exe->io_fd[0], STDIN_FILENO);
+	if (exe->io_fd[1] != -1)
+		init_dup(exe, exe->io_fd[1], STDOUT_FILENO);
 	close_all_fd(exe);
-	// ft_fprintf(2, "Executing %s with %s and %s, infile: %d, outfile: %d\n", command, exe->cmd[0], exe->cmd[1], exe->iod_fd[0], exe->iod_fd[1]);
+	// ft_fprintf(2, "Executing %s with %s and %s, infile: %d, outfile: %d\n", command, exe->cmd[0], exe->cmd[1], exe->io_fd[0], exe->io_fd[1]);
 	execve(command, exe->cmd, exe->env);
 	init_error(exe, strerror(errno), "execve", EXIT_FAILURE);
 	free_subshell_and_exit(exe);
@@ -129,11 +127,9 @@ void	exec_subshell(t_entry *entry, t_exe *exe, int i)
 	char		*command;
 
 	if (exe->infile)
-		exe->iod_fd[0] = get_infile_fd(exe);
+		exe->io_fd[0] = get_infile_fd(exe, exe->infile);
 	if (exe->outfile)
-		exe->iod_fd[1] = get_outfile_fd(exe, exe->outfile);
-	if (exe->delimiter)
-		go_heredoc(exe, exe->delimiter);
+		exe->io_fd[1] = get_outfile_fd(exe, exe->outfile);
 	command = find_cmd(exe, exe->cmd);
 	if (!command)
 	{

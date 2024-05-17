@@ -15,6 +15,7 @@
 [ ] free(entry.str) ?
 [ ] retirer les entry dans exec subshell et execute command (param)
 [ ] retirer token dans exec subshell (param)
+[ ] isatty ?
 
 
 /*

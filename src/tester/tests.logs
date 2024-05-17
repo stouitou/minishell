@@ -985,3 +985,40 @@ cat < infile | grep 3 > stop > outfile2 > outfile4
 < infile cat | grep 3 > outfile >> outfile1 > outfile2
 [200~printf("HERE\n");
 cat < infile | grep 3 > outfile >> outfile1 > outfile2
+cat infile | << stop
+cat outfile | << stop
+cat < outfile
+cat < infile2 << stop | grep 4 > outfile
+cat blablabla | << stop
+cat infile << | ls
+ft_printf("here1\n");
+ft_fprintf(2, "exe->cmd[0] = %s\n", exe->cmd[0]);
+ft_fprintf(2, "Here\n");
+printf("HERE\n");
+dif
+printf("HERE\n");
+dif
+cat << stop
+cat << stop | > outfile
+cat << stop | cat > outfile
+cat << stop > outfile
+cat john | > outfile
+cat < john < dernier > outfile
+cat < john << stop < dernier > outfile
+cat < john << stop << stop2 < dernier > outfile
+cat < john << stop << stop2 > outfile
+cat <infile << stop >> outfile | grep 2 >> outfile
+cat <infile << stop > outfile | grep 2 >> outfile
+cat <infile << stop >> outfile | grep 2 >> outfile2
+cat <infile << stop >> outfile
+cat <infile << stop >> outfile | cat john
+cat <infile << stop > outfile | cat john
+cat <infile << stop < john > outfile | cat john
+cat <infile < john > outfile | cat john
+cat < infile < john > outfile | cat john
+printf("HERE\n");
+dif
+cat >
+cat john 
+cat infile << stop < ok | grep 0 > outfile
+cat < infile << stop < ok | grep 0 > outfile

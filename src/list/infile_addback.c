@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_all_fd.c                                     :+:      :+:    :+:   */
+/*   infile_addback.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 14:38:19 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 12:53:00 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/16 17:31:15 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/17 12:02:33 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	close_all_fd(t_exe *exe)
+void	infile_addback(t_infile **infile, t_infile *new)
 {
-	if (!exe)
+	t_infile	*cur;
+	
+	if (!infile || !new)
 		return ;
-	if (exe->pipe_fd1[0] != -1)
-		close(exe->pipe_fd1[0]);
-	if (exe->pipe_fd1[1] != -1)
-		close(exe->pipe_fd1[1]);
-	if (exe->pipe_fd2[0] != -1)
-		close(exe->pipe_fd2[0]);
-	if (exe->pipe_fd2[1] != -1)
-		close(exe->pipe_fd2[1]);
-	if (exe->io_fd[0] != -1)
-		close(exe->io_fd[0]);
-	if (exe->io_fd[1] != -1)
-		close(exe->io_fd[1]);
+	if (!*infile)
+	{
+		*infile = new;
+		return ;
+	}
+	cur = *infile;
+	while (cur->next)
+		cur = cur->next;
+	cur->next = new;
 }

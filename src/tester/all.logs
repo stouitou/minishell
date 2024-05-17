@@ -59,8 +59,6 @@ cat -e $HOME | $?
 "Hello"
 hello "hello" <
 hello "hello" < infile
-"hello" hello |
-hello "hello" 'hello' |
 cat ls -l
 ls l
 ls -a -e
@@ -164,7 +162,6 @@ echo -n fine | < hello cat > outfile | echo end >> outfile
 
 :
 \n
-:
 !
 >
 <
@@ -271,7 +268,6 @@ $"LANG"
 "$""$""$""$""$""$""$""$"
 $"$"$"$"$"$"$
 $"$"$"$"$"$"
-"$"$
 "$"
 $"$"$"$"
 $"$"$"$"$
@@ -330,8 +326,6 @@ $"$**"
 $"$XXX"
 $"$oooooooo"
 $"$xyzw"
-$"$xyzw"
-$"$xyzw"
 entry->token->content
 $"$xyzw" | cati Makefile
 $"$home"
@@ -342,31 +336,15 @@ $"w$
 $"wxy$"
 $"$w"
 "$"wxy$abc
-ls l
-$home
-cat "" Makefile
-$home
-$home
-$home
 cat "" Makefile
 $"$hello"
 cat "" saluuuut
 cat ok saluuuut
-cat "" saluuuut
-cat "" saluuuut
-$home
-cat "" Makefile
 cat "" Saluuuuut
-hello
-$hello
-$"$hello"
-$"HOME"
 $"HOME
-$"HOME"
-$"HOME"
-$"HOME"
-$!LANG
 -----------------------------
+"hello" hello |
+hello "hello" 'hello' |
 john$HOME
 &&
 &&&&&
@@ -419,237 +397,98 @@ pwd
 unset PATH
 env
 env -i
-$"$ "
-$"$ >"
-$"$ "
-$"$ "
 $"$ >"
 $"$>"
-$"$>"
-$"$ "
-$"$>"
-$"$ "
-$"$ >"
-$"$ >"
-$"$ >"
-$"$ >"
-$"$ >"
-$"$ >"
-$>
 $+
-$"$ >"
-$+
-$!LANG
-< infile cmd -option >> some | cmd arg arg arg | smthg
-<
-:
-$home
-"$home"
-$home
-"$home"
-$home
 "$home"
 "$ home"
-> > > >
-?$HOME
 ?$HOME
 ls | ls | echo hola | rev
 cat a
 cat < bonjour
-$$
-hello
-ok
 $$
 $'$ '"  $ $ "
 $'$ '"  $ $? $ "
 $'$ '"  $ $? $PATH$home$HOME "
 $'$ '"  $ $? $PATH$home$HOME$ "
 $'$ '"  $ $? $PATH$home$HOME$ " $"$'$'"
-hello
-hello
-hello
-hello
-hello
-hello
-hello
-exit
-hello
-exit
 helll
-$HOME
 cat "Makef"'ile'
 echo $LANG
-echo $LANG
-lol
-test this
-eqweqwqw
-|||||
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-ft_printf("token->content = %s\n", token->content);
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-	ft_printf("here1\n");
-
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
 cat < infile | grep 3 >> stop > outfile
 exe->iod_fd[i]
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat infile
-cat < infile
-cat < infile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile >> outfile
 cat < infile > outfile
 cat < infile >> outfile
-cat < infile >> outfile
-cat < infile >> outfile
-cat < infile | grep 3 >> stop > outfile
-	ft_fprintf(2, "exe->cmd[0] = %s\n", exe->cmd[0]);
-
-cat < infile | grep 3 >> stop > outfile
-	ft_fprintf(2, "Here\n");
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-exit
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile
 cat < infile | grep 3 >> stop > outfile > outfile2
 cat < infile | grep 3 >> stop > outfile > outfile2 > outfile3
 cat < infile | grep 3 >> stop
 cat < infile | grep 3 > stop
 cat < infile | grep 3 > stop >> outfile
-cat < infile | grep 3 > stop >> outfile
-cat < infile | grep 3 > stop >> outfile
 cat outfile
-cat < infile | grep 3 > stop >> outfile
-cat < infile | grep 3 >> stop > outfile
-cat < infile | grep 3 >> stop > outfile > outfile2
 cat < infile | grep 3 > stop > outfile2 > outfile4
-cat infile
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-[200~printf("HERE\n");
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-exit
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
-< infile cat | grep 3 > outfile >> outfile1 > outfile2
 < infile cat | grep 3 > outfile >> outfile1 > outfile2
 cat < infile | grep 3 > outfile >> outfile1 > outfile2
+cat infile | << stop
+cat outfile | << stop
+cat < outfile
+cat < infile2 << stop | grep 4 > outfile
+cat blablabla | << stop
+cat infile << | ls
+printf("HERE\n");
+cat << stop
+cat << stop | > outfile
+cat << stop | cat > outfile
+cat << stop > outfile
+cat john | > outfile
+cat < john < dernier > outfile
+cat < john << stop < dernier > outfile
+cat < john << stop << stop2 < dernier > outfile
+cat < john << stop << stop2 > outfile
+cat <infile << stop >> outfile | grep 2 >> outfile
+cat <infile << stop > outfile | grep 2 >> outfile
+cat <infile << stop >> outfile | grep 2 >> outfile2
+cat <infile << stop >> outfile
+cat <infile << stop >> outfile | cat john
+cat <infile << stop > outfile | cat john
+cat <infile << stop < john > outfile | cat john
+cat <infile < john > outfile | cat john
+cat < infile < john > outfile | cat john
+ls l
+| hola
+cat "" saluuuut
+>>
+>
+cat >
+>
+>
+<
+>
+>
+>>
+<
+<<
+>
+>
+>
+>>
+>
+cat john 
+>
+cat john 
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+<
+<<
+>>
+echo $?
+cat infile << stop < ok | grep 0 > outfile
+cat < infile << stop < ok | grep 0 > outfile
+exit
