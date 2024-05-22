@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 17:08:10 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:02:55 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,75 +23,69 @@
 // 	}
 // }
 
-static int	get_infile_fd(t_exe *exe, t_infile *infile)
+static int	get_files_fd(t_exe *exe, t_files *file)
 {
-	int	fd;
-
-	if (!infile)
-		return (-1);
-	while (infile)
+	if (!file)
+		return (1);
+	while (file)
 	{
-		if (access(infile->content, F_OK | R_OK) == -1)
+		if (file->category == INFILE || file->category == DELIMITER)
 		{
-			init_error(exe, strerror(errno), infile->content, EXIT_FAILURE);
-			free_subshell_and_exit(exe);
+			if (exe->io_fd[0] != -1)
+				close (exe->io_fd[0]);
+			// if (access(file->content, F_OK | R_OK) == -1)
+			// {
+			// 	init_error(exe, strerror(errno), file->content, EXIT_FAILURE);
+			// 	return (0);
+			// }
+			exe->io_fd[0] = open(file->content, O_RDONLY);
+			if (exe->io_fd[0] == -1)
+			{
+				init_error(exe, strerror(errno), file->content, EXIT_FAILURE);
+				return (0);
+			}
 		}
-		fd = open(infile->content, O_RDONLY);
-		if (fd == -1)
+		if (file->category == OUTFILE)
 		{
-			init_error(exe, strerror(errno), infile->content, EXIT_FAILURE);
-			free_subshell_and_exit(exe);
+			if (exe->io_fd[1] != -1)
+				close (exe->io_fd[1]);
+			// if (access(file->content, F_OK) == 0)
+			// {
+			// 	if (access(file->content, W_OK) == -1)
+			// 	{
+			// 		init_error(exe, strerror(errno), file->content, EXIT_FAILURE);
+			// 		return (0);
+			// 	}
+			// }
+			exe->io_fd[1] = open(file->content, O_CREAT | O_WRONLY | O_TRUNC, 00666);
+			if (exe->io_fd[1] == -1)
+			{
+				init_error(exe, strerror(errno), file->content, EXIT_FAILURE);
+				return (0);
+			}
 		}
-		infile = infile->next;
-		if (infile)
-			close(fd);
+		if (file->category == APP_OUTFILE)
+		{
+			if (exe->io_fd[1] != -1)
+				close (exe->io_fd[1]);
+			// if (access(file->content, F_OK) == 0)
+			// {
+			// 	if (access(file->content, W_OK) == -1)
+			// 	{
+			// 		init_error(exe, strerror(errno), file->content, EXIT_FAILURE);
+			// 		return (0);
+			// 	}
+			// }
+			exe->io_fd[1] = open(file->content, O_CREAT | O_WRONLY | O_APPEND, 00666);
+			if (exe->io_fd[1] == -1)
+			{
+				init_error(exe, strerror(errno), file->content, EXIT_FAILURE);
+				return (0);
+			}
+		}
+		file = file->next;
 	}
-	return (fd);
-}
-
-static int	get_outfile_fd(t_exe *exe, t_outfile *outfile)
-{
-	int	fd;
-
-	// print_outfile(outfile);
-	if (!outfile)
-		return (-1);
-	while (outfile)
-	{
-		if (access(outfile->content, F_OK) == 0)
-		{
-			if (access(outfile->content, W_OK) == -1)
-			{
-				init_error(exe, strerror(errno), outfile->content, EXIT_FAILURE);
-				free_subshell_and_exit(exe);
-			}
-		}
-		if (!outfile->append)
-		{
-			// ft_printf("here in NOT append\n");
-			fd = open(outfile->content, O_CREAT | O_WRONLY | O_TRUNC, 00666);
-			if (fd == -1)
-			{
-				init_error(exe, strerror(errno), outfile->content, EXIT_FAILURE);
-				free_subshell_and_exit(exe);
-			}
-		}
-		else
-		{
-			// ft_printf("here in append\n");
-			fd = open(outfile->content, O_CREAT | O_WRONLY | O_APPEND, 00666);
-			if (fd == -1)
-			{
-				init_error(exe, strerror(errno), outfile->content, EXIT_FAILURE);
-				free_subshell_and_exit(exe);
-			}
-		}
-		outfile = outfile->next;
-		if (outfile)
-			close(fd);
-	}
-	// ft_printf("fd = %d\n", fd);
-	return (fd);
+	return (1);
 }
 
 static void	execute_command(t_entry *entry, t_exe *exe, char *command, int i)
@@ -116,7 +110,6 @@ static void	execute_command(t_entry *entry, t_exe *exe, char *command, int i)
 	if (exe->io_fd[1] != -1)
 		init_dup(exe, exe->io_fd[1], STDOUT_FILENO);
 	close_all_fd(exe);
-	// ft_fprintf(2, "Executing %s with %s and %s, infile: %d, outfile: %d\n", command, exe->cmd[0], exe->cmd[1], exe->io_fd[0], exe->io_fd[1]);
 	execve(command, exe->cmd, exe->env);
 	init_error(exe, strerror(errno), "execve", EXIT_FAILURE);
 	free_subshell_and_exit(exe);
@@ -126,15 +119,19 @@ void	exec_subshell(t_entry *entry, t_exe *exe, int i)
 {
 	char		*command;
 
-	if (exe->infile)
-		exe->io_fd[0] = get_infile_fd(exe, exe->infile);
-	if (exe->outfile)
-		exe->io_fd[1] = get_outfile_fd(exe, exe->outfile);
-	command = find_cmd(exe, exe->cmd);
-	if (!command)
-	{
-		init_error(exe, NULL, NULL, 0);
+	// printf("in exec sub, entry->exit = %d\n", entry->exit);
+	if (!get_files_fd(exe, exe->files))
 		free_subshell_and_exit(exe);
+	if (is_builtin(exe->cmd[0]))
+		handle_builtin(entry, exe, exe->cmd[0]);
+	else
+	{
+		command = find_cmd(exe, exe->cmd);
+		if (!command)
+		{
+			init_error(exe, NULL, NULL, 0);
+			free_subshell_and_exit(exe);
+		}
+		execute_command(entry, exe, command, i);
 	}
-	execute_command(entry, exe, command, i);
 }

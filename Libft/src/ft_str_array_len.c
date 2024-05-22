@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_infiles.c                                     :+:      :+:    :+:   */
+/*   ft_str_array_len.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 16:49:36 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 13:02:34 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/21 12:38:32 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/21 12:40:41 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-void	find_infiles(t_entry *entry, t_exe *exe, t_token *token)
+int	ft_str_array_len(char **array)
 {
-	t_infile	*new;
-
-	new = infile_new(entry, exe, token->content);
-	infile_addback(&(exe->infile), new);
+	int	len;
+	
+	if (array == NULL)
+		return (0);
+	len = 0;
+	while(array[len])
+		len++;
+	return (len);
 }
-

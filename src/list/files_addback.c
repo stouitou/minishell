@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   outfile_clear.c                                    :+:      :+:    :+:   */
+/*   file_addback.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 12:35:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 16:49:38 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/16 12:43:21 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/22 13:08:48 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	outfile_clear(t_outfile **outfile)
+void	files_addback(t_files **file, t_files *new)
 {
-	t_outfile	*cur;
-	t_outfile	*next;
+	t_files	*cur;
 
-	if (!*outfile)
+	// ft_printf("in addback, new->content = %s\n", new->content);
+	if (!file || !new)
 		return ;
-	// ft_printf("outfile in outfile clear = %p (%s)\n", *outfile, (*outfile)->content);
-	cur = *outfile;
-	while (cur)
+	if (!*file)
 	{
-		next = cur->next;
-		// ft_printf("In outfile clear, cur->content = %s\n", cur->content);
-		free(cur->content);
-		free(cur);
-		cur = next;
+		*file = new;
+		return ;
 	}
-	*outfile = NULL;
+	cur = *file;
+	while (cur->next)
+		cur = cur->next;
+	cur->next = new;
 }

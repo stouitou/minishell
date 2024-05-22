@@ -16,6 +16,9 @@
 [ ] retirer les entry dans exec subshell et execute command (param)
 [ ] retirer token dans exec subshell (param)
 [ ] isatty ?
+[ ] "bash" in error messages of exit builtins
+[ ] et le gcc?
+[ ] mettre le heredoc dans /tmp/heredoc
 
 
 /*

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:36:51 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 17:18:47 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:37:29 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	go_heredoc(t_entry *entry, t_token *cur)
 	char	*str;
 	char	*infile;
 	
-	fd = open("heredoc", O_CREAT | O_RDWR | O_TRUNC, 00666);
+	fd = open(H_FILE, O_CREAT | O_RDWR | O_TRUNC, 00666);
 	if (fd == -1)
 		free_token_and_exit(&(entry->token), strerror(errno), cur->content, 1);
 	entry->heredoc = true;
@@ -84,7 +84,7 @@ void	go_heredoc(t_entry *entry, t_token *cur)
 			write(fd, str, ft_strlen(str));
 		write(fd, "\n", 1);
 	}
-	infile = ft_strdup("heredoc");
+	infile = ft_strdup(H_FILE);
 	if (!infile)
 		free_token_and_exit(&(entry->token), strerror(errno), cur->content, 1);
 	close(fd);

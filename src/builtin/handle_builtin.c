@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   infile_addback.c                                   :+:      :+:    :+:   */
+/*   handle_builtin.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:31:15 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 12:02:33 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/21 12:25:04 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/22 15:49:47 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	infile_addback(t_infile **infile, t_infile *new)
+void	handle_builtin(t_entry *entry, t_exe *exe, char *command)
 {
-	t_infile	*cur;
-	
-	if (!infile || !new)
-		return ;
-	if (!*infile)
-	{
-		*infile = new;
-		return ;
-	}
-	cur = *infile;
-	while (cur->next)
-		cur = cur->next;
-	cur->next = new;
+	if (ft_strcmp(command, "exit") == 0)
+		handle_exit(entry, exe, exe->cmd);
 }

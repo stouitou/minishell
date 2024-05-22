@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:33:09 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/02 14:52:50 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:42:04 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char *charset);
 void	ft_free_str_array(char **array);
+int		ft_str_array_len(char **array);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);

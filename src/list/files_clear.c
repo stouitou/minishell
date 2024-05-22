@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_outfiles.c                                    :+:      :+:    :+:   */
+/*   file_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 16:49:36 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 13:02:47 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/16 12:35:26 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/22 13:28:54 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	find_outfiles(t_entry *entry, t_exe *exe, t_token *token)
+void	files_clear(t_files **file)
 {
-	t_outfile	*new;
+	t_files	*cur;
+	t_files	*next;
 
-	new = outfile_new(entry, exe, token);
-	outfile_addback(&(exe->outfile), new);
+	if (!*file)
+		return ;
+	// ft_printf("file in file clear = %p (%s)\n", *file, (*file)->content);
+	cur = *file;
+	while (cur)
+	{
+		next = cur->next;
+		// ft_printf("In file clear, cur->content = %s\n", cur->content);
+		free(cur->content);
+		free(cur);
+		cur = next;
+	}
+	*file = NULL;
 }
-

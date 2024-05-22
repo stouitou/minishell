@@ -1,1 +1,1 @@
-cat < infile | grep 3 >> stop > outfile
+ok

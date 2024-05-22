@@ -453,42 +453,111 @@ cat <infile << stop > outfile | cat john
 cat <infile << stop < john > outfile | cat john
 cat <infile < john > outfile | cat john
 cat < infile < john > outfile | cat john
-ls l
-| hola
-cat "" saluuuut
->>
->
 cat >
->
->
-<
->
->
->>
-<
-<<
->
->
->
->>
->
 cat john 
->
-cat john 
->
->
->
->
->
->
->
->
->
->
-<
-<<
->>
-echo $?
 cat infile << stop < ok | grep 0 > outfile
 cat < infile << stop < ok | grep 0 > outfile
-exit
+        
+>>>>>>
+>>>>>>>>>>>>>
+<<<<<<<<
+<<<<<<<<<<<<<<<<<<<
+\
+::
+;;
+()
+"hola"
+'hola'
+''
+*
+*/*
+.
+..
+~
+4ABC=hola
+hola
+hola que tal
+Makefile
+$?$?
+$HOMEdskjhfkdshfsd
+"$HOMEdskjhfkdshfsd"
+'$HOMEdskjhfkdshfsd'
+$DONTEXIST
+$LESS$VAR
+mkdir a
+ls hola
+./Makefile
+ifconfig | grep hola
+whoami | grep $USER
+cat < infile << stop >> outfile | grep 2 >> outfile2
+> new cat < infile < stop | grep is >> outfile2
+> new cat < infile << stop | grep is >> outfile2
+cat < infile < stop | < outfile grep me >> outfile2
+cat < infile << stop | grep 2 outfile
+cat << stop << stop2 | grep 2
+exit 42
+exit 3
+exit 8
+cat Makefile | exit 5
+cat Makefile | exit 5 6
+echo $? | exit bc
+exit 9 pg | ls
+exit 1 a
+exit a 1
+exit 13
+cat outfile | exit a
+cat outfile | exit 1 a
+cat outfile | exit 1
+cat Makefile | exit 1
+exit 1
+clear
+exit 50
+exit a
+exit w
+exit 5
+exit 500 > outfile9
+exit 4 82 6 2 4 p
+exit 4 5 p
+exit 5 6 p
+exit 1 2 p
+exit 5 78 12 4
+exit 5 78 12 4 p c
+exit fr 4
+exit p 1 51
+exit < infile > test3
+cat > outfile11 < infile45
+cat > src < infile45
+exit 2 8 6 4
+exit a 8 6 4
+exit < infile45
+exit < infile > outfile > outfile1 > src
+exit > src > outfile2
+exit p  25 15 a
+exit 123456879123546789123
+cat Makefile | exit > src
+exit 789
+exit 56 p
+exit p 56
+cat Makefile | exit 789
+cat Makefile | exit 789 | grep 21 > outfile5
+cat Makefile | exit 789 p | grep 21 > outfile5
+cat Makefile | exit p 789 | grep 21 > outfile5
+cat Makefile > outfile5 | exit | exit |exit 
+exit 12 12 | exit p | exit 5
+echo $/
+exit 12 12 | exit p | exit << stop
+exit << stop
+cat << stop | grep 2 >> outfile
+cat << stop | grep 2 >> outfile | exit 5
+exit exit
+exit 555 555
+echo hola > hello >> hello >> hello
+exit '666'"666"666
+exit +'666'"666"666
+exit 9223372036854775807
+exit -9223372036854775808
+exit -9223372036854775807
+exit -9223372036854775806
+ls -la > Docs/bonjour
+cat outfile > ./joe/tmp
+V

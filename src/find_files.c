@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   infile_clear.c                                    :+:      :+:    :+:   */
+/*   find_files.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:40:23 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 17:43:24 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/15 16:49:36 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/22 13:31:37 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	infile_clear(t_infile **infile)
+void	find_files(t_entry *entry, t_exe *exe, t_token *token)
 {
-	t_infile	*cur;
-	t_infile	*next;
-	
-	if (!*infile)
-		return ;
-	cur = *infile;
-	while (cur)
-	{
-		next = cur->next;
-		free(cur->content);
-		free(cur);
-		cur = next;
-	}
-	*infile = NULL;
+	t_files	*new;
+
+	new = files_new(entry, exe, token);
+	files_addback(&(exe->files), new);
 }
+

@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   outfile_addback.c                                  :+:      :+:    :+:   */
+/*   outfile_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 12:43:21 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 15:32:04 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/16 12:26:08 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/22 13:28:20 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	outfile_addback(t_outfile **outfile, t_outfile *new)
+t_files	*files_new(t_entry *entry, t_exe *exe, t_token *token)
 {
-	t_outfile	*cur;
+	t_files	*new;
 
-	// ft_printf("in addback, new->content = %s\n", new->content);
-	if (!outfile || !new)
-		return ;
-	if (!*outfile)
+	new = (t_files *)malloc(sizeof(t_files));
+	if (!new)
 	{
-		*outfile = new;
-		return ;
+		token_clear(&(entry->token));
+		free_exe(exe);
+		exit (EXIT_FAILURE);
 	}
-	cur = *outfile;
-	while (cur->next)
-		cur = cur->next;
-	cur->next = new;
+	new->content = ft_strdup(token->content);
+	if (!new->content)
+	{
+		free(new);
+		token_clear(&(entry->token));
+		free_exe(exe);
+		exit (EXIT_FAILURE);
+	}
+	new->category = token->category;
+	new->next = NULL;
+	return (new);
 }

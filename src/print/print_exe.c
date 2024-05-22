@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:34:57 by peoriou           #+#    #+#             */
-/*   Updated: 2024/05/17 13:03:45 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:46:20 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,53 +56,41 @@ static void	print_pipe(t_exe *exe)
 	// ft_printf("- pipe_fd1[0] = %?37d   |   pipe_fd1[1] = %?37d\n", exe->pipe_fd1[0], exe->pipe_fd1[1]);
 }
 
-static void	print_infile(t_infile *infile)
+static void	print_files(t_files *file)
 {
 	int	i;
+	const char *cat_strings[] = {
+		"",
+		"COMMAND",
+		"INFILE",
+		"OUTFILE",
+		"DELIMITER",
+		"APP_OUTFILE",
+		"OPTION",
+		"ARGUMENT",
+		"",
+		"",
+		"",
+		"",
+		"CONTROL OPERATOR",
+		"REDIRECTION OPERATOR"
+	};
 
 	i = 0;
-	if (!infile)
-		ft_printf("\033[30mno infile\033[0m\n");
+	if (!file)
+		ft_printf("\033[30mno file\033[0m\n");
 	else
 	{
-		while (infile)
+		while (file)
 		{
-			ft_printf("- \033[36minfile[%d]\033[0m = %s  |  ", i, infile->content);
-			infile = infile->next;
+			ft_printf("- \033[36mfile[%d] (%s)\033[0m = %s  ", i, cat_strings[file->category], file->content);
+			file = file->next;
+			if (file)
+				ft_printf("\033[36m|  \033[0m");
 			i++;
 		}
 	}
 	ft_printf("\n");
-}
-
-static void	print_outfile(t_outfile *outfile)
-{
-	int	i;
-
-	i = 0;
-	if (!outfile)
-		ft_printf("\033[30mno outfile\033[0m\n");
-	else
-	{
-		while (outfile)
-		{
-			if (outfile->append)
-				ft_printf("- \033[36moutfile[%d] (append)\033[0m = %s  |  ", i, outfile->content);
-			else
-				ft_printf("- \033[36moutfile[%d]\033[0m = %s  |  ", i, outfile->content);
-			outfile = outfile->next;
-			i++;
-		}
-	}
-	ft_printf("\n");
-}
-
-static void	print_files(t_exe *exe)
-{
-	if (exe->infile)
-		print_infile(exe->infile);
-	if (exe->outfile)
-		print_outfile(exe->outfile);
 }
 
 static void	print_iofd(t_exe *exe)
@@ -158,7 +146,7 @@ void	print_exe(t_entry *entry, t_token *token, t_exe *exe, int block)
 	check_error_envir(exe);
 	print_cmd(exe, exe->env);
 	print_pipe(exe);
-	print_files(exe);
+	print_files(exe->files);
 	print_iofd(exe);
 	print_footer();
 }

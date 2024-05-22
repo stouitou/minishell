@@ -15,17 +15,22 @@ TESTER_SRC =	log_tests.c \
 				log_status.c
 TESTER = ${addprefix ${TESTER_DIR}/, ${TESTER_SRC}}
 
+BUILTIN_DIR = builtin
+BUILTIN_SRC =	is_builtin.c \
+				handle_builtin.c \
+				handle_exit_in_parent.c \
+				handle_exit.c \
+				get_files_fd_for_exit.c
+BUILTIN = ${addprefix ${BUILTIN_DIR}/, ${BUILTIN_SRC}}
+
 LIST_DIR = list
 LIST_SRC =	token_new.c \
 			token_addback.c \
 			token_clear.c \
 			del_node.c \
-			infile_new.c \
-			infile_addback.c \
-			infile_clear.c \
-			outfile_new.c \
-			outfile_addback.c \
-			outfile_clear.c
+			files_new.c \
+			files_addback.c \
+			files_clear.c
 LIST = ${addprefix ${LIST_DIR}/, ${LIST_SRC}}
 
 INIT_DIR = init
@@ -49,7 +54,8 @@ FREE_SRC =	free_token_and_exit.c \
 			free_token_before_return.c \
 			free_exe.c \
 			free_cmd.c \
-			free_subshell_and_exit.c
+			free_subshell_and_exit.c \
+			exit_builtin.c
 FREE = ${addprefix ${FREE_DIR}/, ${FREE_SRC}}
 
 SRC =	minishell.c \
@@ -63,10 +69,10 @@ SRC =	minishell.c \
 		go_heredoc.c \
 		gather_indexes.c \
 		exec_token.c \
-		find_infiles.c \
-		find_outfiles.c \
+		find_files.c \
 		exec_subshell.c \
 		find_cmd.c \
+		${BUILTIN} \
 		${PRINT} \
 		${LIST} \
 		${INIT} \
