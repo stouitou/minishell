@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/22 16:07:44 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:16:30 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,7 @@ int			handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
 void		handle_builtin(t_entry *entry, t_exe *exe, char *command);
 void		handle_exit(t_entry *entry, t_exe *exe, char **cmd);
 int			get_files_fd_for_exit(t_exe *exe, t_files *file);
+void		handle_export(t_entry *entry, t_exe *exe, char **cmd, char **env);
 
 /* LIST */
 t_token		*token_new(int *ib);
