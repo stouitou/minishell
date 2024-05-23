@@ -1150,3 +1150,31 @@ vdmh djksb|          jkds
 
 john john"  | cat infile
 
+echo
+echo -e hello
+echo -n hello
+echo hello -n
+echo ""
+echo "hello" -n
+echo "$LANG"
+echo -pp ok
+exit | cat -e bonjour
+cat -e bonjour | exit
+echo | echo
+echo hello fine
+echo hello hello
+echo hello hello fine
+echo -n
+echo fine
+echo fine hello ok
+echo fine hello ok > bonjour
+echo fine2 hello2 ok2 >> bonjour
+echo -n ""
+echo -n "ok"
+echo -n " "
+echo hello "" fine
+echo hello  fine
+echo hello '' fine
+cat boujour | echo hello '' fine
+cat bonjour | echo hello '' fine
+echo hello '' fine | cat bonjour
