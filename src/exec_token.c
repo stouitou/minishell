@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:05:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/22 10:57:12 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:04:43 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	exec_token(t_entry *entry, t_token *token, char **env)
 	while (i < exe.blocks)
 	{
 		init_exe(entry, &exe, env, i);
+		// print_exe(entry, token, &exe, i);
 		if (handle_exit_in_parent(entry, &exe, exe.cmd))
 			break ;
 		if (i < (exe.blocks - 1) && (i % 2 == 0))
@@ -67,10 +68,7 @@ void	exec_token(t_entry *entry, t_token *token, char **env)
 			init_pipe(&token, &exe, exe.pipe_fd2);
 		exe.subshell = init_fork(&exe, &token);
 		if (exe.subshell == 0)
-		{
 			exec_subshell(entry, &exe, i);
-		}
-		// print_exe(entry, token, &exe, i);
 		free_exe(&exe);
 		close_pipe_fd_if_needed(&exe, i);
 		i++;

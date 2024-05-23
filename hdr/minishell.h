@@ -6,6 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/23 10:57:29 by stouitou         ###   ########.fr       */
 /*   Updated: 2024/05/23 12:16:01 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -164,6 +165,7 @@ void		handle_builtin(t_entry *entry, t_exe *exe, char *command);
 void		handle_echo(t_exe *exe, char **cmd);
 void		handle_exit(t_entry *entry, t_exe *exe, char **cmd);
 int			get_files_fd_for_exit(t_exe *exe, t_files *file);
+void		handle_env(char **cmd, char **env);
 
 /* LIST */
 t_token		*token_new(int *ib);

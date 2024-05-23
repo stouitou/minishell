@@ -21,7 +21,8 @@ BUILTIN_SRC =	is_builtin.c \
 				handle_exit_in_parent.c \
 				handle_echo.c \
 				handle_exit.c \
-				get_files_fd_for_exit.c
+				get_files_fd_for_exit.c \
+				handle_env.c
 BUILTIN = ${addprefix ${BUILTIN_DIR}/, ${BUILTIN_SRC}}
 
 LIST_DIR = list
