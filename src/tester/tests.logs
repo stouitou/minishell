@@ -1149,4 +1149,14 @@ echo hello  fine
 echo hello '' fine
 cat boujour | echo hello '' fine
 cat bonjour | echo hello '' fine
-echo hello '' fine | cat bonjour
+echo hello '' fine | cat bonjourecho hello | cat Makefile
+echo hello | cat $LANG
+cat Makefile | echo hello
+echo hello > outfile
+echo hello | grep hello | cat outfile
+echo hello | grep test > outfile
+echo hello | grep hello > outfile
+env > outfile
+env | grep PATH > outfile
+< infile env | grep PATH > outfile2
+< Makefile env | grep PATH > outfile2

@@ -630,3 +630,20 @@ echo hello '' fine | cat bonjour
 echo hello
 echo hello
 exit
+exit
+echo hello
+echo hello | cat Makefile
+echo hello | cat $LANG
+cat Makefile | echo hello
+echo hello > outfile
+echo hello | grep hello | cat outfile
+exit 8
+echo hello | grep test > outfile
+echo hello | grep hello > outfile
+exit
+env
+env > outfile
+env | grep PATH > outfile
+< infile env | grep PATH > outfile2
+< Makefile env | grep PATH > outfile2
+exit
