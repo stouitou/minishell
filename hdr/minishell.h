@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/22 16:07:44 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:35:30 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,7 @@ char		*find_cmd(t_exe *exe, char **cmd);
 bool		is_builtin(char *command);
 int			handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
 void		handle_builtin(t_entry *entry, t_exe *exe, char *command);
+void		handle_echo(t_entry *entry, t_exe *exe, char **cmd);
 void		handle_exit(t_entry *entry, t_exe *exe, char **cmd);
 int			get_files_fd_for_exit(t_exe *exe, t_files *file);
 
