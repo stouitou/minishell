@@ -6,13 +6,13 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:28:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/22 15:49:30 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 13:14:57 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	check_cmd_content(t_entry *entry, t_exe *exe, char *arg)
+static int	check_cmd_content(t_exe *exe, char *arg)
 {
 	int	i;
 	
@@ -25,7 +25,7 @@ static int	check_cmd_content(t_entry *entry, t_exe *exe, char *arg)
 		i++;
 	if (arg[i] != '\0')
 	{
-		entry->exit = true;
+		// entry->exit = true;
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
 	}
@@ -56,7 +56,7 @@ static int	iterate(char *nb)
 	return (i);
 }
 
-static int	check_exit_status(t_entry *entry, t_exe *exe, char *arg)
+static int	check_exit_status(t_exe *exe, char *arg)
 {
 	unsigned long	res;
 	int				i;
@@ -65,7 +65,7 @@ static int	check_exit_status(t_entry *entry, t_exe *exe, char *arg)
 	res = 0;
 	if (beyond_limits(arg + i))
 	{
-		entry->exit = true;
+		// entry->exit = true;
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
 	}
@@ -76,14 +76,14 @@ static int	check_exit_status(t_entry *entry, t_exe *exe, char *arg)
 	}
 	if (res > LONG_MAX)
 	{
-		entry->exit = true;
+		// entry->exit = true;
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
 	}
 	return (res % (unsigned)256);
 }
 
-void	handle_exit(t_entry *entry, t_exe *exe, char **cmd)
+void	handle_exit(t_exe *exe, char **cmd)
 {
 	int	exit_status;
 	int	ac;
@@ -94,13 +94,13 @@ void	handle_exit(t_entry *entry, t_exe *exe, char **cmd)
 	ac = ft_str_array_len(cmd);
 	if (ac > 1)
 	{
-		exit_status = check_cmd_content(entry, exe, cmd[1]);
+		exit_status = check_cmd_content(exe, cmd[1]);
 		if (!exit_status && ac > 2)
 		{
 			init_error(exe, "too many arguments", NULL, 2);
 			exit_builtin(exe, "exit");
 		}
-		exit_status = check_exit_status(entry, exe, cmd[1]);
+		exit_status = check_exit_status(exe, cmd[1]);
 	}
 	exit (exit_status);
 }

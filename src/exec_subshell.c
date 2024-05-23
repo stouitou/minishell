@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   exec_subshell.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 11:03:35 by stouitou         ###   ########.fr       */
-/*   Updated: 2024/05/23 10:41:08 by poriou           ###   ########.fr       */
+/*   Updated: 2024/05/23 13:11:23 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "minishell.h"
 
@@ -95,6 +95,8 @@ static void	execute_command(t_entry *entry, t_exe *exe, char *command, int i)
 	if (exe->io_fd[1] != -1)
 		init_dup(exe, exe->io_fd[1], STDOUT_FILENO);
 	close_all_fd(exe);
+	if (is_builtin(exe->cmd[0]))
+		handle_builtin(entry, exe, exe->cmd[0]);
 	execve(command, exe->cmd, exe->env);
 	init_error(exe, strerror(errno), "execve", EXIT_FAILURE);
 	free_subshell_and_exit(exe);
