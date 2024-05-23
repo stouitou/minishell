@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:03:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 11:30:45 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:42:14 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,8 @@ int	main(int argc, char **argv, char **env)
 		exec_token(&entry, entry.token, env);
 		log_status(entry.status);
 		clear_and_reset_status(&entry, &(entry.token));
-		// ft_printf("in minish.c prev_status = %d\n", entry.prev_status);
 		if (entry.exit == true)
 		{
-			// ft_printf("HERE\n");
 			rl_clear_history();
 			exit (entry.prev_status);
 		}
