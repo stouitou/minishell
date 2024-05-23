@@ -3,10 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:03:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/22 17:09:08 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:42:14 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:12:28 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +57,13 @@ int	main(int argc, char **argv, char **env)
 			log_status(entry.status);
 			reset_status(&entry);
 			continue ;
-		}	
+		}
 		handle_expansions(&entry, env);
 		classify_tokens(&entry);
 		// print_token(&entry, entry.token);
 		exec_token(&entry, entry.token, env);
 		log_status(entry.status);
 		clear_and_reset_status(&entry, &(entry.token));
-		// ft_printf("in minish.c prev_status = %d\n", entry.prev_status);
 		if (entry.exit == true)
 		{
 			rl_clear_history();
