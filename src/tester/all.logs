@@ -157,8 +157,8 @@ hello > bonjour
 hello > cat infile
 hello goodbye obladi > oblada
 echo -n fine | < hello cat > outfile | echo end >> outfile
-     
-				
+
+
 
 :
 \n
@@ -167,8 +167,6 @@ echo -n fine | < hello cat > outfile | echo end >> outfile
 <
 >>
 <>
->>>>>
->>>>>>>>>>>>>>>
 > > > >
 >> >> >> >>
 >>>> >> >> >>
@@ -356,13 +354,11 @@ john$HOME
 $?$
 ABC=hola
 ls -l eazidnazldnaeazeazeaz | vive le rock | do this << and that
-<<<<<
 <<
 bsd fhd > chdbsa << lbcd
 < infile cat hello | << pewpew cat > outfile >> outfile_app
 john >> bonjour | oui < non | encore << delliitter?
 < infile hdf -ds << hdbc | dhcb
-<<<<<<<<<<<<<<<<
 hello << john
 << efsjfsdfjsdlfdgjsgjslfgjvsfg
 john ls << youhou
@@ -454,14 +450,9 @@ cat <infile << stop < john > outfile | cat john
 cat <infile < john > outfile | cat john
 cat < infile < john > outfile | cat john
 cat >
-cat john 
+cat john
 cat infile << stop < ok | grep 0 > outfile
 cat < infile << stop < ok | grep 0 > outfile
-        
->>>>>>
->>>>>>>>>>>>>
-<<<<<<<<
-<<<<<<<<<<<<<<<<<<<
 \
 ::
 ;;
@@ -542,7 +533,7 @@ cat Makefile | exit 789
 cat Makefile | exit 789 | grep 21 > outfile5
 cat Makefile | exit 789 p | grep 21 > outfile5
 cat Makefile | exit p 789 | grep 21 > outfile5
-cat Makefile > outfile5 | exit | exit |exit 
+cat Makefile > outfile5 | exit | exit |exit
 exit 12 12 | exit p | exit 5
 echo $/
 exit 12 12 | exit p | exit << stop
@@ -602,4 +593,40 @@ env -i
 exit
 env
 env -i
+exit
+echo hola > bonjour
+echo hola > bonjour
+exit | cat -e bonjour
+echo hola > bonjour
+cat -e bonjour | exit
+cat -e bonjour | exit
+echo | echo
+echo
+echo hello fine
+echo hello
+echo hello hello
+echo hello hello
+echo hello hello fine
+echo
+echo -n
+echo -n
+echo
+echo fine
+echo fine hello ok
+echo fine hello ok > bonjour
+echo fine2 hello2 ok2 >> bonjour
+echo ""
+echo -n ""
+echo -n "ok"
+echo -n
+echo -n ""
+echo -n " "
+echo hello "" fine
+echo hello  fine
+echo hello '' fine
+cat boujour | echo hello '' fine
+cat bonjour | echo hello '' fine
+echo hello '' fine | cat bonjour
+echo hello
+echo hello
 exit

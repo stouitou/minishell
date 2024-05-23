@@ -1,0 +1,22 @@
+echo hola > bonjour
+exit | cat -e bonjour
+echo hola > bonjour
+cat -e bonjour | exit
+echo | echo
+echo hola | echo que tal
+pwd | echo hola
+env | echo hola
+echo oui | cat -e
+echo oui | echo non | echo hola | grep oui
+echo oui | echo non | echo hola | grep non
+echo oui | echo non | echo hola | grep hola
+echo hola | cat -e | cat -e | cat -e
+echo hello
+echo
+echo -e hello
+echo -n hello
+echo hello -n
+echo ""
+echo "$LANG"
+echo -pp ok
+echo $?

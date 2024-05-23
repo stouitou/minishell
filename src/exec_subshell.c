@@ -3,10 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   exec_subshell.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
 /*   Updated: 2024/05/23 11:03:35 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:41:08 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +50,6 @@ static int	get_files_fd(t_exe *exe, t_files *file)
 		{
 			if (exe->io_fd[1] != -1)
 				close (exe->io_fd[1]);
-			// if (access(file->content, F_OK) == 0)
-			// {
-			// 	if (access(file->content, W_OK) == -1)
-			// 	{
-			// 		init_error(exe, strerror(errno), file->content, EXIT_FAILURE);
-			// 		return (0);
-			// 	}
-			// }
 			exe->io_fd[1] = open(file->content, O_CREAT | O_WRONLY | O_TRUNC, 00666);
 			if (exe->io_fd[1] == -1)
 			{
@@ -68,14 +61,6 @@ static int	get_files_fd(t_exe *exe, t_files *file)
 		{
 			if (exe->io_fd[1] != -1)
 				close (exe->io_fd[1]);
-			// if (access(file->content, F_OK) == 0)
-			// {
-			// 	if (access(file->content, W_OK) == -1)
-			// 	{
-			// 		init_error(exe, strerror(errno), file->content, EXIT_FAILURE);
-			// 		return (0);
-			// 	}
-			// }
 			exe->io_fd[1] = open(file->content, O_CREAT | O_WRONLY | O_APPEND, 00666);
 			if (exe->io_fd[1] == -1)
 			{
