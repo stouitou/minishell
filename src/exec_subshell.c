@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/22 17:02:55 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:03:35 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ void	exec_subshell(t_entry *entry, t_exe *exe, int i)
 {
 	char		*command;
 
-	// printf("in exec sub, entry->exit = %d\n", entry->exit);
 	if (!get_files_fd(exe, exe->files))
 		free_subshell_and_exit(exe);
 	if (is_builtin(exe->cmd[0]))

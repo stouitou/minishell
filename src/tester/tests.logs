@@ -1150,3 +1150,10 @@ vdmh djksb|          jkds
 
 john john"  | cat infile
 
+cat Makefile | env
+env | grep MAIL > outfile
+env $PATH -i
+env $LANG -i
+echo "<"
+env $LANG
+exit 5 89
