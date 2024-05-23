@@ -1,1 +1,1 @@
-echo hello '' fine | cat bonjour
+echo hello

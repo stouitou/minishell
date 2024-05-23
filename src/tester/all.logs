@@ -594,3 +594,6 @@ echo hello '' fine
 cat boujour | echo hello '' fine
 cat bonjour | echo hello '' fine
 echo hello '' fine | cat bonjour
+echo hello
+echo hello
+exit
