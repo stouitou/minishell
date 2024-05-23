@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_builtin.c                                   :+:      :+:    :+:   */
+/*   handle_export.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 12:57:59 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 12:58:00 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/23 11:49:42 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/23 12:36:53 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	handle_builtin(t_entry *entry, t_exe *exe, char *command)
+void	handle_export(t_entry *entry, t_exe *exe, char **cmd, char **env)
 {
-	if (ft_strcmp(command, "exit") == 0)
-		handle_exit(entry, exe, exe->cmd);
-	if (ft_strcmp(command, "export") == 0)
-		handle_export(entry, exe, exe->cmd, exe->env);
-	if (ft_strcmp(command, "env") == 0)
-		handle_env(exe->cmd, exe->env);
-	if (ft_strcmp(command, "echo") == 0)
-		handle_echo(exe, exe->cmd);
-	exit (0);
-
+	int		ac;
+	
+	(void)entry;
+	(void)exe;
+	(void)env;
+	ac = ft_str_array_len(cmd);
+	if (ac != 2)
+		return ;
 }

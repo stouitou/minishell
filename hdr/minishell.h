@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 10:57:29 by stouitou         ###   ########.fr       */
-/*   Updated: 2024/05/23 12:16:01 by poriou           ###   ########.fr       */
+/*   Updated: 2024/05/23 12:51:11 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
