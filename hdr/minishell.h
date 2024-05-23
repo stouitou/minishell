@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 13:39:05 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 15:45:42 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # include <sys/wait.h>
 
 # ifndef PROMPT
-#  define PROMPT "minishell > "
+#  define PROMPT "\033[32mminishell > \033[0m"
 # endif
 
 # ifndef H_PROMPT

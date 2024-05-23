@@ -19,5 +19,5 @@ void	free_token_before_return(t_entry *entry, char *err, char *str, int error)
 		ft_fprintf(2, ": %s", str);
 	ft_fprintf(2, "\n");
 	entry->status = error;
-	token_clear(&(entry->token));
+	// token_clear(&(entry->token));
 }

@@ -1,3 +1,15 @@
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
 ""
 ls -l
 john
@@ -647,3 +659,69 @@ env | grep PATH > outfile
 < infile env | grep PATH > outfile2
 < Makefile env | grep PATH > outfile2
 exit
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | cat ok < << stop3
+<< stop1 << stop2 "cat Makefile << stop3
+>
+<< stop1 << stop2 > > "cat Makefile << stop3
+<< stop1 << stop2 | "cat Makefile" << stop3
+<< stop1 << stop2 | "cat Makefile" << stop3
+<< stop1 << stop2 | "cat Makefile" << stop3
+<< stop1 << stop2 | "cat Makefile" << stop3
+< Makefile cat | "ls
+< Makefile cat | << stop "ls
+<< stop1 cat | > < grep 1 << stop2 
+<< stop1 << stop2 | < << stop3
+echo $?
+<
+echo $?
+<
+<< stop1 << stop2 | < << stop3
+"hello'john'hello"
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+"oops
+$"HOME"
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | < << stop3
+cat infile
+ls - l
+cnd jckdsb
+>>>> >> >> >>
+ls -l -a >> john
+">>" john
+
+///////
+! test
+$home
+$home
+$home
+test 1
+test 1
+cat outfile
+cat infile

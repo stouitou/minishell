@@ -91,7 +91,7 @@ while IFS= read -r command; do
     minishell_status=$(<"$STATUS_LOGS_FILE")
 
     # Ajouter un délai pour permettre au terminal de traiter la commande
-    sleep 0.1
+    sleep 0.2
 
     # Exécuter la même commande dans le terminal et enregistrer l'output et le statut de retour
     terminal_output=$(eval "$command" 2>&1)

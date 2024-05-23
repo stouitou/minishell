@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:20:00 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 16:43:40 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/23 15:10:19 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static void	analyze_operator(t_token *cur, t_entry *entry)
 			|| (cur->next && ft_strncmp(cur->next->content, "|", 1) == 0))
 			{
 				free_token_before_return(entry, ERR_SYNTAX, cur->content, 2);
+				token_clear(&(cur->next));
+				cur->next = NULL;
 				return ;
 			}
 	}
@@ -51,6 +53,8 @@ static void	analyze_operator(t_token *cur, t_entry *entry)
 		{
 			// ft_printf("HERE\n");
 			free_token_before_return(entry, ERR_SYNTAX, cur->next->content, 2);
+			token_clear(&(cur->next));
+			cur->next = NULL;
 			return ;
 		}
 	}

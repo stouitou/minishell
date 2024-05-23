@@ -1160,3 +1160,19 @@ env > outfile
 env | grep PATH > outfile
 < infile env | grep PATH > outfile2
 < Makefile env | grep PATH > outfile2
+<< stop1 << stop2 | ls > << stop3
+<< stop1 << stop2 | < << stop3
+<< stop1 << stop2 | cat ok < << stop3
+<< stop1 << stop2 "cat Makefile << stop3
+<< stop1 << stop2 > > "cat Makefile << stop3
+<< stop1 << stop2 | "cat Makefile" << stop3
+< Makefile cat | "ls
+< Makefile cat | << stop "ls
+<< stop1 cat | > < grep 1 << stop2 
+super ça fonctionne
+entry->token->content
+-----------------------------
+"$ home"
+cat Makefile > outfile5 | exit | exit |exit
+echo hello '' fine | cat bonjour
+echo hello | cat Makefile

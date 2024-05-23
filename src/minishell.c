@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:03:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 11:42:14 by stouitou         ###   ########.fr       */
-/*   Updated: 2024/05/23 12:12:28 by poriou           ###   ########.fr       */
+/*   Updated: 2024/05/23 15:28:58 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "minishell.h"
 
@@ -52,14 +52,15 @@ int	main(int argc, char **argv, char **env)
 		log_tests(entry.str);
 		add_history(entry.str);
 		stash_str(&entry, &(entry.token), entry.str);
+		handle_expansions(&entry, env);
+		classify_tokens(&entry);
 		if (entry.status || !entry.token)
 		{
 			log_status(entry.status);
-			reset_status(&entry);
+			clear_and_reset_status(&entry, &(entry.token));
+			// reset_status(&entry);
 			continue ;
 		}
-		handle_expansions(&entry, env);
-		classify_tokens(&entry);
 		// print_token(&entry, entry.token);
 		exec_token(&entry, entry.token, env);
 		log_status(entry.status);
