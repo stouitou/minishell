@@ -17,8 +17,10 @@
 [ ] retirer token dans exec subshell (param)
 [ ] isatty ?
 [ ] "bash" in error messages of exit builtins
+[ ] alphanum + '_' and not only alpha + '_' in expansions
 [ ] et le gcc?
 [ ] mettre le heredoc dans /tmp/heredoc
+[ ] declare -x lang (call only "export" in bash)
 
 
 /*

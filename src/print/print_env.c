@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 12:20:02 by stouitou          #+#    #+#             */
-/*   Updated: 2024/04/16 12:22:39 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/24 16:30:07 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/24 16:33:23 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	print_env(char **env)
+void	print_env(t_env *env)
 {
-	int	i;
+	t_env	*cur;
+	int		i;
 
-	if (!env || !*env)
-		return ;
+	cur = env;
 	i = 0;
-	while (env[i])
+	while (cur)
 	{
-		ft_printf("env[%d]: %s\n", i, env[i]);
+		ft_printf("[%d] \033[32m%s\033[0m = %?33s\n", i, cur->key, cur->value);
+		cur = cur->next;
 		i++;
 	}
+	
 }

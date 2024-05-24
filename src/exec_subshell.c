@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 13:38:18 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:25:10 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ static int	get_files_fd(t_exe *exe, t_files *file)
 
 static void	execute_command(t_entry *entry, t_exe *exe, char *command, int i)
 {
-	(void)entry;
+	char	**env;
+	
 	// print_exe(entry, entry->token, exe, i);
 	if (i % 2 == 0)
 	{
@@ -95,9 +96,11 @@ static void	execute_command(t_entry *entry, t_exe *exe, char *command, int i)
 	if (exe->io_fd[1] != -1)
 		init_dup(exe, exe->io_fd[1], STDOUT_FILENO);
 	close_all_fd(exe);
+	env = upd_env(exe, exe->env);
 	if (is_builtin(exe->cmd[0]))
-		handle_builtin(exe, exe->cmd[0]);
-	execve(command, exe->cmd, exe->env);
+		handle_builtin(entry, exe, exe->cmd[0]);
+	// print_env(env);
+	execve(command, exe->cmd, env);
 	init_error(exe, strerror(errno), "execve", EXIT_FAILURE);
 	free_subshell_and_exit(exe);
 }

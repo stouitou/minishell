@@ -6,12 +6,43 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:03:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 15:28:58 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:13:13 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "minishell.h"
+
+static char	**dup_env(char **env)
+{
+	char	**new;
+	int		i;
+	int 	arr_len;
+
+	arr_len = ft_str_array_len(env);
+	new = (char **)malloc((arr_len + 1) * sizeof(char *));
+	if (!new)
+		exit (EXIT_FAILURE);
+	i = 0;
+	while (env[i])
+	{
+		new[i] = ft_strdup(env[i]);
+		if (!new[i])
+		{
+			while (i)
+			{
+				free(new[i]);
+				i--;
+			}
+			free(new);
+			new = NULL;
+			exit (1);
+		}
+		i++;
+	}
+	new[i] = NULL;
+	return (new);
+}
 
 static void	init_entry(t_entry *entry, char **env)
 {
@@ -21,7 +52,8 @@ static void	init_entry(t_entry *entry, char **env)
 	entry->prev_status = 0;
 	entry->status = 0;
 	entry->exit = false;
-	entry->env = env;
+	entry->env = NULL;
+	entry->env = dup_env(env);
 }
 
 static void	reset_status(t_entry *entry)
@@ -62,7 +94,7 @@ int	main(int argc, char **argv, char **env)
 			continue ;
 		}
 		// print_token(&entry, entry.token);
-		exec_token(&entry, entry.token, env);
+		exec_token(&entry, entry.token);
 		log_status(entry.status);
 		clear_and_reset_status(&entry, &(entry.token));
 		if (entry.exit == true)

@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_env.c                                       :+:      :+:    :+:   */
+/*   print_tab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 10:42:06 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/24 12:40:32 by stouitou         ###   ########.fr       */
+/*   Created: 2024/04/16 12:20:02 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/24 16:35:51 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	handle_env(char **cmd, t_env *env)
+void	print_tab(char **env)
 {
-	if (!env || cmd[1])
-		return;
-	while (env)
+	int	i;
+
+	if (!env || !*env)
+		return ;
+	i = 0;
+	while (env[i])
 	{
-		ft_printf("%s=%s\n", env->key, env->value);
-		env = env->next;
+		ft_printf("env[%d]: %s\n", i, env[i]);
+		i++;
 	}
 }

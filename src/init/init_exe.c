@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:50:01 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/22 13:05:50 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:39:37 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static void	upd_exe(t_entry *entry, t_exe *exe, t_token *token, int i)
 {
 	int		j;
 
+	set_env(entry, exe);
 	j = 0;
 	while (token && token->block < i)
 		token = token->next;
@@ -80,9 +81,9 @@ static void	upd_exe(t_entry *entry, t_exe *exe, t_token *token, int i)
 		exe->cmd[j] = NULL;
 }
 
-void	init_exe(t_entry *entry, t_exe *exe, char **env, int i)
+void	init_exe(t_entry *entry, t_exe *exe, int i)
 {
-	exe->env = env;
+	exe->env = NULL;
 	exe->files = NULL;
 	exe->io_fd[0] = -1;
 	exe->io_fd[1] = -1;

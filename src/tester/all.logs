@@ -725,3 +725,61 @@ test 1
 test 1
 cat outfile
 cat infile
+env
+env
+env
+env
+env | cat Makefile
+< infile env
+env > outfile
+env
+cat infile
+cat Makefile
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+export TEST=abc
+env
+export
+export TEST=abc
+env
+export LANG=en
+env
+env
+export USER=poriou
+env
+export USER=poriou
+export USER=poriou
+env
+export TEST=abc
+env
+export USER=poriou
+env
+export USER=poriou
+env
+export PORIOU=poriou
+env
+clear
+env
+export PORIOU=poriou
+env
+export TEST=OK
+export TEST=OK
+export TEST=test
+export TEST=test
+export TEST=test
+export TEST=test
+export TEST=test
+export test=test
+export test=test
+export test=test
+export test=test
+export test=test
+env
+exit < outfile > infile

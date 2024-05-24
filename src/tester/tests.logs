@@ -1176,3 +1176,13 @@ entry->token->content
 cat Makefile > outfile5 | exit | exit |exit
 echo hello '' fine | cat bonjour
 echo hello | cat Makefile
+env | cat Makefile
+< infile env
+export TEST=abc
+export LANG=en
+export USER=poriou
+export PORIOU=poriou
+export TEST=OK
+export TEST=test
+export test=test
+exit < outfile > infile

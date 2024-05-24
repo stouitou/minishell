@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 12:44:00 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/13 12:31:22 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:33:53 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	*check_path(t_exe *exe, char *cmd)
 	char	*command;
 	char	*pathes;
 
-	if (!(*(exe->env)))
+	if (!exe->env)
 	{
 		init_error(exe, ERR_CMD, cmd, 127);
 		free_subshell_and_exit(exe);

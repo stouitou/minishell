@@ -2,7 +2,8 @@ NAME = minishell
 
 SRC_DIR = src
 PRINT_DIR = print
-PRINT_SRC =	print_env.c \
+PRINT_SRC =	print_tab.c \
+			print_env.c \
 			print_full_command.c \
 			print_utils.c \
 			print_token.c \
@@ -33,7 +34,11 @@ LIST_SRC =	token_new.c \
 			del_node.c \
 			files_new.c \
 			files_addback.c \
-			files_clear.c
+			files_clear.c \
+			env_new.c \
+			env_addback.c \
+			env_size.c \
+			env_clear.c
 LIST = ${addprefix ${LIST_DIR}/, ${LIST_SRC}}
 
 INIT_DIR = init
@@ -49,7 +54,8 @@ UTILS_SRC =	skip_whitespace.c \
 			close_both_fd.c \
 			close_all_fd.c \
 			remove_node.c \
-			upd_token_heads_and_indexes.c
+			upd_token_heads_and_indexes.c \
+			upd_env.c
 UTILS = ${addprefix ${UTILS_DIR}/, ${UTILS_SRC}}
 
 FREE_DIR = free
@@ -72,6 +78,7 @@ SRC =	minishell.c \
 		go_heredoc.c \
 		gather_indexes.c \
 		exec_token.c \
+		set_env.c \
 		find_files.c \
 		exec_subshell.c \
 		find_cmd.c \

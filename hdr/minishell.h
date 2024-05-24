@@ -6,12 +6,9 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 15:45:42 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:34:14 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
@@ -119,9 +116,16 @@ typedef struct s_files
 	struct s_files	*next;
 }					t_files;
 
+typedef struct s_env
+{
+	char			*key;
+	char			*value;
+	struct s_env	*next;
+}					t_env;
+
 typedef struct s_exe
 {
-	char		**env;
+	t_env		*env;
 	int			blocks;
 	int			pipe_fd1[2];
 	int			pipe_fd2[2];
@@ -155,7 +159,8 @@ void		expand_token(t_entry *entry, t_token *token, char **env);
 void		classify_tokens(t_entry *entry);
 void		go_heredoc(t_entry *entry, t_token *cur);
 void		gather_indexes(t_entry *entry, t_token *cur);
-void		exec_token(t_entry *entry, t_token *token, char **env);
+void		exec_token(t_entry *entry, t_token *token);
+void		set_env(t_entry *entry, t_exe *exe);
 void		find_files(t_entry *entry, t_exe *exe, t_token *token);
 void		exec_subshell(t_entry *entry, t_exe *exe, int i);
 char		*find_cmd(t_exe *exe, char **cmd);
@@ -163,12 +168,12 @@ char		*find_cmd(t_exe *exe, char **cmd);
 /* BUILTIN */
 bool		is_builtin(char *command);
 int			handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
-void		handle_builtin(t_exe *exe, char *command);
+void		handle_builtin(t_entry *entry, t_exe *exe, char *command);
 void		handle_echo(t_exe *exe, char **cmd);
-void		handle_export(t_exe *exe, char **cmd, char **env);
+void		handle_export(t_exe *exe, char **cmd, t_env *env);
 void		handle_exit(t_exe *exe, char **cmd);
 int			get_files_fd_for_exit(t_exe *exe, t_files *file);
-void		handle_env(char **cmd, char **env);
+void		handle_env(char **cmd, t_env *env);
 
 /* LIST */
 t_token		*token_new(int *ib);
@@ -178,9 +183,13 @@ void		del_node(t_token **node);
 t_files		*files_new(t_entry *entry, t_exe *exe, t_token *token);
 void		files_addback(t_files **file, t_files *new);
 void		files_clear(t_files **file);
+t_env		*env_new(char *key, char *value);
+void		env_addback(t_env **env, t_env *new);
+int			env_size(t_env *env);
+void		env_clear(t_env **env);
 
 /* INIT */
-void		init_exe(t_entry *entry, t_exe *exe, char **env, int i);
+void		init_exe(t_entry *entry, t_exe *exe, int i);
 void		init_pipe(t_token **token, t_exe *exe, int *pipe_fd);
 pid_t		init_fork(t_exe *exe, t_token **token);
 void		init_dup(t_exe *exe, int old_fd, int new_fd);
@@ -192,6 +201,7 @@ void		close_both_fd(int fd1, int fd2);
 void		close_all_fd(t_exe *exe);
 void		remove_node(t_token **token, t_token *cur);
 void		upd_token_heads_and_indexes(t_token *token);
+char		**upd_env(t_exe *exe, t_env *env);
 
 /* FREE */
 void		free_token_and_exit(t_token **token, char *err, char *str, int status);
@@ -202,7 +212,8 @@ void		free_subshell_and_exit(t_exe *exe);
 void		exit_builtin(t_exe *exe, char *builtin);
 
 /* PRINT */
-void		print_env(char **env);
+void		print_tab(char **env);
+void		print_env(t_env *env);
 void		print_full_command(t_entry *entry, t_token *token);
 void		print_token(t_entry *entry, t_token *token);
 void		print_block(t_token *token);

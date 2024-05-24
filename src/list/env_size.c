@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_env.c                                       :+:      :+:    :+:   */
+/*   env_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 10:42:06 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/24 12:40:32 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/24 12:41:24 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/24 12:41:35 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	handle_env(char **cmd, t_env *env)
+int	env_size(t_env *env)
 {
-	if (!env || cmd[1])
-		return;
+	int	size;
+
+	size = 0;
 	while (env)
 	{
-		ft_printf("%s=%s\n", env->key, env->value);
+		size++;
 		env = env->next;
 	}
+	return (size);
 }

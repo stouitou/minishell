@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:34:57 by peoriou           #+#    #+#             */
-/*   Updated: 2024/05/22 13:46:20 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:35:58 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	print_footer(void)
 
 static void	check_error_envir(t_exe *exe)
 {
-	if (*(exe->env) == NULL)
+	if (exe->env == NULL)
 	{
 		ft_printf("%?31s\n", "- Environment is NULL.");
 		return ;
@@ -101,7 +101,7 @@ static void	print_iofd(t_exe *exe)
 		ft_printf("  • \033[36moutfile fd\033[0m => %d\n", exe->io_fd[1]);
 }
 
-static void	print_cmd(t_exe *exe, char **env)
+static void	print_cmd(t_exe *exe, t_env *env)
 {
 	char	**cmd;
 	int		i;
@@ -113,7 +113,7 @@ static void	print_cmd(t_exe *exe, char **env)
 	}
 	i = 0;
 	cmd = exe->cmd;
-	if (!*env)
+	if (!env)
 		ft_printf("%s\n", "- execve (cmd[0] ,  \033[32mcmd\033[0m ,  \033[31menv\033[0m) :");
 	else
 		ft_printf("%s\n", "- execve (cmd[0] ,  \033[32mcmd\033[0m ,  \033[32menv\033[0m) :");
