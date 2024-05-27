@@ -6,13 +6,13 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:48:21 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/13 13:38:01 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:14:02 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	init_pipe(t_token **token, t_exe *exe, int *pipe_fd)
+void	init_pipe(t_entry *entry, t_exe *exe, int *pipe_fd)
 {
 	int ret;
 
@@ -21,6 +21,6 @@ void	init_pipe(t_token **token, t_exe *exe, int *pipe_fd)
 	if (ret == -1)
 	{
 		free_exe(exe);
-		free_token_and_exit(token, strerror(errno), NULL, EXIT_FAILURE);
+		free_token_and_exit(entry, strerror(errno), NULL, EXIT_FAILURE);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:52:23 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/17 11:14:57 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:30:59 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static int	get_token(const char *str, t_entry *entry, t_token *new, char *set)
 	}
 	dup = ft_strndup(str, i);
 	if (!dup)
-		free_token_and_exit(&(entry->token), ERR_MALLOC, (char *)str, 1);
+		free_token_and_exit(entry, ERR_MALLOC, (char *)str, 1);
 	new->content = ft_strtrim(dup, set);
 	free(dup);
 	if (!new->content)
-		free_token_and_exit(&(entry->token), ERR_MALLOC, (char *)str, 1);
+		free_token_and_exit(entry, ERR_MALLOC, (char *)str, 1);
 	if (new->quotes)
 		i++;
 	new->type = WORD;
@@ -55,4 +55,3 @@ void	handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i)
 	else
 		*i += get_token(str + *i, entry, new, " \t\n\v|<>\"'");
 }
-

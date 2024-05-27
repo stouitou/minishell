@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:46:16 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/24 11:40:03 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:11:08 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	*extract_key(t_entry *entry, char *str)
 		i++;
 	key = ft_strndup(str, i);
 	if (!key)
-		free_token_and_exit(&(entry->token), ERR_MALLOC, str, EXIT_FAILURE);
+		free_token_and_exit(entry, ERR_MALLOC, str, EXIT_FAILURE);
 	return (key);
 }
 
@@ -40,7 +40,7 @@ static char	*extract_value(t_entry *entry, char *str)
 		i++;
 	value = ft_strdup(str + i + 1);
 	if (!value)
-		free_token_and_exit(&(entry->token), ERR_MALLOC, str, EXIT_FAILURE);
+		free_token_and_exit(entry, ERR_MALLOC, str, EXIT_FAILURE);
 	return (value);
 }
 
@@ -60,7 +60,7 @@ void	set_env(t_entry *entry, t_exe *exe)
 		value = extract_value(entry, entry->env[i]);
 		new = env_new(key, value);
 		if (!new)
-			free_token_and_exit(&(entry->token), ERR_MALLOC, entry->env[i], EXIT_FAILURE);
+			free_token_and_exit(entry, ERR_MALLOC, entry->env[i], EXIT_FAILURE);
 		env_addback(&env, new);
 		i++;
 	}

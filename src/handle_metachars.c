@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:52:23 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/15 17:19:06 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:10:40 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*protected_strdup(t_entry *entry, char *str)
 		return (NULL);
 	dup = ft_strdup(str);
 	if (!dup)
-		free_token_and_exit(&(entry->token), ERR_MALLOC, str, 1);
+		free_token_and_exit(entry, ERR_MALLOC, str, 1);
 	return (dup);
 }
 

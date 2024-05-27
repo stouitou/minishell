@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/24 16:34:14 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:39:40 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,16 +162,18 @@ void		gather_indexes(t_entry *entry, t_token *cur);
 void		exec_token(t_entry *entry, t_token *token);
 void		set_env(t_entry *entry, t_exe *exe);
 void		find_files(t_entry *entry, t_exe *exe, t_token *token);
-void		exec_subshell(t_entry *entry, t_exe *exe, int i);
+void		exec_subshell(t_exe *exe, int i, int prev_status);
 char		*find_cmd(t_exe *exe, char **cmd);
 
 /* BUILTIN */
 bool		is_builtin(char *command);
 int			handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
-void		handle_builtin(t_entry *entry, t_exe *exe, char *command);
+int			handle_export_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+void		handle_builtin(t_exe *exe, char *command, int prev_status);
 void		handle_echo(t_exe *exe, char **cmd);
 void		handle_export(t_exe *exe, char **cmd, t_env *env);
-void		handle_exit(t_exe *exe, char **cmd);
+void		export_only(t_exe *exe, t_env *env);
+void		handle_exit(t_exe *exe, char **cmd, int prev_status);
 int			get_files_fd_for_exit(t_exe *exe, t_files *file);
 void		handle_env(char **cmd, t_env *env);
 
@@ -189,9 +191,9 @@ int			env_size(t_env *env);
 void		env_clear(t_env **env);
 
 /* INIT */
-void		init_exe(t_entry *entry, t_exe *exe, int i);
-void		init_pipe(t_token **token, t_exe *exe, int *pipe_fd);
-pid_t		init_fork(t_exe *exe, t_token **token);
+void		init_exe(t_entry *entry, t_token *token, t_exe *exe, int i);
+void		init_pipe(t_entry *entry, t_exe *exe, int *pipe_fd);
+pid_t		init_fork(t_exe *exe, t_entry *entry);
 void		init_dup(t_exe *exe, int old_fd, int new_fd);
 void		init_error(t_exe *exe, char *msg, char *data, int status);
 
@@ -204,7 +206,7 @@ void		upd_token_heads_and_indexes(t_token *token);
 char		**upd_env(t_exe *exe, t_env *env);
 
 /* FREE */
-void		free_token_and_exit(t_token **token, char *err, char *str, int status);
+void		free_token_and_exit(t_entry *entry, char *err, char *str, int status);
 void		free_token_before_return(t_entry *entry, char *err, char *str, int error);
 void		free_exe(t_exe *exe);
 void		free_cmd(char **cmd);

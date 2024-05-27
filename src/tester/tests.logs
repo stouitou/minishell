@@ -1186,3 +1186,70 @@ export TEST=OK
 export TEST=test
 export test=test
 exit < outfile > infile
+export TEST1=test
+xport TEST1=test
+export TEST1=test TEST2=test2
+export TEST1=test TEST2=test2 TEST3
+export TEST1=test TEST2=test2 TEST3 TEST4=test4
+export TEST1=test TEST2+=complete TEST3 TEST4=test4
+export TESxport TEST1=test TEST2+=complete TEST3 TEST4=test4
+export TEST1=test1 TEST2=test2
+export TEST1=test1 TEST2+=complete2
+export TEST1+=test1
+export TEST1+=complete1
+export TEST1=ok
+export TEST1=
+export TEST1=test1
+export TEST+=end
+export TEST+=end NO
+export TEST+=end NO YES=yes
+export TEST=end NO YES=yes
+export TEST=test TEST2=test2 TEST3+=test3
+export TEST=$LANG
+echo $TEST
+echo $LAMG
+echo $LQNGTEST
+echo $LANGTEST
+export TEST=test1
+export OK
+export ""
+export ERERWREW
+export                  HOLA=bonjour
+export Hola
+export $DONTEXIST
+export | grep "HOME"
+export =
+export %
+export $?
+export 5
+cati
+cat infile | exit
+export ?=2
+export 9HOLA=
+export HOLA9=bonjour
+export _HOLA=bonjour
+export ___HOLA=bonjour
+export ___HOL@=bonjour
+export -HOL@=bonjour
+export -HOLA=bonjour
+export KEY
+export KEy
+export KEY=
+export TEST
+export TEST1=test1 OK TEST2=test2
+export TEST1=test1 =OK TEST2=test2
+export TEST1=test1 =OK TEST44444444=test44444444
+export HO$?LA=bonjour
+export $?HOLA=bonjour
+export +HOLA=bonjour
+exportHOLA
+export HOLA =bonjour
+export HOLA = bonjour
+export TEST1=test1 = TEST2=test2
+export HOLA=bon jour
+export HOLA=bon\jour
+export HOLA=bon""jour""
+export HOLA$USER=bonjour
+export HOLA=""cat Makefile | grep NAME""  
+echo 
+"echo "

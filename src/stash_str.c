@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 14:34:03 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 15:07:34 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:12:34 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	init_index_and_block(int ib[2])
 	ib[1] = 0;
 }
 
-static void	close_tokens(t_token **token, int *ib)
+static void	close_tokens(t_entry *entry, t_token **token, int *ib)
 {
 	t_token	*new;
 	char	*nl;
@@ -32,19 +32,19 @@ static void	close_tokens(t_token **token, int *ib)
 		return ;
 	new->content = ft_strdup(nl);
 	if (!new->content)
-		free_token_and_exit(token, ERR_MALLOC, nl, EXIT_FAILURE);
+		free_token_and_exit(entry, ERR_MALLOC, nl, EXIT_FAILURE);
 	new->type = OPERATOR;
 	new->category = CTL_OP;
 	token_addback(token, new);
 }
 
-static t_token	*create_new_token(t_token **token, int ib[2], char *str)
+static t_token	*create_new_token(t_entry *entry, int ib[2], char *str)
 {
 	t_token	*new;
 
 	new = token_new(ib);
 	if (!new)
-		free_token_and_exit(token, ERR_MALLOC, str, EXIT_FAILURE);
+		free_token_and_exit(entry, ERR_MALLOC, str, EXIT_FAILURE);
 	return (new);
 }
 
@@ -69,7 +69,7 @@ void	stash_str(t_entry *entry, t_token **token, char *str)
 	skip_whitespace(str, &i);
 	while (str[i])
 	{
-		new = create_new_token(token, ib, str);
+		new = create_new_token(entry, ib, str);
 		token_addback(token, new);
 		if (ft_ischarset(str[i], METACHARACTER))
 			handle_metachars(entry, new, &i, ib);
@@ -79,6 +79,6 @@ void	stash_str(t_entry *entry, t_token **token, char *str)
 			return ;
 		update_index_and_move_forward(str, &i, &ib[0]);
 	}
-	close_tokens(token, ib);
+	close_tokens(entry, token, ib);
 	analyze_syntax(entry);
 }

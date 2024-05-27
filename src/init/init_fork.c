@@ -6,13 +6,13 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:58:56 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/13 13:36:35 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:13:41 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-pid_t	init_fork(t_exe *exe, t_token **token)
+pid_t	init_fork(t_exe *exe, t_entry *entry)
 {
 	pid_t	pid;
 
@@ -28,7 +28,7 @@ pid_t	init_fork(t_exe *exe, t_token **token)
 		if (exe->pipe_fd2[1] != -1)
 			close(exe->pipe_fd2[1]);
 		free_exe(exe);
-		free_token_and_exit(token, strerror(errno), NULL, EXIT_FAILURE);
+		free_token_and_exit(entry, strerror(errno), NULL, EXIT_FAILURE);
 	}
 	return (pid);
 }

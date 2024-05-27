@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:36:51 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/21 11:37:29 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:10:22 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void extract_expand(t_entry *entry, char *str, int *index, int fd)
 	*index += i;
 	dup = ft_strndup(str + 1, i - 1);
 	if (!dup)
-		free_token_and_exit(&(entry->token), ERR_MALLOC, str, EXIT_FAILURE);
+		free_token_and_exit(entry, ERR_MALLOC, str, EXIT_FAILURE);
 	var = getenv(dup);
 	if (var)
 		ft_fprintf(fd, var);
@@ -71,7 +71,7 @@ void	go_heredoc(t_entry *entry, t_token *cur)
 	
 	fd = open(H_FILE, O_CREAT | O_RDWR | O_TRUNC, 00666);
 	if (fd == -1)
-		free_token_and_exit(&(entry->token), strerror(errno), cur->content, 1);
+		free_token_and_exit(entry, strerror(errno), cur->content, 1);
 	entry->heredoc = true;
 	while (1)
 	{
@@ -86,7 +86,7 @@ void	go_heredoc(t_entry *entry, t_token *cur)
 	}
 	infile = ft_strdup(H_FILE);
 	if (!infile)
-		free_token_and_exit(&(entry->token), strerror(errno), cur->content, 1);
+		free_token_and_exit(entry, strerror(errno), cur->content, 1);
 	close(fd);
 	free(cur->content);
 	cur->content = infile;

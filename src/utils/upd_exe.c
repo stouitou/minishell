@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:15:22 by stouitou          #+#    #+#             */
-/*   Updated: 2024/04/30 15:34:14 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:14:20 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	**init_cmd(t_entry *entry, t_token *token)
 	}
 	cmd = (char **)malloc(sizeof(char *) * (elems + 1));
 	if (!cmd)
-		free_token_and_exit(&(entry->token), ERR_MALLOC, NULL, EXIT_FAILURE);
+		free_token_and_exit(entry, ERR_MALLOC, NULL, EXIT_FAILURE);
 	return (cmd);
 }
 
@@ -58,7 +58,7 @@ void	upd_exe(t_entry *entry, t_exe *exe, t_token *token, int i)
 			if (!exe->cmd[j])
 			{
 				free_cmd(exe->cmd);
-				free_token_and_exit(&(entry->token), ERR_MALLOC, token->content, EXIT_FAILURE);
+				free_token_and_exit(entry, ERR_MALLOC, token->content, EXIT_FAILURE);
 			}
 			j++;
 		}

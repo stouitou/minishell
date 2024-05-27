@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:50:01 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/24 11:39:37 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:54:55 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static char	**init_cmd(t_entry *entry, t_exe *exe, t_token *token)
 	if (!cmd)
 	{
 		free_exe(exe);
-		free_token_and_exit(&(entry->token), ERR_MALLOC, NULL, EXIT_FAILURE);
+		free_token_and_exit(entry, ERR_MALLOC, NULL, EXIT_FAILURE);
 	}
 	return (cmd);
 }
@@ -49,7 +49,7 @@ static char	*protected_strdup(t_entry *entry, t_exe *exe, char *str)
 	if (!dup)
 	{
 		free_exe(exe);
-		free_token_and_exit(&(entry->token), ERR_MALLOC, str, 1);
+		free_token_and_exit(entry, ERR_MALLOC, str, 1);
 	}
 	return (dup);
 }
@@ -81,12 +81,12 @@ static void	upd_exe(t_entry *entry, t_exe *exe, t_token *token, int i)
 		exe->cmd[j] = NULL;
 }
 
-void	init_exe(t_entry *entry, t_exe *exe, int i)
+void	init_exe(t_entry *entry, t_token *token, t_exe *exe, int i)
 {
 	exe->env = NULL;
 	exe->files = NULL;
 	exe->io_fd[0] = -1;
 	exe->io_fd[1] = -1;
 	exe->cmd = NULL;
-	upd_exe(entry, exe, entry->token, i);
+	upd_exe(entry, exe, token, i);
 }

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 10:36:20 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 11:02:57 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:55:39 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd)
 		return (1);
 	}
 	write(2, "exit\n", 5);
-	exit_status = 0;
+	exit_status = entry->prev_status;
 	entry->exit = true;
 	ac = ft_str_array_len(cmd);
 	if (ac > 1)

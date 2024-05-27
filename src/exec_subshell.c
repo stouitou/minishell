@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/24 16:25:10 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:06:54 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,10 @@ static int	get_files_fd(t_exe *exe, t_files *file)
 	return (1);
 }
 
-static void	execute_command(t_entry *entry, t_exe *exe, char *command, int i)
+static void	execute_command(t_exe *exe, char *command, int i, int prev_status)
 {
 	char	**env;
 	
-	// print_exe(entry, entry->token, exe, i);
 	if (i % 2 == 0)
 	{
 		if (i)
@@ -98,14 +97,14 @@ static void	execute_command(t_entry *entry, t_exe *exe, char *command, int i)
 	close_all_fd(exe);
 	env = upd_env(exe, exe->env);
 	if (is_builtin(exe->cmd[0]))
-		handle_builtin(entry, exe, exe->cmd[0]);
+		handle_builtin(exe, exe->cmd[0], prev_status);
 	// print_env(env);
 	execve(command, exe->cmd, env);
 	init_error(exe, strerror(errno), "execve", EXIT_FAILURE);
 	free_subshell_and_exit(exe);
 }
 
-void	exec_subshell(t_entry *entry, t_exe *exe, int i)
+void	exec_subshell(t_exe *exe, int i, int prev_status)
 {
 	char		*command;
 
@@ -121,5 +120,5 @@ void	exec_subshell(t_entry *entry, t_exe *exe, int i)
 			free_subshell_and_exit(exe);
 		}
 	}
-	execute_command(entry, exe, command, i);
+	execute_command(exe, command, i, prev_status);
 }

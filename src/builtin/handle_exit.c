@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:28:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 13:14:57 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:01:01 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,14 @@ static int	check_exit_status(t_exe *exe, char *arg)
 	return (res % (unsigned)256);
 }
 
-void	handle_exit(t_exe *exe, char **cmd)
+void	handle_exit(t_exe *exe, char **cmd, int prev_status)
 {
 	int	exit_status;
 	int	ac;
 
 	if (!get_files_fd_for_exit(exe, exe->files))
 		exit (1);
-	exit_status = 0;
+	exit_status = prev_status;
 	ac = ft_str_array_len(cmd);
 	if (ac > 1)
 	{

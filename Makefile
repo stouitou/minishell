@@ -20,6 +20,8 @@ BUILTIN_DIR = builtin
 BUILTIN_SRC =	is_builtin.c \
 				handle_builtin.c \
 				handle_exit_in_parent.c \
+				handle_export_in_parent.c \
+				export_only.c \
 				handle_echo.c \
 				handle_exit.c \
 				get_files_fd_for_exit.c \

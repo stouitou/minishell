@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:20:00 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 15:10:19 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:31:57 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static bool	is_exception(t_entry *entry)
 {
-	t_token *cur;
+	t_token	*cur;
 
 	if (!entry)
 		return (false);
@@ -40,18 +40,17 @@ static void	analyze_operator(t_token *cur, t_entry *entry)
 	{
 		if (!cur->prev
 			|| (cur->next && ft_strncmp(cur->next->content, "|", 1) == 0))
-			{
-				free_token_before_return(entry, ERR_SYNTAX, cur->content, 2);
-				token_clear(&(cur->next));
-				cur->next = NULL;
-				return ;
-			}
+		{
+			free_token_before_return(entry, ERR_SYNTAX, cur->content, 2);
+			token_clear(&(cur->next));
+			cur->next = NULL;
+			return ;
+		}
 	}
 	else if (ft_strcmp(cur->content, "newline") != 0)
 	{
 		if (!cur->next || cur->next->type != WORD)
 		{
-			// ft_printf("HERE\n");
 			free_token_before_return(entry, ERR_SYNTAX, cur->next->content, 2);
 			token_clear(&(cur->next));
 			cur->next = NULL;

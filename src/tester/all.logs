@@ -783,3 +783,208 @@ export test=test
 export test=test
 env
 exit < outfile > infile
+env
+export TEST=test
+export TEST1=test
+export TEST1=test
+export TEST1=test
+export TEST1=test
+xport TEST1=test
+export TEST1=test
+export TEST1=test
+env
+export TEST1=test TEST2=test2
+env
+export TEST1=test TEST2=test2 TEST3
+export TEST1=test TEST2=test2 TEST3
+echo $?
+
+env
+export TEST1=test TEST2=test2 TEST3 TEST4=test4
+env
+env
+echo $?
+export TEST1=test TEST2+=complete TEST3 TEST4=test4
+export TESxport TEST1=test TEST2+=complete TEST3 TEST4=test4
+export TEST1=test TEST2+=complete TEST3 TEST4=test4
+export TEST1=test TEST2+=complete TEST3 TEST4=test4
+
+export
+export TEST1=test1 TEST2=test2
+export TEST1=test1 TEST2+=complete2
+export TEST1=test1 TEST2+=complete2
+export TEST1+=test1
+env
+export TEST1+=complete1
+env
+export TEST1=ok
+env
+exit
+env
+exit
+env
+export TEST1+=test1
+env
+env
+env
+env
+export TEST1=
+env
+env
+export TEST1=test1
+env
+exit
+env
+env
+export TEST=test
+env
+export TEST+=end
+env
+export TEST+=end NO
+env
+export TEST+=end NO YES=yes
+
+env
+export TEST=end NO YES=yes
+env
+ok
+env
+export TEST=test TEST2=test2 TEST3+=test3
+env
+export TEST=$LANG
+env
+echo $LANG
+echo $TEST
+echo $LAMG
+echo $LANG
+export TEST=test
+echo $TEST
+echo $LQNGTEST
+echo $LANGTEST
+export
+export TEST1=test
+env
+export TEST=test1
+env
+export OK
+export ""
+export
+export OK
+echo $?
+export
+echo $?
+export
+echo $?
+export OK
+echo $?
+export ""
+echo $?
+export ERERWREW
+echo $?
+env
+clear
+export
+export                  HOLA=bonjour
+env
+export Hola
+export $DONTEXIST
+export | grep "HOME"
+export =
+echo $?
+export %
+export $?
+export 5
+export $?
+cati
+ls | exit
+echo $?
+cat infile
+exit
+cat infile | exit
+echo $?
+cat infile
+cat infile | exit
+echo $?
+export $?
+export ?=2
+
+export ?=2
+export 9HOLA=
+export HOLA9=bonjour
+export HOLA9=bonjour
+export _HOLA=bonjour
+env
+export ___HOLA=bonjour
+env
+export ___HOL@=bonjour
+export -HOL@=bonjour
+export -HOLA=bonjour
+export KEY
+export KEY
+export KEY
+export KEY
+export KEY
+export KEY
+export KEY
+export KEY
+export KEY
+export KEY
+export
+export KEY
+export KEy
+env
+export KEY
+export KEY
+export KEY
+export KEY
+export KEY
+env
+export KEY
+export KEY
+export KEY
+export
+echo $?
+export KEY
+echo $?
+export KEY=
+echo $?
+exit
+export TEST
+export TEST=test
+export
+export
+export
+export TEST=test
+export
+export OK
+export
+export TEST1=test1 OK TEST2=test2
+export
+export TEST1=test1 OK TEST2=test2
+export TEST1=test1 =OK TEST2=test2
+export TEST1=test1 =OK TEST44444444=test44444444
+export
+env
+export HO$?LA=bonjour
+export $?HOLA=bonjour
+env
+export +HOLA=bonjour
+exportHOLA
+export HOLA =bonjour
+export HOLA = bonjour
+export TEST1=test1 OK TEST2=test2
+echo $?
+export TEST1=test1 = TEST2=test2
+export TEST1=test1 = TEST2=test2
+
+export HOLA=bon jour
+env
+export HOLA=bon\jour
+<< stop1 << stop2 | < << stop3
+john hello nope
+we
+$"                            $ "
+$HOME+
+c"at" outfile
+$HOM
+cati
