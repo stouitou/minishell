@@ -57,7 +57,8 @@ UTILS_SRC =	skip_whitespace.c \
 			close_all_fd.c \
 			remove_node.c \
 			upd_token_heads_and_indexes.c \
-			upd_env.c
+			upd_env.c \
+			free_4_str.c
 UTILS = ${addprefix ${UTILS_DIR}/, ${UTILS_SRC}}
 
 FREE_DIR = free

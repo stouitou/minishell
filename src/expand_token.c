@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:50 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 16:41:27 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:03:15 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,27 @@ static char	*extract_expand(t_entry *entry, char *str, int *index)
 	return (empty);
 }
 
+static char	*protected_strjoin(char *str1, char *str2, char *str3, t_entry *entry)
+{
+	char	*join;
+	
+	join = ft_strjoin(str1, str2);
+	if (!join)
+	{
+		free_4_str(str1, str2, str3, NULL);
+		free_token_and_exit(entry, ERR_MALLOC, "expansion", EXIT_FAILURE);
+	}
+}
+
 static char	*partition_content(t_entry *entry, char *content, int i)
 {
-	char	*new;
+	char	*start;
 	char	*expand;
 	char	*tmp;
-	char	*start;
 	char	*end;
+	char	*new;
 
+	// start = ft_strndup(content, i);
 	start = ft_strndup(content, i);
 	if (!start && errno == ENOMEM)
 		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
@@ -78,25 +91,49 @@ static char	*partition_content(t_entry *entry, char *content, int i)
 		free(start);
 		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
 	}
-	tmp = ft_strjoin(start, expand);
-	if (!tmp)
-	{
-		free(start);
-		free(end);
-		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
-	}
-	free(start);
-	new = ft_strjoin(tmp, end);
-	if (!new)
-	{
-		free(end);
-		free(tmp);
-		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
-	}
-	free(tmp);
-	free(end);
+	tmp = protected_strjoin(start, expand, end, entry);
+	free_4_str(start, expand, NULL, NULL);
+	new = protected_strjoin(tmp, end, NULL, entry);
+	free_4_str(tmp, end, NULL, NULL);
 	return (new);
 }
+
+// static char	*partition_content(t_entry *entry, char *content, int i)
+// {
+// 	char	*start;
+// 	char	*expand;
+// 	char	*tmp;
+// 	char	*end;
+// 	char	*new;
+
+// 	start = ft_strndup(content, i);
+// 	if (!start && errno == ENOMEM)
+// 		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
+// 	// if (!start && i)
+// 	// 	free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
+// 	expand = extract_expand(entry, content + i, &i);
+// 	end = ft_strdup(content + i);
+// 	if (!end)
+// 	{
+// 		free(start);
+// 		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
+// 	}
+// 	tmp = ft_strjoin(start, expand);
+// 	if (!tmp)
+// 	{
+// 		free_4_str(start, expand, end, NULL);
+// 		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
+// 	}
+// 	free_4_str(start, expand, NULL, NULL);
+// 	new = ft_strjoin(tmp, end);
+// 	if (!new)
+// 	{
+// 		free_4_str(tmp, end, NULL, NULL);
+// 		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
+// 	}
+// 	free_4_str(tmp, end, NULL, NULL);
+// 	return (new);
+// }
 
 static char	*handle_status(t_entry *entry, char *content, int i)
 {
