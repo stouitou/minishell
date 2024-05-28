@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:03:29 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:28:19 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,8 @@ typedef struct s_entry
 int			main(int ac, char **av, char **env);
 void		stash_str(t_entry *entry, t_token **token, char *str);
 void		handle_metachars(t_entry *entry, t_token *new, int *i, int *ib);
-void		handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i);
+void		handle_non_metachars(
+				t_entry *entry, t_token *new, char *str, int *i);
 void		analyze_syntax(t_entry *entry);
 void		handle_expansions(t_entry *entry, char **env);
 void		expand_token(t_entry *entry, t_token *token, char **env);
@@ -201,8 +202,10 @@ void		init_dup(t_exe *exe, int old_fd, int new_fd);
 void		init_error(t_exe *exe, char *msg, char *data, int status);
 
 /* FREE */
-void		free_token_and_exit(t_entry *entry, char *err, char *str, int status);
-void		free_token_before_return(t_entry *entry, char *err, char *str, int error);
+void		free_token_and_exit(
+				t_entry *entry, char *err, char *str, int status);
+void		free_token_before_return(
+				t_entry *entry, char *err, char *str, int error);
 void		free_exe(t_exe *exe);
 void		free_cmd(char **cmd);
 void		free_subshell_and_exit(t_exe *exe);

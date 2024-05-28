@@ -19,12 +19,10 @@ void	files_clear(t_files **file)
 
 	if (!*file)
 		return ;
-	// ft_printf("file in file clear = %p (%s)\n", *file, (*file)->content);
 	cur = *file;
 	while (cur)
 	{
 		next = cur->next;
-		// ft_printf("In file clear, cur->content = %s\n", cur->content);
 		free(cur->content);
 		free(cur);
 		cur = next;

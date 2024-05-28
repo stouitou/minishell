@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 10:36:20 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 12:55:39 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:43:16 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	check_cmd_content(char *arg)
 {
 	int	i;
-	
+
 	i = 0;
 	while (ft_isspace(arg[i]))
 		i++;
@@ -25,7 +25,6 @@ static int	check_cmd_content(char *arg)
 		i++;
 	if (arg[i] != '\0')
 	{
-		// entry->exit = true;
 		ft_fprintf(2, "exit: %s: numeric argument required\n", arg);
 		return (2);
 	}
@@ -65,11 +64,8 @@ static int	check_exit_status(char *arg)
 	res = 0;
 	if (beyond_limits(arg + i))
 	{
-		// entry->exit = true;
 		ft_fprintf(2, "exit: %s: numeric argument required\n", arg);
 		return (2);
-		// init_error(exe, "numeric argument required", arg, 2);
-		// exit_builtin(exe, "exit");
 	}
 	while (ft_isdigit(arg[i]))
 	{
@@ -78,11 +74,8 @@ static int	check_exit_status(char *arg)
 	}
 	if (res > LONG_MAX)
 	{
-		// entry->exit = true;
 		ft_fprintf(2, "exit: %s: numeric argument required\n", arg);
 		return (2);
-		// init_error(exe, "numeric argument required", arg, 2);
-		// exit_builtin(exe, "exit");
 	}
 	return (res % (unsigned)256);
 }
@@ -125,6 +118,5 @@ int	handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd)
 	}
 	free_exe(exe);
 	entry->status = exit_status;
-	// ft_printf("in handle exit, status = %d\n", exit_status);
 	return (1);
 }

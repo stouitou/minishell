@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 12:44:00 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/24 11:33:53 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:30:32 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,11 @@ static int	check_access(t_exe *exe, char *command)
 		init_error(exe, strerror(errno), command, 127);
 		free_subshell_and_exit(exe);
 	}
-	// ft_printf("command = %s\n", command);
 	if (S_ISDIR(info.st_mode))
 	{
-		// ft_printf("isdir\n");
 		init_error(exe, ERR_ISDIR, command, 126);
 		free_subshell_and_exit(exe);
 	}
-	// if (access(command, F_OK) == -1)
-	// 	free_subshell_and_exit(exe, entry, strerror(errno), 127);
 	if (access(command, X_OK) == -1)
 	{
 		init_error(exe, strerror(errno), command, 126);
@@ -40,7 +36,7 @@ static int	check_access(t_exe *exe, char *command)
 
 static char	*try_path(t_exe *exe, char **path, char *cmd)
 {
-	int	i;
+	int		i;
 	char	*command;
 
 	i = 0;

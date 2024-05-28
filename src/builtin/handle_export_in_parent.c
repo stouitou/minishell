@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:52:11 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:00:56 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:41:10 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*extract_key(t_entry *entry, char *arg)
 {
 	char	*key;
 	int		i;
-	
+
 	if (!arg)
 		return (NULL);
 	i = 0;
@@ -38,7 +38,7 @@ static char	*extract_key(t_entry *entry, char *arg)
 	key = ft_strndup(arg, i);
 	if (!key)
 		free_token_and_exit(entry, strerror(errno), arg, EXIT_FAILURE);
-	return (key);		
+	return (key);
 }
 
 static char	*extract_value(t_entry *entry, char *arg)
@@ -140,7 +140,7 @@ static bool	syntax_error(char *arg, int *exit_status)
 	i = 0;
 	if (!arg[i] || arg[i] == '=' || arg[i] == '\0' || ft_isdigit(arg[i]))
 	{
-		ft_printf("export: '%s': not a valid identifier\n", arg);
+		ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
 		*exit_status = 1;
 		return (true);
 	}
@@ -148,7 +148,7 @@ static bool	syntax_error(char *arg, int *exit_status)
 	{
 		if (!ft_isalnum(arg[i]) && arg[i] != '_')
 		{
-			ft_printf("export: '%s': not a valid identifier\n", arg);
+			ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
 			*exit_status = 1;
 			return (true);
 		}
@@ -158,7 +158,7 @@ static bool	syntax_error(char *arg, int *exit_status)
 		return (true);
 	if ((arg[i] == '+' && arg[i + 1] != '='))
 	{
-		ft_printf("export: '%s': not a valid identifier\n", arg);
+		ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
 		*exit_status = 1;
 		return (true);
 	}
@@ -187,7 +187,6 @@ int	handle_export_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 		export_only(exe, env);
 	while (cmd[i])
 	{
-		// exit_status = 0;
 		if (syntax_error(cmd[i], &exit_status))
 		{
 			i++;

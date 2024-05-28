@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:07:29 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:03:07 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:44:32 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	remove_variable(t_env *env, char *arg)
 {
 	t_env	*cur;
 	t_env	*prev;
-	
+
 	if (!env || !arg)
 		return ;
 	cur = env;
@@ -48,7 +48,6 @@ static void	remove_variable(t_env *env, char *arg)
 
 int	handle_unset(t_exe *exe, char **cmd, t_env *env)
 {
-	int		exit_status;
 	int		i;
 
 	if (!env)
@@ -58,12 +57,10 @@ int	handle_unset(t_exe *exe, char **cmd, t_env *env)
 		free_exe(exe);
 		exit (1);
 	}
-	exit_status = 0;
 	i = 1;
 	while (cmd[i])
 	{
 		remove_variable(env, cmd[i]);
 		i++;
 	}
-	exit (exit_status);
 }

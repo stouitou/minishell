@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 10:42:06 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 10:44:57 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:39:10 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,4 @@ void	handle_env(char **cmd, t_env *env)
 		ft_printf("%s=%s\n", env->key, env->value);
 		env = env->next;
 	}
-	exit (1);
 }

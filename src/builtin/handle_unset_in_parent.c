@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:07:29 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 10:34:38 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:41:27 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	remove_variable(t_env *env, char *arg)
 {
 	t_env	*cur;
 	t_env	*prev;
-	
+
 	if (!env || !arg)
 		return ;
 	cur = env;

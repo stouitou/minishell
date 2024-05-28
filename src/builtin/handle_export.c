@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:49:42 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:00:41 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:47:53 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*extract_key(t_exe *exe, char *arg)
 {
 	char	*key;
 	int		i;
-	
+
 	if (!arg)
 		return (NULL);
 	i = 0;
@@ -41,7 +41,7 @@ static char	*extract_key(t_exe *exe, char *arg)
 		init_error(exe, ERR_MALLOC, arg, EXIT_FAILURE);
 		free_subshell_and_exit(exe);
 	}
-	return (key);		
+	return (key);
 }
 
 static char	*extract_value(t_exe *exe, char *arg)
@@ -128,7 +128,7 @@ static bool	syntax_error(char *arg, int *exit_status)
 	i = 0;
 	if (!arg[i] || arg[i] == '=' || arg[i] == '\0' || ft_isdigit(arg[i]))
 	{
-		ft_printf("export: '%s': not a valid identifier\n", arg);
+		ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
 		*exit_status = 1;
 		return (true);
 	}
@@ -136,7 +136,7 @@ static bool	syntax_error(char *arg, int *exit_status)
 	{
 		if (!ft_isalnum(arg[i]) && arg[i] != '_')
 		{
-			ft_printf("export: '%s': not a valid identifier\n", arg);
+			ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
 			*exit_status = 1;
 			return (true);
 		}
@@ -146,7 +146,7 @@ static bool	syntax_error(char *arg, int *exit_status)
 		return (true);
 	if ((arg[i] == '+' && arg[i + 1] != '='))
 	{
-		ft_printf("export: '%s': not a valid identifier\n", arg);
+		ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
 		*exit_status = 1;
 		return (true);
 	}
@@ -160,9 +160,9 @@ void	handle_export(t_exe *exe, char **cmd, t_env *env)
 	char	*value;
 	t_env	*new;
 	int		i;
-	
+
 	if (!env)
-		exit (1) ;
+		exit(1);
 	if (!get_files_fd_for_exit(exe, exe->files))
 	{
 		free_exe(exe);
@@ -198,5 +198,4 @@ void	handle_export(t_exe *exe, char **cmd, t_env *env)
 		}
 		env_addback(&env, new);
 	}
-	exit (exit_status);
 }

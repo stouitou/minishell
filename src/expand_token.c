@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:50 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:25:12 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:29:10 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char	*extract_expand(t_entry *entry, char *str, int *index)
 static char	*protected_strjoin(char *str1, char *str2, char *str3, t_entry *entry)
 {
 	char	*join;
-	
+
 	join = ft_strjoin(str1, str2);
 	if (!join)
 	{
@@ -207,7 +207,7 @@ void	expand_token(t_entry *entry, t_token *token, char **env)
 			}
 			else if (!token->content[i + 1]
 				|| !(ft_isalpha(token->content[i + 1])
-				|| token->content[i + 1] == '_'))
+					|| token->content[i + 1] == '_'))
 				handle_dollar(token, i);
 			else
 			{

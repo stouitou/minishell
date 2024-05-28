@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_block.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:12:30 by stouitou          #+#    #+#             */
-/*   Updated: 2024/04/29 18:59:08 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/05/28 11:50:17 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,9 @@ static void	print_block_content(t_token *tmp, int total_len)
 	ft_printf("\n");
 }
 
-void print_block(t_token *token)
+void	print_block(t_token *token)
 {
-	const char *cat_strings[] = {
+	const char	*cat_strings[] = {
 		"",
 		"COMMAND",
 		"INFILE",
@@ -138,42 +138,42 @@ void print_block(t_token *token)
 		"CONTROL OPERATOR",
 		"REDIRECTION OPERATOR"
 	};
-    t_token *tmp;
-	int		size;
-	int		spaces_before;
-	int		total_len;
+	t_token		*tmp;
+	int			size;
+	int			spaces_before;
+	int			total_len;
 
-    if (!token)
-        return;
-    tmp = token;
+	if (!token)
+		return ;
+	tmp = token;
 	total_len = 16;
 	ft_printf("%?34s\n", "...");
-    // ft_printf("BLOCK[%d] ", tmp->block);
-    ft_printf("\033[37mBLOCK[%d] \033[0m", tmp->block);
+	// ft_printf("BLOCK[%d] ", tmp->block);
+	ft_printf("\033[37mBLOCK[%d] \033[0m", tmp->block);
 	print_block_content(tmp, total_len);
-    while (tmp)
-    {
+	while (tmp)
+	{
 		size = ft_strlen(cat_strings[tmp->category]) + ft_nbrlen(tmp->index) + 2;
 		if (!tmp->prev || tmp->prev->block != tmp->block)
 			ft_printf("         ");
 		spaces_before = print_spaces_before(size, total_len);
 		if (tmp->category == CMD)
-        	ft_printf("%?32s", cat_strings[tmp->category]);
+			ft_printf("%?32s", cat_strings[tmp->category]);
 		else
-        	ft_printf("%?33s", cat_strings[tmp->category]);
+			ft_printf("%?33s", cat_strings[tmp->category]);
 		if ((tmp->prev && tmp->prev->index == tmp->index)
 			|| (tmp->next && tmp->next->index == tmp->index))
-        	ft_printf("[%?31d]", tmp->index);
+			ft_printf("[%?31d]", tmp->index);
 		else
-        	ft_printf("[%d]", tmp->index);
+			ft_printf("[%d]", tmp->index);
 		print_spaces_after(size + spaces_before, total_len);
-        if (tmp->next && tmp->next->block != tmp->block)
+		if (tmp->next && tmp->next->block != tmp->block)
 		{
-            ft_printf("\n\n\033[37mBLOCK[%d] \033[0m", tmp->next->block);
+			ft_printf("\n\n\033[37mBLOCK[%d] \033[0m", tmp->next->block);
 			print_block_content(tmp->next, total_len);
 		}
-        tmp = tmp->next;
-    }
-    ft_printf("\n");
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
 	ft_printf("%?34s\n", "...");
 }

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:36:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 15:38:48 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:37:58 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ static char	**upd_env_export_only(t_exe *exe, t_env *env)
 		i++;
 	}
 	array[i] = NULL;
-	// print_tab(array);
 	return (array);
 }
 

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:57:59 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 10:40:03 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:38:12 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ void	handle_builtin(t_exe *exe, char *command, int prev_status)
 	if (ft_strcmp(command, "unset") == 0)
 		handle_unset(exe, exe->cmd, exe->env);
 	exit (0);
-
 }

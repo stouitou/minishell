@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:28:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 13:01:01 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:42:42 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	check_cmd_content(t_exe *exe, char *arg)
 {
 	int	i;
-	
+
 	i = 0;
 	while (ft_isspace(arg[i]))
 		i++;
@@ -25,7 +25,6 @@ static int	check_cmd_content(t_exe *exe, char *arg)
 		i++;
 	if (arg[i] != '\0')
 	{
-		// entry->exit = true;
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
 	}
@@ -65,7 +64,6 @@ static int	check_exit_status(t_exe *exe, char *arg)
 	res = 0;
 	if (beyond_limits(arg + i))
 	{
-		// entry->exit = true;
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
 	}
@@ -76,7 +74,6 @@ static int	check_exit_status(t_exe *exe, char *arg)
 	}
 	if (res > LONG_MAX)
 	{
-		// entry->exit = true;
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
 	}
