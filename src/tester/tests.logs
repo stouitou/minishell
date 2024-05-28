@@ -1268,3 +1268,7 @@ cat "hello $LANG"
 pwd 2
 pwd 2 -a
 pwd -a
+cd 56 5
+cd 56
+cd 5 6
+cd -

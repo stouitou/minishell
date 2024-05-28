@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_token.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:05:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 09:46:34 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:23:44 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	exec_token(t_entry *entry, t_token *token)
 	{
 		init_exe(entry, token, &exe, i);
 		if (handle_exit_in_parent(entry, &exe, exe.cmd)
-			|| handle_export_in_parent(entry, &exe, exe.env, exe.cmd))
+			|| handle_export_in_parent(entry, &exe, exe.env, exe.cmd)
+			|| handle_cd_in_parent(entry, &exe, exe.env, exe.cmd))
 			break ;
 		if (i < (exe.blocks - 1) && (i % 2 == 0))
 			init_pipe(entry, &exe, exe.pipe_fd1);

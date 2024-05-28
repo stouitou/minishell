@@ -1008,3 +1008,25 @@ pwd
 pwd 2
 pwd 2 -a
 pwd -a
+cd
+cd 56 5
+cd 56
+cd
+ls
+env
+export
+cd
+ls
+cd
+ls
+cd
+cd
+ls
+cd 5 6
+echo $?
+cd 5 6
+cd
+cd
+cd
+cd -
+cd

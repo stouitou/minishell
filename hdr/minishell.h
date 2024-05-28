@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 10:46:14 by poriou           ###   ########.fr       */
+/*   Updated: 2024/05/28 11:28:21 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,9 +169,11 @@ bool		is_builtin(char *command);
 int			handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
 int			handle_export_in_parent(
 				t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+int			handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
 void		handle_builtin(t_exe *exe, char *command, int prev_status);
 void		handle_echo(char **cmd);
 void		handle_pwd(t_exe *exe);
+void		handle_cd(t_exe *exe, char **cmd);
 void		handle_export(t_exe *exe, char **cmd, t_env *env);
 void		export_only(t_exe *exe, t_env *env);
 void		handle_exit(t_exe *exe, char **cmd, int prev_status);
