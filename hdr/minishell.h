@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 09:37:02 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 09:54:53 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,8 @@ char		*find_cmd(t_exe *exe, char **cmd);
 /* BUILTIN */
 bool		is_builtin(char *command);
 int			handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
-int			handle_export_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+int			handle_export_in_parent(
+				t_entry *entry, t_exe *exe, t_env *env, char **cmd);
 void		handle_builtin(t_exe *exe, char *command, int prev_status);
 void		handle_echo(t_exe *exe, char **cmd);
 void		handle_export(t_exe *exe, char **cmd, t_env *env);

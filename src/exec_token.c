@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:05:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 13:06:53 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 09:46:34 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	protected_unlink(t_entry *entry, char *file)
 {
 	int	ret;
-	
+
 	ret = unlink(file);
 	if (ret == -1)
 		free_token_and_exit(entry, strerror(errno), file, EXIT_FAILURE);
@@ -30,7 +30,7 @@ static void	init_pipe_fd_and_block(t_entry *entry, t_exe *exe)
 	exe->blocks = entry->token->head->block + 1;
 }
 
-static void close_pipe_fd_if_needed(t_exe *exe, int i)
+static void	close_pipe_fd_if_needed(t_exe *exe, int i)
 {
 	if (i % 2 != 0)
 	{
@@ -59,7 +59,6 @@ void	exec_token(t_entry *entry, t_token *token)
 	while (i < exe.blocks)
 	{
 		init_exe(entry, token, &exe, i);
-		// print_exe(entry, token, &exe, i);
 		if (handle_exit_in_parent(entry, &exe, exe.cmd)
 			|| handle_export_in_parent(entry, &exe, exe.env, exe.cmd))
 			break ;

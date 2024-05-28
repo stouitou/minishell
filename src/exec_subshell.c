@@ -6,10 +6,9 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 09:38:05 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 09:45:47 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "minishell.h"
 
@@ -23,11 +22,6 @@ static int	get_files_fd(t_exe *exe, t_files *file)
 		{
 			if (exe->io_fd[0] != -1)
 				close (exe->io_fd[0]);
-			// if (access(file->content, F_OK | R_OK) == -1)
-			// {
-			// 	init_error(exe, strerror(errno), file->content, EXIT_FAILURE);
-			// 	return (0);
-			// }
 			exe->io_fd[0] = open(file->content, O_RDONLY);
 			if (exe->io_fd[0] == -1)
 			{
@@ -65,7 +59,7 @@ static int	get_files_fd(t_exe *exe, t_files *file)
 static void	execute_command(t_exe *exe, char *command, int i, int prev_status)
 {
 	char	**env;
-	
+
 	if (i % 2 == 0)
 	{
 		if (i)
@@ -87,7 +81,6 @@ static void	execute_command(t_exe *exe, char *command, int i, int prev_status)
 	env = upd_env(exe, exe->env);
 	if (is_builtin(exe->cmd[0]))
 		handle_builtin(exe, exe->cmd[0], prev_status);
-	// print_env(env);
 	execve(command, exe->cmd, env);
 	init_error(exe, strerror(errno), "execve", EXIT_FAILURE);
 	free_subshell_and_exit(exe);

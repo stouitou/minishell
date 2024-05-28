@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:50 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 09:37:11 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 09:46:56 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,9 @@ static char	*partition_content(t_entry *entry, char *content, int i)
 	char	*end;
 	char	*new;
 
-	// start = ft_strndup(content, i);
 	start = ft_strndup(content, i);
 	if (!start && errno == ENOMEM)
 		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
-	// if (!start && i)
-	// 	free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
 	expand = extract_expand(entry, content + i, &i);
 	end = ft_strdup(content + i);
 	if (!end)
