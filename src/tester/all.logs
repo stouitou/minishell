@@ -988,3 +988,23 @@ $HOME+
 c"at" outfile
 $HOM
 cati
+echo
+echo -n
+echo -nnnnnnnnn
+echo -nnnnnnnnn
+echo nope yes
+echo -n nope yes
+echo -nnnnnnnnnnnw nope yes
+echo no yes maybe | grep no
+echo no yes maybe | grep ni
+echo -n no yes maybe | grep ni
+echo -n no yes maybe | grep nyes
+echo -n no yes maybe | grep yes
+cat infile | grep is | echo -n no
+echo $?
+echo "bonjour $LANGUAGE"
+cat "hello $LANG"
+pwd
+pwd 2
+pwd 2 -a
+pwd -a

@@ -69,7 +69,8 @@ BUILTIN_SRC =	is_builtin.c \
 				handle_exit.c \
 				get_files_fd_for_exit.c \
 				handle_env.c \
-				handle_export.c
+				handle_export.c \
+				handle_pwd.c
 BUILTIN = ${addprefix ${BUILTIN_DIR}/, ${BUILTIN_SRC}}
 
 SRC =	minishell.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_builtin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:16:53 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/23 12:56:05 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 10:28:33 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 bool	is_builtin(char *command)
 {
 	if (ft_strcmp(command, "echo") == 0)
+		return (true);
+	if (ft_strcmp(command, "pwd") == 0)
 		return (true);
 	if (ft_strcmp(command, "exit") == 0)
 		return (true);
