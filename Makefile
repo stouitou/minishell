@@ -66,6 +66,9 @@ BUILTIN_SRC =	is_builtin.c \
 				handle_export_in_parent.c \
 				handle_unset_in_parent.c \
 				export_only.c \
+				export_variable.c \
+				syntax_error_in_export.c \
+				utils_for_export.c \
 				handle_echo.c \
 				handle_exit.c \
 				handle_unset.c \

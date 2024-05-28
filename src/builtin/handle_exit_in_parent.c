@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 10:36:20 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 12:31:23 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:03:36 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd)
 
 	if (!cmd || exe->blocks > 1 || ft_strcmp(cmd[0], "exit") != 0)
 		return (0);
-	if (!get_files_fd_for_builtin(exe, exe->files))
+	if (!get_files_fd_for_builtin(exe, exe->files, "exit"))
 	{
 		free_exe(exe);
 		entry->status = 1;

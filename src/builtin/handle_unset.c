@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:07:29 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 13:26:33 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:04:26 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	handle_unset(t_exe *exe, char **cmd, t_env *env)
 
 	if (!env)
 		return (1);
-	if (!get_files_fd_for_builtin(exe, exe->files))
+	if (!get_files_fd_for_builtin(exe, exe->files, "unset"))
 	{
 		free_exe(exe);
 		return (1);

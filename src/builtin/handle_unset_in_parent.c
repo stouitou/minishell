@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:07:29 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 13:15:57 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:04:20 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	handle_unset_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 
 	if (!cmd || exe->blocks > 1 || ft_strcmp(cmd[0], "unset") != 0)
 		return (0);
-	if (!get_files_fd_for_builtin(exe, exe->files))
+	if (!get_files_fd_for_builtin(exe, exe->files, "unset"))
 	{
 		free_exe(exe);
 		entry->status = 1;

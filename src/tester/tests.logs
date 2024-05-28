@@ -1269,3 +1269,12 @@ export 5sd
 ls | export 5sd
 export TEST1=test1 TEST2=test2 TEST3+test3 MAIL=sarah_touitou@hotmail.com
 unset TEST1
+< infile1 export TEST2=test2
+< infile export TEST2=test2
+< infile1 export TEST3=test3
+ls | export TEST3=test3
+echo Hola
+export HOLA=bonjour
+export HOLA
+export | grep HOME
+export HOLA=$HOMEbonjour

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 13:29:35 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:14:18 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ void	exec_subshell(t_exe *exe, int i, int prev_status);
 char	*find_cmd(t_exe *exe, char **cmd);
 
 /* BUILTIN */
-int		get_files_fd_for_builtin(t_exe *exe, t_files *file);
+int		get_files_fd_for_builtin(t_exe *exe, t_files *file, char *builtin);
 int		handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
 int		handle_export_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
 int		handle_unset_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
@@ -177,6 +177,12 @@ int		handle_echo(char **cmd);
 int		handle_env(char **cmd, t_env *env);
 int		handle_export(t_exe *exe, char **cmd, t_env *env);
 void	export_only(t_exe *exe, t_env *env);
+void	export_variable(t_exe *exe, t_env *env, char *var, int *status);
+bool	syntax_error_in_export(char *arg, int *exit_status);
+char	*extract_key_for_export(t_exe *exe, char *arg);
+char	*extract_value_for_export(t_exe *exe, char *arg);
+void	upd_concatenating(t_exe *exe, t_env *env, char *key, char *value);
+void	upd_replacing(t_exe *exe, t_env *env, char *key, char *value);
 int		handle_unset(t_exe *exe, char **cmd, t_env *env);
 
 /* LIST */
