@@ -1253,3 +1253,12 @@ export HOLA$USER=bonjour
 export HOLA=""cat Makefile | grep NAME""  
 echo 
 "echo "
+unset MAIL
+unset TEST
+unset SYSTEMD_EXEC_PID
+unset SHLVL
+unset 513
+ls | < infile1 unset 54
+ls | unset SHLVL
+cat "hello$LANG"
+cat "hello$LANG

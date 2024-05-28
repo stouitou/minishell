@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:52:11 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 15:48:30 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:00:56 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,10 +206,7 @@ int	handle_export_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 		}
 		new = env_new(key, value);
 		if (!new)
-		{
-			init_error(exe, ERR_MALLOC, value, EXIT_FAILURE);
-			free_subshell_and_exit(exe);
-		}
+			free_token_and_exit(entry, ERR_MALLOC, value, EXIT_FAILURE);
 		env_addback(&env, new);
 		i++;
 	}

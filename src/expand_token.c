@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:50 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 09:46:56 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:25:12 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static char	*partition_content(t_entry *entry, char *content, int i)
 		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
 	}
 	tmp = protected_strjoin(start, expand, end, entry);
-	free_4_str(start, expand, NULL, NULL);
+	free(start);
 	new = protected_strjoin(tmp, end, NULL, entry);
 	free_4_str(tmp, end, NULL, NULL);
 	return (new);

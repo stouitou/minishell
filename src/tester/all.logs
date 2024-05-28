@@ -988,3 +988,30 @@ $HOME+
 c"at" outfile
 $HOM
 cati
+export TEST=test
+env
+unset MAIL
+env
+unset TEST
+env
+unset SYSTEMD_EXEC_PID
+unset SHLVL
+env
+echo $?
+unset 513
+echo $?
+unset MAIL
+env
+ls | < infile1 unset 54
+ls | unset SHLVL
+env
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG
+cat "hello$LANG"
+cat "hello$LANG"
+exit
