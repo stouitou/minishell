@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:07:29 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:44:32 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:26:33 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	remove_variable(t_env *env, char *arg)
 	t_env	*cur;
 	t_env	*prev;
 
-	if (!env || !arg)
+	if (!env || !arg || ft_strcmp(arg, "_") == 0)
 		return ;
 	cur = env;
 	prev = NULL;
@@ -51,11 +51,11 @@ int	handle_unset(t_exe *exe, char **cmd, t_env *env)
 	int		i;
 
 	if (!env)
-		exit (1);
-	if (!get_files_fd_for_exit(exe, exe->files))
+		return (1);
+	if (!get_files_fd_for_builtin(exe, exe->files))
 	{
 		free_exe(exe);
-		exit (1);
+		return (1);
 	}
 	i = 1;
 	while (cmd[i])
@@ -63,4 +63,5 @@ int	handle_unset(t_exe *exe, char **cmd, t_env *env)
 		remove_variable(env, cmd[i]);
 		i++;
 	}
+	return (0);
 }

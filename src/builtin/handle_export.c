@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:49:42 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:47:53 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:49:49 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,12 @@ static bool	exists_in_env(t_exe *exe, char *key)
 	return (false);
 }
 
+static int	write_error(char *str)
+{
+	ft_fprintf(2, "export: '%s': not a valid identifier\n", str);
+	return (1);
+}
+
 static bool	syntax_error(char *arg, int *exit_status)
 {
 	int		i;
@@ -128,16 +134,14 @@ static bool	syntax_error(char *arg, int *exit_status)
 	i = 0;
 	if (!arg[i] || arg[i] == '=' || arg[i] == '\0' || ft_isdigit(arg[i]))
 	{
-		ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
-		*exit_status = 1;
+		*exit_status = write_error(arg);
 		return (true);
 	}
 	while (arg[i] && arg[i] != '+' && arg[i] != '=')
 	{
 		if (!ft_isalnum(arg[i]) && arg[i] != '_')
 		{
-			ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
-			*exit_status = 1;
+			*exit_status = write_error(arg);
 			return (true);
 		}
 		i++;
@@ -146,24 +150,47 @@ static bool	syntax_error(char *arg, int *exit_status)
 		return (true);
 	if ((arg[i] == '+' && arg[i + 1] != '='))
 	{
-		ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
-		*exit_status = 1;
+		*exit_status = write_error(arg);
 		return (true);
 	}
 	return (false);
 }
 
-void	handle_export(t_exe *exe, char **cmd, t_env *env)
+static void	export_variable(t_exe *exe, t_env *env, char *var, int *status)
 {
-	int		exit_status;
 	char	*key;
 	char	*value;
 	t_env	*new;
+
+	if (syntax_error(var, status))
+		return ;
+	key = extract_key(exe, var);
+	value = extract_value(exe, var);
+	if (exists_in_env(exe, key))
+	{
+		if (addition_operator(var))
+			upd_concatenating(exe, env, key, value);
+		else
+			upd_replacing(exe, env, key, value);
+		return ;
+	}
+	new = env_new(key, value);
+	if (!new)
+	{
+		init_error(exe, ERR_MALLOC, value, EXIT_FAILURE);
+		free_subshell_and_exit(exe);
+	}
+	env_addback(&env, new);
+}
+
+int	handle_export(t_exe *exe, char **cmd, t_env *env)
+{
+	int		exit_status;
 	int		i;
 
 	if (!env)
 		exit(1);
-	if (!get_files_fd_for_exit(exe, exe->files))
+	if (!get_files_fd_for_builtin(exe, exe->files))
 	{
 		free_exe(exe);
 		exit (1);
@@ -174,28 +201,8 @@ void	handle_export(t_exe *exe, char **cmd, t_env *env)
 		export_only(exe, env);
 	while (cmd[i])
 	{
-		if (syntax_error(cmd[i], &exit_status))
-		{
-			i++;
-			continue ;
-		}
-		key = extract_key(exe, cmd[i]);
-		value = extract_value(exe, cmd[i]);
-		if (exists_in_env(exe, key))
-		{
-			if (addition_operator(cmd[i]))
-				upd_concatenating(exe, env, key, value);
-			else
-				upd_replacing(exe, env, key, value);
-			i++;
-			continue ;
-		}
-		new = env_new(key, value);
-		if (!new)
-		{
-			init_error(exe, ERR_MALLOC, value, EXIT_FAILURE);
-			free_subshell_and_exit(exe);
-		}
-		env_addback(&env, new);
+		export_variable(exe, env, cmd[i], &exit_status);
+		i++;
 	}
+	return (exit_status);
 }

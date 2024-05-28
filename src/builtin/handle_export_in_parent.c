@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:52:11 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:41:10 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:31:23 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,7 @@ int	handle_export_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 
 	if (!cmd || exe->blocks > 1 || ft_strcmp(cmd[0], "export") != 0)
 		return (0);
-	if (!get_files_fd_for_exit(exe, exe->files))
+	if (!get_files_fd_for_builtin(exe, exe->files))
 	{
 		free_exe(exe);
 		entry->status = 1;

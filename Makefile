@@ -69,7 +69,7 @@ BUILTIN_SRC =	is_builtin.c \
 				handle_echo.c \
 				handle_exit.c \
 				handle_unset.c \
-				get_files_fd_for_exit.c \
+				get_files_fd_for_builtin.c \
 				handle_env.c \
 				handle_export.c
 BUILTIN = ${addprefix ${BUILTIN_DIR}/, ${BUILTIN_SRC}}
@@ -81,6 +81,7 @@ SRC =	minishell.c \
 		analyze_syntax.c \
 		handle_expansions.c \
 		expand_token.c \
+		partition_content.c \
 		classify_tokens.c \
 		go_heredoc.c \
 		gather_indexes.c \
