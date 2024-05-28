@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fpf_putptr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peoriou <peoriou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:17:55 by stouitou          #+#    #+#             */
-/*   Updated: 2024/04/27 10:29:08 by peoriou          ###   ########.fr       */
+/*   Updated: 2024/05/28 09:23:24 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	fpf_putptr(int fd, t_print *tab)
 {
 	void	*ptr;
 	char	*base;
-	// int		len;
 
 	ptr = va_arg(tab->args, void *);
-	// len = pf_unbrlen_base((unsigned long int)ptr, base);
 	base = "0123456789abcdef";
 	if (ptr == NULL)
 		tab->tl += write(fd, "(nil)", 5);

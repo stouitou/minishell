@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 16:49:07 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 09:37:02 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,11 +137,10 @@ typedef struct s_exe
 	t_error		error;
 }				t_exe;
 
-
 typedef struct s_entry
 {
 	char	*str;
-	t_token *token;
+	t_token	*token;
 	bool	heredoc;
 	int		prev_status;
 	int		status;
@@ -197,15 +196,6 @@ pid_t		init_fork(t_exe *exe, t_entry *entry);
 void		init_dup(t_exe *exe, int old_fd, int new_fd);
 void		init_error(t_exe *exe, char *msg, char *data, int status);
 
-/* UTILS */
-void		skip_whitespace(char *str, int *index);
-void		close_both_fd(int fd1, int fd2);
-void		close_all_fd(t_exe *exe);
-void		remove_node(t_token **token, t_token *cur);
-void		upd_token_heads_and_indexes(t_token *token);
-char		**upd_env(t_exe *exe, t_env *env);
-void		free_4_str(char *str1, char *str2, char *str3, char *str4);
-
 /* FREE */
 void		free_token_and_exit(t_entry *entry, char *err, char *str, int status);
 void		free_token_before_return(t_entry *entry, char *err, char *str, int error);
@@ -213,6 +203,21 @@ void		free_exe(t_exe *exe);
 void		free_cmd(char **cmd);
 void		free_subshell_and_exit(t_exe *exe);
 void		exit_builtin(t_exe *exe, char *builtin);
+
+/* UTILS */
+void		skip_whitespace(char *str, int *index);
+void		remove_null(t_token **token);
+void		remove_operator(t_token **token);
+void		close_both_fd(int fd1, int fd2);
+void		close_all_fd(t_exe *exe);
+void		remove_node(t_token **token, t_token *cur);
+void		upd_token_heads_and_indexes(t_token *token);
+char		**upd_env(t_exe *exe, t_env *env);
+void		free_4_str(char *str1, char *str2, char *str3, char *str4);
+
+/* TESTER */
+void		log_tests(const char *command);
+void		log_status(int status);
 
 /* PRINT */
 void		print_tab(char **env);
@@ -224,9 +229,5 @@ void		print_exe(t_entry *entry, t_token *token, t_exe *exe, int block);
 int			print_utils_token_size(t_token *token);
 int			print_utils_token_blocks(t_token *token);
 int			print_utils_content_has_space(char *content);
-
-/* TESTER */
-void		log_tests(const char *command);
-void		log_status(int status);
 
 #endif

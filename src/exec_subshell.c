@@ -6,23 +6,12 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:09:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 13:06:54 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 09:38:05 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "minishell.h"
-
-// static void	print_outfile(t_outfile *outfile)
-// {
-// 	if (!outfile)
-// 		return ;
-// 	while (outfile)
-// 	{
-// 		ft_printf("outfile = %s\n", outfile->content);
-// 		outfile = outfile->next;
-// 	}
-// }
 
 static int	get_files_fd(t_exe *exe, t_files *file)
 {

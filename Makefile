@@ -16,43 +16,10 @@ TESTER_SRC =	log_tests.c \
 				log_status.c
 TESTER = ${addprefix ${TESTER_DIR}/, ${TESTER_SRC}}
 
-BUILTIN_DIR = builtin
-BUILTIN_SRC =	is_builtin.c \
-				handle_builtin.c \
-				handle_exit_in_parent.c \
-				handle_export_in_parent.c \
-				export_only.c \
-				handle_echo.c \
-				handle_exit.c \
-				get_files_fd_for_exit.c \
-				handle_env.c \
-				handle_export.c
-BUILTIN = ${addprefix ${BUILTIN_DIR}/, ${BUILTIN_SRC}}
-
-LIST_DIR = list
-LIST_SRC =	token_new.c \
-			token_addback.c \
-			token_clear.c \
-			del_node.c \
-			files_new.c \
-			files_addback.c \
-			files_clear.c \
-			env_new.c \
-			env_addback.c \
-			env_size.c \
-			env_clear.c
-LIST = ${addprefix ${LIST_DIR}/, ${LIST_SRC}}
-
-INIT_DIR = init
-INIT_SRC =	init_exe.c \
-			init_pipe.c \
-			init_fork.c \
-			init_dup.c \
-			init_error.c
-INIT = ${addprefix ${INIT_DIR}/, ${INIT_SRC}}
-
 UTILS_DIR = utils
 UTILS_SRC =	skip_whitespace.c \
+			remove_null.c \
+			remove_operator.c \
 			close_both_fd.c \
 			close_all_fd.c \
 			remove_node.c \
@@ -70,6 +37,41 @@ FREE_SRC =	free_token_and_exit.c \
 			exit_builtin.c
 FREE = ${addprefix ${FREE_DIR}/, ${FREE_SRC}}
 
+INIT_DIR = init
+INIT_SRC =	init_exe.c \
+			init_pipe.c \
+			init_fork.c \
+			init_dup.c \
+			init_error.c
+INIT = ${addprefix ${INIT_DIR}/, ${INIT_SRC}}
+
+LIST_DIR = list
+LIST_SRC =	token_new.c \
+			token_addback.c \
+			token_clear.c \
+			del_node.c \
+			files_new.c \
+			files_addback.c \
+			files_clear.c \
+			env_new.c \
+			env_addback.c \
+			env_size.c \
+			env_clear.c
+LIST = ${addprefix ${LIST_DIR}/, ${LIST_SRC}}
+
+BUILTIN_DIR = builtin
+BUILTIN_SRC =	is_builtin.c \
+				handle_builtin.c \
+				handle_exit_in_parent.c \
+				handle_export_in_parent.c \
+				export_only.c \
+				handle_echo.c \
+				handle_exit.c \
+				get_files_fd_for_exit.c \
+				handle_env.c \
+				handle_export.c
+BUILTIN = ${addprefix ${BUILTIN_DIR}/, ${BUILTIN_SRC}}
+
 SRC =	minishell.c \
 		stash_str.c \
 		handle_non_metachars.c \
@@ -86,11 +88,11 @@ SRC =	minishell.c \
 		exec_subshell.c \
 		find_cmd.c \
 		${BUILTIN} \
-		${PRINT} \
 		${LIST} \
 		${INIT} \
-		${UTILS} \
 		${FREE} \
+		${UTILS} \
+		${PRINT} \
 		${TESTER}
 
 OBJ_DIR = obj

@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pf_putptr.c                                        :+:      :+:    :+:   */
+/*   remove_null.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 10:17:55 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 09:24:44 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/28 09:29:23 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/28 09:29:44 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "minishell.h"
 
-void	pf_putptr(t_print *tab)
+void	remove_null(t_token **token)
 {
-	void	*ptr;
-	char	*base;
+	t_token	*cur;
+	t_token	*next;
 
-	ptr = va_arg(tab->args, void *);
-	base = "0123456789abcdef";
-	if (ptr == NULL)
-		tab->tl += write(1, "(nil)", 5);
-	else
+	if (!token || !*token)
+		return ;
+	cur = *token;
+	while (cur)
 	{
-		if (tab->txt)
-			pf_print_prefix(tab);
-		tab->tl += write(1, "0x", 2);
-		pf_putu_base(tab, (unsigned long int)ptr, base);
-		if (tab->txt)
-			ft_putstr_fd("\033[0m", 1);
+		next = cur->next;
+		if (cur->category != CMD && cur->content == NULL)
+			remove_node(token, cur);
+		cur = next;
 	}
-	tab->txt = 0;
-	tab->col = 0;
 }
