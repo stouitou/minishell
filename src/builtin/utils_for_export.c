@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:48:27 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 16:16:11 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/29 12:06:04 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,14 @@ char	*extract_key_for_export(t_exe *exe, char *arg)
 		i++;
 	key = ft_strndup(arg, i);
 	if (!key)
-	{
-		init_error(exe, ERR_MALLOC, arg, EXIT_FAILURE);
-		free_subshell_and_exit(exe);
-	}
+		free_subshell_and_exit(exe, ERR_MALLOC, arg, EXIT_FAILURE);
 	return (key);
 }
 
 char	*extract_value_for_export(t_exe *exe, char *arg)
 {
 	char	*value;
+	char	*tmp;
 	int		i;
 
 	i = 0;
@@ -41,10 +39,7 @@ char	*extract_value_for_export(t_exe *exe, char *arg)
 		i++;
 	value = ft_strdup(arg + i + 1);
 	if (!value)
-	{
-		init_error(exe, ERR_MALLOC, arg, EXIT_FAILURE);
-		free_subshell_and_exit(exe);
-	}
+		free_subshell_and_exit(exe, ERR_MALLOC, arg, EXIT_FAILURE);
 	return (value);
 }
 
@@ -69,10 +64,7 @@ void	upd_concatenating(t_exe *exe, t_env *env, char *key, char *value)
 	relevant = find_key_in_env(env, key);
 	new = ft_strjoin(relevant->value, value);
 	if (!new)
-	{
-		init_error(exe, ERR_MALLOC, value, EXIT_FAILURE);
-		free_subshell_and_exit(exe);
-	}
+		free_subshell_and_exit(exe, ERR_MALLOC, value, EXIT_FAILURE);
 	free(relevant->value);
 	relevant->value = new;
 }
@@ -85,10 +77,7 @@ void	upd_replacing(t_exe *exe, t_env *env, char *key, char *value)
 	relevant = find_key_in_env(env, key);
 	new = ft_strdup(value);
 	if (!new)
-	{
-		init_error(exe, ERR_MALLOC, value, EXIT_FAILURE);
-		free_subshell_and_exit(exe);
-	}
+		free_subshell_and_exit(exe, ERR_MALLOC, value, EXIT_FAILURE);
 	free(relevant->value);
 	relevant->value = new;
 }

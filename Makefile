@@ -5,10 +5,10 @@ PRINT_DIR = print
 PRINT_SRC =	print_tab.c \
 			print_env.c \
 			print_full_command.c \
-			print_utils.c \
 			print_token.c \
 			print_block.c \
-			print_exe.c
+			print_exe.c \
+			print_utils.c
 PRINT = ${addprefix ${PRINT_DIR}/, ${PRINT_SRC}}
 
 TESTER_DIR = tester
@@ -42,7 +42,8 @@ INIT_SRC =	init_exe.c \
 			init_pipe.c \
 			init_fork.c \
 			init_dup.c \
-			init_error.c
+			init_error.c \
+			init_pipe_fd_and_block.c
 INIT = ${addprefix ${INIT_DIR}/, ${INIT_SRC}}
 
 LIST_DIR = list
@@ -71,6 +72,7 @@ BUILTIN_SRC =	is_builtin.c \
 				utils_for_export.c \
 				handle_echo.c \
 				handle_exit.c \
+				get_exit_status.c \
 				handle_unset.c \
 				get_files_fd_for_builtin.c \
 				handle_env.c \
@@ -79,12 +81,13 @@ BUILTIN = ${addprefix ${BUILTIN_DIR}/, ${BUILTIN_SRC}}
 
 SRC =	minishell.c \
 		stash_str.c \
-		handle_non_metachars.c \
 		handle_metachars.c \
+		handle_non_metachars.c \
 		analyze_syntax.c \
-		handle_expansions.c \
 		expand_token.c \
+		handle_expansions.c \
 		partition_content.c \
+		handle_status.c \
 		classify_tokens.c \
 		go_heredoc.c \
 		gather_indexes.c \
@@ -92,7 +95,10 @@ SRC =	minishell.c \
 		set_env.c \
 		find_files.c \
 		exec_subshell.c \
+		get_files_fd.c \
 		find_cmd.c \
+		check_path.c \
+		execute_command.c \
 		${BUILTIN} \
 		${LIST} \
 		${INIT} \

@@ -1090,3 +1090,186 @@ export 9HOLA=
 export HOLA=$HOMEbonjour
 env
 exit
+
+echo $?
+         
+echo $?
+>
+echo $?
+<
+echo $?
+!
+echo $?
+>>
+<<
+<>
+>>>>>>
+>>>>>>>>>>>>>>>
+<<<<
+<<<<<<<<<<<<<<
+> > > >
+>> >> >> >>
+>>>>>>>> >> >> >>
+/
+//
+/.
+/./../../../../..
+///////
+-
+|
+| hola
+| | |
+||
+|||||
+>>|><
+""
+"hola
+"hola"
+'hola'
+''
+ABC=hola
+4ABC=HOLA
+hola
+hola que tal
+Makefile
+$?
+$?$?
+?$HOME
+$
+$HOME
+$
+$HOMEdskjhfkdshfsd
+"$HOMEdskjhfkdshfsd"
+'$HOMEdskjhfkdshfsd'
+$DONTEXIST
+$LESS$VAR
+env
+env hola
+export HOLA=bonjour
+env
+export       HOLA=bonjour2
+env
+export
+export | grep "HOME"
+export ""
+export =
+export %
+export $?
+export ?=2
+export 9HOLA=
+export HOLA9=bonjour
+env
+export _HOLA=bonjour
+env
+export ___HOLA=bonjour
+env
+export _HO_LA_=bonjour
+env
+export HOL@=bonjour
+export HO$?LA=bonjour
+env
+export +HOLA=bonjour
+export HOL+A=bonjour
+export HOLA+=bonjour
+env
+exportHOLA=bonjour
+export HOLA =bonjour
+export HOLA = bonjour
+export HOLA=bon jour
+env
+export HOLA= bonjour
+env
+export HOLA=$HOME
+env
+export=bonjour$HOME
+export HOLA=bonjour$HOME
+env
+export HOLA=$HOMEbonjour
+env
+export HOLA=bon$jour
+env
+export HOLA=bon@jour
+env
+export HOLA=bon"jour"
+env
+export HOLA$USER=bonjour
+env
+export HOLA=bonjour=casse-toi
+env
+export "HOLA=bonjour"=casse-toi
+env
+echo $HOLA
+export HOLA=bonjour
+exportBYE=casse-toi
+export BYE=casse-toi
+echo $HOLA et $BYE
+export HOLA=bonjour BYE=casse-toi
+exit
+export HOLA=bonjour BYE=casse-toi
+echo $HOLA et $BYE
+export $HOLA=bonjour
+env
+export HOLA="bonjour           "
+echo $HOLA | cat -e
+exit
+export HOLA="bonjour       "
+echo $HOLA | cat -e
+exit
+export HOLA="       -n bonjour    "
+echo $HOLA
+export HOLA="bonjour    "/
+echo $HOLA
+export HOLA='"'
+echo " $HOLA " | cat -e
+export HOLA=at
+c$HOLA Makefile
+export "" HOLA=bonjour
+env
+exit
+export "" HOLA=bonjour
+env
+export "" HOLA=bonjour
+env
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+env
+exit
+export "" HOLA
+echo $?
+env
+exit
+export "" HOLA=bonjour
+echo $?
+env
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+echo $?
+env
+exit
+export HOLA="'"
+echo " $HOLA " | cat -e
+export HOLA=at
+c$HOLA Makefile
+export HOLA="cat Makefile | grep name"
+echo $HOLA
+export HOLA="   bonjour   hey    "
+echo $HOLA | cat -e
+export HOLA="s -la"
+l$HOLA
+export HOLA=at
+c$HOLA Makefile
+exit

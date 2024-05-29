@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_token_before_return.c                            :+:      :+:    :+:   */
+/*   free_token_before_return.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 17:14:02 by stouitou          #+#    #+#             */
-/*   Updated: 2024/04/29 11:07:18 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/29 10:27:10 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/29 10:27:49 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	free_token_before_return(t_entry *entry, char *err, char *str, int error)
+void	free_token_before_return(t_entry *entry, char *err, char *s, int error)
 {
 	ft_fprintf(2, "%s", err);
-	if (str)
-		ft_fprintf(2, ": %s", str);
+	if (s)
+		ft_fprintf(2, ": %s", s);
 	ft_fprintf(2, "\n");
 	entry->status = error;
 }

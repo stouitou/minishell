@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:36:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 13:13:28 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/29 10:12:42 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ static void	copy_env(t_exe *exe, t_env *cur, char **arr, int i)
 	len = ft_strlen(cur->key) + ft_strlen(cur->value) + 3;
 	arr[i] = (char *)malloc(sizeof(char) * (len + 1));
 	if (!arr[i])
-	{
-		init_error(exe, ERR_MALLOC, cur->key, EXIT_FAILURE);
-		free_subshell_and_exit(exe);
-	}
+		free_subshell_and_exit(exe, ERR_MALLOC, cur->key, EXIT_FAILURE);
 	j = ft_strlcpy(arr[i], cur->key, ft_strlen(cur->key) + 1);
 	j += ft_strlcpy(arr[i] + j, "=", 2);
 	j += ft_strlcpy(arr[i] + j, "\"", ft_strlen(cur->value) + 1);
@@ -44,10 +41,7 @@ static char	**upd_env_export_only(t_exe *exe, t_env *env)
 	size = env_size(env);
 	array = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!array)
-	{
-		init_error(exe, ERR_MALLOC, "env array", EXIT_FAILURE);
-		free_subshell_and_exit(exe);
-	}
+		free_subshell_and_exit(exe, ERR_MALLOC, "env array", EXIT_FAILURE);
 	i = 0;
 	while (env)
 	{

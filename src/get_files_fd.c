@@ -1,60 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_files_fd_for_builtin.c                         :+:      :+:    :+:   */
+/*   get_files_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 15:37:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 10:24:22 by stouitou         ###   ########.fr       */
+/*   Created: 2024/05/29 08:58:09 by stouitou          #+#    #+#             */
+/*   Updated: 2024/05/29 09:05:03 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static bool	open_infile(t_exe *exe, char *file, char *builtin)
+static void	get_infile_fd(t_exe *exe, char *file)
 {
 	if (exe->io_fd[0] != -1)
 		close (exe->io_fd[0]);
 	exe->io_fd[0] = open(file, O_RDONLY);
 	if (exe->io_fd[0] == -1)
 	{
-		ft_fprintf(2, "%s: %s\n", builtin, strerror(errno));
 		init_error(exe, strerror(errno), file, EXIT_FAILURE);
-		return (false);
+		return ;
 	}
-	return (true);
 }
 
-static bool	open_outfile(t_exe *exe, char *file, char *builtin)
+static void	get_outfile_fd(t_exe *exe, char *file)
 {
 	if (exe->io_fd[1] != -1)
 		close (exe->io_fd[1]);
 	exe->io_fd[1] = open(file, O_CREAT | O_WRONLY | O_TRUNC, 00666);
 	if (exe->io_fd[1] == -1)
 	{
-		ft_fprintf(2, "%s: %s\n", builtin, strerror(errno));
 		init_error(exe, strerror(errno), file, EXIT_FAILURE);
-		return (false);
+		return ;
 	}
-	return (true);
 }
 
-static bool	open_app_outfile(t_exe *exe, char *file, char *builtin)
+static void	get_app_outfile_fd(t_exe *exe, char *file)
 {
 	if (exe->io_fd[1] != -1)
 		close (exe->io_fd[1]);
 	exe->io_fd[1] = open(file, O_CREAT | O_WRONLY | O_APPEND, 00666);
 	if (exe->io_fd[1] == -1)
 	{
-		ft_fprintf(2, "%s: %s\n", builtin, strerror(errno));
 		init_error(exe, strerror(errno), file, EXIT_FAILURE);
-		return (false);
+		return ;
 	}
-	return (true);
 }
 
-int	get_files_fd_for_builtin(t_exe *exe, t_files *file, char *builtin)
+int	get_files_fd(t_exe *exe, t_files *file)
 {
 	if (!file)
 		return (1);
@@ -62,17 +56,20 @@ int	get_files_fd_for_builtin(t_exe *exe, t_files *file, char *builtin)
 	{
 		if (file->category == INFILE || file->category == DELIMITER)
 		{
-			if (!open_infile(exe, file->content, builtin))
+			get_infile_fd(exe, file->content);
+			if (exe->io_fd[0] == -1)
 				return (0);
 		}
 		if (file->category == OUTFILE)
 		{
-			if (!open_outfile(exe, file->content, builtin))
+			get_outfile_fd(exe, file->content);
+			if (exe->io_fd[1] == -1)
 				return (0);
 		}
 		if (file->category == APP_OUTFILE)
 		{
-			if (!open_app_outfile(exe, file->content, builtin))
+			get_app_outfile_fd(exe, file->content);
+			if (exe->io_fd[1] == -1)
 				return (0);
 		}
 		file = file->next;

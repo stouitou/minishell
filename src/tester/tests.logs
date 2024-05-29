@@ -1278,3 +1278,48 @@ export HOLA=bonjour
 export HOLA
 export | grep HOME
 export HOLA=$HOMEbonjour
+         
+>>>>>>
+>>>>>>>>>>>>>>>
+<<<<
+<<<<<<<<<<<<<<
+>>>>>>>> >> >> >>
+"hola
+4ABC=HOLA
+env hola
+export       HOLA=bonjour2
+export _HO_LA_=bonjour
+export HOL@=bonjour
+export HOL+A=bonjour
+export HOLA+=bonjour
+exportHOLA=bonjour
+export HOLA= bonjour
+export HOLA=$HOME
+export=bonjour$HOME
+export HOLA=bonjour$HOME
+export HOLA=bon$jour
+export HOLA=bon@jour
+export HOLA=bon"jour"
+export HOLA=bonjour=casse-toi
+export "HOLA=bonjour"=casse-toi
+exportBYE=casse-toi
+export BYE=casse-toi
+echo $HOLA et $BYE
+export HOLA=bonjour BYE=casse-toi
+export $HOLA=bonjour
+export HOLA="bonjour           "
+echo $HOLA | cat -e
+export HOLA="bonjour       "
+export HOLA="       -n bonjour    "
+export HOLA="bonjour    "/
+export HOLA='"'
+echo " $HOLA " | cat -e
+export HOLA=at
+c$HOLA Makefile
+export "" HOLA=bonjour
+export "" HOLA
+export HOLA="'"
+export HOLA="cat Makefile | grep name"
+export HOLA="   bonjour   hey    "
+export HOLA="s -la"
+l$HOLA

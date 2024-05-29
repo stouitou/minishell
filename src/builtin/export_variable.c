@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:29:31 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 16:15:45 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/29 11:48:14 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,6 @@ void	export_variable(t_exe *exe, t_env *env, char *var, int *status)
 	}
 	new = env_new(key, value);
 	if (!new)
-	{
-		init_error(exe, ERR_MALLOC, value, EXIT_FAILURE);
-		free_subshell_and_exit(exe);
-	}
+		free_subshell_and_exit(exe, ERR_MALLOC, value, EXIT_FAILURE);
 	env_addback(&env, new);
 }

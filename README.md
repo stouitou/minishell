@@ -22,6 +22,10 @@
 [ ] mettre le heredoc dans /tmp/heredoc
 [ ] declare -x lang (call only "export" in bash)
 
+[ ] export HOLA="   -n bonjour   "
+[ ] export HOLA="bonjour    "/
+[ ] export HOLA="  bonjour  hey  "
+
 
 /*
 	KEEP QUOTED TYPE OF NEXT NODE IF NECESSARY FOR HERE_DOC DELIMIMTER
