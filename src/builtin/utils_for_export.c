@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:48:27 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 12:06:04 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:49:04 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	*extract_key_for_export(t_exe *exe, char *arg)
 char	*extract_value_for_export(t_exe *exe, char *arg)
 {
 	char	*value;
-	char	*tmp;
 	int		i;
 
 	i = 0;

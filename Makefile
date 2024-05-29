@@ -90,7 +90,7 @@ SRC =	minishell.c \
 		handle_status.c \
 		classify_tokens.c \
 		go_heredoc.c \
-		gather_indexes.c \
+		upd_token.c \
 		exec_token.c \
 		set_env.c \
 		find_files.c \
@@ -98,6 +98,7 @@ SRC =	minishell.c \
 		get_files_fd.c \
 		find_cmd.c \
 		check_path.c \
+		ft_getenv.c \
 		execute_command.c \
 		${BUILTIN} \
 		${LIST} \

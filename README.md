@@ -25,6 +25,11 @@
 [ ] export HOLA="   -n bonjour   "
 [ ] export HOLA="bonjour    "/
 [ ] export HOLA="  bonjour  hey  "
+[ ] unset PATH ... ls
+[ ] unset PATH ... cat Makefile
+[ ] exit -9223372036854775808
+[ ] cat Makefile |
+[ ] whereis grep > Docs/bonjour
 
 
 /*

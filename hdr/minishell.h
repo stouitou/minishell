@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 11:05:01 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:52:46 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,7 @@ char	*partition_content(t_entry *entry, char *content, int i);
 char	*handle_status(t_entry *entry, char *content, int i);
 void	classify_tokens(t_entry *entry);
 void	go_heredoc(t_entry *entry, t_token *cur);
-void	gather_indexes(t_entry *entry, t_token *cur);
+void	upd_token(t_entry *entry, t_token *cur);
 void	exec_token(t_entry *entry, t_token *token);
 void	set_env(t_entry *entry, t_exe *exe);
 void	find_files(t_entry *entry, t_exe *exe, t_token *token);
@@ -167,6 +167,7 @@ void	exec_subshell(t_exe *exe, int i, int prev_status);
 int		get_files_fd(t_exe *exe, t_files *file);
 char	*find_cmd(t_exe *exe, char **cmd);
 char	*check_path(t_exe *exe, char *cmd);
+char	*ft_getenv(t_env *env, char *key);
 void	execute_command(t_exe *exe, char *command, int i, int prev_status);
 
 /* BUILTIN */

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 08:58:09 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 09:05:03 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:57:27 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ int	get_files_fd(t_exe *exe, t_files *file)
 		{
 			get_outfile_fd(exe, file->content);
 			if (exe->io_fd[1] == -1)
+			{
+				ft_printf("fd = %d\n", exe->io_fd[1]);
 				return (0);
+			}
 		}
 		if (file->category == APP_OUTFILE)
 		{

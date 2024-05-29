@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 10:05:01 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 10:21:38 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:52:13 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*check_path(t_exe *exe, char *cmd)
 
 	if (!exe->env)
 		free_subshell_and_exit(exe, ERR_CMD, cmd, 127);
-	pathes = getenv("PATH");
+	pathes = ft_getenv(exe->env, "PATH");
 	if (!pathes)
 		free_subshell_and_exit(exe, ERR_CMD, cmd, 127);
 	path = ft_split(pathes, ":");
