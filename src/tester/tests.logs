@@ -1408,3 +1408,7 @@ echo hola > a
 >>b echo que tal
 cat a | < b cat | cat > c | cat
 ls -la Docs/bonjour
+$HOMEjnd
+"$HOMEdnsk"
+'$HOMEjd'
+export             HOLA=bonjour2

@@ -22,6 +22,7 @@
 [ ] mettre le heredoc dans /tmp/heredoc
 [ ] declare -x lang (call only "export" in bash)
 
+[ ] ?$HOME
 [ ] export HOLA="   -n bonjour   "
 [ ] export HOLA="bonjour    "/
 [ ] export HOLA="  bonjour  hey  "

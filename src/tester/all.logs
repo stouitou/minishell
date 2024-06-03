@@ -1499,3 +1499,78 @@ exit
 ls -la > Docs/bonjour
 ls -la Docs/bonjour
 exit
+whereis grep > Docs/bonjour
+exit
+whereis grep > Docs/bonjour
+exit
+
+         
+>
+echo $?
+!
+echo $?
+>>
+<<
+<>
+/
+//
+/.
+echo $?
+-
+|
+| hola
+| | |
+>>|><
+""
+echo $?
+"hola"
+'hola'
+''
+hola
+Makefile
+$?
+$?$?
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+$
+exit
+?$HOME
+$
+$HOME
+$HOMEjnd
+"$HOMEdnsk"
+'$HOMEjd'
+$DONTEXIST
+env
+export HOLA=bonjour
+env
+export             HOLA=bonjour2
+env
+export
+export $DONTEXIST
+export | grep "HOME"
+export ""
+export =
+export 9HOLA=
+export
+export OK
+export
