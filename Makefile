@@ -120,7 +120,7 @@ LIBFT_NAME = libft.a
 
 RDLINE_PATH = /usr/local/lib
 
-CC = cc -g3
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -I${HDR_DIR} -I/usr/local/include
 
 

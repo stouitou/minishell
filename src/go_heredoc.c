@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:36:51 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:31:54 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:40:21 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,10 @@ static void	extract_expand(t_entry *entry, char *str, int *index, int fd)
 static void	expand_heredoc(t_entry *entry, char *str, char **env, int fd)
 {
 	int		i;
-	int		stop;
 
 	if (!*env || !str || !ft_strchr(str, '$'))
 		return ;
 	i = 0;
-	stop = 0;
 	while (str[i] && str[i] != '$')
 	{
 		write(fd, &str[i], 1);

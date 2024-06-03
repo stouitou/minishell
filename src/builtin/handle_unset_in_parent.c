@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:07:29 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 15:56:25 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:42:19 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static void	delete_node(t_env *cur)
 
 static void	delete_variable(t_env *env, t_env *cur, t_env *prev)
 {
+	if (!env)
+		return ;
 	if (!prev)
 		env = cur->next;
 	else

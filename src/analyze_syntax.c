@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:20:00 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 16:31:57 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:54:13 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ static void	analyze_operator(t_token *cur, t_entry *entry)
 	if (ft_strncmp(cur->content, "|", 1) == 0)
 	{
 		if (!cur->prev
-			|| (cur->next && ft_strncmp(cur->next->content, "|", 1) == 0))
+			|| (cur->next && ft_strncmp(cur->next->content, "|", 1) == 0)
+			|| (cur->next && ft_strncmp(cur->next->content, "newline", 1) == 0))
 		{
 			free_token_before_return(entry, ERR_SYNTAX, cur->content, 2);
 			token_clear(&(cur->next));
