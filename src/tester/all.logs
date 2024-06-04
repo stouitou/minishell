@@ -1030,3 +1030,94 @@ cd
 cd
 cd -
 cd
+cd
+cd ok
+cd ../ok
+cd
+pwd
+cd ..
+cd ok
+cd ok
+cd ok
+cd ok
+cd ok
+cd ok
+cd ok
+cd ok
+cd ../ok
+cd ././../ok
+cd ././../../ok
+cd ././../../././ok
+cd ./././../../ok
+cd ok
+cd ../ok
+cd ../../ok
+cd ../../ok
+cd ok
+cd ./ok
+cd ./ok
+cd ok
+cd ./ok
+cd ok
+cd ./ok
+cd ../ok
+cd ../../ok
+cd ../../ok
+cd ../ok
+cd ../../ok
+cd ../ok
+cd ../../ok
+cd ../../ok
+cd ../../../ok
+cd ../ok
+cd ../ok
+cd ../../ok
+cd ../ok
+cd ../../ok
+cd ../ok
+cd ../../ok
+cd ../../../../ok
+cd ../../ok
+cd ok
+cd ok
+ls
+mkdir test
+ls
+cd test
+ls
+
+cd ok
+ls
+cd test
+lls
+ls
+cd ././test/../test
+ls
+ls
+cd test
+ls
+pwd
+cd -
+cd -
+cd test
+cd ..
+cd test
+cd test
+cd test
+cd test
+ls
+cd test
+ls
+cd test
+cd -
+ls
+cd test
+ls
+cd test
+cd -
+cd test
+cd test
+cd src/
+cd src/
+pwd
+cd src/
