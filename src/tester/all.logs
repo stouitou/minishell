@@ -988,6 +988,139 @@ $HOME+
 c"at" outfile
 $HOM
 cati
+echo
+echo -n
+echo -nnnnnnnnn
+echo -nnnnnnnnn
+echo nope yes
+echo -n nope yes
+echo -nnnnnnnnnnnw nope yes
+echo no yes maybe | grep no
+echo no yes maybe | grep ni
+echo -n no yes maybe | grep ni
+echo -n no yes maybe | grep nyes
+echo -n no yes maybe | grep yes
+cat infile | grep is | echo -n no
+echo $?
+echo "bonjour $LANGUAGE"
+cat "hello $LANG"
+pwd
+pwd 2
+pwd 2 -a
+pwd -a
+cd
+cd 56 5
+cd 56
+cd
+ls
+env
+export
+cd
+ls
+cd
+ls
+cd
+cd
+ls
+cd 5 6
+echo $?
+cd 5 6
+cd
+cd
+cd
+cd -
+cd
+cd
+cd ok
+cd ../ok
+cd
+pwd
+cd ..
+cd ok
+cd ok
+cd ok
+cd ok
+cd ok
+cd ok
+cd ok
+cd ok
+cd ../ok
+cd ././../ok
+cd ././../../ok
+cd ././../../././ok
+cd ./././../../ok
+cd ok
+cd ../ok
+cd ../../ok
+cd ../../ok
+cd ok
+cd ./ok
+cd ./ok
+cd ok
+cd ./ok
+cd ok
+cd ./ok
+cd ../ok
+cd ../../ok
+cd ../../ok
+cd ../ok
+cd ../../ok
+cd ../ok
+cd ../../ok
+cd ../../ok
+cd ../../../ok
+cd ../ok
+cd ../ok
+cd ../../ok
+cd ../ok
+cd ../../ok
+cd ../ok
+cd ../../ok
+cd ../../../../ok
+cd ../../ok
+cd ok
+cd ok
+ls
+mkdir test
+ls
+cd test
+ls
+
+cd ok
+ls
+cd test
+lls
+ls
+cd ././test/../test
+ls
+ls
+cd test
+ls
+pwd
+cd -
+cd -
+cd test
+cd ..
+cd test
+cd test
+cd test
+cd test
+ls
+cd test
+ls
+cd test
+cd -
+ls
+cd test
+ls
+cd test
+cd -
+cd test
+cd test
+cd src/
+cd src/
+pwd
+cd src/
 export TEST=test
 env
 unset MAIL
@@ -1090,9 +1223,7 @@ export 9HOLA=
 export HOLA=$HOMEbonjour
 env
 exit
-
-echo $?
-         
+echo $? 
 echo $?
 >
 echo $?
@@ -1103,13 +1234,6 @@ echo $?
 >>
 <<
 <>
->>>>>>
->>>>>>>>>>>>>>>
-<<<<
-<<<<<<<<<<<<<<
-> > > >
->> >> >> >>
->>>>>>>> >> >> >>
 /
 //
 /.

@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   log_status.c                                       :+:      :+:    :+:   */
+/*   handle_cd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 11:48:55 by poriou            #+#    #+#             */
-/*   Updated: 2024/05/28 11:42:37 by poriou           ###   ########.fr       */
+/*   Created: 2024/05/28 10:52:05 by poriou            #+#    #+#             */
+/*   Updated: 2024/05/28 11:24:59 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	log_status(int status)
+void	handle_cd(t_exe *exe, char **cmd)
 {
-	FILE	*file;
-	char	*log_path;
+	char	*old_path;
+	char	*path;
 
-	log_path = "./src/tester/status.logs";
-	file = fopen(log_path, "w+");
-	if (file == NULL)
+	path = NULL;
+	if (ft_str_array_len(cmd) > 2)
 	{
-		// printf("Problem: could not open status.logs file.\n");
-		return ;
+		init_error(exe, "too many arguments", "cd", EXIT_FAILURE);
+		free_subshell_and_exit(exe);
 	}
-	fprintf(file, "%d", status);
-	fclose(file);
+	old_path = getenv("OLDPWD");
+	if (!cmd[1])
+	{
+		path = getenv("HOME");
+		if (chdir(path) == -1)
+			perror("chdir");
+	}
 }

@@ -1253,6 +1253,42 @@ export HOLA$USER=bonjour
 export HOLA=""cat Makefile | grep NAME""  
 echo 
 "echo "
+echo -nnnnnnnnn
+echo nope yes
+echo -n nope yes
+echo -nnnnnnnnnnnw nope yes
+echo no yes maybe | grep no
+echo no yes maybe | grep ni
+echo -n no yes maybe | grep ni
+echo -n no yes maybe | grep nyes
+echo -n no yes maybe | grep yes
+cat infile | grep is | echo -n no
+echo "bonjour $LANGUAGE"
+cat "hello $LANG"
+pwd 2
+pwd 2 -a
+pwd -a
+cd 56 5
+cd 56
+cd 5 6
+cd -
+cd ok
+cd ../ok
+cd ..
+cd ././../ok
+cd ././../../ok
+cd ././../../././ok
+cd ./././../../ok
+cd ../../ok
+cd ./ok
+cd ../../../ok
+cd ../../../../ok
+mkdir test
+cd test
+lls
+cd ././test/../test
+cd src/
+=======
 unset MAIL
 unset TEST
 unset SYSTEMD_EXEC_PID
@@ -1278,12 +1314,6 @@ export HOLA=bonjour
 export HOLA
 export | grep HOME
 export HOLA=$HOMEbonjour
-         
->>>>>>
->>>>>>>>>>>>>>>
-<<<<
-<<<<<<<<<<<<<<
->>>>>>>> >> >> >>
 "hola
 4ABC=HOLA
 env hola

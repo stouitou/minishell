@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   log_tests.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:48:55 by poriou            #+#    #+#             */
-/*   Updated: 2024/05/13 10:20:04 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:42:52 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	add_to_all_logs(const char *command)
     file_all = fopen(log_path_all, "a+");
     if (file_all == NULL)
 	{
-        printf("Problem: could not open all logs file.\n");
+        // printf("Problem: could not open all logs file.\n");
         return;
     }
 
@@ -58,7 +58,7 @@ void	log_tests(const char *command)
 	file = fopen(log_path, "a+");
 	if (file == NULL)
 	{
-		printf("Problem: could not open tester log file.\n");
+		// printf("Problem: could not open tester log file.\n");
 		return ;
 	}
 	// Positionner le curseur au début du fichier

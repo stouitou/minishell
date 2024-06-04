@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
 /*   Updated: 2024/05/29 15:52:46 by stouitou         ###   ########.fr       */
@@ -171,6 +171,21 @@ char	*ft_getenv(t_env *env, char *key);
 void	execute_command(t_exe *exe, char *command, int i, int prev_status);
 
 /* BUILTIN */
+bool		is_builtin(char *command);
+int			handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
+int			handle_export_in_parent(
+				t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+int			handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+void		handle_builtin(t_exe *exe, char *command, int prev_status);
+void		handle_echo(char **cmd);
+void		handle_pwd(t_exe *exe);
+void		handle_cd(t_exe *exe, char **cmd);
+void		handle_export(t_exe *exe, char **cmd, t_env *env);
+void		export_only(t_exe *exe, t_env *env);
+void		handle_exit(t_exe *exe, char **cmd, int prev_status);
+int			get_files_fd_for_exit(t_exe *exe, t_files *file);
+void		handle_env(char **cmd, t_env *env);
+
 int		get_files_fd_for_builtin(t_exe *exe, t_files *file, char *builtin);
 int		handle_export_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
 int		handle_unset_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
@@ -190,6 +205,7 @@ void	upd_replacing(t_exe *exe, t_env *env, char *key, char *value);
 int		handle_unset(t_exe *exe, char **cmd, t_env *env);
 int		handle_exit(t_exe *exe, char **cmd, int prev_status);
 int		get_exit_status(char *arg);
+
 
 /* LIST */
 t_token	*token_new(int *ib);
