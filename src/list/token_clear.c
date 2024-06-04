@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:45:28 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/16 16:57:53 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:34:36 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	token_clear(t_token **token)
 		return ;
 	tmp = *token;
 	i = 0;
-	// ft_printf("tmp->content = %s\n", tmp->content);
 	while (tmp)
 	{
 		next = tmp->next;

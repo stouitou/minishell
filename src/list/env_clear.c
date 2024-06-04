@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:20:41 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/24 11:23:32 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:35:26 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	env_clear(t_env **env)
 {
 	t_env	*cur;
 	t_env	*next;
-	
+
 	if (!env)
 		return ;
 	cur = *env;

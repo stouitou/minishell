@@ -4,5 +4,6 @@
 		"minishell.h": "c",
 		"type_traits": "c"
 	},
-	"github.copilot.editor.enableAutoCompletions": false
+	"github.copilot.editor.enableAutoCompletions": false,
+	"C_Cpp.errorSquiggles": "disabled"
 }

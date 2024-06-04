@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:28:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 13:01:01 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:03:53 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	check_cmd_content(t_exe *exe, char *arg)
 {
 	int	i;
-	
+
 	i = 0;
 	while (ft_isspace(arg[i]))
 		i++;
@@ -25,7 +25,6 @@ static int	check_cmd_content(t_exe *exe, char *arg)
 		i++;
 	if (arg[i] != '\0')
 	{
-		// entry->exit = true;
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
 	}
@@ -65,7 +64,6 @@ static int	check_exit_status(t_exe *exe, char *arg)
 	res = 0;
 	if (beyond_limits(arg + i))
 	{
-		// entry->exit = true;
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
 	}
@@ -76,20 +74,19 @@ static int	check_exit_status(t_exe *exe, char *arg)
 	}
 	if (res > LONG_MAX)
 	{
-		// entry->exit = true;
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
 	}
 	return (res % (unsigned)256);
 }
 
-void	handle_exit(t_exe *exe, char **cmd, int prev_status)
+int	handle_exit(t_exe *exe, char **cmd, int prev_status)
 {
 	int	exit_status;
 	int	ac;
 
-	if (!get_files_fd_for_exit(exe, exe->files))
-		exit (1);
+	if (!get_files_fd_for_builtin(exe, exe->files, "exit"))
+		return (1);
 	exit_status = prev_status;
 	ac = ft_str_array_len(cmd);
 	if (ac > 1)
@@ -102,5 +99,5 @@ void	handle_exit(t_exe *exe, char **cmd, int prev_status)
 		}
 		exit_status = check_exit_status(exe, cmd[1]);
 	}
-	exit (exit_status);
+	return (exit_status);
 }

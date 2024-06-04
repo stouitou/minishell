@@ -988,3 +988,597 @@ $HOME+
 c"at" outfile
 $HOM
 cati
+export TEST=test
+env
+unset MAIL
+env
+unset TEST
+env
+unset SYSTEMD_EXEC_PID
+unset SHLVL
+env
+echo $?
+unset 513
+echo $?
+unset MAIL
+env
+ls | < infile1 unset 54
+ls | unset SHLVL
+env
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG"
+cat "hello$LANG
+cat "hello$LANG"
+cat "hello$LANG"
+exit
+export
+export | wc -l
+export TEST=test
+export
+exit
+unset MAIL
+env
+unset mail
+env
+unset _
+env
+exit
+export 5sd
+echo $?
+ls | export 5sd
+echo $?
+exit
+export TEST1=test1 TEST2=test2 TEST3+test3 MAIL=sarah_touitou@hotmail.com
+env
+unset TEST1
+env
+export TEST1=test1 TEST2=test2 TEST3+test3 MAIL=sarah_touitou@hotmail.com
+echo $?
+exit
+export TEST1=test1
+env
+< infile1 export TEST2=test2
+env
+< infile export TEST2=test2
+env
+
+< infile1 export TEST3=test3
+echo $?
+ls | export TEST3=test3
+env
+exit
+"hola"
+'hola'
+hola
+hola que tal
+Makefile
+echo
+echo -n
+echo Hola
+$?
+$?$?
+?$HOME
+env
+exit
+env
+$?
+$?$?
+?$HOME
+$
+$HOME
+$HOMEdskjhfkdshfsd
+"$HOMEdskjhfkdshfsd"
+'$HOMEdskjhfkdshfsd'
+env
+export HOLA=bonjour
+env
+export
+export HOLA
+export
+export $DONTEXIST
+export | grep HOME
+export ""
+export =
+export %
+export $?
+export ?=2
+export 9HOLA=
+export HOLA=$HOMEbonjour
+env
+exit
+
+echo $?
+         
+echo $?
+>
+echo $?
+<
+echo $?
+!
+echo $?
+>>
+<<
+<>
+>>>>>>
+>>>>>>>>>>>>>>>
+<<<<
+<<<<<<<<<<<<<<
+> > > >
+>> >> >> >>
+>>>>>>>> >> >> >>
+/
+//
+/.
+/./../../../../..
+///////
+-
+|
+| hola
+| | |
+||
+|||||
+>>|><
+""
+"hola
+"hola"
+'hola'
+''
+ABC=hola
+4ABC=HOLA
+hola
+hola que tal
+Makefile
+$?
+$?$?
+?$HOME
+$
+$HOME
+$
+$HOMEdskjhfkdshfsd
+"$HOMEdskjhfkdshfsd"
+'$HOMEdskjhfkdshfsd'
+$DONTEXIST
+$LESS$VAR
+env
+env hola
+export HOLA=bonjour
+env
+export       HOLA=bonjour2
+env
+export
+export | grep "HOME"
+export ""
+export =
+export %
+export $?
+export ?=2
+export 9HOLA=
+export HOLA9=bonjour
+env
+export _HOLA=bonjour
+env
+export ___HOLA=bonjour
+env
+export _HO_LA_=bonjour
+env
+export HOL@=bonjour
+export HO$?LA=bonjour
+env
+export +HOLA=bonjour
+export HOL+A=bonjour
+export HOLA+=bonjour
+env
+exportHOLA=bonjour
+export HOLA =bonjour
+export HOLA = bonjour
+export HOLA=bon jour
+env
+export HOLA= bonjour
+env
+export HOLA=$HOME
+env
+export=bonjour$HOME
+export HOLA=bonjour$HOME
+env
+export HOLA=$HOMEbonjour
+env
+export HOLA=bon$jour
+env
+export HOLA=bon@jour
+env
+export HOLA=bon"jour"
+env
+export HOLA$USER=bonjour
+env
+export HOLA=bonjour=casse-toi
+env
+export "HOLA=bonjour"=casse-toi
+env
+echo $HOLA
+export HOLA=bonjour
+exportBYE=casse-toi
+export BYE=casse-toi
+echo $HOLA et $BYE
+export HOLA=bonjour BYE=casse-toi
+exit
+export HOLA=bonjour BYE=casse-toi
+echo $HOLA et $BYE
+export $HOLA=bonjour
+env
+export HOLA="bonjour           "
+echo $HOLA | cat -e
+exit
+export HOLA="bonjour       "
+echo $HOLA | cat -e
+exit
+export HOLA="       -n bonjour    "
+echo $HOLA
+export HOLA="bonjour    "/
+echo $HOLA
+export HOLA='"'
+echo " $HOLA " | cat -e
+export HOLA=at
+c$HOLA Makefile
+export "" HOLA=bonjour
+env
+exit
+export "" HOLA=bonjour
+env
+export "" HOLA=bonjour
+env
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+env
+exit
+export "" HOLA
+echo $?
+env
+exit
+export "" HOLA=bonjour
+echo $?
+env
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+exit
+export "" HOLA=bonjour
+echo $?
+env
+exit
+export HOLA="'"
+echo " $HOLA " | cat -e
+export HOLA=at
+c$HOLA Makefile
+export HOLA="cat Makefile | grep name"
+echo $HOLA
+export HOLA="   bonjour   hey    "
+echo $HOLA | cat -e
+export HOLA="s -la"
+l$HOLA
+export HOLA=at
+c$HOLA Makefile
+exit
+export HOLA="   -n bonjour"
+echo $HOLA
+export HOLA="   -n bonjour    "
+echo $HOLA
+export HOLA="bonjour     "/
+echo $HOLA
+export HOLA="    bonjour   hey   "
+echo $HOLA
+.
+
+cat .
+...
+..
+.
+exit
+export HOLA="s -la"
+l$HOLA
+l"$HOLA"
+l'$HOLA'
+export HOLA="l"
+$HOLAs
+export HOLA="l"
+"$HOLA"s
+'$HOLA's
+export HOL=A="l"
+env
+export '='='='
+export HOLA=p BYE=w
+$HOLA"BYE"d
+"$HOLA"'$BYE'd
+$"HOLA$"BYE"d
+$"HOLA"$"BYE"d
+$'HOLA'$'BYE'd
+export HOLA=-n
+"echo $HOLA" hey
+export A=1 B=2 C=3 D=4 E=5 F=6 G=7 H=8
+echo "$A'$B"'$C"$D'$E'"$F'"'$G'$H"
+export HOLA=bonjour
+env
+unset HOLA
+env
+export HOLA=bonjour
+env
+unset HOLA
+env
+unset HOLA
+env
+unset PATH
+l
+ls
+exit
+unset PATH
+ls
+echo $PATH
+unset ""
+unset PWD
+env | grep PWD
+exit
+unset PWD
+env | grep PWD
+pwd
+cd $PWD
+unset 9HOLA
+env
+export HOLA
+export HOLA=hola
+unset $HOLA
+env
+unset $PWD
+unset PATH
+cat Makefile
+exit
+export hola | unset hola | echo $?
+/bin/echo
+/bin/echo Hola que tal
+/bin/env
+chmod 000 minishell
+./minishell
+ls hola
+./Makefile
+chmod 777 minishell
+./minishell
+exit
+exit
+env | grep SHLVL
+./minishell
+env | grep SHLVL
+exit
+env | grep SHLVL
+touch hola
+./hola
+env | "wc" -l
+env | "wc "-l
+expr 1 + 1
+expr $? + $?
+env -i ./minishell
+env
+env -i ./minishell
+export
+exit
+exit exit
+exit hola
+exit 42
+exit 0000042
+exit 666
+exit 666 666
+echo $?
+exit -666 666
+echo $?
+exit hola 666
+exit 666 hola 666
+exit -4
+exit +666
+exit -69 -96
+exit ---66
+exit "666"
+exit '6'66
+exit '2'66'32'
+exit "'666'"
+exit '"666"'
+exit +'66'
+exit 9223372036854775807
+9223372036854775808
+exit 9223372036854775808
+exit -9223372036854775808
+exit -9223372036854775807
+cat | cat | cat | ls
+ls | exit
+echo $?
+ls | exit 42
+echo $?
+exit | ls
+echo $?
+echo hola > bonjour
+exit | cat -e bonjour
+cat -e bonjour | exit
+echo | echo
+echo hola | echo que tal
+pwd | echo hola
+env | echo hola
+echo oui | cat -e
+echo oui | echo non | echo hola | grep oui
+echo oui | echo non | echo hola | grep non
+echo oui | echo non | echo hola | grep hola
+echo hola | cat -e | cat -e | cat -e
+ifconfig | grep ":"
+ifconfig | grep hola
+whoami | grep $USER
+whoami | grep $USER > /tmp/bonjour
+cat /tmp/bonjour
+whereis ls | cat -e | cat -e > /tmp/bonjour
+cat /tmp/bonjour
+ls | hola
+ls | ls hola
+rm /tmp/bonjour
+ls | ls hola
+ls | ls | hola
+ls | hola | ls
+ls | ls | hola | rev
+ls | ls | echo hola | rev
+ls -la | grep "."
+ls -la | grep "'.'"
+echo test.c | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e |
+cat Makefile |
+ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls | vls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |ls | ls |
+exit
+echo hola | cat | cat | cat | cat | cat | cat | cat | cat grep hola
+echo hola | cat | cat | cat | cat | cat | cat | cat | cat | grep hola
+echo hola | cat
+echo hola ||| cat
+ech|o hola | cat
+cat Makefile | cat -e | cat -e
+cat Makefile | grep SRC | cat -e
+cat Makefile | grep SRC | grep SRC | cat -e
+cat Makefile | grep pr | head -n 5 | cd
+cat Makefile | grep pr | head -n 5 | cd file_not_exist
+cat Makefile | grep pr | head -n 5 | hello
+export HOLA= bonjour | cat -e | cat -e
+unset HOLA | cat -e
+export HOLA | echo HOLA
+env | grep PROUT
+export | echo hola
+sleep 3 | sleep 3
+time sleep 3 | sleep 3
+sleep 3 | exit
+exit | sleep 3
+echo hola > a
+>>b echo que tal
+cat a | < b cat | cat > c | cat
+exit
+echo hola > bonjour
+cat bonjour
+echo que tal >> bonjour
+cat bonjour
+echo hola > bonjour
+echo que tal >> bonjour
+cat < bonjour
+echo hola > bonjour
+rm bonjour
+echo que tal >> bonjour
+cat < bonjour
+echo hola que tal > bonjour
+cat bonjour
+echo hola que tal > /tmp/bonjour
+cat -e /tmp/bonjour
+rm /tmp/bonjour
+export HOLA=hey
+echo bonjour > $HOLA
+echo $HOLA
+whereis grep > Docs/bonjour
+cat Docs/bonjour
+whereis grep > Docs/bonjour
+exit
+whereis grep > Docs/bonjour
+exit
+ls -la > Docs/bonjour
+cat Docs/bonjour
+exit
+ls -la > Docs/bonjour
+ls -la > Docs/bonjour
+exit
+ls -la Docs/bonjour
+exit
+ls -la > Docs/bonjour
+ls -la Docs/bonjour
+exit
+whereis grep > Docs/bonjour
+exit
+whereis grep > Docs/bonjour
+exit
+
+         
+>
+echo $?
+!
+echo $?
+>>
+<<
+<>
+/
+//
+/.
+echo $?
+-
+|
+| hola
+| | |
+>>|><
+""
+echo $?
+"hola"
+'hola'
+''
+hola
+Makefile
+$?
+$?$?
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+exit
+?$HOME
+$
+exit
+?$HOME
+$
+$HOME
+$HOMEjnd
+"$HOMEdnsk"
+'$HOMEjd'
+$DONTEXIST
+env
+export HOLA=bonjour
+env
+export             HOLA=bonjour2
+env
+export
+export $DONTEXIST
+export | grep "HOME"
+export ""
+export =
+export 9HOLA=
+export
+export OK
+export
+?$HOME
+exit
+whereis grep > Docs/bonjour
+cat Makefile |
+cat Makefile | |
+exit
+cat Makefile |
+exit

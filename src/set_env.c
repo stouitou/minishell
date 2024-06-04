@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:46:16 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 11:11:08 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:37:20 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	*extract_value(t_entry *entry, char *str)
 {
 	char	*value;
 	int		i;
-	
+
 	if (!str)
 		return (NULL);
 	i = 0;

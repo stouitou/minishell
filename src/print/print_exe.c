@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:34:57 by peoriou           #+#    #+#             */
-/*   Updated: 2024/05/24 11:35:58 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:55:16 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static void	print_header(void)
 {
-	static int nb = 1;
+	static int	nb = 1;
+
 	ft_printf("%?37s\n", "------------------------------------------");
 	if (nb == 1)
 		ft_printf("%?37s (%dst execution since program is launched.)\n", "Printing EXE...", nb);
@@ -58,8 +59,8 @@ static void	print_pipe(t_exe *exe)
 
 static void	print_files(t_files *file)
 {
-	int	i;
-	const char *cat_strings[] = {
+	int			i;
+	const char	*cat_strings[] = {
 		"",
 		"COMMAND",
 		"INFILE",
@@ -150,4 +151,3 @@ void	print_exe(t_entry *entry, t_token *token, t_exe *exe, int block)
 	print_iofd(exe);
 	print_footer();
 }
-

@@ -22,6 +22,16 @@
 [ ] mettre le heredoc dans /tmp/heredoc
 [ ] declare -x lang (call only "export" in bash)
 
+[ ] ?$HOME
+[ ] export HOLA="   -n bonjour   "
+[ ] export HOLA="bonjour    "/
+[ ] export HOLA="  bonjour  hey  "
+[ ] unset PATH ... ls
+[ ] unset PATH ... cat Makefile
+[ ] exit -9223372036854775808
+[ ] cat Makefile |
+[ ] whereis grep > Docs/bonjour
+
 
 /*
 	KEEP QUOTED TYPE OF NEXT NODE IF NECESSARY FOR HERE_DOC DELIMIMTER
