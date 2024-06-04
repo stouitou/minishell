@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:16:37 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/24 11:21:26 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:34:54 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	env_addback(t_env **env, t_env *new)
 {
 	t_env	*cur;
-	
+
 	if (!env || !new)
 		return ;
 	if (!*env)

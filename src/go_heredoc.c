@@ -6,13 +6,13 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:36:51 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 09:27:43 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:40:21 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void extract_expand(t_entry *entry, char *str, int *index, int fd)
+static void	extract_expand(t_entry *entry, char *str, int *index, int fd)
 {
 	int		i;
 	char	*dup;
@@ -42,12 +42,10 @@ static void extract_expand(t_entry *entry, char *str, int *index, int fd)
 static void	expand_heredoc(t_entry *entry, char *str, char **env, int fd)
 {
 	int		i;
-	int		stop;
 
 	if (!*env || !str || !ft_strchr(str, '$'))
 		return ;
 	i = 0;
-	stop = 0;
 	while (str[i] && str[i] != '$')
 	{
 		write(fd, &str[i], 1);
@@ -68,7 +66,7 @@ void	go_heredoc(t_entry *entry, t_token *cur)
 	int		fd;
 	char	*str;
 	char	*infile;
-	
+
 	fd = open(H_FILE, O_CREAT | O_RDWR | O_TRUNC, 00666);
 	if (fd == -1)
 		free_token_and_exit(entry, strerror(errno), cur->content, 1);

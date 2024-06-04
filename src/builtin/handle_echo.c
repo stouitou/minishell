@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 10:37:38 by poriou            #+#    #+#             */
-/*   Updated: 2024/05/28 10:30:01 by poriou           ###   ########.fr       */
+/*   Updated: 2024/05/28 13:21:22 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	get_newline_option(char *arg)
 	return (false);
 }
 
-void	handle_echo(char **cmd)
+int	handle_echo(char **cmd)
 {
 	int		i;
 	bool	option;
@@ -44,4 +44,5 @@ void	handle_echo(char **cmd)
 	}
 	if (!option)
 		ft_putchar_fd('\n', 1);
+	return (0);
 }

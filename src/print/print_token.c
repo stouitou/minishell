@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:12:30 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/14 15:22:00 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:51:59 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	print_content_line(t_token *tmp, int i)
 {
-	const char *cat_strings[] = {
+	const char	*cat_strings[] = {
 		"",
 		"COMMAND",
 		"INFILE",
@@ -46,7 +46,7 @@ static void	print_content_line(t_token *tmp, int i)
 				ft_printf("token[%d]   - [index %d]    = %s\n", i, tmp->index, tmp->content);
 		}
 		else
-			ft_printf("%?37s%?37d%?37s %?37d%?37s%?37s (%?37s)\n", "token[", i, "]   - [index", tmp->index, "]    = ",tmp->content, cat_strings[tmp->category]);
+			ft_printf("%?37s%?37d%?37s %?37d%?37s%?37s (%?37s)\n", "token[", i, "]   - [index", tmp->index, "]    = ", tmp->content, cat_strings[tmp->category]);
 	}
 	else
 	{
@@ -62,7 +62,7 @@ static void	print_content_line(t_token *tmp, int i)
 				ft_printf("token[%d]  - [index %d]    = %s\n", i, tmp->index, tmp->content);
 		}
 		else
-			ft_printf("%?37s%?37d%?37s %?37d%?37s%?37s (%?37s)\n", "token[", i, "]  - [index", tmp->index, "]    = ",tmp->content, cat_strings[tmp->category]);
+			ft_printf("%?37s%?37d%?37s %?37d%?37s%?37s (%?37s)\n", "token[", i, "]  - [index", tmp->index, "]    = ", tmp->content, cat_strings[tmp->category]);
 	}
 }
 
@@ -105,7 +105,7 @@ static void	check_error_command(t_token *tmp)
 
 static void	print_category_line(t_token *tmp)
 {
-	const char *cat_strings[] = {
+	const char	*cat_strings[] = {
 		"",
 		"COMMAND",
 		"INFILE",
@@ -120,12 +120,12 @@ static void	print_category_line(t_token *tmp)
 		"CONTROL OPERATOR",
 		"REDIRECTION OPERATOR"
 	};
-	const char *quotes_strings[] = {
+	const char	*quotes_strings[] = {
 		"unquoted",
 		"single-quoted",
 		"double-quoted",
 	};
-	const char *type_strings[] = {
+	const char	*type_strings[] = {
 		"word",
 		"OPERATOR",
 	};
@@ -171,7 +171,7 @@ static void	print_header(int size, int blocks)
 static void	print_footer(int size, int blocks)
 {
 	ft_printf("\n%?34s\n", "...");
-	ft_printf("%?34s %?32d %?34s %?32d %?34s\n", "And...done!",size, "tokens divided in", blocks, "blocks printed...");
+	ft_printf("%?34s %?32d %?34s %?32d %?34s\n", "And...done!", size, "tokens divided in", blocks, "blocks printed...");
 	ft_printf("%?34s\n", "...");
 }
 

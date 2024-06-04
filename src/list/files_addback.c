@@ -16,7 +16,6 @@ void	files_addback(t_files **file, t_files *new)
 {
 	t_files	*cur;
 
-	// ft_printf("in addback, new->content = %s\n", new->content);
 	if (!file || !new)
 		return ;
 	if (!*file)

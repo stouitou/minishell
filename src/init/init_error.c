@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:25:47 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/07 11:19:53 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/29 10:08:33 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,4 @@ void	init_error(t_exe *exe, char *msg, char *data, int status)
 	error.data = data;
 	error.status = status;
 	exe->error = error;
-	// ft_printf("error.msg = %s\n", error.msg);
-	// ft_printf("error.data = %s\n", error.data);
-	// ft_printf("error.status = %d\n", error.status);
 }

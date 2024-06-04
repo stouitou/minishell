@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:52:53 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 09:35:52 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:53:19 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	classify_tokens(t_entry *entry)
 
 	if (!entry->token)
 		return ;
-	gather_indexes(entry, entry->token);
+	upd_token(entry, entry->token);
 	remove_null(&entry->token);
 	cur = entry->token;
 	cmd_found = 0;

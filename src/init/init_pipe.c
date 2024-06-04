@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:48:21 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 11:14:02 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:33:41 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	init_pipe(t_entry *entry, t_exe *exe, int *pipe_fd)
 {
-	int ret;
+	int	ret;
 
 	ret = pipe(pipe_fd);
-	// printf("is piped\n");
 	if (ret == -1)
 	{
 		free_exe(exe);

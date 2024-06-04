@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:03:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 16:28:05 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:36:59 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int	main(int argc, char **argv, char **env)
 	if (argc != 1)
 		return (1);
 	init_entry(&entry, env);
-	// print_tab(env);
 	while (1)
 	{
 		entry.str = readline(PROMPT);
@@ -88,7 +87,6 @@ int	main(int argc, char **argv, char **env)
 			clear_and_reset_status(&entry, &(entry.token));
 			continue ;
 		}
-		// print_token(&entry, entry.token);
 		exec_token(&entry, entry.token);
 		log_status(entry.status);
 		clear_and_reset_status(&entry, &(entry.token));
