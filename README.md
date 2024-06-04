@@ -21,6 +21,7 @@
 [ ] et le gcc?
 [ ] mettre le heredoc dans /tmp/heredoc
 [ ] declare -x lang (call only "export" in bash)
+[ ] handle_cd_in_subshell
 
 [ ] ?$HOME
 [ ] export HOLA="   -n bonjour   "

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   partition_content.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:07:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 10:23:14 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:35:14 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static char	*extract_expand(t_entry *entry, char *str, int *index)
 	char	*empty;
 
 	i = 1;
-	while (str[i] && (ft_isalpha(str[i]) || str[i] == '_'))
+	while (str[i] && (ft_isalnum(str[i]) || str[i] == '_'))
 		i++;
 	*index += i;
 	dup = ft_strndup(str + 1, i - 1);

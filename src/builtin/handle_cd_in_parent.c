@@ -6,24 +6,63 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:52:05 by poriou            #+#    #+#             */
-/*   Updated: 2024/06/04 14:37:54 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/04 17:24:00 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	free_cd_b4_return(t_entry *entry, t_exe *exe, char *err, int status)
+static void	free_cd_b4_return(t_entry *entry, t_exe *exe, char *err, char *arg)
 {
+	ft_fprintf(2, "cd: ");
+	if (arg)
+		ft_fprintf(2, "%s: ", arg);
+	ft_fprintf(2, "%s\n", err);
+	entry->status = 1;
 	free_exe(exe);
-	ft_putendl_fd(err, 2);
-	entry->status = status;
+}
+
+static void	delete_node(t_env *cur)
+{
+	free(cur->key);
+	free(cur->value);
+	free(cur);
+}
+
+static void	delete_variable(t_env *env, t_env *cur, t_env *prev)
+{
+	if (!env)
+		return ;
+	if (!prev)
+		env = cur->next;
+	else
+		prev->next = cur->next;
+	delete_node(cur);
+}
+
+static void	remove_variable(t_env *env, char *arg)
+{
+	t_env	*cur;
+	t_env	*prev;
+
+	if (!env || !arg || ft_strcmp(arg, "_") == 0)
+		return ;
+	cur = env;
+	prev = NULL;
+	while (cur)
+	{
+		if (ft_strcmp(cur->key, arg) == 0)
+			delete_variable(env, cur, prev);
+		prev = cur;
+		cur = cur->next;
+	}
 }
 
 static bool	too_many_args(t_entry *entry, t_exe *exe, char **cmd)
 {
 	if (ft_str_array_len(cmd) > 2)
 	{
-		free_cd_b4_return(entry, exe, "cd: too many arguments", 1);
+		free_cd_b4_return(entry, exe, "too many arguments", NULL);
 		return (true);
 	}
 	return (false);
@@ -95,8 +134,6 @@ static void	upd_env_pwd(t_env *env)
 	cwd = find_cwd();
 	oldpwd = get_in_env(env, "OLDPWD");
 	pwd = get_in_env(env, "PWD");
-	ft_printf("before upd_env_pwd\n");
-	ft_printf("pwd = %s\n", pwd->value);
 	if (oldpwd)
 	{
 		if (pwd)
@@ -104,6 +141,8 @@ static void	upd_env_pwd(t_env *env)
 			free(oldpwd->value);
 			oldpwd->value = pwd->value;
 		}
+		else
+			remove_variable(env, "OLDPWD");
 	}
 	if (pwd)
 	{
@@ -111,9 +150,9 @@ static void	upd_env_pwd(t_env *env)
 			free(pwd->value);
 		pwd->value = cwd;
 	}
-	ft_printf("after upd_env_pwd\n");
-	ft_printf("oldpwd = %s\n", oldpwd->value);
-	ft_printf("pwd = %s\n", pwd->value);
+	// ft_printf("after upd_env_pwd\n");
+	// ft_printf("oldpwd = %s\n", oldpwd->value);
+	// ft_printf("pwd = %s\n", pwd->value);
 }
 
 static char	*handle_hyphen(t_entry *entry, t_exe *exe, t_env *env)
@@ -123,7 +162,7 @@ static char	*handle_hyphen(t_entry *entry, t_exe *exe, t_env *env)
 	oldpwd = get_in_env(env, "OLDPWD");
 	if (!oldpwd)
 	{
-		free_cd_b4_return(entry, exe, "cd: OLDPWD not set", 1);
+		free_cd_b4_return(entry, exe, "OLDPWD not set", NULL);
 		entry->status = 1;
 		return (NULL);
 	}
@@ -140,7 +179,7 @@ static char	*get_path(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 		path = extract_key_value(env, "HOME");
 		if (!path)
 		{
-			free_cd_b4_return(entry, exe, "cd: HOME not set", 1);
+			free_cd_b4_return(entry, exe, "HOME not set", NULL);
 			entry->status = 1;
 			return (NULL);
 		}
@@ -151,20 +190,19 @@ static char	*get_path(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 	{
 		path = handle_hyphen(entry, exe, env);
 		if (!path)
-		{
 			return (NULL);
-		}
 	}
 	return (path);
 }
 
-static void	change_directory(t_entry *entry, t_exe *exe, char *path)
+static bool	change_directory(t_entry *entry, t_exe *exe, char *path)
 {
 	if (chdir(path) == -1)
 	{
-		free_cd_b4_return(entry, exe, strerror(errno), 1);
-		return ;
+		free_cd_b4_return(entry, exe, strerror(errno), path);
+		return (false);
 	}
+	return (true);
 }
 
 int	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
@@ -173,7 +211,7 @@ int	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 
 	if (!cmd || exe->blocks > 1 || ft_strcmp(cmd[0], "cd") != 0)
 		return (0);
-	if (!get_files_fd_for_exit(exe, exe->files))
+	if (!get_files_fd_for_builtin(exe, exe->files, "cd"))
 	{
 		free_exe(exe);
 		entry->status = 1;
@@ -184,8 +222,12 @@ int	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 	path = get_path(entry, exe, env, cmd);
 	if (!path)
 		return (1);
-	// ft_printf("after get_path, path = %s\n", path);
-	change_directory(entry, exe, path);
-	upd_env_pwd(env);
+	if (change_directory(entry, exe, path))
+	{
+		upd_env_pwd(env);
+		ft_free_str_array(entry->env);
+		entry->env = upd_env(exe, env);
+		free_exe(exe);
+	}
 	return (1);
 }

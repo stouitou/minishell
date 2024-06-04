@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:29:32 by poriou            #+#    #+#             */
-/*   Updated: 2024/05/28 10:45:52 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/04 15:00:45 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ void	handle_pwd(t_exe *exe)
 			continue ;
 		}
 		else if (!pwd)
-		{
-			init_error(exe, strerror(errno), "cwd", EXIT_FAILURE);
-			free_subshell_and_exit(exe);
-		}
+			free_subshell_and_exit(exe, strerror(errno), "cwd", EXIT_FAILURE);
 		break ;
 	}
 	ft_putendl_fd(pwd, 1);

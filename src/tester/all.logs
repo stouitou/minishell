@@ -1705,4 +1705,89 @@ cat Makefile |
 cat Makefile | |
 exit
 cat Makefile |
+exitcd src/
+cd src/
+cd src/
+cd src/
+env
+cd -
+unset PWD
+cd src/
+cd src/
+cd src/
+cd -
+export TEST=test
+cat << ok
+export TEST=test
+cat << ok
+?$HOME
+export HOLA="     -n  bonjour       "
+echo $HOLA
+echo       -n   bonjour      
+export HOLA="bonjour       test1     ok     dernier"
+echo $HOLA
+export HOLA="bonjour      "\
+echo $HOLA
+exit -9223372036854775808
+cat Makefile |
+whereis grep > Docs/bonjour
+cat Makefile | grep ok > outfile
+echo $?
 exit
+cat Makefile > outfile
+chmod -x outfile/
+cat Makefile > outfile
+chmod -x outfile/
+chmod -x outfile
+chmod -x outfile
+cat Makefile > outfile
+cat Makefile > outfile
+cat Makefile > myfile/outfile
+exit 9223372036854775808
+exit 9223372036854775808
+exit 9223372036854775807
+exit -9223372036854775808
+ exit -9223372036854775807
+exit -9223372036854775808
+exit -9223372036854775808
+exit 9223372036854775808
+exit -9223372036854775809
+exit 9223372036854775807
+exit -9223372036854775808
+exit 922337203685477
+exit 9223372036854775807
+exit 9223372036854775807
+/bin/cd Desktop
+cd /etc
+ls
+cd e'tc'
+cd e"tc"
+cat make"file"
+cd etc
+cd /etc
+cd dwefeaf
+cd etc
+cd Makefile
+echo $?
+cd .././../.././../bin/ls
+export HOLA++Ok
+cd fs;fs
+cd fsewqfs
+cd eafeas
+cd rwererfes
+echo $?
+cd myfile/
+echo $?
+cd myfile/
+cd myfile/ 545
+unset HOME
+cd
+unset PWD
+cd src/
+cd //
+cd /
+ls
+mkdir a/b
+mkdir a
+mkdir a/b
+cd a/b

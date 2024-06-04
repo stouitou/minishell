@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   go_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:36:51 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/03 14:40:21 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:35:32 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static char	*get_value(char **env, char *key)
+{
+	int		i;
+	int		key_len;
+
+	if (!env)
+		return (NULL);
+	i = 0;
+	key_len = ft_strlen(key);
+	while (env[i])
+	{
+		if (ft_strncmp(env[i], key, key_len) == 0
+			&& env[i][key_len] == '=')
+			return (env[i] + key_len + 1);
+		i++;
+	}
+	return (NULL);
+}
 
 static void	extract_expand(t_entry *entry, char *str, int *index, int fd)
 {
@@ -25,13 +44,13 @@ static void	extract_expand(t_entry *entry, char *str, int *index, int fd)
 		*index += 2;
 		return ;
 	}
-	while (str[i] && (ft_isalpha(str[i]) || str[i] == '_'))
+	while (str[i] && (ft_isalnum(str[i]) || str[i] == '_'))
 		i++;
 	*index += i;
 	dup = ft_strndup(str + 1, i - 1);
 	if (!dup)
 		free_token_and_exit(entry, ERR_MALLOC, str, EXIT_FAILURE);
-	var = getenv(dup);
+	var = get_value(entry->env, dup);
 	if (var)
 		ft_fprintf(fd, var);
 	else

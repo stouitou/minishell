@@ -1442,4 +1442,37 @@ $HOMEjnd
 "$HOMEdnsk"
 '$HOMEjd'
 export             HOLA=bonjour2
-cat Makefile | |
+cat Makefile | |cat << ok
+cat << ok
+export HOLA="     -n  bonjour       "
+echo       -n   bonjour      
+export HOLA="bonjour       test1     ok     dernier"
+export HOLA="bonjour      "\
+cat Makefile | grep ok > outfile
+cat Makefile > outfile
+chmod -x outfile/
+chmod -x outfile
+cat Makefile > myfile/outfile
+ exit -9223372036854775807
+exit 922337203685477
+/bin/cd Desktop
+cd /etc
+cd e'tc'
+cd e"tc"
+cat make"file"
+cd etc
+cd dwefeaf
+cd Makefile
+cd .././../.././../bin/ls
+export HOLA++Ok
+cd fs;fs
+cd fsewqfs
+cd eafeas
+cd rwererfes
+cd myfile/
+cd myfile/ 545
+unset HOME
+cd //
+cd /
+mkdir a/b
+cd a/b

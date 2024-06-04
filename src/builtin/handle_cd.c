@@ -6,7 +6,7 @@
 /*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:52:05 by poriou            #+#    #+#             */
-/*   Updated: 2024/05/28 11:24:59 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/04 15:01:14 by poriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	handle_cd(t_exe *exe, char **cmd)
 
 	path = NULL;
 	if (ft_str_array_len(cmd) > 2)
-	{
-		init_error(exe, "too many arguments", "cd", EXIT_FAILURE);
-		free_subshell_and_exit(exe);
-	}
+		free_subshell_and_exit(exe, "too many arguments", "cd", EXIT_FAILURE);
 	old_path = getenv("OLDPWD");
 	if (!cmd[1])
 	{
