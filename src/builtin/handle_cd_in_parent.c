@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_cd_in_parent.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:52:05 by poriou            #+#    #+#             */
-/*   Updated: 2024/06/04 17:24:00 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/05 13:41:18 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,8 @@ static void	upd_env_pwd(t_env *env)
 	{
 		if (!oldpwd)
 			free(pwd->value);
+		// if (!cwd)
+		// 	cwd = ft_strdup("");
 		pwd->value = cwd;
 	}
 	// ft_printf("after upd_env_pwd\n");
@@ -197,13 +199,79 @@ static char	*get_path(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 
 static bool	change_directory(t_entry *entry, t_exe *exe, char *path)
 {
-	if (chdir(path) == -1)
+	int		res;
+	char	*cwd;
+
+
+	res = chdir(path);
+	if (res == -1)
 	{
 		free_cd_b4_return(entry, exe, strerror(errno), path);
 		return (false);
 	}
+	cwd = find_cwd();
+	if (!cwd)
+	{
+		ft_fprintf(2, "cd: error retrieving current directory: ");
+		ft_fprintf(2, "getcwd: cannot access parent directories: ");
+		ft_fprintf(2, "%s\n", strerror(errno));
+		entry->status = 1;
+	}
 	return (true);
 }
+
+// static bool	change_directory(t_entry *entry, t_exe *exe, char *path)
+// {
+// 	int			res;
+// 	struct stat	file_stat;
+
+// 	// int stat(const char *pathname, struct stat *statbuf);
+// 	if (stat(path, &file_stat) == -1)
+// 	{
+// 		perror("stat");
+// 	}
+// 	if (S_ISDIR(file_stat.st_mode) && (file_stat.st_mode & S_IXUSR))
+//     {
+//         printf("Répertoire\n");
+//     }
+// 	else
+// 	{
+// 		ft_fprintf(2, "cd: error retrieving current directory: ");
+// 		ft_fprintf(2, "getcwd: cannot access parent directories: ");
+// 		ft_fprintf(2, "%s\n", strerror(errno));
+// 		entry->status = 1;
+// 		free_exe(exe);
+// 		return (false);
+// 	}
+// 	res = chdir(path);
+// 	if (res == -1)
+// 	{
+// 		free_cd_b4_return(entry, exe, strerror(errno), path);
+// 		return (false);
+// 	}
+// 	return (true);
+// }
+
+	// if (access(path, X_OK) == -1)
+	// {
+	// 	ft_fprintf(2, "cd: error retrieving current directory: ");
+	// 	ft_fprintf(2, "getcwd: cannot access parent directories: ");
+	// 	ft_fprintf(2, "%s\n", strerror(errno));
+	// 	entry->status = 1;
+	// 	free_exe(exe);
+	// 	return (false);
+	// }
+	// if (errno == ENOENT)
+	// {
+	// 	ft_printf("errno (enoent) = %d\n", errno);
+	// 	ft_fprintf(2, "cd: error retrieving current directory: ");
+	// 	ft_fprintf(2, "getcwd: cannot access parent directories: ");
+	// 	ft_fprintf(2, "%s\n", strerror(errno));
+	// 	entry->status = 1;
+	// 	free_exe(exe);
+	// 	errno = tmp;
+	// 	return (false);
+	// }
 
 int	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 {
@@ -219,14 +287,20 @@ int	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 	}
 	if (too_many_args(entry, exe, cmd))
 		return (1);
+	ft_printf("here1\n");
 	path = get_path(entry, exe, env, cmd);
 	if (!path)
 		return (1);
+	ft_printf("here2\n");
 	if (change_directory(entry, exe, path))
 	{
+		ft_printf("here3\n");
 		upd_env_pwd(env);
+		ft_printf("here4\n");
 		ft_free_str_array(entry->env);
+		ft_printf("here5\n");
 		entry->env = upd_env(exe, env);
+		ft_printf("here6\n");
 		free_exe(exe);
 	}
 	return (1);

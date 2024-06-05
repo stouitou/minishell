@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:15:44 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 10:14:55 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 13:44:33 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	copy_env(t_exe *exe, t_env *cur, char **arr, int i)
 	int	j;
 	int	len;
 
+	ft_printf("cur->key = %s\n", cur->key);
+	ft_printf("cur->value = %s\n", cur->value);
 	j = 0;
 	len = ft_strlen(cur->key) + ft_strlen(cur->value) + 3;
 	arr[i] = (char *)malloc(sizeof(char) * (len + 1));
@@ -43,7 +45,8 @@ char	**upd_env(t_exe *exe, t_env *env)
 	i = 0;
 	while (env)
 	{
-		copy_env(exe, env, array, i);
+		if (env->value)
+			copy_env(exe, env, array, i);
 		env = env->next;
 		i++;
 	}

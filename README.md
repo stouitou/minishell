@@ -22,6 +22,7 @@
 [ ] mettre le heredoc dans /tmp/heredoc
 [ ] declare -x lang (call only "export" in bash)
 [ ] handle_cd_in_subshell
+[ ] mkdir a  /  mkdir a/b  /  cd a/b  /  rm ./../../a  / PWD<--- (POSIX OR NOT?)
 
 [ ] ?$HOME
 [ ] export HOLA="   -n bonjour   "

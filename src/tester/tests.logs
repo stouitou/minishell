@@ -1476,3 +1476,11 @@ cd //
 cd /
 mkdir a/b
 cd a/b
+rm -rf a
+chmod +x a
+cd a
+cd a.b
+mkdir b
+rm -rf b
+rm -r ../../a
+rm -r b
