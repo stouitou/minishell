@@ -6,13 +6,13 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:52:11 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/05 17:37:03 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/06 09:41:07 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-bool	handle_export_in_parent(t_entry *ent, t_ex *ex, t_env *env, char **cmd)
+bool	handle_export_in_parent(t_entry *ent, t_exe *ex, t_env *env, char **cmd)
 {
 	int		exit_status;
 	int		i;

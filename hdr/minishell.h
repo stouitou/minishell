@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/05 17:08:07 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/06 15:07:56 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <sys/wait.h>
+# include <signal.h>
 
 # ifndef PROMPT
 #  define PROMPT "\033[32mminishell > \033[0m"
@@ -62,6 +63,8 @@
 # ifndef ERR_PERM
 #  define ERR_PERM "permission denied"
 # endif
+
+extern int sig_stat;
 
 enum	e_quotes
 {
@@ -160,6 +163,8 @@ char	*handle_status(t_entry *entry, char *content, int i);
 void	classify_tokens(t_entry *entry);
 void	go_heredoc(t_entry *entry, t_token *cur);
 void	upd_token(t_entry *entry, t_token *cur);
+void	separate_content(t_entry *entry, t_token *cur, t_token *next);
+void	join_contents(t_entry *entry, t_token *cur, t_token *prev);
 void	exec_token(t_entry *entry, t_token *token);
 void	set_env(t_entry *entry, t_exe *exe);
 void	find_files(t_entry *entry, t_exe *exe, t_token *token);
@@ -169,34 +174,40 @@ char	*find_cmd(t_exe *exe, char **cmd);
 char	*check_path(t_exe *exe, char *cmd);
 char	*ft_getenv(t_env *env, char *key);
 void	execute_command(t_exe *exe, char *command, int i, int prev_status);
+int		listen_signals(void);
 
 /* BUILTIN */
 bool	is_builtin(char *command);
 int		get_files_fd_for_builtin(t_exe *exe, t_files *file, char *builtin);
-bool	handle_builtin_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+bool	handle_builtin_in_parent(
+			t_entry *entry, t_exe *exe, t_env *env, char **cmd);
 bool	handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
 bool	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
 bool	handle_export_in_parent(
 			t_entry *entry, t_exe *exe, t_env *env, char **cmd);
-bool	handle_unset_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+bool	handle_unset_in_parent(
+			t_entry *entry, t_exe *exe, t_env *env, char **cmd);
 void	handle_builtin_in_subshell(t_exe *exe, char *command, int prev_status);
-int		handle_exit(t_exe *exe, char **cmd, int prev_status);
+int		handle_exit_in_subshell(t_exe *exe, char **cmd, int prev_status);
 int		handle_echo(char **cmd);
 void	handle_pwd(t_exe *exe);
-int		handle_cd(t_exe *exe, t_env *env, char **cmd);
+int		handle_cd_in_subshell(t_exe *exe, t_env *env, char **cmd);
 int		handle_env(char **cmd, t_env *env);
-int		handle_export(t_exe *exe, char **cmd, t_env *env);
-int		handle_unset(t_exe *exe, char **cmd, t_env *env);
+int		handle_export_in_subshell(t_exe *exe, char **cmd, t_env *env);
+int		handle_unset_in_subshell(t_exe *exe, char **cmd, t_env *env);
+int		get_exit_status(char *arg);
 void	export_only(t_exe *exe, t_env *env);
-// int		get_files_fd_for_exit(t_exe *exe, t_files *file);
-void	export_variable(t_exe *exe, t_env *env, char *var, int *status);
 bool	syntax_error_in_export(char *arg, int *exit_status);
+void	export_variable(t_exe *exe, t_env *env, char *var, int *status);
 char	*extract_key_for_export(t_exe *exe, char *arg);
 char	*extract_value_for_export(t_exe *exe, char *arg);
 void	upd_concatenating(t_exe *exe, t_env *env, char *key, char *value);
 void	upd_replacing(t_exe *exe, t_env *env, char *key, char *value);
-int		get_exit_status(char *arg);
-
+char	*extract_key_value(t_env *env, char *key);
+t_env	*get_in_env(t_env *env, char *key);
+char	*find_cwd(void);
+void	upd_env_pwd(t_env *env);
+void	free_cd_b4_return(t_entry *entry, t_exe *exe, char *err, char *arg);
 
 /* LIST */
 t_token	*token_new(int *ib);
@@ -221,7 +232,8 @@ void	init_pipe_fd_and_block(t_entry *entry, t_exe *exe);
 
 /* FREE */
 void	free_token_and_exit(t_entry *entry, char *err, char *str, int status);
-void	free_token_before_return(t_entry *entry, char *err, char *str, int error);
+void	free_token_before_return(
+			t_entry *entry, char *err, char *str, int error);
 void	free_exe(t_exe *exe);
 void	free_cmd(char **cmd);
 void	free_subshell_and_exit(t_exe *exe, char *msg, char *data, int status);

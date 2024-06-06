@@ -62,25 +62,26 @@ LIST = ${addprefix ${LIST_DIR}/, ${LIST_SRC}}
 
 BUILTIN_DIR = builtin
 BUILTIN_SRC =	is_builtin.c \
-				handle_builtin_in_subshell.c \
+				get_files_fd_for_builtin.c \
 				handle_builtin_in_parent.c \
 				handle_exit_in_parent.c \
-				handle_export_in_parent.c \
 				handle_cd_in_parent.c \
+				handle_export_in_parent.c \
 				handle_unset_in_parent.c \
-				export_only.c \
-				export_variable.c \
-				syntax_error_in_export.c \
-				utils_for_export.c \
+				handle_builtin_in_subshell.c \
+				handle_exit_in_subshell.c \
 				handle_echo.c \
-				handle_exit.c \
-				get_exit_status.c \
-				handle_unset.c \
-				get_files_fd_for_builtin.c \
-				handle_env.c \
-				handle_export.c \
 				handle_pwd.c \
-				handle_cd.c
+				handle_cd_in_subshell.c \
+				handle_env.c \
+				handle_export_in_subshell.c \
+				handle_unset_in_subshell.c \
+				get_exit_status.c \
+				export_only.c \
+				syntax_error_in_export.c \
+				export_variable.c \
+				utils_for_export.c \
+				utils_for_cd.c
 BUILTIN = ${addprefix ${BUILTIN_DIR}/, ${BUILTIN_SRC}}
 
 SRC =	minishell.c \
@@ -95,6 +96,8 @@ SRC =	minishell.c \
 		classify_tokens.c \
 		go_heredoc.c \
 		upd_token.c \
+		separate_content.c \
+		join_contents.c \
 		exec_token.c \
 		set_env.c \
 		find_files.c \
@@ -104,6 +107,7 @@ SRC =	minishell.c \
 		check_path.c \
 		ft_getenv.c \
 		execute_command.c \
+		listen_to_signals.c \
 		${BUILTIN} \
 		${LIST} \
 		${INIT} \
@@ -124,7 +128,7 @@ LIBFT_NAME = libft.a
 
 RDLINE_PATH = /usr/local/lib
 
-CC = cc
+CC = cc -g3
 CFLAGS = -Wall -Wextra -Werror -I${HDR_DIR} -I/usr/local/include
 
 

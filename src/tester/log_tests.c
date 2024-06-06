@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   log_tests.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:48:55 by poriou            #+#    #+#             */
-/*   Updated: 2024/05/28 11:42:52 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/06 09:49:39 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 
 void	add_to_all_logs(const char *command)
 {
-	FILE *file_all;
-    char *log_path_all = "./src/tester/all.logs";
+	FILE	*file_all;
+	char	*log_path_all = "./src/tester/all.logs";
 
-    // Open "all.logs" file in append mode
+	// Open "all.logs" file in append mode
 	if (!command)
 		return ;
-    file_all = fopen(log_path_all, "a+");
-    if (file_all == NULL)
+	file_all = fopen(log_path_all, "a+");
+	if (file_all == NULL)
 	{
-        // printf("Problem: could not open all logs file.\n");
-        return;
-    }
-
-    // Write the command to "all.logs"
-    fprintf(file_all, "%s\n", command);
-
-    // Close the "all.logs" file
-    fclose(file_all);
+		// printf("Problem: could not open all logs file.\n");
+		return ;
+	}
+	// Write the command to "all.logs"
+	fprintf(file_all, "%s\n", command);
+	// Close the "all.logs" file
+	fclose(file_all);
 }
 
 /*
@@ -49,8 +47,8 @@ void	log_tests(const char *command)
 {
 	FILE	*file;
 	char	*log_path;
-	char 	buffer[256];
-    int 	found;
+	char	buffer[256];
+	int		found;
 
 	add_to_all_logs(command);
 	found = 0;
@@ -62,8 +60,7 @@ void	log_tests(const char *command)
 		return ;
 	}
 	// Positionner le curseur au début du fichier
-    fseek(file, 0, SEEK_SET);
-
+	fseek(file, 0, SEEK_SET);
 	/*
 		Rechercher la commande dans le fichier avec
 		FGETS
@@ -75,10 +72,10 @@ void	log_tests(const char *command)
 		Une fois qu'elle a lu une ligne complète, elle stocke les caractères
 		dans le tableau str, y compris le caractère de fin de ligne '\n',
 		et ajoute également un caractère nul '\0' à la fin pour terminer la chaîne correctement.
-    */
+	*/
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
-    {
-        /*
+	{
+		/*
 			Supprimer le saut de ligne à la fin de la commande lue depuis le fichier
 			STRCSPN
 			size_t strcspn(const char *str, const char *reject);
@@ -86,15 +83,14 @@ void	log_tests(const char *command)
 			La fonction est utilisée pour trouver la longueur du préfixe d'une chaîne de caractères
 			qui ne contient aucun des caractères spécifiés.
 		*/
-        buffer[strcspn(buffer, "\n")] = '\0';
-
-        // Comparer la commande actuelle avec la nouvelle commande
-        if (strcmp(buffer, command) == 0)
-        {
-            found = 1;
-            break;
-        }
-    }
+		buffer[strcspn(buffer, "\n")] = '\0';
+		// Comparer la commande actuelle avec la nouvelle commande
+		if (strcmp(buffer, command) == 0)
+		{
+			found = 1;
+			break ;
+		}
+	}
 	if (!found)
 		fprintf(file, "%s\n", command);
 	fclose(file);

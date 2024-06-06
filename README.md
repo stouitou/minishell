@@ -10,6 +10,9 @@
 [ ] free(entry.str) ?
 [ ] valgrind --trace-children=yes --track-fds=yes --show-leak-kinds=all --leak-check=full --suppressions=suppression.txt ./minishell
 [ ] cat /dev/urandom | valgrind --trace-children=yes --track-fds=yes --show-leak-kinds=all --leak-check=full --suppressions=suppression.txt ./minishell
+[ ] enlever g3 avant push final
+[ ] ???if (exe.blocks > 1)
+		wait_for_child(entry, exe, status, i);
 
 [x] les pipes sans rien derriere
 [x] le outfile efface dans 'cat infile > outfile > ok'

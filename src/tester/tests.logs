@@ -1511,3 +1511,52 @@ cat << ho"la"
 cat << "'EOF'"
 cat << "EOF"
 cd symbolic
+export HOLA="   -n  bonjour   "
+export HOLA="   -n  bonjour   et voila"
+         
+>>>>>
+BAC=hola
+echo hola
+echohola
+echo-nhola
+echo -n Hola
+echo "-n" Hola
+echo -nHola
+echo Hola -n
+echo Hola Que Tal
+echo         Hola
+echo     Hola              que   tal
+echo      \n hola
+echo "             " | cat -e
+echo               | cat -e
+""''echo hola""'''' que""'' tal""''
+echo -n -n
+echo -n -n Hola que
+echo -p
+echo -nnnnnnnn
+echo -nnnnnnnn -n -nnn
+echo -n -n ok -n
+echo -n -n Hola Que -n
+echo -n -n -n hola -n
+echo -n -n -nnnnnnn hola -n
+echo -nnnnnnn hola -n
+echo -nnnnnnn hola
+echo -p hola
+    
+oui
+cat 
+bgvsdh
+catexit
+cat README.md 
+ok ok ok
+okexit
+e
+exot
+cat MAkefile | grep ok
+Nouvelle ligne modifiée.
+xcNouvelle ligne modifiée.
+exitNouvelle ligne modifiée.
+eirfdvfsdNouvelle ligne modifiée.
+cat README.md | grep "ok" | cat
+??
+cat exit

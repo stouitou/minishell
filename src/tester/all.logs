@@ -2022,3 +2022,237 @@ cat << "EOF"
 cd symbolic
 ls -l
 cd symbolic
+export HOLA="   -n  bonjour   "
+echo $HOLA
+export HOLA="   -n  bonjour   et voila"
+echo $HOLA
+exit
+
+exit
+
+exit
+
+exit
+
+         
+>
+<
+>>
+<<
+<>
+>>>>>
+> > > >
+|
+| hola
+| | |
+>>|><
+""
+"hola"
+exit
+'hola'
+BAC=hola
+Makefile
+echo
+echo -n
+echo hola
+echohola
+echo-nhola
+echo -n Hola
+echo "-n" Hola
+echo -nHola
+echo Hola -n
+echo Hola Que Tal
+echo         Hola
+echo     Hola              que   tal
+echo      \n hola
+echo "             " | cat -e
+echo               | cat -e
+""''echo hola""'''' que""'' tal""''
+echo -n -n
+echo -n -n Hola que
+echo -p
+echo -nnnnnnnn
+echo -nnnnnnnn -n -nnn
+exit
+echo -n -n ok -n
+echo -n -n Hola Que -n
+exit
+echo -n -n -n hola -n
+echo -n -n -nnnnnnn hola -n
+echo -nnnnnnn hola -n
+echo -nnnnnnn hola
+echo -p hola
+exit
+
+
+    
+""
+exit
+exit
+exit
+exit
+""
+ok
+ok
+cd src
+ok
+bonjour
+exit
+bonjour
+exit
+ok
+ok
+oui
+ok
+ok
+ok
+cat 
+bgvsdh
+cat
+cat
+cat
+cat 
+cat
+cat
+cat 
+cat
+cat
+cat
+cat
+cat
+catexit
+exit
+cat
+cat README.md 
+cat README.md 
+cat README.md 
+exit
+cat README.md 
+exit
+cat README.md 
+cat README.md 
+cat README.md 
+exit
+cat README.md 
+ok
+ok
+exit
+ok
+das
+exit
+
+
+
+
+exit
+exit
+
+
+exit
+
+ok ok ok
+exit
+export ABC
+exit
+
+
+exit
+
+
+
+ok
+okexit
+exit
+e
+e
+exit
+
+exit
+exit
+exit
+exit
+exot
+exit
+
+exit
+
+exit
+cat MAkefile | grep ok
+cat MAkefile | grep ok
+exit
+
+
+exit
+
+exit
+
+
+
+
+
+exit
+Nouvelle ligne modifiée.
+exit
+xcNouvelle ligne modifiée.
+exit
+Nouvelle ligne modifiée.
+exitNouvelle ligne modifiée.
+exit
+exitNouvelle ligne modifiée.
+exit
+exitNouvelle ligne modifiée.
+exit
+eirfdvfsdNouvelle ligne modifiée.
+eirfdvfsdNouvelle ligne modifiée.
+exit
+
+exit
+
+\
+
+
+
+exit
+
+exit
+exit
+cat README.md | grep "ok" | cat
+cat
+cat
+exit
+cat
+exit
+cat
+exit
+cat 
+exit
+cat
+exit
+cat
+exit
+??
+cat
+
+cat
+
+
+
+cat
+exit
+cat
+exit
+cat
+exit
+cat 
+cat exit
+exit
+cat
+exit
+
+
+cat
+exit
+cat
+cat
+env
+cat

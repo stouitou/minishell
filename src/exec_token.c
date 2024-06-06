@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:05:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/05 17:40:40 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:33:07 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,23 @@ static void	wait_for_child(t_entry *entry, t_exe exe, int status, int i)
 	while (errno != ECHILD)
 	{
 		if (wait(&status) == exe.subshell && exe.blocks == i)
+		{
+			// ft_printf("here\n");
 			entry->status = WEXITSTATUS(status);
+		}
+		else if (WIFSIGNALED(status))
+		{
+            if (WTERMSIG(status) == SIGINT)
+			{
+				entry->status = WTERMSIG(status);
+                // printf("Terminé par SIGINT\n");
+            } 
+			else if (WTERMSIG(status) == SIGQUIT)
+			{
+				entry->status = WTERMSIG(status);
+                // printf("Terminé par SIGQUIT\n");
+            }
+        }
 	}
 }
 
@@ -73,6 +89,7 @@ void	exec_token(t_entry *entry, t_token *token)
 	init_pipe_fd_and_block(entry, &exe);
 	i = 0;
 	status = 0;
+	// ft_printf("sgl in exec token = %d\n", sgl);
 	while (i < exe.blocks)
 	{
 		init_exe(entry, token, &exe, i);
@@ -82,7 +99,9 @@ void	exec_token(t_entry *entry, t_token *token)
 			pipe_fork_exec_reset(entry, &exe, &i);
 	}
 	close_all_fd(&exe);
+	// if (exe.blocks > 0)
 	wait_for_child(entry, exe, status, i);
+	// listen_signals();
 	if (entry->heredoc)
 		protected_unlink(entry, H_FILE);
 }

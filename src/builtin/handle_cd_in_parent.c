@@ -6,57 +6,11 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:52:05 by poriou            #+#    #+#             */
-/*   Updated: 2024/06/05 17:38:12 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/06 10:08:52 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-static void	free_cd_b4_return(t_entry *entry, t_exe *exe, char *err, char *arg)
-{
-	ft_fprintf(2, "cd: ");
-	if (arg)
-		ft_fprintf(2, "%s: ", arg);
-	ft_fprintf(2, "%s\n", err);
-	entry->status = 1;
-	free_exe(exe);
-}
-
-// static void	delete_node(t_env *cur)
-// {
-// 	free(cur->key);
-// 	free(cur->value);
-// 	free(cur);
-// }
-
-// static void	delete_variable(t_env *env, t_env *cur, t_env *prev)
-// {
-// 	if (!env)
-// 		return ;
-// 	if (!prev)
-// 		env = cur->next;
-// 	else
-// 		prev->next = cur->next;
-// 	delete_node(cur);
-// }
-
-// static void	remove_variable(t_env *env, char *arg)
-// {
-// 	t_env	*cur;
-// 	t_env	*prev;
-
-// 	if (!env || !arg || ft_strcmp(arg, "_") == 0)
-// 		return ;
-// 	cur = env;
-// 	prev = NULL;
-// 	while (cur)
-// 	{
-// 		if (ft_strcmp(cur->key, arg) == 0)
-// 			delete_variable(env, cur, prev);
-// 		prev = cur;
-// 		cur = cur->next;
-// 	}
-// }
 
 static bool	too_many_args(t_entry *entry, t_exe *exe, char **cmd)
 {
@@ -66,90 +20,6 @@ static bool	too_many_args(t_entry *entry, t_exe *exe, char **cmd)
 		return (true);
 	}
 	return (false);
-}
-
-static char	*extract_key_value(t_env *env, char *key)
-{
-	t_env	*cur;
-	char	*value;
-
-	cur = env;
-	while (cur)
-	{
-		if (ft_strcmp(cur->key, key) == 0)
-		{
-			value = cur->value;
-			return (value);
-		}
-		cur = cur->next;
-	}
-	return (NULL);
-}
-
-static t_env	*get_in_env(t_env *env, char *key)
-{
-	t_env	*result;
-
-	if (!env)
-		return (NULL);
-	result = env;
-	while (result)
-	{
-		if (ft_strcmp(result->key, key) == 0)
-			return (result);
-		result = result->next;
-	}
-	return (NULL);
-}
-
-static char	*find_cwd(void)
-{
-	char	*pwd;
-	char	*buf;
-	int		size;
-
-	buf = NULL;
-	size = 0;
-	while (1)
-	{
-		pwd = getcwd(buf, size);
-		if (!pwd && errno == ERANGE)
-		{
-			size++;
-			continue ;
-		}
-		else if (!pwd)
-			return (NULL);
-		break ;
-	}
-	return (pwd);
-}
-
-static void	upd_env_pwd(t_env *env)
-{
-	char	*cwd;
-	t_env	*oldpwd;
-	t_env	*pwd;
-
-	cwd = find_cwd();
-	oldpwd = get_in_env(env, "OLDPWD");
-	pwd = get_in_env(env, "PWD");
-	if (oldpwd)
-	{
-		if (pwd)
-		{
-			free(oldpwd->value);
-			oldpwd->value = pwd->value;
-		}
-		else
-			oldpwd->value = NULL;
-	}
-	if (pwd)
-	{
-		if (!oldpwd)
-			free(pwd->value);
-		pwd->value = cwd;
-	}
 }
 
 static char	*handle_hyphen(t_entry *entry, t_exe *exe, t_env *env)
