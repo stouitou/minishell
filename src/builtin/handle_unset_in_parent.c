@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:07:29 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/03 14:42:19 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:37:27 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,16 @@ static void	remove_variable(t_env *env, char *arg)
 	}
 }
 
-int	handle_unset_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
+bool	handle_unset_in_parent(t_entry *ent, t_exe *exe, t_env *env, char **cmd)
 {
 	int		exit_status;
 	int		i;
 
-	if (!cmd || exe->blocks > 1 || ft_strcmp(cmd[0], "unset") != 0)
-		return (0);
 	if (!get_files_fd_for_builtin(exe, exe->files, "unset"))
 	{
 		free_exe(exe);
-		entry->status = 1;
-		return (1);
+		ent->status = 1;
+		return (true);
 	}
 	exit_status = 0;
 	i = 1;
@@ -68,9 +66,9 @@ int	handle_unset_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 		remove_variable(env, cmd[i]);
 		i++;
 	}
-	entry->status = exit_status;
-	ft_free_str_array(entry->env);
-	entry->env = upd_env(exe, env);
+	ent->status = exit_status;
+	ft_free_str_array(ent->env);
+	ent->env = upd_env(exe, env);
 	free_exe(exe);
-	return (1);
+	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_pwd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:29:32 by poriou            #+#    #+#             */
-/*   Updated: 2024/06/04 15:00:45 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/05 17:38:28 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	handle_pwd(t_exe *exe)
 			continue ;
 		}
 		else if (!pwd)
-			free_subshell_and_exit(exe, strerror(errno), "cwd", EXIT_FAILURE);
+			free_subshell_and_exit(exe, strerror(errno), "getcwd", 1);
 		break ;
 	}
 	ft_putendl_fd(pwd, 1);

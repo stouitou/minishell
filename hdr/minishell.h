@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/04 16:31:36 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/05 17:08:07 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,35 +171,30 @@ char	*ft_getenv(t_env *env, char *key);
 void	execute_command(t_exe *exe, char *command, int i, int prev_status);
 
 /* BUILTIN */
-bool		is_builtin(char *command);
-int			handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
-int			handle_export_in_parent(
-				t_entry *entry, t_exe *exe, t_env *env, char **cmd);
-int			handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
-void		handle_builtin(t_exe *exe, char *command, int prev_status);
-void		handle_pwd(t_exe *exe);
-void		handle_cd(t_exe *exe, char **cmd);
-void		export_only(t_exe *exe, t_env *env);
-int			get_files_fd_for_exit(t_exe *exe, t_files *file);
-
-int		get_files_fd_for_builtin(t_exe *exe, t_files *file, char *builtin);
-int		handle_export_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
-int		handle_unset_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
-int		handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
 bool	is_builtin(char *command);
-void	handle_builtin(t_exe *exe, char *command, int prev_status);
+int		get_files_fd_for_builtin(t_exe *exe, t_files *file, char *builtin);
+bool	handle_builtin_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+bool	handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd);
+bool	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+bool	handle_export_in_parent(
+			t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+bool	handle_unset_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd);
+void	handle_builtin_in_subshell(t_exe *exe, char *command, int prev_status);
+int		handle_exit(t_exe *exe, char **cmd, int prev_status);
 int		handle_echo(char **cmd);
+void	handle_pwd(t_exe *exe);
+int		handle_cd(t_exe *exe, t_env *env, char **cmd);
 int		handle_env(char **cmd, t_env *env);
 int		handle_export(t_exe *exe, char **cmd, t_env *env);
+int		handle_unset(t_exe *exe, char **cmd, t_env *env);
 void	export_only(t_exe *exe, t_env *env);
+// int		get_files_fd_for_exit(t_exe *exe, t_files *file);
 void	export_variable(t_exe *exe, t_env *env, char *var, int *status);
 bool	syntax_error_in_export(char *arg, int *exit_status);
 char	*extract_key_for_export(t_exe *exe, char *arg);
 char	*extract_value_for_export(t_exe *exe, char *arg);
 void	upd_concatenating(t_exe *exe, t_env *env, char *key, char *value);
 void	upd_replacing(t_exe *exe, t_env *env, char *key, char *value);
-int		handle_unset(t_exe *exe, char **cmd, t_env *env);
-int		handle_exit(t_exe *exe, char **cmd, int prev_status);
 int		get_exit_status(char *arg);
 
 

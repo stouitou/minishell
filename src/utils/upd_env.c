@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:15:44 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/05 13:44:33 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:41:17 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,20 @@ static void	copy_env(t_exe *exe, t_env *cur, char **arr, int i)
 	int	j;
 	int	len;
 
-	ft_printf("cur->key = %s\n", cur->key);
-	ft_printf("cur->value = %s\n", cur->value);
 	j = 0;
-	len = ft_strlen(cur->key) + ft_strlen(cur->value) + 3;
+	if (cur->value)
+		len = ft_strlen(cur->key) + ft_strlen(cur->value) + 3;
+	else
+		len = ft_strlen(cur->key);
 	arr[i] = (char *)malloc(sizeof(char) * (len + 1));
 	if (!arr[i])
 		free_subshell_and_exit(exe, ERR_MALLOC, cur->key, EXIT_FAILURE);
 	j = ft_strlcpy(arr[i], cur->key, ft_strlen(cur->key) + 1);
-	j += ft_strlcpy(arr[i] + j, "=", 2);
-	j += ft_strlcpy(arr[i] + j, cur->value, ft_strlen(cur->value) + 1);
+	if (cur->value)
+	{
+		j += ft_strlcpy(arr[i] + j, "=", 2);
+		j += ft_strlcpy(arr[i] + j, cur->value, ft_strlen(cur->value) + 1);
+	}
 	arr[i][j] = '\0';
 }
 
@@ -45,8 +49,7 @@ char	**upd_env(t_exe *exe, t_env *env)
 	i = 0;
 	while (env)
 	{
-		if (env->value)
-			copy_env(exe, env, array, i);
+		copy_env(exe, env, array, i);
 		env = env->next;
 		i++;
 	}

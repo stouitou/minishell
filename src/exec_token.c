@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_token.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:05:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/04 14:59:03 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/05 17:40:40 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,7 @@ void	exec_token(t_entry *entry, t_token *token)
 	while (i < exe.blocks)
 	{
 		init_exe(entry, token, &exe, i);
-		if (handle_exit_in_parent(entry, &exe, exe.cmd)
-			|| handle_export_in_parent(entry, &exe, exe.env, exe.cmd)
-			|| handle_cd_in_parent(entry, &exe, exe.env, exe.cmd)
-			|| handle_unset_in_parent(entry, &exe, exe.env, exe.cmd))
+		if (handle_builtin_in_parent(entry, &exe, exe.env, exe.cmd))
 			break ;
 		else
 			pipe_fork_exec_reset(entry, &exe, &i);
@@ -89,3 +86,9 @@ void	exec_token(t_entry *entry, t_token *token)
 	if (entry->heredoc)
 		protected_unlink(entry, H_FILE);
 }
+
+		// if (handle_exit_in_parent(entry, &exe, exe.cmd)
+		// 	|| handle_export_in_parent(entry, &exe, exe.env, exe.cmd)
+		// 	|| handle_cd_in_parent(entry, &exe, exe.env, exe.cmd)
+		// 	|| handle_unset_in_parent(entry, &exe, exe.env, exe.cmd))
+		// 	break ;

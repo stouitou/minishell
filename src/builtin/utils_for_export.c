@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:48:27 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 14:49:04 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:03:13 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char	*extract_value_for_export(t_exe *exe, char *arg)
 	i = 0;
 	while (arg[i] && arg[i] != '=')
 		i++;
+	if (!arg[i])
+		return (NULL);
 	value = ft_strdup(arg + i + 1);
 	if (!value)
 		free_subshell_and_exit(exe, ERR_MALLOC, arg, EXIT_FAILURE);

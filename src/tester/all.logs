@@ -1918,3 +1918,107 @@ mkdir b
 rm -r b
 mkdir a/b
 cd a/b
+export ABC
+env
+exit
+export ABC
+env
+exit
+export ABC
+env
+export
+exit
+export ABC
+env
+export
+exit
+export ABC
+export DEF
+exit
+export ABC
+export DEF
+export GHI
+env
+exit
+export ABC
+env
+exit
+export ABC
+exit
+export ABC
+exit
+export ABc
+env
+export ABC
+env
+exit
+export ABC
+exit
+export ABC
+exit
+export ABC
+exit
+export ABC
+env
+export
+export DEF
+env
+env 
+env | grep "DEF"
+export GHI
+env | grep "GHI"
+export | grep "DEF"
+export | grep "ABC"
+export | grep "GHI"
+export | grep "KLM"
+clear
+john | ls -l
+touch outfile > ok
+cat ok
+echo this is infile >> infile
+c"at" infile
+$home
+mkdir a
+mkdir a/b
+cd a/b
+mkdir a
+mkdir a/b
+cd a/b
+mkdir a
+mkdir a/b
+cd a/b
+pwd
+cd ..
+$home
+$?
+mkdir a
+mkdir a/b
+cd a/b
+unset PWD
+cd src/
+cd a | cat README.md 
+cd print | cat README.md 
+cd src/
+mkdir a
+mkdir a/b
+cd a/b
+cd
+env -i ./minishell
+cd
+cd .. | pwd
+cat Makefile | grep pr | head -n 5 | cd afdfdsf
+pwd
+unset PWD
+env | grep PWD
+cd $PWD
+cat << EOF | cat << 'EOF' | cat << ho"la
+cat << EOF | cat << 'EOF' | cat << ho"la" | cat << "'EOF'"
+cat << EOF | cat << 'EOF' | cat << ho"la" | cat << "'EOF'"
+cat << EOF
+cat << 'EOF'
+cat << ho"la"
+cat << "'EOF'"
+cat << "EOF"
+cd symbolic
+ls -l
+cd symbolic

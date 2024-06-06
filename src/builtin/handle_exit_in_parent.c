@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 10:36:20 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 11:07:24 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:34:55 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,15 @@ static bool	wrong_argument(t_entry *entry, t_exe *exe, char **cmd, int *status)
 	return (false);
 }
 
-int	handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd)
+bool	handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd)
 {
 	int		exit_status;
 
-	if (!cmd || exe->blocks > 1 || ft_strcmp(cmd[0], "exit") != 0)
-		return (0);
 	if (!get_files_fd_for_builtin(exe, exe->files, "exit"))
 	{
 		free_exe(exe);
 		entry->status = 1;
-		return (1);
+		return (true);
 	}
 	write(2, "exit\n", 5);
 	exit_status = entry->prev_status;
@@ -72,10 +70,10 @@ int	handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd)
 	if (cmd[1])
 	{
 		if (wrong_argument(entry, exe, cmd, &exit_status))
-			return (1);
+			return (true);
 		exit_status = get_exit_status(cmd[1]);
 	}
 	free_exe(exe);
 	entry->status = exit_status;
-	return (1);
+	return (true);
 }

@@ -62,7 +62,8 @@ LIST = ${addprefix ${LIST_DIR}/, ${LIST_SRC}}
 
 BUILTIN_DIR = builtin
 BUILTIN_SRC =	is_builtin.c \
-				handle_builtin.c \
+				handle_builtin_in_subshell.c \
+				handle_builtin_in_parent.c \
 				handle_exit_in_parent.c \
 				handle_export_in_parent.c \
 				handle_cd_in_parent.c \

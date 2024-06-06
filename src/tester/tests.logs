@@ -1484,3 +1484,30 @@ mkdir b
 rm -rf b
 rm -r ../../a
 rm -r b
+export ABC
+export DEF
+export GHI
+export ABc
+env 
+env | grep "DEF"
+env | grep "GHI"
+export | grep "DEF"
+export | grep "ABC"
+export | grep "GHI"
+export | grep "KLM"
+touch outfile > ok
+cat ok
+echo this is infile >> infile
+c"at" infile
+cd a | cat README.md 
+cd print | cat README.md 
+cd .. | pwd
+cat Makefile | grep pr | head -n 5 | cd afdfdsf
+cat << EOF | cat << 'EOF' | cat << ho"la
+cat << EOF | cat << 'EOF' | cat << ho"la" | cat << "'EOF'"
+cat << EOF
+cat << 'EOF'
+cat << ho"la"
+cat << "'EOF'"
+cat << "EOF"
+cd symbolic

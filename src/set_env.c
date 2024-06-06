@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:46:16 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:37:20 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 15:12:04 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static char	*extract_value(t_entry *entry, char *str)
 	i = 0;
 	while (str[i] && str[i] != '=')
 		i++;
+	if (!str[i])
+		return (NULL);
 	value = ft_strdup(str + i + 1);
 	if (!value)
 		free_token_and_exit(entry, ERR_MALLOC, str, EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 12:44:00 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/30 09:17:32 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:40:20 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,9 @@ char	*find_cmd(t_exe *exe, char **cmd)
 	if (!*cmd || !*cmd[0])
 		free_subshell_and_exit(exe, ERR_CMD, NULL, 127);
 	handle_cmd_exception(exe, cmd);
-	// ft_printf("HERE\n");
 	if (ft_strchr(cmd[0], '/') && check_access(exe, cmd[0]))
-	{
-		// ft_printf("HERE 1\n");
 		command = cmd[0];
-	}
 	else
-	{
-		// ft_printf("HERE 2\n");
 		command = check_path(exe, cmd[0]);
-	}
 	return (command);
 }

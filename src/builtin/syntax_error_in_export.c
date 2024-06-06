@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:33:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 12:00:27 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:37:40 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ bool	syntax_error_in_export(char *arg, int *exit_status)
 			return (true);
 		i++;
 	}
-	if (!arg[i])
-		return (true);
 	error = wrong_operator(arg, arg[i], arg[i + 1], exit_status);
 	if (error)
 		return (true);

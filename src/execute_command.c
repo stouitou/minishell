@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 09:06:21 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/30 09:08:43 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:07:41 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	execute_command(t_exe *exe, char *command, int i, int prev_status)
 	close_all_fd(exe);
 	env = upd_env(exe, exe->env);
 	if (is_builtin(exe->cmd[0]))
-		handle_builtin(exe, exe->cmd[0], prev_status);
+		handle_builtin_in_subshell(exe, exe->cmd[0], prev_status);
 	else
 		execve(command, exe->cmd, env);
 	free_subshell_and_exit(exe, strerror(errno), "execve", EXIT_FAILURE);

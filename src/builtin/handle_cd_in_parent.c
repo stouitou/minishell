@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:52:05 by poriou            #+#    #+#             */
-/*   Updated: 2024/06/05 13:41:18 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:38:12 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,41 +22,41 @@ static void	free_cd_b4_return(t_entry *entry, t_exe *exe, char *err, char *arg)
 	free_exe(exe);
 }
 
-static void	delete_node(t_env *cur)
-{
-	free(cur->key);
-	free(cur->value);
-	free(cur);
-}
+// static void	delete_node(t_env *cur)
+// {
+// 	free(cur->key);
+// 	free(cur->value);
+// 	free(cur);
+// }
 
-static void	delete_variable(t_env *env, t_env *cur, t_env *prev)
-{
-	if (!env)
-		return ;
-	if (!prev)
-		env = cur->next;
-	else
-		prev->next = cur->next;
-	delete_node(cur);
-}
+// static void	delete_variable(t_env *env, t_env *cur, t_env *prev)
+// {
+// 	if (!env)
+// 		return ;
+// 	if (!prev)
+// 		env = cur->next;
+// 	else
+// 		prev->next = cur->next;
+// 	delete_node(cur);
+// }
 
-static void	remove_variable(t_env *env, char *arg)
-{
-	t_env	*cur;
-	t_env	*prev;
+// static void	remove_variable(t_env *env, char *arg)
+// {
+// 	t_env	*cur;
+// 	t_env	*prev;
 
-	if (!env || !arg || ft_strcmp(arg, "_") == 0)
-		return ;
-	cur = env;
-	prev = NULL;
-	while (cur)
-	{
-		if (ft_strcmp(cur->key, arg) == 0)
-			delete_variable(env, cur, prev);
-		prev = cur;
-		cur = cur->next;
-	}
-}
+// 	if (!env || !arg || ft_strcmp(arg, "_") == 0)
+// 		return ;
+// 	cur = env;
+// 	prev = NULL;
+// 	while (cur)
+// 	{
+// 		if (ft_strcmp(cur->key, arg) == 0)
+// 			delete_variable(env, cur, prev);
+// 		prev = cur;
+// 		cur = cur->next;
+// 	}
+// }
 
 static bool	too_many_args(t_entry *entry, t_exe *exe, char **cmd)
 {
@@ -142,19 +142,14 @@ static void	upd_env_pwd(t_env *env)
 			oldpwd->value = pwd->value;
 		}
 		else
-			remove_variable(env, "OLDPWD");
+			oldpwd->value = NULL;
 	}
 	if (pwd)
 	{
 		if (!oldpwd)
 			free(pwd->value);
-		// if (!cwd)
-		// 	cwd = ft_strdup("");
 		pwd->value = cwd;
 	}
-	// ft_printf("after upd_env_pwd\n");
-	// ft_printf("oldpwd = %s\n", oldpwd->value);
-	// ft_printf("pwd = %s\n", pwd->value);
 }
 
 static char	*handle_hyphen(t_entry *entry, t_exe *exe, t_env *env)
@@ -202,7 +197,6 @@ static bool	change_directory(t_entry *entry, t_exe *exe, char *path)
 	int		res;
 	char	*cwd;
 
-
 	res = chdir(path);
 	if (res == -1)
 	{
@@ -220,88 +214,27 @@ static bool	change_directory(t_entry *entry, t_exe *exe, char *path)
 	return (true);
 }
 
-// static bool	change_directory(t_entry *entry, t_exe *exe, char *path)
-// {
-// 	int			res;
-// 	struct stat	file_stat;
-
-// 	// int stat(const char *pathname, struct stat *statbuf);
-// 	if (stat(path, &file_stat) == -1)
-// 	{
-// 		perror("stat");
-// 	}
-// 	if (S_ISDIR(file_stat.st_mode) && (file_stat.st_mode & S_IXUSR))
-//     {
-//         printf("Répertoire\n");
-//     }
-// 	else
-// 	{
-// 		ft_fprintf(2, "cd: error retrieving current directory: ");
-// 		ft_fprintf(2, "getcwd: cannot access parent directories: ");
-// 		ft_fprintf(2, "%s\n", strerror(errno));
-// 		entry->status = 1;
-// 		free_exe(exe);
-// 		return (false);
-// 	}
-// 	res = chdir(path);
-// 	if (res == -1)
-// 	{
-// 		free_cd_b4_return(entry, exe, strerror(errno), path);
-// 		return (false);
-// 	}
-// 	return (true);
-// }
-
-	// if (access(path, X_OK) == -1)
-	// {
-	// 	ft_fprintf(2, "cd: error retrieving current directory: ");
-	// 	ft_fprintf(2, "getcwd: cannot access parent directories: ");
-	// 	ft_fprintf(2, "%s\n", strerror(errno));
-	// 	entry->status = 1;
-	// 	free_exe(exe);
-	// 	return (false);
-	// }
-	// if (errno == ENOENT)
-	// {
-	// 	ft_printf("errno (enoent) = %d\n", errno);
-	// 	ft_fprintf(2, "cd: error retrieving current directory: ");
-	// 	ft_fprintf(2, "getcwd: cannot access parent directories: ");
-	// 	ft_fprintf(2, "%s\n", strerror(errno));
-	// 	entry->status = 1;
-	// 	free_exe(exe);
-	// 	errno = tmp;
-	// 	return (false);
-	// }
-
-int	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
+bool	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)
 {
 	char	*path;
 
-	if (!cmd || exe->blocks > 1 || ft_strcmp(cmd[0], "cd") != 0)
-		return (0);
 	if (!get_files_fd_for_builtin(exe, exe->files, "cd"))
 	{
 		free_exe(exe);
 		entry->status = 1;
-		return (1);
+		return (true);
 	}
 	if (too_many_args(entry, exe, cmd))
-		return (1);
-	ft_printf("here1\n");
+		return (true);
 	path = get_path(entry, exe, env, cmd);
 	if (!path)
-		return (1);
-	ft_printf("here2\n");
+		return (true);
 	if (change_directory(entry, exe, path))
 	{
-		ft_printf("here3\n");
 		upd_env_pwd(env);
-		ft_printf("here4\n");
 		ft_free_str_array(entry->env);
-		ft_printf("here5\n");
 		entry->env = upd_env(exe, env);
-		ft_printf("here6\n");
 		free_exe(exe);
 	}
-	return (1);
+	return (true);
 }
