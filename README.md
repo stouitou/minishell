@@ -11,6 +11,7 @@
 [ ] valgrind --trace-children=yes --track-fds=yes --show-leak-kinds=all --leak-check=full --suppressions=suppression.txt ./minishell
 [ ] cat /dev/urandom | valgrind --trace-children=yes --track-fds=yes --show-leak-kinds=all --leak-check=full --suppressions=suppression.txt ./minishell
 [ ] enlever g3 avant push final
+[ ] verifier si on a toujours besoin de termios.h
 [ ] ???if (exe.blocks > 1)
 		wait_for_child(entry, exe, status, i);
 

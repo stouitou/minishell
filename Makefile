@@ -85,6 +85,7 @@ BUILTIN_SRC =	is_builtin.c \
 BUILTIN = ${addprefix ${BUILTIN_DIR}/, ${BUILTIN_SRC}}
 
 SRC =	minishell.c \
+		handle_signal.c \
 		stash_str.c \
 		handle_metachars.c \
 		handle_non_metachars.c \

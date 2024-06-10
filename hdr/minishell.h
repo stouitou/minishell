@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/06 15:07:56 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/10 17:14:25 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <sys/stat.h>
 # include <sys/wait.h>
 # include <signal.h>
+# include <termios.h>
 
 # ifndef PROMPT
 #  define PROMPT "\033[32mminishell > \033[0m"
@@ -142,16 +143,19 @@ typedef struct s_exe
 
 typedef struct s_entry
 {
-	char	*str;
-	t_token	*token;
-	bool	heredoc;
-	int		prev_status;
-	int		status;
-	bool	exit;
-	char	**env;
+	char				*str;
+	t_token				*token;
+	bool				heredoc;
+	int					prev_status;
+	int					status;
+	bool				exit;
+	struct sigaction	sign;
+	char				**env;
 }			t_entry;
 
 int		main(int ac, char **av, char **env);
+void	handle_signal(int sgl);
+void	handle_signal_in_subshell(int sgl);
 void	stash_str(t_entry *entry, t_token **token, char *str);
 void	handle_metachars(t_entry *entry, t_token *new, int *i, int *ib);
 void	handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i);

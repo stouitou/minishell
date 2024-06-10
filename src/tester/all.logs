@@ -2256,3 +2256,438 @@ cat
 cat
 env
 cat
+exit
+exit
+
+
+cat Makefile 
+
+cat
+exit
+cat
+exit
+exit
+cat
+exit
+cat
+cat
+ok
+cat 
+cat
+cat
+cat
+cat
+
+cat
+
+exit
+cat
+cat
+
+exit
+cat
+cat
+exit
+cat
+cat
+cat
+cat
+cat
+echo $?
+cat 
+cat
+echo $?
+echo $?
+cat
+ok
+echo
+echo $?
+echo $?
+exit
+exit
+exit
+echo $?
+ls
+echo $?
+cat README.md | exit
+echo $?
+exit
+exit
+cat
+cat
+cat
+
+cat
+cat
+cat
+cat
+restart
+make
+exit
+make && ./minishell
+make
+make re
+make fclean
+ok
+exit
+echo $?
+cat
+echo $?
+exit
+cat
+cat
+exiyt
+exit
+cat
+cat
+exit
+cat
+exit
+cat
+exit
+cat
+ksj
+cat
+exit
+cat
+cat
+\\\
+\
+cat
+exit
+cat
+cat
+cat
+cat
+cat
+echo $?
+echo $?
+exit
+cat
+echo $?
+exit
+cat
+cat
+cat
+cat
+cat
+cat
+[Aexit
+exit
+cat
+cat
+echo $?
+cat README.md | grep ok
+echo $?
+echo $?
+echo $?
+exit
+
+cat
+exot
+exit
+ok
+cat
+
+exit
+""
+
+
+
+exit
+
+
+ewqpojeqwpejfslhfsdf
+ewqpojeqwpejfslhfsdf
+
+
+cat
+\n
+exit
+cat
+cati
+exit
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+cat << oui
+cat << ok | grep oui | cat | cat | cat
+echo $?
+cat << non
+echo $?
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+cat << ok
+exit
+cat << ok
+cat << ok
+exit
+cat << ok
+cat << ok
+exit
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+cat << ok
+exit
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+exit
+cat << ok
+cat << ok
+
+d
+exit
+cat << ok
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+cat << ok
+
+exit
+cat << ok
+exit
+cat << ok
+cat << ok
+daefae
+exit
+eqweqwe
+cat << Ok
+cat << ok
+
+
+
+
+
+cat << okczcv
+exit
+cat << ok
+exit
+cat << ok
+cat << ok
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+cat << ok
+exit
+exit
+cat << ok
+deea
+cat
+cat << ok
+cat << ok
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+
+exit
+cat << ok
+exit
+cat << ok
+exit
+cat << ok
+cat << ok > outfile
+cat README.md > outfile
+cat
+cat
+exit
+exit
+cat << ok >outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+
+exit
+cat << ok > outfile
+exit
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > out
+cat << ok > out
+cat << ok > out
+cat << ok > out
+cat << ok > out
+cat << ok > out
+cat << ok > out
+cat << ok > out
+cat << ok > out
+cat << ok > out
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+;llwd;lwdk
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+echo $?
+cat << ok
+cat << ok
+
+cat << ok
+echo $?
+cat << ok
+cat << ok
+echo $?
+echo $?
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat << ok
+cat ok
+cat << ok
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat << ok > outfile
+cat
+cat | rev
+cat
+sleep 3 | sleep 3 | sleep 3
+echo $?
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+exit
+
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+exit
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+echo $?
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+exit
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+sleep 3 | sleep 3 | sleep 3
+echo $?
+sleep 3 | sleep 3 | sleep 3

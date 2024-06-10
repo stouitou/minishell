@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:05:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/06 16:33:07 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/10 17:16:27 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,13 @@ static void	pipe_fork_exec_reset(t_entry *entry, t_exe *exe, int *i)
 		init_pipe(entry, exe, exe->pipe_fd2);
 	exe->subshell = init_fork(exe, entry);
 	if (exe->subshell == 0)
+	{
+		entry->sign.sa_handler = SIG_DFL;
+		sigaction(SIGQUIT, &(entry->sign), NULL);
+		entry->sign.sa_handler = handle_signal_in_subshell;
+		sigaction(SIGINT, &(entry->sign), NULL);
 		exec_subshell(exe, *i, entry->prev_status);
+	}
 	free(entry->env);
 	entry->env = upd_env(exe, exe->env);
 	free_exe(exe);
@@ -55,26 +61,34 @@ static void	pipe_fork_exec_reset(t_entry *entry, t_exe *exe, int *i)
 
 static void	wait_for_child(t_entry *entry, t_exe exe, int status, int i)
 {
+	// entry->sign.sa_handler = SIG_IGN;
+	// sigaction(SIGINT, &(entry->sign), NULL);
 	while (errno != ECHILD)
 	{
 		if (wait(&status) == exe.subshell && exe.blocks == i)
 		{
 			// ft_printf("here\n");
 			entry->status = WEXITSTATUS(status);
+			if (WIFSIGNALED(status))
+			{
+				if (WTERMSIG(status) == SIGINT)
+				{
+					// entry->sign.sa_handler = SIG_IGN;
+					// printf("Terminé par SIGINT\n");
+					// sigaction(SIGINT, &(entry->sign), NULL);
+					ft_printf("\n");
+					entry->status = 130;
+					// ft_printf("entry->status = %d\n", entry->status);
+				} 
+				else if (WTERMSIG(status) == SIGQUIT)
+				{
+					entry->status = 131;
+					sig_stat = 131;
+					ft_printf("Quit (core dumped)\n");
+					// printf("Terminé par SIGQUIT\n");
+				}
+			}
 		}
-		else if (WIFSIGNALED(status))
-		{
-            if (WTERMSIG(status) == SIGINT)
-			{
-				entry->status = WTERMSIG(status);
-                // printf("Terminé par SIGINT\n");
-            } 
-			else if (WTERMSIG(status) == SIGQUIT)
-			{
-				entry->status = WTERMSIG(status);
-                // printf("Terminé par SIGQUIT\n");
-            }
-        }
 	}
 }
 
@@ -96,7 +110,12 @@ void	exec_token(t_entry *entry, t_token *token)
 		if (handle_builtin_in_parent(entry, &exe, exe.env, exe.cmd))
 			break ;
 		else
+		{
 			pipe_fork_exec_reset(entry, &exe, &i);
+			entry->sign.sa_handler = SIG_IGN;
+			sigaction(SIGINT, &(entry->sign), NULL);
+			// sigaction(SIGQUIT, &(entry->sign), NULL);
+		}
 	}
 	close_all_fd(&exe);
 	// if (exe.blocks > 0)

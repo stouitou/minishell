@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:03:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/06 17:10:23 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:47:03 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,62 +42,35 @@ static char	**dup_env(char **env)
 	return (new);
 }
 
-static void	init_entry(t_entry *entry, char **env)
+static void	init_entry(t_entry *entry, char **env, struct sigaction sa)
 {
 	entry->str = NULL;
 	entry->token = NULL;
 	entry->heredoc = false;
 	entry->prev_status = 0;
-	entry->status = 0;
+	entry->status = sig_stat;
 	entry->exit = false;
+	entry->sign = sa;
 	entry->env = NULL;
 	entry->env = dup_env(env);
 }
 
 static void	reset_status(t_entry *entry)
 {
+	// sig_stat = 0;
 	entry->prev_status = entry->status;
 	entry->status = 0;
 }
 
 static void	clear_and_reset_status(t_entry *entry, t_token **token)
 {
+	free(entry->str);
 	token_clear(token);
 	reset_status(entry);
 	entry->heredoc = false;
 }
 
-static void	handle_signal(int sgl, siginfo_t *sa, void *cont)
-{
-	// t_entry	*entry;
-    
-	// (void)info;
-	// entry = (t_entry *)ent;
-	// ft_printf("signal received = %d\n", sgl);
-	(void)cont;
-	ft_printf("sa->si_pid = %d\n", sa->si_pid);
-	if (sa->si_pid != 0)
-		printf("\n");
-	if (sa->si_pid == 0)
-	{
-		if (sgl == SIGINT && sig_stat != 130)
-		{
-			sig_stat = 130;
-			rl_replace_line("", 0);
-			printf("\n");
-			rl_on_new_line();
-			rl_redisplay();
-			// return ;
-		}
-		if (sgl == SIGQUIT)
-		{
-			ft_printf("CTL \\\n");
-			sig_stat = 0;
-		}
-		
-	}
-	// exit(sgl);
-}
+
 
 int	main(int argc, char **argv, char **env)
 {
@@ -107,26 +80,34 @@ int	main(int argc, char **argv, char **env)
 	(void)argv;
 	if (argc != 1)
 		return (1);
-	init_entry(&entry, env);
 	// ft_printf("ici 1\n");
 	ft_bzero(&sa, sizeof(struct sigaction));
 	// sa.sa_handler = handle_signal;
 	// ft_printf("ici 2\n");
-	sa.sa_sigaction = handle_signal;
 	// sa.sa_flags = SA_SIGINFO, t_entry;
 	// sigemptyset(&sa.sa_mask);
 	// ft_printf("ici 3\n");
-	sigaction(SIGINT, &sa, NULL);
-	sigaction(SIGQUIT, &sa, NULL);
+	init_entry(&entry, env, sa);
 	while (1)
 	{
-		// ft_printf("ici 3a\n");
-		if (sig_stat == 130)
-		{
-			sig_stat = 0;
-			continue ;
-		}
+		// ft_printf("sig_stat = %d\n", sig_stat);
+		// sigaction(SIGKILL, &sa, NULL);
+		// ft_printf("here in main\n");
+		sa.sa_handler = handle_signal;
+		sigaction(SIGINT, &sa, NULL);
+		// sigaction(SIGQUIT, &sa, NULL);
+		sa.sa_handler = SIG_IGN;
+		sigaction(SIGQUIT, &sa, NULL);
+		// ft_printf("ici 3b\n");
 		entry.str = readline(PROMPT);
+		// ft_printf("entry.str = <%s>\n", entry.str);
+		if (entry.str == NULL)
+		{
+			ft_free_str_array(entry.env);
+			ft_printf("exit\n");
+			exit(entry.prev_status);
+		}
+		// ft_printf("ici 3c\n");
 		// ft_printf("ici 3b\n");
 		// ft_printf("ici 3c\n");
 		log_tests(entry.str);
@@ -138,6 +119,7 @@ int	main(int argc, char **argv, char **env)
 		classify_tokens(&entry);
 		if (entry.status || !entry.token)
 		{
+			// ft_printf("here\n");
 			log_status(entry.status);
 			clear_and_reset_status(&entry, &(entry.token));
 			continue ;

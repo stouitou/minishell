@@ -40,6 +40,7 @@ LIBFT = ft_isalpha.c \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_calloc.c \
+	ft_realloc.c \
 	ft_strdup.c \
 	ft_strndup.c \
 	ft_substr.c \
