@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 09:53:56 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/06 09:57:07 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:34:05 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	upd_env_pwd(t_env *env)
 		if (pwd)
 		{
 			free(oldpwd->value);
+			oldpwd->value = NULL;
 			oldpwd->value = pwd->value;
 		}
 		else
@@ -91,7 +92,10 @@ void	upd_env_pwd(t_env *env)
 	if (pwd)
 	{
 		if (!oldpwd)
+		{
 			free(pwd->value);
+			pwd->value = NULL;
+		}
 		pwd->value = cwd;
 	}
 }

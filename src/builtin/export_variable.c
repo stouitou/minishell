@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:29:31 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/05 15:08:20 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:13:10 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static bool	exists_in_env(t_exe *exe, char *key)
 {
 	t_env	*cur;
 
+	if (!exe->env)
+		return (false);
 	cur = exe->env;
 	while (cur)
 	{
@@ -38,7 +40,7 @@ static bool	exists_in_env(t_exe *exe, char *key)
 	return (false);
 }
 
-void	export_variable(t_exe *exe, t_env *env, char *var, int *status)
+void	export_variable(t_exe *exe, t_env **env, char *var, int *status)
 {
 	char	*key;
 	char	*value;
@@ -51,13 +53,13 @@ void	export_variable(t_exe *exe, t_env *env, char *var, int *status)
 	if (exists_in_env(exe, key))
 	{
 		if (addition_operator(var))
-			upd_concatenating(exe, env, key, value);
+			upd_concatenating(exe, *env, key, value);
 		else
-			upd_replacing(exe, env, key, value);
+			upd_replacing(exe, *env, key, value);
 		return ;
 	}
 	new = env_new(key, value);
 	if (!new)
 		free_subshell_and_exit(exe, ERR_MALLOC, value, EXIT_FAILURE);
-	env_addback(&env, new);
+	env_addback(env, new);
 }

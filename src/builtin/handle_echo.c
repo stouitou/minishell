@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 10:37:38 by poriou            #+#    #+#             */
-/*   Updated: 2024/06/06 11:50:53 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/11 11:45:26 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	get_newline_option(char **cmd, bool *option)
 	int	i;
 
 	if (!cmd[1])
-		return (false);
+		return (1);
 	i = 1;
 	while (is_n_option(cmd[i]))
 	{

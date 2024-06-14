@@ -1,0 +1,590 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/stouitou/Documents/cursus/Minishell_v12/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+${LIBFT_PATH}/${LIBFT_NAME}	Makefile	/^${LIBFT_PATH}\/${LIBFT_NAME}:$/;"	t
+${NAME}	Libft/Makefile	/^${NAME}: ${OBJ}$/;"	t
+${NAME}	Makefile	/^${NAME}: ${OBJ} ${LIBFT_PATH}\/${LIBFT_NAME}$/;"	t
+${OBJ_DIR}/%.o	Libft/Makefile	/^${OBJ_DIR}\/%.o: ${SRC_DIR}\/%.c ${INCLUDE}$/;"	t
+${OBJ_DIR}/%.o	Makefile	/^${OBJ_DIR}\/%.o: ${SRC_DIR}\/%.c ${INCLUDE}$/;"	t
+APP_OUTFILE	hdr/minishell.h	/^	APP_OUTFILE = 5,$/;"	e	enum:e_cat
+ARG	hdr/minishell.h	/^	ARG = 7,$/;"	e	enum:e_cat
+BUFFER_SIZE	Libft/hdr/get_next_line.h	/^#  define BUFFER_SIZE /;"	d
+BUFFER_SIZE	Libft/hdr/libft.h	/^#  define BUFFER_SIZE /;"	d
+BUILTIN	Makefile	/^BUILTIN = ${addprefix ${BUILTIN_DIR}\/, ${BUILTIN_SRC}}$/;"	m
+BUILTIN_DIR	Makefile	/^BUILTIN_DIR = builtin$/;"	m
+BUILTIN_SRC	Makefile	/^BUILTIN_SRC =	is_builtin.c \\$/;"	m
+CC	Libft/Makefile	/^CC = cc$/;"	m
+CC	Makefile	/^CC = cc -g3$/;"	m
+CFLAGS	Libft/Makefile	/^CFLAGS = -Wall -Wextra -Werror -I${HDR_DIR}$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -Werror -I${HDR_DIR} -I\/usr\/local\/include$/;"	m
+CMD	hdr/minishell.h	/^	CMD = 1,$/;"	e	enum:e_cat
+CTL_OP	hdr/minishell.h	/^	CTL_OP = 11,$/;"	e	enum:e_cat
+C_Cpp.errorSquiggles	.vscode/settings.json	/^	"C_Cpp.errorSquiggles": "disabled"$/;"	s
+DELIMITER	hdr/minishell.h	/^	DELIMITER = 4,$/;"	e	enum:e_cat
+DOUBLE	hdr/minishell.h	/^	DOUBLE,$/;"	e	enum:e_quotes
+ERR_CMD	hdr/minishell.h	/^#  define ERR_CMD /;"	d
+ERR_ISDIR	hdr/minishell.h	/^#  define ERR_ISDIR /;"	d
+ERR_MALLOC	hdr/minishell.h	/^#  define ERR_MALLOC /;"	d
+ERR_PERM	hdr/minishell.h	/^#  define ERR_PERM /;"	d
+ERR_QUOTES	hdr/minishell.h	/^#  define ERR_QUOTES /;"	d
+ERR_SYNTAX	hdr/minishell.h	/^#  define ERR_SYNTAX /;"	d
+FPRINTF	Libft/Makefile	/^FPRINTF = fpf_printf.c \\$/;"	m
+FREE	Makefile	/^FREE = ${addprefix ${FREE_DIR}\/, ${FREE_SRC}}$/;"	m
+FREE_DIR	Makefile	/^FREE_DIR = free$/;"	m
+FREE_SRC	Makefile	/^FREE_SRC =	free_token_and_exit.c \\$/;"	m
+FT_PRINTF_H	Libft/hdr/ft_printf.h	/^# define FT_PRINTF_H$/;"	d
+First time	minishell_tester/README.md	/^#### First time$/;"	t	section:Minishell Tester""🛠️ - How to use?
+GET_NEXT_LINE_H	Libft/hdr/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
+GNL	Libft/Makefile	/^GNL = get_next_line.c$/;"	m
+HDR	Libft/Makefile	/^HDR = libft.h \\$/;"	m
+HDR	Makefile	/^HDR = minishell.h$/;"	m
+HDR_DIR	Libft/Makefile	/^HDR_DIR = .\/hdr$/;"	m
+HDR_DIR	Makefile	/^HDR_DIR = hdr$/;"	m
+H_FILE	hdr/minishell.h	/^#  define H_FILE /;"	d
+H_PROMPT	hdr/minishell.h	/^#  define H_PROMPT /;"	d
+INCLUDE	Libft/Makefile	/^INCLUDE = ${addprefix ${HDR_DIR}\/, ${HDR}}$/;"	m
+INCLUDE	Makefile	/^INCLUDE = ${addprefix ${HDR_DIR}\/, ${HDR}}$/;"	m
+INFILE	hdr/minishell.h	/^	INFILE = 2,$/;"	e	enum:e_cat
+INIT	Makefile	/^INIT = ${addprefix ${INIT_DIR}\/, ${INIT_SRC}}$/;"	m
+INIT_DIR	Makefile	/^INIT_DIR = init$/;"	m
+INIT_SRC	Makefile	/^INIT_SRC =	init_exe.c \\$/;"	m
+LIBFT	Libft/Makefile	/^LIBFT = ft_isalpha.c \\$/;"	m
+LIBFT_H	Libft/hdr/libft.h	/^# define LIBFT_H$/;"	d
+LIBFT_NAME	Makefile	/^LIBFT_NAME = libft.a$/;"	m
+LIBFT_PATH	Makefile	/^LIBFT_PATH = .\/Libft$/;"	m
+LIST	Makefile	/^LIST = ${addprefix ${LIST_DIR}\/, ${LIST_SRC}}$/;"	m
+LIST_DIR	Makefile	/^LIST_DIR = list$/;"	m
+LIST_SRC	Makefile	/^LIST_SRC =	token_new.c \\$/;"	m
+Lab	minishell_tester/src/lab.py	/^class Lab:$/;"	c
+METACHARACTER	hdr/minishell.h	/^#  define METACHARACTER /;"	d
+MINISHELL_H	hdr/minishell.h	/^# define MINISHELL_H$/;"	d
+Minishell	README.md	/^# Minishell$/;"	c
+Minishell Tester	minishell_tester/README.md	/^# Minishell Tester$/;"	c
+NAME	Libft/Makefile	/^NAME = libft.a$/;"	m
+NAME	Makefile	/^NAME = minishell$/;"	m
+Next times	minishell_tester/README.md	/^#### Next times$/;"	t	section:Minishell Tester""🛠️ - How to use?
+OBJ	Libft/Makefile	/^OBJ = ${addprefix ${OBJ_DIR}\/, ${SRC:.c=.o}}$/;"	m
+OBJ	Makefile	/^OBJ = ${addprefix ${OBJ_DIR}\/, ${SRC:.c=.o}}$/;"	m
+OBJ_DIR	Libft/Makefile	/^OBJ_DIR = .\/obj$/;"	m
+OBJ_DIR	Makefile	/^OBJ_DIR = obj$/;"	m
+OPERATOR	hdr/minishell.h	/^	OPERATOR,$/;"	e	enum:e_type
+OPTION	hdr/minishell.h	/^	OPTION = 6,$/;"	e	enum:e_cat
+OUTFILE	hdr/minishell.h	/^	OUTFILE = 3,$/;"	e	enum:e_cat
+PRINT	Makefile	/^PRINT = ${addprefix ${PRINT_DIR}\/, ${PRINT_SRC}}$/;"	m
+PRINTF	Libft/Makefile	/^PRINTF = pf_printf.c \\$/;"	m
+PRINT_DIR	Makefile	/^PRINT_DIR = print$/;"	m
+PRINT_SRC	Makefile	/^PRINT_SRC =	print_tab.c \\$/;"	m
+PROMPT	hdr/minishell.h	/^#  define PROMPT /;"	d
+Printer	minishell_tester/src/printer.py	/^class Printer:$/;"	c
+Process	minishell_tester/src/process.py	/^class Process():$/;"	c
+RDLINE_PATH	Makefile	/^RDLINE_PATH = \/usr\/local\/lib$/;"	m
+REDIR_OP	hdr/minishell.h	/^	REDIR_OP = 12,$/;"	e	enum:e_cat
+SIMPLE	hdr/minishell.h	/^	SIMPLE,$/;"	e	enum:e_quotes
+SRC	Libft/Makefile	/^SRC = ${LIBFT} \\$/;"	m
+SRC	Makefile	/^SRC =	minishell.c \\$/;"	m
+SRC_DIR	Libft/Makefile	/^SRC_DIR = .\/src$/;"	m
+SRC_DIR	Makefile	/^SRC_DIR = src$/;"	m
+TESTER	Makefile	/^TESTER = ${addprefix ${TESTER_DIR}\/, ${TESTER_SRC}}$/;"	m
+TESTER_DIR	Makefile	/^TESTER_DIR = tester$/;"	m
+TESTER_SRC	Makefile	/^TESTER_SRC =	log_tests.c \\$/;"	m
+Tester	minishell_tester/src/tester.py	/^class Tester:$/;"	c
+UNQUOTED	hdr/minishell.h	/^	UNQUOTED,$/;"	e	enum:e_quotes
+UTILS	Makefile	/^UTILS = ${addprefix ${UTILS_DIR}\/, ${UTILS_SRC}}$/;"	m
+UTILS_DIR	Makefile	/^UTILS_DIR = utils$/;"	m
+UTILS_SRC	Makefile	/^UTILS_SRC =	skip_whitespace.c \\$/;"	m
+WORD	hdr/minishell.h	/^	WORD,$/;"	e	enum:e_type
+__archive	minishell_tester/src/printer.py	/^    def __archive(self, test: str, status: str, excep: Union[str, None],$/;"	m	class:Printer	typeref:typename:None	file:
+__author__	minishell_tester/src/__main__.py	/^__author__ = "Kirill Shkirov"$/;"	v
+__author__	minishell_tester/src/lab.py	/^__author__ = "Kirill Shkirov"$/;"	v
+__author__	minishell_tester/src/printer.py	/^__author__ = "Kirill Shkirov"$/;"	v
+__author__	minishell_tester/src/process.py	/^__author__ = "Kirill Shkirov"$/;"	v
+__author__	minishell_tester/src/tester.py	/^__author__ = "Kirill Shkirov"$/;"	v
+__author__	minishell_tester/src/tests.py	/^__author__ = "Kirill Shkirov"$/;"	v
+__author__	minishell_tester/src/utils.py	/^__author__ = "Kirill Shkirov"$/;"	v
+__email__	minishell_tester/src/__main__.py	/^__email__ = "kichkiro@student.42firenze.it"$/;"	v
+__email__	minishell_tester/src/lab.py	/^__email__ = "kichkiro@student.42firenze.it"$/;"	v
+__email__	minishell_tester/src/printer.py	/^__email__ = "kichkiro@student.42firenze.it"$/;"	v
+__email__	minishell_tester/src/process.py	/^__email__ = "kichkiro@student.42firenze.it"$/;"	v
+__email__	minishell_tester/src/tester.py	/^__email__ = "kichkiro@student.42firenze.it"$/;"	v
+__email__	minishell_tester/src/tests.py	/^__email__ = "kichkiro@student.42firenze.it"$/;"	v
+__email__	minishell_tester/src/utils.py	/^__email__ = "kichkiro@student.42firenze.it"$/;"	v
+__exec	minishell_tester/src/tester.py	/^    def __exec(self, process: Process, test: str, loop: int) -> None:$/;"	m	class:Tester	typeref:typename:None	file:
+__exec2	minishell_tester/src/tester.py	/^    def __exec2(self, process: Process, test: str, loop: int, lab: Lab)\\$/;"	m	class:Tester	typeref:typename:None	file:
+__exitstatus	minishell_tester/src/tester.py	/^    def __exitstatus(self, process: Process, test: str, loop: int, lab: Lab)\\$/;"	m	class:Tester	typeref:typename:None	file:
+__init__	minishell_tester/src/lab.py	/^    def __init__(self, test: str) -> None:$/;"	m	class:Lab	typeref:typename:None
+__init__	minishell_tester/src/printer.py	/^    def __init__(self) -> None:$/;"	m	class:Printer	typeref:typename:None
+__init__	minishell_tester/src/process.py	/^    def __init__(self, args: str, printer: Printer) -> None:$/;"	m	class:Process	typeref:typename:None
+__init__	minishell_tester/src/tester.py	/^    def __init__(self, path: str, exe: str, test: str, printer: Printer)\\$/;"	m	class:Tester	typeref:typename:None
+__license__	minishell_tester/src/__main__.py	/^__license__ = "GPL-3.0"$/;"	v
+__license__	minishell_tester/src/lab.py	/^__license__ = "GPL-3.0"$/;"	v
+__license__	minishell_tester/src/printer.py	/^__license__ = "GPL-3.0"$/;"	v
+__license__	minishell_tester/src/process.py	/^__license__ = "GPL-3.0"$/;"	v
+__license__	minishell_tester/src/tester.py	/^__license__ = "GPL-3.0"$/;"	v
+__license__	minishell_tester/src/tests.py	/^__license__ = "GPL-3.0"$/;"	v
+__license__	minishell_tester/src/utils.py	/^__license__ = "GPL-3.0"$/;"	v
+__slack__	minishell_tester/src/__main__.py	/^__slack__ = "kichkiro"$/;"	v
+__slack__	minishell_tester/src/lab.py	/^__slack__ = "kichkiro"$/;"	v
+__slack__	minishell_tester/src/printer.py	/^__slack__ = "kichkiro"$/;"	v
+__slack__	minishell_tester/src/process.py	/^__slack__ = "kichkiro"$/;"	v
+__slack__	minishell_tester/src/tester.py	/^__slack__ = "kichkiro"$/;"	v
+__slack__	minishell_tester/src/tests.py	/^__slack__ = "kichkiro"$/;"	v
+__slack__	minishell_tester/src/utils.py	/^__slack__ = "kichkiro"$/;"	v
+__status__	minishell_tester/src/__main__.py	/^__status__ = "Development"$/;"	v
+__status__	minishell_tester/src/lab.py	/^__status__ = "Development"$/;"	v
+__status__	minishell_tester/src/printer.py	/^__status__ = "Development"$/;"	v
+__status__	minishell_tester/src/process.py	/^__status__ = "Development"$/;"	v
+__status__	minishell_tester/src/tester.py	/^__status__ = "Development"$/;"	v
+__status__	minishell_tester/src/tests.py	/^__status__ = "Development"$/;"	v
+__status__	minishell_tester/src/utils.py	/^__status__ = "Development"$/;"	v
+__wildcards	minishell_tester/src/tester.py	/^    def __wildcards(self, process: Process, test: str, loop: int, lab: Lab)\\$/;"	m	class:Tester	typeref:typename:None	file:
+adapt_res	Libft/src/ft_atol.c	/^static long	adapt_res(int *sign)$/;"	f	typeref:typename:long	file:
+add_to_all_logs	src/tester/log_tests.c	/^void	add_to_all_logs(const char *command)$/;"	f	typeref:typename:void
+addition_operator	src/builtin/export_variable.c	/^static bool	addition_operator(char *arg)$/;"	f	typeref:typename:bool	file:
+all	Libft/Makefile	/^all: ${NAME}$/;"	t
+all	Makefile	/^all: ${NAME}$/;"	t
+analyze_operator	src/analyze_syntax.c	/^static void	analyze_operator(t_token *cur, t_entry *entry)$/;"	f	typeref:typename:void	file:
+analyze_syntax	src/analyze_syntax.c	/^void	analyze_syntax(t_entry *entry)$/;"	f	typeref:typename:void
+arg_too_long	src/builtin/get_exit_status.c	/^static bool	arg_too_long(const char *nb)$/;"	f	typeref:typename:bool	file:
+arg_too_long	src/builtin/handle_exit_in_subshell.c	/^static bool	arg_too_long(const char *nb)$/;"	f	typeref:typename:bool	file:
+args	Libft/hdr/ft_printf.h	/^	va_list	args;$/;"	m	struct:s_print	typeref:typename:va_list
+bad_first_char	src/builtin/syntax_error_in_export.c	/^static bool	bad_first_char(char *arg, char c, int *status)$/;"	f	typeref:typename:bool	file:
+beyond_limits	Libft/src/ft_atol.c	/^static bool	beyond_limits(const char *nb)$/;"	f	typeref:typename:bool	file:
+block	hdr/minishell.h	/^	int				block;$/;"	m	struct:s_token	typeref:typename:int
+blocks	hdr/minishell.h	/^	int			blocks;$/;"	m	struct:s_exe	typeref:typename:int
+booleans	minishell_tester/src/tests.py	/^booleans = [$/;"	v
+calculate_similarity	src/tester/sauvegardes/test_everything_copy1.sh	/^calculate_similarity() {$/;"	f
+calculate_similarity	src/tester/sauvegardes/test_last_log_copy3.sh	/^calculate_similarity() {$/;"	f
+calculate_similarity	test_all_logs.sh	/^calculate_similarity() {$/;"	f
+calculate_similarity	test_everything.sh	/^calculate_similarity() {$/;"	f
+calculate_similarity	test_heredoc.sh	/^calculate_similarity() {$/;"	f
+calculate_similarity	test_last_log.sh	/^calculate_similarity() {$/;"	f
+category	hdr/minishell.h	/^	int				category;$/;"	m	struct:s_files	typeref:typename:int
+category	hdr/minishell.h	/^	int				category;$/;"	m	struct:s_token	typeref:typename:int
+change_directory	src/builtin/handle_cd_in_parent.c	/^static bool	change_directory(t_entry *entry, t_exe *exe, char *path)$/;"	f	typeref:typename:bool	file:
+change_directory	src/builtin/handle_cd_in_subshell.c	/^static bool	change_directory(t_exe *exe, char *path)$/;"	f	typeref:typename:bool	file:
+check_access	src/find_cmd.c	/^static int	check_access(t_exe *exe, char *command)$/;"	f	typeref:typename:int	file:
+check_base	Libft/src/ft_atoi_base.c	/^static int	check_base(char *str)$/;"	f	typeref:typename:int	file:
+check_base	Libft/src/ft_convert_base.c	/^static int	check_base(char *str)$/;"	f	typeref:typename:int	file:
+check_base	Libft/src/ft_itoa_base.c	/^static int	check_base(char *str)$/;"	f	typeref:typename:int	file:
+check_case	src/expand_token.c	/^static void	check_case(t_entry *entry, t_token *token, char *exp, int i)$/;"	f	typeref:typename:void	file:
+check_cmd_content	src/builtin/handle_exit_in_parent.c	/^static int	check_cmd_content(char *arg)$/;"	f	typeref:typename:int	file:
+check_cmd_content	src/builtin/handle_exit_in_subshell.c	/^static int	check_cmd_content(t_exe *exe, char *arg)$/;"	f	typeref:typename:int	file:
+check_error_command	src/print/print_token.c	/^static void	check_error_command(t_token *tmp)$/;"	f	typeref:typename:void	file:
+check_error_envir	src/print/print_exe.c	/^static void	check_error_envir(t_exe *exe)$/;"	f	typeref:typename:void	file:
+check_error_index	src/print/print_token.c	/^static void	check_error_index(t_token *tmp)$/;"	f	typeref:typename:void	file:
+check_exit_status	src/builtin/handle_exit_in_subshell.c	/^static int	check_exit_status(t_exe *exe, char *arg)$/;"	f	typeref:typename:int	file:
+check_n	Libft/src/ft_convert_base.c	/^static int	check_n(char *n, char *base)$/;"	f	typeref:typename:int	file:
+check_path	src/check_path.c	/^char	*check_path(t_exe *exe, char *cmd)$/;"	f	typeref:typename:char *
+classify_all	src/classify_tokens.c	/^static void	classify_all(t_entry *entry)$/;"	f	typeref:typename:void	file:
+classify_operator	src/classify_tokens.c	/^static void	classify_operator(t_token *token)$/;"	f	typeref:typename:void	file:
+classify_tokens	src/classify_tokens.c	/^void	classify_tokens(t_entry *entry)$/;"	f	typeref:typename:void
+classify_word	src/classify_tokens.c	/^static void	classify_word(t_entry *entry, t_token *cur, int *cmd_found)$/;"	f	typeref:typename:void	file:
+clean	Libft/Makefile	/^clean:$/;"	t
+clean	Makefile	/^clean:$/;"	t
+clear_and_reset_status	src/minishell.c	/^static void	clear_and_reset_status(t_entry *entry, t_token **token)$/;"	f	typeref:typename:void	file:
+close_all_fd	src/utils/close_all_fd.c	/^void	close_all_fd(t_exe *exe)$/;"	f	typeref:typename:void
+close_both_fd	src/utils/close_both_fd.c	/^void	close_both_fd(int fd1, int fd2)$/;"	f	typeref:typename:void
+close_pipe_fd_if_needed	src/exec_token.c	/^static void	close_pipe_fd_if_needed(t_exe *exe, int i)$/;"	f	typeref:typename:void	file:
+close_tokens	src/stash_str.c	/^static void	close_tokens(t_entry *entry, t_token **token, int *ib)$/;"	f	typeref:typename:void	file:
+cmd	hdr/minishell.h	/^	char		**cmd;$/;"	m	struct:s_exe	typeref:typename:char **
+col	Libft/hdr/ft_printf.h	/^	int		col;$/;"	m	struct:s_print	typeref:typename:int
+commands	minishell_tester/src/tests.py	/^commands = [$/;"	v
+compare_output_and_status	src/tester/sauvegardes/test_all_logs_copy1.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	src/tester/sauvegardes/test_all_logs_copy2.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	src/tester/sauvegardes/test_all_logs_copy3.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	src/tester/sauvegardes/test_all_logs_copy4.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	src/tester/sauvegardes/test_everything_copy1.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	src/tester/sauvegardes/test_last_log_copy1.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	src/tester/sauvegardes/test_last_log_copy2.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	src/tester/sauvegardes/test_last_log_copy3.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	test_all_logs.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	test_everything.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	test_heredoc.sh	/^compare_output_and_status() {$/;"	f
+compare_output_and_status	test_last_log.sh	/^compare_output_and_status() {$/;"	f
+content	Libft/hdr/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
+content	hdr/minishell.h	/^	char			*content;$/;"	m	struct:s_files	typeref:typename:char *
+content	hdr/minishell.h	/^	char			*content;$/;"	m	struct:s_token	typeref:typename:char *
+copy_env	src/builtin/export_only.c	/^static void	copy_env(t_exe *exe, t_env *cur, char **arr, int i)$/;"	f	typeref:typename:void	file:
+copy_env	src/utils/upd_env.c	/^static void	copy_env(t_exe *exe, t_env *cur, char **arr, int i)$/;"	f	typeref:typename:void	file:
+create_exit_status_lab	minishell_tester/src/lab.py	/^    def create_exit_status_lab(self) -> str:$/;"	m	class:Lab	typeref:typename:str
+create_new_content	src/separate_content.c	/^static char	*create_new_content(t_entry *entry, t_token *cur, size_t *index)$/;"	f	typeref:typename:char *	file:
+create_new_token	src/stash_str.c	/^static t_token	*create_new_token(t_entry *entry, int ib[2], char *str)$/;"	f	typeref:typename:t_token *	file:
+create_redirects_lab	minishell_tester/src/lab.py	/^    def create_redirects_lab(self) -> List[str]:$/;"	m	class:Lab	typeref:typename:List[str]
+create_token	src/separate_content.c	/^static t_token	*create_token(t_entry *entry, t_token *cur, char *content)$/;"	f	typeref:typename:t_token *	file:
+create_wildcards_lab	minishell_tester/src/lab.py	/^    def create_wildcards_lab(self) -> tuple:$/;"	m	class:Lab	typeref:typename:tuple
+custom_readline	src/go_heredoc.c	/^static char	*custom_readline(char *prompt)$/;"	f	typeref:typename:char *	file:
+data	hdr/minishell.h	/^	char	*data;$/;"	m	struct:s_error	typeref:typename:char *
+del_node	src/list/del_node.c	/^void	del_node(t_token *node)$/;"	f	typeref:typename:void
+delete_node	src/builtin/handle_unset_in_parent.c	/^static void	delete_node(t_env *cur)$/;"	f	typeref:typename:void	file:
+delete_node	src/builtin/handle_unset_in_subshell.c	/^static void	delete_node(t_env *cur)$/;"	f	typeref:typename:void	file:
+delete_variable	src/builtin/handle_unset_in_parent.c	/^static void	delete_variable(t_env *env, t_env *cur, t_env *prev)$/;"	f	typeref:typename:void	file:
+delete_variable	src/builtin/handle_unset_in_subshell.c	/^static void	delete_variable(t_env *env, t_env *cur, t_env *prev)$/;"	f	typeref:typename:void	file:
+delimiter	hdr/minishell.h	/^	char		*delimiter;$/;"	m	struct:s_exe	typeref:typename:char *
+determine_command	src/classify_tokens.c	/^static void	determine_command(t_token *cur, int *cmd_found)$/;"	f	typeref:typename:void	file:
+dup_env	src/minishell.c	/^static char	**dup_env(char **env)$/;"	f	typeref:typename:char **	file:
+dup_when_needed	src/execute_command.c	/^static void	dup_when_needed(t_exe *exe, int i)$/;"	f	typeref:typename:void	file:
+e_cat	hdr/minishell.h	/^enum	e_cat$/;"	g
+e_quotes	hdr/minishell.h	/^enum	e_quotes$/;"	g
+e_type	hdr/minishell.h	/^enum	e_type$/;"	g
+env	hdr/minishell.h	/^	char				**env;$/;"	m	struct:s_entry	typeref:typename:char **
+env	hdr/minishell.h	/^	t_env		*env;$/;"	m	struct:s_exe	typeref:typename:t_env *
+env_addback	src/list/env_addback.c	/^void	env_addback(t_env **env, t_env *new)$/;"	f	typeref:typename:void
+env_clear	src/list/env_clear.c	/^void	env_clear(t_env **env)$/;"	f	typeref:typename:void
+env_new	src/list/env_new.c	/^t_env	*env_new(char *key, char *value)$/;"	f	typeref:typename:t_env *
+env_size	src/list/env_size.c	/^int	env_size(t_env *env)$/;"	f	typeref:typename:int
+error	hdr/minishell.h	/^	t_error		error;$/;"	m	struct:s_exe	typeref:typename:t_error
+exec_subshell	src/exec_subshell.c	/^void	exec_subshell(t_exe *exe, int i, int prev_status)$/;"	f	typeref:typename:void
+exec_token	src/exec_token.c	/^void	exec_token(t_entry *entry, t_token *token)$/;"	f	typeref:typename:void
+execute_command	src/execute_command.c	/^void	execute_command(t_exe *exe, char *command, int i, int prev_status)$/;"	f	typeref:typename:void
+exists_in_env	src/builtin/export_variable.c	/^static bool	exists_in_env(t_exe *exe, char *key)$/;"	f	typeref:typename:bool	file:
+exit	hdr/minishell.h	/^	bool				exit;$/;"	m	struct:s_entry	typeref:typename:bool
+exit_builtin	src/free/exit_builtin.c	/^void	exit_builtin(t_exe *exe, char *builtin)$/;"	f	typeref:typename:void
+exit_status	minishell_tester/src/tests.py	/^exit_status = [$/;"	v
+expand_heredoc	src/expand_heredoc.c	/^void	expand_heredoc(t_entry *entry, char *str, char **env, int fd)$/;"	f	typeref:typename:void
+expand_token	src/expand_token.c	/^void	expand_token(t_entry *entry, t_token *token, char **env)$/;"	f	typeref:typename:void
+export_only	src/builtin/export_only.c	/^void	export_only(t_exe *exe, t_env *env)$/;"	f	typeref:typename:void
+export_variable	src/builtin/export_variable.c	/^void	export_variable(t_exe *exe, t_env **env, char *var, int *status)$/;"	f	typeref:typename:void
+extract_expand	src/expand_heredoc.c	/^static void	extract_expand(t_entry *entry, char *str, int *index, int fd)$/;"	f	typeref:typename:void	file:
+extract_expand	src/partition_content.c	/^static char	*extract_expand(t_entry *entry, char *str, int *index)$/;"	f	typeref:typename:char *	file:
+extract_key	src/set_env.c	/^static char	*extract_key(t_entry *entry, char *str)$/;"	f	typeref:typename:char *	file:
+extract_key_for_export	src/builtin/utils_for_export.c	/^char	*extract_key_for_export(t_exe *exe, char *arg)$/;"	f	typeref:typename:char *
+extract_key_value	src/builtin/utils_for_cd.c	/^char	*extract_key_value(t_env *env, char *key)$/;"	f	typeref:typename:char *
+extract_value	src/set_env.c	/^static char	*extract_value(t_entry *entry, char *str)$/;"	f	typeref:typename:char *	file:
+extract_value_for_export	src/builtin/utils_for_export.c	/^char	*extract_value_for_export(t_exe *exe, char *arg)$/;"	f	typeref:typename:char *
+fclean	Libft/Makefile	/^fclean: clean$/;"	t
+fclean	Makefile	/^fclean: clean$/;"	t
+files	hdr/minishell.h	/^	t_files		*files;$/;"	m	struct:s_exe	typeref:typename:t_files *
+files.associations	.vscode/settings.json	/^	"files.associations": {$/;"	o
+files_addback	src/list/files_addback.c	/^void	files_addback(t_files **file, t_files *new)$/;"	f	typeref:typename:void
+files_clear	src/list/files_clear.c	/^void	files_clear(t_files **file)$/;"	f	typeref:typename:void
+files_new	src/list/files_new.c	/^t_files	*files_new(t_entry *entry, t_exe *exe, t_token *token)$/;"	f	typeref:typename:t_files *
+fill_number	Libft/src/ft_itoa_base.c	/^void	fill_number(size_t nb, char *number, char *base, int i)$/;"	f	typeref:typename:void
+find_cmd	src/find_cmd.c	/^char	*find_cmd(t_exe *exe, char **cmd)$/;"	f	typeref:typename:char *
+find_cwd	src/builtin/utils_for_cd.c	/^char	*find_cwd(void)$/;"	f	typeref:typename:char *
+find_files	src/find_files.c	/^void	find_files(t_entry *entry, t_exe *exe, t_token *token)$/;"	f	typeref:typename:void
+find_key	src/partition_content.c	/^static char	*find_key(t_entry *entry, char *str, int *index)$/;"	f	typeref:typename:char *	file:
+find_key_in_env	src/builtin/utils_for_export.c	/^static t_env	*find_key_in_env(t_env *env, char *key)$/;"	f	typeref:typename:t_env *	file:
+fpf_checkcase	Libft/src/fpf_checkcase.c	/^void	fpf_checkcase(int fd, t_print *tab, char c)$/;"	f	typeref:typename:void
+fpf_eval_format	Libft/src/fpf_eval_format.c	/^int	fpf_eval_format(int fd, t_print *tab, const char *str, int i)$/;"	f	typeref:typename:int
+fpf_print_prefix	Libft/src/fpf_print_prefix.c	/^void	fpf_print_prefix(int fd, t_print *tab)$/;"	f	typeref:typename:void
+fpf_putchar	Libft/src/fpf_putchar.c	/^void	fpf_putchar(int fd, t_print *tab)$/;"	f	typeref:typename:void
+fpf_putnbr	Libft/src/fpf_putnbr.c	/^void	fpf_putnbr(int fd, t_print *tab)$/;"	f	typeref:typename:void
+fpf_putptr	Libft/src/fpf_putptr.c	/^void	fpf_putptr(int fd, t_print *tab)$/;"	f	typeref:typename:void
+fpf_putstr	Libft/src/fpf_putstr.c	/^void	fpf_putstr(int fd, t_print *tab, char *str)$/;"	f	typeref:typename:void
+fpf_putu_base	Libft/src/fpf_putu_base.c	/^void	fpf_putu_base(int fd, t_print *tab, size_t n, char *base)$/;"	f	typeref:typename:void
+free_4_str	src/utils/free_4_str.c	/^void	free_4_str(char *str1, char *str2, char *str3, char *str4)$/;"	f	typeref:typename:void
+free_cd_b4_return	src/builtin/utils_for_cd.c	/^void	free_cd_b4_return(t_entry *entry, t_exe *exe, char *err, char *arg)$/;"	f	typeref:typename:void
+free_cmd	src/free/free_cmd.c	/^void	free_cmd(char **cmd)$/;"	f	typeref:typename:void
+free_exe	src/free/free_exe.c	/^void	free_exe(t_exe *exe)$/;"	f	typeref:typename:void
+free_subshell_and_exit	src/free/free_subshell_and_exit.c	/^void	free_subshell_and_exit(t_exe *exe, char *msg, char *data, int status)$/;"	f	typeref:typename:void
+free_token_and_exit	src/free/free_token_and_exit.c	/^void	free_token_and_exit(t_entry *entry, char *err, char *str, int status)$/;"	f	typeref:typename:void
+free_token_before_return	src/free/free_token_before_return.c	/^void	free_token_before_return(t_entry *entry, char *err, char *s, int error)$/;"	f	typeref:typename:void
+ft_atoi	Libft/src/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f	typeref:typename:int
+ft_atoi_base	Libft/src/ft_atoi_base.c	/^int	ft_atoi_base(char *str, char *base)$/;"	f	typeref:typename:int
+ft_atol	Libft/src/ft_atol.c	/^long	ft_atol(const char *nptr)$/;"	f	typeref:typename:long
+ft_bzero	Libft/src/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f	typeref:typename:void
+ft_calloc	Libft/src/ft_calloc.c	/^void	*ft_calloc(size_t nmemb, size_t size)$/;"	f	typeref:typename:void *
+ft_checkcase	Libft/src/pf_checkcase.c	/^void	ft_checkcase(t_print *tab, char c)$/;"	f	typeref:typename:void
+ft_convert_base	Libft/src/ft_convert_base.c	/^char	*ft_convert_base(char *n, char *base_from, char *base_to)$/;"	f	typeref:typename:char *
+ft_count_words	Libft/src/ft_count_words.c	/^size_t	ft_count_words(const char *s, char *charset)$/;"	f	typeref:typename:size_t
+ft_dup_n_char	Libft/src/ft_split.c	/^static char	*ft_dup_n_char(const char *s, char *charset)$/;"	f	typeref:typename:char *	file:
+ft_eval_format	Libft/src/pf_eval_format.c	/^int	ft_eval_format(t_print *tab, const char *str, int i)$/;"	f	typeref:typename:int
+ft_fill_split	Libft/src/ft_split.c	/^static char	**ft_fill_split(char **split, int i, char const *s, char *charset)$/;"	f	typeref:typename:char **	file:
+ft_fprintf	Libft/src/fpf_printf.c	/^int	ft_fprintf(int fd, const char *format, ...)$/;"	f	typeref:typename:int
+ft_free_str_array	Libft/src/ft_free_str_array.c	/^void	ft_free_str_array(char **array)$/;"	f	typeref:typename:void
+ft_freesplit	Libft/src/ft_split.c	/^static char	**ft_freesplit(char **split, size_t j)$/;"	f	typeref:typename:char **	file:
+ft_getenv	src/ft_getenv.c	/^char	*ft_getenv(t_env *env, char *key)$/;"	f	typeref:typename:char *
+ft_getmax	Libft/src/ft_getmax.c	/^int	ft_getmax(int a, int b)$/;"	f	typeref:typename:int
+ft_getmin	Libft/src/ft_getmin.c	/^int	ft_getmin(int a, int b)$/;"	f	typeref:typename:int
+ft_indexbase	Libft/src/ft_atoi_base.c	/^static int	ft_indexbase(char c, char *base)$/;"	f	typeref:typename:int	file:
+ft_initialize_tab	Libft/src/fpf_printf.c	/^static t_print	*ft_initialize_tab(t_print *tab)$/;"	f	typeref:typename:t_print *	file:
+ft_initialize_tab	Libft/src/pf_printf.c	/^static t_print	*ft_initialize_tab(t_print *tab)$/;"	f	typeref:typename:t_print *	file:
+ft_intzero	Libft/src/ft_itoa.c	/^static char	*ft_intzero(void)$/;"	f	typeref:typename:char *	file:
+ft_isalnum	Libft/src/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f	typeref:typename:int
+ft_isalpha	Libft/src/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f	typeref:typename:int
+ft_isascii	Libft/src/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int
+ft_ischarset	Libft/src/ft_ischarset.c	/^int	ft_ischarset(char c, const char *charset)$/;"	f	typeref:typename:int
+ft_isdigit	Libft/src/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f	typeref:typename:int
+ft_isprint	Libft/src/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f	typeref:typename:int
+ft_isspace	Libft/src/ft_isspace.c	/^int	ft_isspace(int c)$/;"	f	typeref:typename:int
+ft_itoa	Libft/src/ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f	typeref:typename:char *
+ft_itoa_base	Libft/src/ft_itoa_base.c	/^char	*ft_itoa_base(int n, char *base)$/;"	f	typeref:typename:char *
+ft_lstadd_back	Libft/src/ft_lstadd_back.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstadd_front	Libft/src/ft_lstadd_front.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstclear	Libft/src/ft_lstclear.c	/^void	ft_lstclear(t_list **lst, void (*del)(void *))$/;"	f	typeref:typename:void
+ft_lstdelone	Libft/src/ft_lstdelone.c	/^void	ft_lstdelone(t_list *lst, void (*del)(void *))$/;"	f	typeref:typename:void
+ft_lstiter	Libft/src/ft_lstiter.c	/^void	ft_lstiter(t_list *lst, void (*f)(void *))$/;"	f	typeref:typename:void
+ft_lstlast	Libft/src/ft_lstlast.c	/^t_list	*ft_lstlast(t_list *lst)$/;"	f	typeref:typename:t_list *
+ft_lstmap	Libft/src/ft_lstmap.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))$/;"	f	typeref:typename:t_list *
+ft_lstnew	Libft/src/ft_lstnew.c	/^t_list	*ft_lstnew(void *content)$/;"	f	typeref:typename:t_list *
+ft_lstsize	Libft/src/ft_lstsize.c	/^int	ft_lstsize(t_list *lst)$/;"	f	typeref:typename:int
+ft_memchr	Libft/src/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/;"	f	typeref:typename:void *
+ft_memcmp	Libft/src/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f	typeref:typename:int
+ft_memcpy	Libft/src/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memdel	Libft/src/ft_memdel.c	/^void	ft_memdel(void *ptr)$/;"	f	typeref:typename:void
+ft_memmove	Libft/src/ft_memmove.c	/^void	*ft_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memset	Libft/src/ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/;"	f	typeref:typename:void *
+ft_nbrlen	Libft/src/ft_nbrlen.c	/^int	ft_nbrlen(long int n)$/;"	f	typeref:typename:int
+ft_nbrlen_base	Libft/src/ft_nbrlen_base.c	/^int	ft_nbrlen_base(long int n, char *base)$/;"	f	typeref:typename:int
+ft_print	Libft/src/pf_putstr.c	/^static void	ft_print(t_print *tab, char *str)$/;"	f	typeref:typename:void	file:
+ft_print_fd	Libft/src/fpf_putstr.c	/^static void	ft_print_fd(int fd, t_print *tab, char *str)$/;"	f	typeref:typename:void	file:
+ft_printf	Libft/src/pf_printf.c	/^int	ft_printf(const char *format, ...)$/;"	f	typeref:typename:int
+ft_putchar_fd	Libft/src/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
+ft_putendl_fd	Libft/src/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_base_fd	Libft/src/ft_putnbr_base_fd.c	/^void	ft_putnbr_base_fd(int nb, char *base, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_fd	Libft/src/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
+ft_putstr_fd	Libft/src/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_realloc	Libft/src/ft_realloc.c	/^void	*ft_realloc(void *ptr, size_t size)$/;"	f	typeref:typename:void *
+ft_skip_charset	Libft/src/ft_skip_charset.c	/^char	*ft_skip_charset(char *str, const char *charset)$/;"	f	typeref:typename:char *
+ft_split	Libft/src/ft_split.c	/^char	**ft_split(char const *s, char *charset)$/;"	f	typeref:typename:char **
+ft_str_array_len	Libft/src/ft_str_array_len.c	/^int	ft_str_array_len(char **array)$/;"	f	typeref:typename:int
+ft_strchr	Libft/src/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f	typeref:typename:char *
+ft_strcmp	Libft/src/ft_strcmp.c	/^int	ft_strcmp(const char *s1, const char *s2)$/;"	f	typeref:typename:int
+ft_strdup	Libft/src/ft_strdup.c	/^char	*ft_strdup(const char *s)$/;"	f	typeref:typename:char *
+ft_striteri	Libft/src/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char*))$/;"	f	typeref:typename:void
+ft_strjoin	Libft/src/ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f	typeref:typename:char *
+ft_strlcat	Libft/src/ft_strlcat.c	/^size_t	ft_strlcat(char *dest, const char *src, size_t size)$/;"	f	typeref:typename:size_t
+ft_strlcpy	Libft/src/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dest, const char *src, size_t size)$/;"	f	typeref:typename:size_t
+ft_strlen	Libft/src/ft_strlen.c	/^size_t	ft_strlen(const char *str)$/;"	f	typeref:typename:size_t
+ft_strmapi	Libft/src/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f	typeref:typename:char *
+ft_strncmp	Libft/src/ft_strncmp.c	/^int	ft_strncmp(const char *s1, const char *s2, size_t n)$/;"	f	typeref:typename:int
+ft_strndup	Libft/src/ft_strndup.c	/^char	*ft_strndup(const char *s, size_t n)$/;"	f	typeref:typename:char *
+ft_strnstr	Libft/src/ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f	typeref:typename:char *
+ft_strrchr	Libft/src/ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f	typeref:typename:char *
+ft_strtolower	Libft/src/ft_strtolower.c	/^char	*ft_strtolower(const char *str)$/;"	f	typeref:typename:char *
+ft_strtoupper	Libft/src/ft_strtoupper.c	/^char	*ft_strtoupper(const char *str)$/;"	f	typeref:typename:char *
+ft_strtrim	Libft/src/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f	typeref:typename:char *
+ft_substr	Libft/src/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f	typeref:typename:char *
+ft_tolower	Libft/src/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f	typeref:typename:int
+ft_toupper	Libft/src/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
+ft_valabs	Libft/src/ft_valabs.c	/^long int	ft_valabs(long int n)$/;"	f	typeref:typename:long int
+ft_wlen	Libft/src/ft_split.c	/^static int	ft_wlen(const char *s, char *charset)$/;"	f	typeref:typename:int	file:
+g_sig	src/minishell.c	/^int	g_sig;$/;"	v	typeref:typename:int
+get_app_outfile_fd	src/get_files_fd.c	/^static void	get_app_outfile_fd(t_exe *exe, char *file)$/;"	f	typeref:typename:void	file:
+get_bash_output	minishell_tester/src/process.py	/^    def get_bash_output(self, test: str) -> str:$/;"	m	class:Process	typeref:typename:str
+get_exit_status	src/builtin/get_exit_status.c	/^int	get_exit_status(char *arg)$/;"	f	typeref:typename:int
+get_files_fd	src/get_files_fd.c	/^int	get_files_fd(t_exe *exe, t_files *file)$/;"	f	typeref:typename:int
+get_files_fd_for_builtin	src/builtin/get_files_fd_for_builtin.c	/^int	get_files_fd_for_builtin(t_exe *exe, t_files *file, char *builtin)$/;"	f	typeref:typename:int
+get_in_env	src/builtin/utils_for_cd.c	/^t_env	*get_in_env(t_env *env, char *key)$/;"	f	typeref:typename:t_env *
+get_infile_fd	src/get_files_fd.c	/^static void	get_infile_fd(t_exe *exe, char *file)$/;"	f	typeref:typename:void	file:
+get_line	Libft/src/get_next_line.c	/^static char	*get_line(int fd, char *str, char *buffer)$/;"	f	typeref:typename:char *	file:
+get_minishell_output	minishell_tester/src/process.py	/^    def get_minishell_output(self, bash_output: str, test: str, loop: int,$/;"	m	class:Process	typeref:typename:Union[str,None]
+get_minishell_output_pty	minishell_tester/src/process.py	/^    def get_minishell_output_pty(self, bash_output: str, test: str) -> str:$/;"	m	class:Process	typeref:typename:str
+get_more	Libft/src/get_next_line.c	/^static char	*get_more(char *str)$/;"	f	typeref:typename:char *	file:
+get_newline_option	src/builtin/handle_echo.c	/^static int	get_newline_option(char **cmd, bool *option)$/;"	f	typeref:typename:int	file:
+get_next_line	Libft/src/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
+get_operator	src/handle_metachars.c	/^static int	get_operator(t_entry *entry, char *str, t_token *new)$/;"	f	typeref:typename:int	file:
+get_outfile_fd	src/get_files_fd.c	/^static void	get_outfile_fd(t_exe *exe, char *file)$/;"	f	typeref:typename:void	file:
+get_path	src/builtin/handle_cd_in_parent.c	/^static char	*get_path(t_entry *entry, t_exe *exe, t_env *env, char **cmd)$/;"	f	typeref:typename:char *	file:
+get_path	src/builtin/handle_cd_in_subshell.c	/^static char	*get_path(t_exe *exe, t_env *env, char **cmd)$/;"	f	typeref:typename:char *	file:
+get_token	src/handle_non_metachars.c	/^static int	get_token(const char *str, t_entry *entry, t_token *new, char *set)$/;"	f	typeref:typename:int	file:
+get_value	src/expand_heredoc.c	/^static char	*get_value(char **env, char *key)$/;"	f	typeref:typename:char *	file:
+get_value	src/partition_content.c	/^static char	*get_value(char **env, char *key)$/;"	f	typeref:typename:char *	file:
+github.copilot.editor.enableAutoCompletions	.vscode/settings.json	/^	"github.copilot.editor.enableAutoCompletions": false,$/;"	b
+gnl_initstr	Libft/src/get_next_line.c	/^static char	*gnl_initstr(char *str)$/;"	f	typeref:typename:char *	file:
+gnl_ischarset	Libft/src/get_next_line.c	/^static int	gnl_ischarset(char *str, char c)$/;"	f	typeref:typename:int	file:
+go_heredoc	src/go_heredoc.c	/^void	go_heredoc(t_entry *entry, t_token *cur)$/;"	f	typeref:typename:void
+handle_builtin_in_parent	src/builtin/handle_builtin_in_parent.c	/^bool	handle_builtin_in_parent(t_entry *ent, t_exe *ex, t_env *env, char **cm)$/;"	f	typeref:typename:bool
+handle_builtin_in_subshell	src/builtin/handle_builtin_in_subshell.c	/^void	handle_builtin_in_subshell(t_exe *exe, char *command, int prev_status)$/;"	f	typeref:typename:void
+handle_cd_in_parent	src/builtin/handle_cd_in_parent.c	/^bool	handle_cd_in_parent(t_entry *entry, t_exe *exe, t_env *env, char **cmd)$/;"	f	typeref:typename:bool
+handle_cd_in_subshell	src/builtin/handle_cd_in_subshell.c	/^int	handle_cd_in_subshell(t_exe *exe, t_env *env, char **cmd)$/;"	f	typeref:typename:int
+handle_cmd_exception	src/find_cmd.c	/^static void	handle_cmd_exception(t_exe *exe, char **cmd)$/;"	f	typeref:typename:void	file:
+handle_dollar	src/expand_token.c	/^static void	handle_dollar(t_entry *entry, t_token *token, char *content, int i)$/;"	f	typeref:typename:void	file:
+handle_echo	src/builtin/handle_echo.c	/^int	handle_echo(char **cmd)$/;"	f	typeref:typename:int
+handle_env	src/builtin/handle_env.c	/^int	handle_env(char **cmd, t_env *env)$/;"	f	typeref:typename:int
+handle_exit_in_parent	src/builtin/handle_exit_in_parent.c	/^bool	handle_exit_in_parent(t_entry *entry, t_exe *exe, char **cmd)$/;"	f	typeref:typename:bool
+handle_exit_in_subshell	src/builtin/handle_exit_in_subshell.c	/^int	handle_exit_in_subshell(t_exe *exe, char **cmd, int prev_status)$/;"	f	typeref:typename:int
+handle_expansions	src/handle_expansions.c	/^void	handle_expansions(t_entry *entry, char **env)$/;"	f	typeref:typename:void
+handle_export_in_parent	src/builtin/handle_export_in_parent.c	/^bool	handle_export_in_parent(t_entry *ent, t_exe *ex, t_env *env, char **cmd)$/;"	f	typeref:typename:bool
+handle_export_in_subshell	src/builtin/handle_export_in_subshell.c	/^int	handle_export_in_subshell(t_exe *exe, char **cmd, t_env *env)$/;"	f	typeref:typename:int
+handle_hyphen	src/builtin/handle_cd_in_parent.c	/^static char	*handle_hyphen(t_entry *entry, t_exe *exe, t_env *env)$/;"	f	typeref:typename:char *	file:
+handle_hyphen	src/builtin/handle_cd_in_subshell.c	/^static char	*handle_hyphen(t_exe *exe, t_env *env)$/;"	f	typeref:typename:char *	file:
+handle_metachars	src/handle_metachars.c	/^void	handle_metachars(t_entry *entry, t_token *new, int *index, int *ib)$/;"	f	typeref:typename:void
+handle_non_metachars	src/handle_non_metachars.c	/^void	handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i)$/;"	f	typeref:typename:void
+handle_pwd	src/builtin/handle_pwd.c	/^void	handle_pwd(t_exe *exe)$/;"	f	typeref:typename:void
+handle_signal	src/handle_signal.c	/^void	handle_signal(int sgl)$/;"	f	typeref:typename:void
+handle_signal_in_heredoc	src/handle_signal.c	/^void	handle_signal_in_heredoc(int sgn)$/;"	f	typeref:typename:void
+handle_signal_in_subshell	src/handle_signal.c	/^void	handle_signal_in_subshell(int sgl)$/;"	f	typeref:typename:void
+handle_status	src/handle_status.c	/^char	*handle_status(t_entry *entry, char *content, int i)$/;"	f	typeref:typename:char *
+handle_unset_in_parent	src/builtin/handle_unset_in_parent.c	/^bool	handle_unset_in_parent(t_entry *ent, t_exe *exe, t_env *env, char **cmd)$/;"	f	typeref:typename:bool
+handle_unset_in_subshell	src/builtin/handle_unset_in_subshell.c	/^int	handle_unset_in_subshell(t_exe *exe, char **cmd, t_env *env)$/;"	f	typeref:typename:int
+head	hdr/minishell.h	/^	struct s_token	*head;$/;"	m	struct:s_token	typeref:struct:s_token *
+heredoc	hdr/minishell.h	/^	bool				heredoc;$/;"	m	struct:s_entry	typeref:typename:bool
+highlight_in_full_command	src/print/print_exe.c	/^static void	highlight_in_full_command(t_entry *entry, t_token *token, int block)$/;"	f	typeref:typename:void	file:
+index	hdr/minishell.h	/^	int				index;$/;"	m	struct:s_token	typeref:typename:int
+init_cmd	src/init/init_exe.c	/^static char	**init_cmd(t_entry *entry, t_exe *exe, t_token *token)$/;"	f	typeref:typename:char **	file:
+init_dup	src/init/init_dup.c	/^void	init_dup(t_exe *exe, int old_fd, int new_fd)$/;"	f	typeref:typename:void
+init_entry	src/minishell.c	/^static void	init_entry(t_entry *entry, char **env, struct sigaction sa)$/;"	f	typeref:typename:void	file:
+init_error	src/init/init_error.c	/^void	init_error(t_exe *exe, char *msg, char *data, int status)$/;"	f	typeref:typename:void
+init_exe	src/init/init_exe.c	/^void	init_exe(t_entry *entry, t_token *token, t_exe *exe, int i)$/;"	f	typeref:typename:void
+init_fork	src/init/init_fork.c	/^pid_t	init_fork(t_exe *exe, t_entry *entry)$/;"	f	typeref:typename:pid_t
+init_pipe	src/init/init_pipe.c	/^void	init_pipe(t_entry *entry, t_exe *exe, int *pipe_fd)$/;"	f	typeref:typename:void
+init_pipe_fd_and_block	src/init/init_pipe_fd_and_block.c	/^void	init_pipe_fd_and_block(t_entry *entry, t_exe *exe)$/;"	f	typeref:typename:void
+io_fd	hdr/minishell.h	/^	int			io_fd[2];$/;"	m	struct:s_exe	typeref:typename:int[2]
+is_beyond_limits	src/builtin/get_exit_status.c	/^static int	is_beyond_limits(unsigned long res, int sign)$/;"	f	typeref:typename:int	file:
+is_beyond_limits	src/builtin/handle_exit_in_subshell.c	/^static int	is_beyond_limits(unsigned long res, int sign)$/;"	f	typeref:typename:int	file:
+is_builtin	src/builtin/is_builtin.c	/^bool	is_builtin(char *command)$/;"	f	typeref:typename:bool
+is_exception	src/analyze_syntax.c	/^static bool	is_exception(t_entry *entry)$/;"	f	typeref:typename:bool	file:
+is_n_option	src/builtin/handle_echo.c	/^static bool	is_n_option(char *arg)$/;"	f	typeref:typename:bool	file:
+iterate	Libft/src/ft_atol.c	/^static int	iterate(const char *nb, int *sign)$/;"	f	typeref:typename:int	file:
+iterate	src/builtin/get_exit_status.c	/^static int	iterate(char *nb, int *sign)$/;"	f	typeref:typename:int	file:
+iterate	src/builtin/handle_exit_in_subshell.c	/^static int	iterate(char *nb, int *sign)$/;"	f	typeref:typename:int	file:
+join_contents	src/join_contents.c	/^void	join_contents(t_entry *entry, t_token *cur, t_token *prev)$/;"	f	typeref:typename:void
+key	hdr/minishell.h	/^	char			*key;$/;"	m	struct:s_env	typeref:typename:char *
+libft.h	.vscode/settings.json	/^		"libft.h": "c",$/;"	s	object:files.associations
+listen_signals	src/listen_to_signals.c	/^int	listen_signals(void)$/;"	f	typeref:typename:int
+log_status	src/tester/log_status.c	/^void	log_status(int status)$/;"	f	typeref:typename:void
+log_tests	src/tester/log_tests.c	/^void	log_tests(const char *command)$/;"	f	typeref:typename:void
+main	minishell_tester/src/__main__.py	/^def main(argv: List[str]) -> None:$/;"	f	typeref:typename:None
+main	src/minishell.c	/^int	main(int argc, char **argv, char **env)$/;"	f	typeref:typename:int
+makefile	minishell_tester/src/utils.py	/^def makefile(rules: str, must_print: bool, project_path: str):$/;"	f
+minishell.h	.vscode/settings.json	/^		"minishell.h": "c",$/;"	s	object:files.associations
+mix_mandatory	minishell_tester/src/tests.py	/^mix_mandatory = [$/;"	v
+msg	hdr/minishell.h	/^	char	*msg;$/;"	m	struct:s_error	typeref:typename:char *
+next	Libft/hdr/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
+next	hdr/minishell.h	/^	struct s_env	*next;$/;"	m	struct:s_env	typeref:struct:s_env *
+next	hdr/minishell.h	/^	struct s_files	*next;$/;"	m	struct:s_files	typeref:struct:s_files *
+next	hdr/minishell.h	/^	struct s_token	*next;$/;"	m	struct:s_token	typeref:struct:s_token *
+norminette	minishell_tester/src/utils.py	/^def norminette(project_path: str):$/;"	f
+open_app_outfile	src/builtin/get_files_fd_for_builtin.c	/^static bool	open_app_outfile(t_exe *exe, char *file, char *builtin)$/;"	f	typeref:typename:bool	file:
+open_infile	src/builtin/get_files_fd_for_builtin.c	/^static bool	open_infile(t_exe *exe, char *file, char *builtin)$/;"	f	typeref:typename:bool	file:
+open_outfile	src/builtin/get_files_fd_for_builtin.c	/^static bool	open_outfile(t_exe *exe, char *file, char *builtin)$/;"	f	typeref:typename:bool	file:
+parsing	minishell_tester/src/tests.py	/^parsing = [$/;"	v
+partition_content	src/partition_content.c	/^char	*partition_content(t_entry *entry, char *content, int i)$/;"	f	typeref:typename:char *
+pf_addprefix	Libft/src/pf_addprefix.c	/^char	*pf_addprefix(t_print *tab)$/;"	f	typeref:typename:char *
+pf_print_prefix	Libft/src/pf_print_prefix.c	/^void	pf_print_prefix(t_print *tab)$/;"	f	typeref:typename:void
+pf_putchar	Libft/src/pf_putchar.c	/^void	pf_putchar(t_print *tab)$/;"	f	typeref:typename:void
+pf_putnbr	Libft/src/pf_putnbr.c	/^void	pf_putnbr(t_print *tab)$/;"	f	typeref:typename:void
+pf_putptr	Libft/src/pf_putptr.c	/^void	pf_putptr(t_print *tab)$/;"	f	typeref:typename:void
+pf_putstr	Libft/src/pf_putstr.c	/^void	pf_putstr(t_print *tab, char *str)$/;"	f	typeref:typename:void
+pf_putu_base	Libft/src/pf_putu_base.c	/^void	pf_putu_base(t_print *tab, size_t n, char *base)$/;"	f	typeref:typename:void
+pf_unbrlen_base	Libft/src/pf_unbrlen_base.c	/^int	pf_unbrlen_base(size_t n, char *base)$/;"	f	typeref:typename:int
+pipe_fd1	hdr/minishell.h	/^	int			pipe_fd1[2];$/;"	m	struct:s_exe	typeref:typename:int[2]
+pipe_fd2	hdr/minishell.h	/^	int			pipe_fd2[2];$/;"	m	struct:s_exe	typeref:typename:int[2]
+pipe_fork_exec_reset	src/exec_token.c	/^static void	pipe_fork_exec_reset(t_entry *entry, t_exe *exe, int *i)$/;"	f	typeref:typename:void	file:
+pipes	minishell_tester/src/tests.py	/^pipes = [$/;"	v
+prev	hdr/minishell.h	/^	struct s_token	*prev;$/;"	m	struct:s_token	typeref:struct:s_token *
+prev_status	hdr/minishell.h	/^	int					prev_status;$/;"	m	struct:s_entry	typeref:typename:int
+print_block	src/print/print_block.c	/^void	print_block(t_token *token)$/;"	f	typeref:typename:void
+print_block_content	src/print/print_block.c	/^static void	print_block_content(t_token *tmp, int total_len)$/;"	f	typeref:typename:void	file:
+print_category_line	src/print/print_token.c	/^static void	print_category_line(t_token *tmp)$/;"	f	typeref:typename:void	file:
+print_cmd	src/print/print_exe.c	/^static void	print_cmd(t_exe *exe, t_env *env)$/;"	f	typeref:typename:void	file:
+print_content_line	src/print/print_token.c	/^static void	print_content_line(t_token *tmp, int i)$/;"	f	typeref:typename:void	file:
+print_env	src/print/print_env.c	/^void	print_env(t_env *env)$/;"	f	typeref:typename:void
+print_exe	src/print/print_exe.c	/^void	print_exe(t_entry *entry, t_token *token, t_exe *exe, int block)$/;"	f	typeref:typename:void
+print_files	src/print/print_exe.c	/^static void	print_files(t_files *file)$/;"	f	typeref:typename:void	file:
+print_footer	src/print/print_exe.c	/^static void	print_footer(void)$/;"	f	typeref:typename:void	file:
+print_footer	src/print/print_token.c	/^static void	print_footer(int size, int blocks)$/;"	f	typeref:typename:void	file:
+print_full_command	src/print/print_full_command.c	/^void	print_full_command(t_entry *entry, t_token *token)$/;"	f	typeref:typename:void
+print_header	src/print/print_exe.c	/^static void	print_header(void)$/;"	f	typeref:typename:void	file:
+print_header	src/print/print_token.c	/^static void	print_header(int size, int blocks)$/;"	f	typeref:typename:void	file:
+print_iofd	src/print/print_exe.c	/^static void	print_iofd(t_exe *exe)$/;"	f	typeref:typename:void	file:
+print_new_block	src/print/print_token.c	/^static void	print_new_block(t_entry *entry, t_token *tmp, int i)$/;"	f	typeref:typename:void	file:
+print_pipe	src/print/print_exe.c	/^static void	print_pipe(t_exe *exe)$/;"	f	typeref:typename:void	file:
+print_spaces_after	src/print/print_block.c	/^static void	print_spaces_after(int size, int total_len)$/;"	f	typeref:typename:void	file:
+print_spaces_before	src/print/print_block.c	/^static int	print_spaces_before(int size, int total_len)$/;"	f	typeref:typename:int	file:
+print_tab	src/print/print_tab.c	/^void	print_tab(char **env)$/;"	f	typeref:typename:void
+print_token	src/print/print_token.c	/^void	print_token(t_entry *entry, t_token *token)$/;"	f	typeref:typename:void
+print_utils_content_has_space	src/print/print_utils.c	/^int	print_utils_content_has_space(char *content)$/;"	f	typeref:typename:int
+print_utils_token_blocks	src/print/print_utils.c	/^int	print_utils_token_blocks(t_token *token)$/;"	f	typeref:typename:int
+print_utils_token_size	src/print/print_utils.c	/^int	print_utils_token_size(t_token *token)$/;"	f	typeref:typename:int
+protected_itoa	src/handle_status.c	/^static char	*protected_itoa(int prev_status, char *s1, char *s2, t_entry *entry)$/;"	f	typeref:typename:char *	file:
+protected_strdup	src/handle_metachars.c	/^static char	*protected_strdup(t_entry *entry, char *str)$/;"	f	typeref:typename:char *	file:
+protected_strdup	src/init/init_exe.c	/^static char	*protected_strdup(t_entry *entry, t_exe *exe, char *str)$/;"	f	typeref:typename:char *	file:
+protected_strjoin	src/check_path.c	/^static char	*protected_strjoin(t_exe *exe, char **array, char *str)$/;"	f	typeref:typename:char *	file:
+protected_strjoin	src/handle_status.c	/^static char	*protected_strjoin(char *s1, char *s2, char *s3, t_entry *entry)$/;"	f	typeref:typename:char *	file:
+protected_strjoin	src/partition_content.c	/^static char	*protected_strjoin(char *s1, char *s2, char *s3, t_entry *entry)$/;"	f	typeref:typename:char *	file:
+protected_unlink	src/exec_token.c	/^static void	protected_unlink(t_entry *entry, char *file)$/;"	f	typeref:typename:void	file:
+quotes	hdr/minishell.h	/^	int				quotes;$/;"	m	struct:s_token	typeref:typename:int
+re	Libft/Makefile	/^re: fclean all$/;"	t
+re	Makefile	/^re: fclean all$/;"	t
+read_line	src/go_heredoc.c	/^static char	*read_line(t_entry *entry)$/;"	f	typeref:typename:char *	file:
+read_thread	minishell_tester/src/process.py	/^        def read_thread(self, tmp: list):$/;"	f	member:Process.get_minishell_output	file:
+redirects	minishell_tester/src/tests.py	/^redirects = [$/;"	v
+reduce_content	src/print/print_block.c	/^static char	*reduce_content(char *content, int new_len)$/;"	f	typeref:typename:char *	file:
+remove	minishell_tester/src/lab.py	/^    def remove(self):$/;"	m	class:Lab
+remove_exit_status_lab	minishell_tester/src/lab.py	/^    def remove_exit_status_lab(self, path: str) -> None:$/;"	m	class:Lab	typeref:typename:None
+remove_node	src/utils/remove_node.c	/^void	remove_node(t_token **token, t_token *cur)$/;"	f	typeref:typename:void
+remove_null	src/utils/remove_null.c	/^void	remove_null(t_token **token)$/;"	f	typeref:typename:void
+remove_operator	src/utils/remove_operator.c	/^void	remove_operator(t_token **token)$/;"	f	typeref:typename:void
+remove_redirects_lab	minishell_tester/src/lab.py	/^    def remove_redirects_lab(self, files: List[str]) -> None:$/;"	m	class:Lab	typeref:typename:None
+remove_variable	src/builtin/handle_unset_in_parent.c	/^static void	remove_variable(t_env *env, char *arg)$/;"	f	typeref:typename:void	file:
+remove_variable	src/builtin/handle_unset_in_subshell.c	/^static void	remove_variable(t_env *env, char *arg)$/;"	f	typeref:typename:void	file:
+remove_wildcards_lab	minishell_tester/src/lab.py	/^    def remove_wildcards_lab(self, filenames: list, dirnames: list) -> None:$/;"	m	class:Lab	typeref:typename:None
+reset_status	src/minishell.c	/^static void	reset_status(t_entry *entry)$/;"	f	typeref:typename:void	file:
+result	minishell_tester/src/printer.py	/^    def result(self, status: str, loop: int, test: str, excep: str = None,$/;"	m	class:Printer	typeref:typename:None
+run	minishell_tester/src/tester.py	/^    def run(self) -> None:$/;"	m	class:Tester	typeref:typename:None
+s_entry	hdr/minishell.h	/^typedef struct s_entry$/;"	s
+s_env	hdr/minishell.h	/^typedef struct s_env$/;"	s
+s_error	hdr/minishell.h	/^typedef struct s_error$/;"	s
+s_exe	hdr/minishell.h	/^typedef struct s_exe$/;"	s
+s_files	hdr/minishell.h	/^typedef struct s_files$/;"	s
+s_list	Libft/hdr/libft.h	/^typedef struct s_list$/;"	s
+s_print	Libft/hdr/ft_printf.h	/^typedef struct s_print$/;"	s
+s_token	hdr/minishell.h	/^typedef struct s_token$/;"	s
+section	minishell_tester/src/printer.py	/^    def section(self, msg: str) -> None:$/;"	m	class:Printer	typeref:typename:None
+separate_content	src/separate_content.c	/^void	separate_content(t_entry *entry, t_token *cur, t_token *next)$/;"	f	typeref:typename:void
+set_env	src/set_env.c	/^void	set_env(t_entry *entry, t_exe *exe)$/;"	f	typeref:typename:void
+sign	hdr/minishell.h	/^	struct sigaction	sign;$/;"	m	struct:s_entry	typeref:struct:sigaction
+skip_whitespace	src/utils/skip_whitespace.c	/^void	skip_whitespace(char *str, int *index)$/;"	f	typeref:typename:void
+sort_array	src/builtin/export_only.c	/^static void	sort_array(char **arr, int i)$/;"	f	typeref:typename:void	file:
+sp	Libft/hdr/ft_printf.h	/^	int		sp;$/;"	m	struct:s_print	typeref:typename:int
+stash_in_tokens	src/stash_str.c	/^static void	stash_in_tokens(t_entry *entry, char *str, int i, int *ib)$/;"	f	typeref:typename:void	file:
+stash_str	src/stash_str.c	/^void	stash_str(t_entry *entry, t_token **token, char *str)$/;"	f	typeref:typename:void
+status	hdr/minishell.h	/^	int					status;$/;"	m	struct:s_entry	typeref:typename:int
+status	hdr/minishell.h	/^	int		status;$/;"	m	struct:s_error	typeref:typename:int
+str	hdr/minishell.h	/^	char				*str;$/;"	m	struct:s_entry	typeref:typename:char *
+subshell	hdr/minishell.h	/^	pid_t		subshell;$/;"	m	struct:s_exe	typeref:typename:pid_t
+summary	minishell_tester/src/printer.py	/^    def summary(self) -> None:$/;"	m	class:Printer	typeref:typename:None
+syntax_error_in_export	src/builtin/syntax_error_in_export.c	/^bool	syntax_error_in_export(char *arg, int *exit_status)$/;"	f	typeref:typename:bool
+t_entry	hdr/minishell.h	/^}			t_entry;$/;"	t	typeref:struct:s_entry
+t_env	hdr/minishell.h	/^}					t_env;$/;"	t	typeref:struct:s_env
+t_error	hdr/minishell.h	/^}			t_error;$/;"	t	typeref:struct:s_error
+t_exe	hdr/minishell.h	/^}				t_exe;$/;"	t	typeref:struct:s_exe
+t_files	hdr/minishell.h	/^}					t_files;$/;"	t	typeref:struct:s_files
+t_list	Libft/hdr/libft.h	/^}			t_list;$/;"	t	typeref:struct:s_list
+t_print	Libft/hdr/ft_printf.h	/^}	t_print;$/;"	t	typeref:struct:s_print
+t_token	hdr/minishell.h	/^}					t_token;$/;"	t	typeref:struct:s_token
+tl	Libft/hdr/ft_printf.h	/^	int		tl;$/;"	m	struct:s_print	typeref:typename:int
+token	hdr/minishell.h	/^	t_token				*token;$/;"	m	struct:s_entry	typeref:typename:t_token *
+token_addback	src/list/token_addback.c	/^void	token_addback(t_token **token, t_token *new)$/;"	f	typeref:typename:void
+token_clear	src/list/token_clear.c	/^void	token_clear(t_entry *entry, t_token **token)$/;"	f	typeref:typename:void
+token_new	src/list/token_new.c	/^t_token	*token_new(int *ib)$/;"	f	typeref:typename:t_token *
+too_many_args	src/builtin/handle_cd_in_parent.c	/^static bool	too_many_args(t_entry *entry, t_exe *exe, char **cmd)$/;"	f	typeref:typename:bool	file:
+too_many_args	src/builtin/handle_cd_in_subshell.c	/^static bool	too_many_args(t_exe *exe, char **cmd)$/;"	f	typeref:typename:bool	file:
+try_path	src/check_path.c	/^static char	*try_path(t_exe *exe, char **path, char *cmd)$/;"	f	typeref:typename:char *	file:
+txt	Libft/hdr/ft_printf.h	/^	int		txt;$/;"	m	struct:s_print	typeref:typename:int
+type	hdr/minishell.h	/^	int				type;$/;"	m	struct:s_token	typeref:typename:int
+type_traits	.vscode/settings.json	/^		"type_traits": "c"$/;"	s	object:files.associations
+unauthorised_character	src/builtin/syntax_error_in_export.c	/^static bool	unauthorised_character(char *arg, char c, int *status)$/;"	f	typeref:typename:bool	file:
+upd_concatenating	src/builtin/utils_for_export.c	/^void	upd_concatenating(t_exe *exe, t_env *env, char *key, char *value)$/;"	f	typeref:typename:void
+upd_cur	src/separate_content.c	/^static void	upd_cur(t_token *cur, char *content)$/;"	f	typeref:typename:void	file:
+upd_env	src/utils/upd_env.c	/^char	**upd_env(t_exe *exe, t_env *env)$/;"	f	typeref:typename:char **
+upd_env_export_only	src/builtin/export_only.c	/^static char	**upd_env_export_only(t_exe *exe, t_env *env)$/;"	f	typeref:typename:char **	file:
+upd_env_pwd	src/builtin/utils_for_cd.c	/^void	upd_env_pwd(t_env *env)$/;"	f	typeref:typename:void
+upd_exe	src/init/init_exe.c	/^static void	upd_exe(t_entry *entry, t_exe *exe, t_token *token, int i)$/;"	f	typeref:typename:void	file:
+upd_replacing	src/builtin/utils_for_export.c	/^void	upd_replacing(t_exe *exe, t_env *env, char *key, char *value)$/;"	f	typeref:typename:void
+upd_token	src/upd_token.c	/^void	upd_token(t_entry *entry, t_token *token)$/;"	f	typeref:typename:void
+upd_token_heads_and_indexes	src/utils/upd_token_heads_and_indexes.c	/^void	upd_token_heads_and_indexes(t_token *token)$/;"	f	typeref:typename:void
+update_index_and_move_forward	src/stash_str.c	/^static void	update_index_and_move_forward(char *str, int *i, int *index)$/;"	f	typeref:typename:void	file:
+value	hdr/minishell.h	/^	char			*value;$/;"	m	struct:s_env	typeref:typename:char *
+wait_for_child	src/exec_token.c	/^static void	wait_for_child(t_entry *entry, t_exe exe, int status, int i)$/;"	f	typeref:typename:void	file:
+wdt	Libft/hdr/ft_printf.h	/^	int		wdt;$/;"	m	struct:s_print	typeref:typename:int
+wildcards	minishell_tester/src/tests.py	/^wildcards = [$/;"	v
+write_heredoc	src/go_heredoc.c	/^static void	write_heredoc(t_entry *entry, t_token *cur, int fd)$/;"	f	typeref:typename:void	file:
+wrong_argument	src/builtin/handle_exit_in_parent.c	/^static bool	wrong_argument(t_entry *entry, t_exe *exe, char **cmd, int *status)$/;"	f	typeref:typename:bool	file:
+wrong_operator	src/builtin/syntax_error_in_export.c	/^static bool	wrong_operator(char *arg, char fst, char sec, int *status)$/;"	f	typeref:typename:bool	file:
+⚖️ - License	minishell_tester/README.md	/^## ⚖️ - License$/;"	s	chapter:Minishell Tester
+🐍 - Python	minishell_tester/README.md	/^## 🐍 - Python$/;"	s	chapter:Minishell Tester
+📈 - Tester	minishell_tester/README.md	/^## 📈 - Tester$/;"	s	chapter:Minishell Tester
+📝 - Compatibility	minishell_tester/README.md	/^## 📝 - Compatibility$/;"	s	chapter:Minishell Tester
+🛠️ - How to use?	minishell_tester/README.md	/^## 🛠️ - How to use?$/;"	s	chapter:Minishell Tester
+🪲 - Report bugs	minishell_tester/README.md	/^## 🪲 - Report bugs$/;"	s	chapter:Minishell Tester

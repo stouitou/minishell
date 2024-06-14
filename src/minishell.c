@@ -6,13 +6,13 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:03:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/10 16:47:03 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:19:21 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int sig_stat;
+int	g_sig;
 
 static char	**dup_env(char **env)
 {
@@ -31,7 +31,10 @@ static char	**dup_env(char **env)
 		if (!new[i])
 		{
 			while (i)
+			{
 				free(new[--i]);
+				new[i] = NULL;
+			}
 			free(new);
 			new = NULL;
 			exit (1);
@@ -48,97 +51,85 @@ static void	init_entry(t_entry *entry, char **env, struct sigaction sa)
 	entry->token = NULL;
 	entry->heredoc = false;
 	entry->prev_status = 0;
-	entry->status = sig_stat;
+	entry->status = g_sig;
 	entry->exit = false;
 	entry->sign = sa;
 	entry->env = NULL;
 	entry->env = dup_env(env);
+	if (!entry->env)
+    {
+        perror("Failed to duplicate environment");
+        exit(EXIT_FAILURE);
+    }
 }
 
 static void	reset_status(t_entry *entry)
 {
-	// sig_stat = 0;
+	g_sig = 0;
 	entry->prev_status = entry->status;
 	entry->status = 0;
 }
 
 static void	clear_and_reset_status(t_entry *entry, t_token **token)
 {
+	// (void)token;
+	// ft_printf("In clear and reset status\n");
 	free(entry->str);
-	token_clear(token);
+	entry->str = NULL;
+	token_clear(entry, token);
 	reset_status(entry);
 	entry->heredoc = false;
 }
-
-
 
 int	main(int argc, char **argv, char **env)
 {
 	t_entry				entry;
 	struct sigaction	sa;
-	
+
 	(void)argv;
 	if (argc != 1)
 		return (1);
-	// ft_printf("ici 1\n");
 	ft_bzero(&sa, sizeof(struct sigaction));
-	// sa.sa_handler = handle_signal;
-	// ft_printf("ici 2\n");
-	// sa.sa_flags = SA_SIGINFO, t_entry;
-	// sigemptyset(&sa.sa_mask);
-	// ft_printf("ici 3\n");
 	init_entry(&entry, env, sa);
 	while (1)
 	{
-		// ft_printf("sig_stat = %d\n", sig_stat);
-		// sigaction(SIGKILL, &sa, NULL);
-		// ft_printf("here in main\n");
+		// ft_printf("Hi 1\n");
 		sa.sa_handler = handle_signal;
 		sigaction(SIGINT, &sa, NULL);
-		// sigaction(SIGQUIT, &sa, NULL);
 		sa.sa_handler = SIG_IGN;
 		sigaction(SIGQUIT, &sa, NULL);
-		// ft_printf("ici 3b\n");
+		// ft_printf("Hi 2\n");
 		entry.str = readline(PROMPT);
-		// ft_printf("entry.str = <%s>\n", entry.str);
 		if (entry.str == NULL)
 		{
 			ft_free_str_array(entry.env);
 			ft_printf("exit\n");
+			rl_clear_history();
 			exit(entry.prev_status);
 		}
-		// ft_printf("ici 3c\n");
-		// ft_printf("ici 3b\n");
-		// ft_printf("ici 3c\n");
-		log_tests(entry.str);
-		add_history(entry.str);
-		// ft_printf("ici 3d\n");
+		// ft_printf("Hi 3\n");
 		stash_str(&entry, &(entry.token), entry.str);
-		// ft_printf("ici 4\n");
+		// ft_printf("Hi 4\n");
 		handle_expansions(&entry, env);
+		// ft_printf("Hi 5\n");
 		classify_tokens(&entry);
+		// ft_printf("Hi 6\n");
 		if (entry.status || !entry.token)
 		{
-			// ft_printf("here\n");
-			log_status(entry.status);
 			clear_and_reset_status(&entry, &(entry.token));
 			continue ;
 		}
+		// ft_printf("Hi 7\n");
 		exec_token(&entry, entry.token);
-		// if (listen_signals())
-		// 	continue ;
-		// ft_printf("ici 5\n");
-		log_status(entry.status);
-		// break ;
-		// }
+		ft_printf("Hi 8\n");
 		clear_and_reset_status(&entry, &(entry.token));
+		// ft_printf("Hi 9\n");
 		if (entry.exit == true)
 		{
 			rl_clear_history();
 			ft_free_str_array(entry.env);
 			exit (entry.prev_status);
 		}
-		// ft_printf("ici 6\n");
 	}
 	ft_free_str_array(entry.env);
 	rl_clear_history();

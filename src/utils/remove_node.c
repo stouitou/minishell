@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 17:31:15 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/15 16:23:40 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:17:17 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	remove_node(t_token **token, t_token *cur)
 		*token = next;
 	if (next)
 		next->prev = prev;
-	del_node(&cur);
+	del_node(cur);
 }

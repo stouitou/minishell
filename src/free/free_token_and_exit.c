@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:14:02 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 11:57:07 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:51:37 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	free_token_and_exit(t_entry *entry, char *err, char *str, int status)
 	if (str)
 		ft_fprintf(2, ": %s", str);
 	ft_fprintf(2, "\n");
-	token_clear(&(entry->token));
+	token_clear(entry, &(entry->token));
 	ft_free_str_array(entry->env);
 	exit(status);
 }

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:20:41 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/28 11:35:26 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:35:14 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ void	env_clear(t_env **env)
 	{
 		next = cur->next;
 		free(cur->key);
+		cur->key = NULL;
 		free(cur->value);
+		cur->value = NULL;
 		free(cur);
+		cur = NULL;
 		cur = next;
 	}
 	*env = NULL;

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 09:43:30 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/06 09:44:41 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:32:40 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static char	*create_new_content(t_entry *entry, t_token *cur, size_t *index)
 static void	upd_cur(t_token *cur, char *content)
 {
 	free(cur->content);
+	cur->content = NULL;
 	cur->content = content;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   partition_content.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:07:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/04 15:35:14 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/14 17:32:25 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,45 @@ static char	*get_value(char **env, char *key)
 	return (NULL);
 }
 
-static char	*extract_expand(t_entry *entry, char *str, int *index)
+static char	*find_key(t_entry *entry, char *str, int *index)
 {
+	char	*key;
 	int		i;
-	char	*dup;
-	char	*var;
-	char	*empty;
 
 	i = 1;
 	while (str[i] && (ft_isalnum(str[i]) || str[i] == '_'))
 		i++;
 	*index += i;
-	dup = ft_strndup(str + 1, i - 1);
-	if (!dup)
+	key = ft_strndup(str + 1, i - 1);
+	if (!key)
 		free_token_and_exit(entry, ERR_MALLOC, str, EXIT_FAILURE);
-	var = get_value(entry->env, dup);
+	return (key);
+}
+
+static char	*extract_expand(t_entry *entry, char *str, int *index)
+{
+	char	*key;
+	char	*var;
+	char	*empty;
+
+	empty = ft_strdup("");
+	if (!empty)
+		free_token_and_exit(entry, ERR_MALLOC, str, EXIT_FAILURE);
+	if (ft_isdigit(str[1]))
+	{
+		*index += 2;
+		return (empty);
+	}
+	key = find_key(entry, str, index);
+	var = get_value(entry->env, key);
 	if (var)
 	{
-		free(dup);
+		free(key);
+		key = NULL;
 		return (var);
 	}
-	free(dup);
+	free(key);
+	key = NULL;
 	empty = ft_strdup("");
 	if (!empty)
 		free_token_and_exit(entry, ERR_MALLOC, str, EXIT_FAILURE);
@@ -87,10 +105,12 @@ char	*partition_content(t_entry *entry, char *content, int i)
 	if (!end)
 	{
 		free(start);
+		start = NULL;
 		free_token_and_exit(entry, ERR_MALLOC, content, EXIT_FAILURE);
 	}
 	tmp = protected_strjoin(start, expand, end, entry);
 	free(start);
+	start = NULL;
 	new = protected_strjoin(tmp, end, NULL, entry);
 	free_4_str(tmp, end, NULL, NULL);
 	return (new);

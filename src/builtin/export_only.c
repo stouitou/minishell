@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:36:58 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/05 14:49:06 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:12:26 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	export_only(t_exe *exe, t_env *env)
 	char	*prefix;
 	int		i;
 
+	if (!env)
+		return ;
 	sorted = upd_env_export_only(exe, env);
 	prefix = "declare -x ";
 	i = 0;

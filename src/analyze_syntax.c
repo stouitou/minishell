@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:20:00 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/03 16:54:13 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:50:52 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static bool	is_exception(t_entry *entry)
 	cur = entry->token;
 	if (ft_strcmp(cur->content, ":") == 0)
 	{
-		token_clear(&(entry->token));
+		token_clear(entry, &(entry->token));
 		return (true);
 	}
 	if ((ft_strcmp(cur->content, "!") == 0 || ft_strcmp(cur->content, "?") == 0)
@@ -43,7 +43,7 @@ static void	analyze_operator(t_token *cur, t_entry *entry)
 			|| (cur->next && ft_strncmp(cur->next->content, "newline", 1) == 0))
 		{
 			free_token_before_return(entry, ERR_SYNTAX, cur->content, 2);
-			token_clear(&(cur->next));
+			token_clear(entry, &(cur->next));
 			cur->next = NULL;
 			return ;
 		}
@@ -53,7 +53,7 @@ static void	analyze_operator(t_token *cur, t_entry *entry)
 		if (!cur->next || cur->next->type != WORD)
 		{
 			free_token_before_return(entry, ERR_SYNTAX, cur->next->content, 2);
-			token_clear(&(cur->next));
+			token_clear(entry, &(cur->next));
 			cur->next = NULL;
 			return ;
 		}

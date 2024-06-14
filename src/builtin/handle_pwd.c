@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:29:32 by poriou            #+#    #+#             */
-/*   Updated: 2024/06/05 17:38:28 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:32:54 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ void	handle_pwd(t_exe *exe)
 			continue ;
 		}
 		else if (!pwd)
-			free_subshell_and_exit(exe, strerror(errno), "getcwd", 1);
+		{
+			pwd = ft_getenv(exe->env, "PWD");
+			if (!pwd)
+				free_subshell_and_exit(exe, strerror(errno), "getcwd", 1);
+		}
 		break ;
 	}
 	ft_putendl_fd(pwd, 1);
 	free(pwd);
+	pwd = NULL;
 }

@@ -6,17 +6,11 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 14:34:03 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 11:12:34 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:00:53 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-static void	init_index_and_block(int ib[2])
-{
-	ib[0] = 0;
-	ib[1] = 0;
-}
 
 static void	close_tokens(t_entry *entry, t_token **token, int *ib)
 {
@@ -56,21 +50,14 @@ static void	update_index_and_move_forward(char *str, int *i, int *index)
 		(*i)++;
 }
 
-void	stash_str(t_entry *entry, t_token **token, char *str)
+static void	stash_in_tokens(t_entry *entry, char *str, int i, int *ib)
 {
-	int		i;
-	int		ib[2];
 	t_token	*new;
 
-	if (!str)
-		return ;
-	init_index_and_block(ib);
-	i = 0;
-	skip_whitespace(str, &i);
 	while (str[i])
 	{
 		new = create_new_token(entry, ib, str);
-		token_addback(token, new);
+		token_addback(&entry->token, new);
 		if (ft_ischarset(str[i], METACHARACTER))
 			handle_metachars(entry, new, &i, ib);
 		else if (!ft_ischarset(str[i], METACHARACTER))
@@ -79,6 +66,28 @@ void	stash_str(t_entry *entry, t_token **token, char *str)
 			return ;
 		update_index_and_move_forward(str, &i, &ib[0]);
 	}
+}
+
+void	stash_str(t_entry *entry, t_token **token, char *str)
+{
+	int		i;
+	int		ib[2];
+
+	if (!str)
+		return ;
+	ib[0] = 0;
+	ib[1] = 0;
+	i = 0;
+	skip_whitespace(str, &i);
+	if (!str[i])
+	{
+		entry->status = entry->prev_status;
+		return ;
+	}
+	add_history(entry->str);
+	stash_in_tokens(entry, str, i, ib);
+	if (entry->status)
+		return ;
 	close_tokens(entry, token, ib);
 	analyze_syntax(entry);
 }

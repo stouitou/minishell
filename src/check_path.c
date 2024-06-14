@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 10:05:01 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 15:52:13 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:29:58 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static char	*try_path(t_exe *exe, char **path, char *cmd)
 		if (access(command, F_OK | X_OK) == 0)
 			return (command);
 		free(command);
+		command = NULL;
 		i++;
 	}
 	return (NULL);
@@ -55,7 +56,7 @@ char	*check_path(t_exe *exe, char *cmd)
 		free_subshell_and_exit(exe, ERR_CMD, cmd, 127);
 	pathes = ft_getenv(exe->env, "PATH");
 	if (!pathes)
-		free_subshell_and_exit(exe, ERR_CMD, cmd, 127);
+		free_subshell_and_exit(exe, "No such file or directory", cmd, 1);
 	path = ft_split(pathes, ":");
 	if (!path)
 		free_subshell_and_exit(exe, strerror(errno), "path in check_path", 127);
@@ -65,9 +66,11 @@ char	*check_path(t_exe *exe, char *cmd)
 	{
 		ft_free_str_array(path);
 		free(tmp);
+		tmp = NULL;
 		free_subshell_and_exit(exe, ERR_CMD, cmd, 127);
 	}
 	ft_free_str_array(path);
 	free(tmp);
+	tmp = NULL;
 	return (command);
 }

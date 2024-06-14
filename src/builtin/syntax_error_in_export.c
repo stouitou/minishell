@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:33:17 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/05 17:37:40 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/11 15:05:15 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ static bool	bad_first_char(char *arg, char c, int *status)
 	{
 		ft_fprintf(2, "export: '%s': not a valid identifier\n", arg);
 		*status = 1;
+		return (true);
+	}
+	if (c == '-')
+	{
+		ft_fprintf(2, "export: -%c: invalid option\n", arg[1]);
+		*status = 2;
 		return (true);
 	}
 	return (false);

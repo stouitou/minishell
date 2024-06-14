@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:53:30 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/06 15:09:29 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/11 10:29:04 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	listen_signals(void)
 {
-	if (sig_stat == 130)
+	if (g_sig == 130)
 	{
 		ft_printf("hello there\n");
-		sig_stat = 0;
+		g_sig = 0;
 		return (1);
 	}
 	return (0);

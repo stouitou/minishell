@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:06:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/10 17:14:25 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:16:54 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@
 #  define ERR_PERM "permission denied"
 # endif
 
-extern int sig_stat;
+extern int	g_sig;
 
 enum	e_quotes
 {
@@ -156,6 +156,7 @@ typedef struct s_entry
 int		main(int ac, char **av, char **env);
 void	handle_signal(int sgl);
 void	handle_signal_in_subshell(int sgl);
+void	handle_signal_in_heredoc(int sgn);
 void	stash_str(t_entry *entry, t_token **token, char *str);
 void	handle_metachars(t_entry *entry, t_token *new, int *i, int *ib);
 void	handle_non_metachars(t_entry *entry, t_token *new, char *str, int *i);
@@ -166,6 +167,7 @@ char	*partition_content(t_entry *entry, char *content, int i);
 char	*handle_status(t_entry *entry, char *content, int i);
 void	classify_tokens(t_entry *entry);
 void	go_heredoc(t_entry *entry, t_token *cur);
+void	expand_heredoc(t_entry *entry, char *str, char **env, int fd);
 void	upd_token(t_entry *entry, t_token *cur);
 void	separate_content(t_entry *entry, t_token *cur, t_token *next);
 void	join_contents(t_entry *entry, t_token *cur, t_token *prev);
@@ -202,7 +204,7 @@ int		handle_unset_in_subshell(t_exe *exe, char **cmd, t_env *env);
 int		get_exit_status(char *arg);
 void	export_only(t_exe *exe, t_env *env);
 bool	syntax_error_in_export(char *arg, int *exit_status);
-void	export_variable(t_exe *exe, t_env *env, char *var, int *status);
+void	export_variable(t_exe *exe, t_env **env, char *var, int *status);
 char	*extract_key_for_export(t_exe *exe, char *arg);
 char	*extract_value_for_export(t_exe *exe, char *arg);
 void	upd_concatenating(t_exe *exe, t_env *env, char *key, char *value);
@@ -216,8 +218,8 @@ void	free_cd_b4_return(t_entry *entry, t_exe *exe, char *err, char *arg);
 /* LIST */
 t_token	*token_new(int *ib);
 void	token_addback(t_token **token, t_token *new);
-void	token_clear(t_token **token);
-void	del_node(t_token **node);
+void	token_clear(t_entry *entry, t_token **token);
+void	del_node(t_token *node);
 t_files	*files_new(t_entry *entry, t_exe *exe, t_token *token);
 void	files_addback(t_files **file, t_files *new);
 void	files_clear(t_files **file);

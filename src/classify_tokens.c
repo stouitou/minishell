@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:52:53 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/10 16:48:21 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/11 11:29:06 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static void	classify_word(t_entry *entry, t_token *cur, int *cmd_found)
 		cur->category = INFILE;
 	else if (cur->prev && ft_strcmp(cur->prev->content, ">") == 0)
 		cur->category = OUTFILE;
-		// ft_printf("here in classify word 3\n");
 	else if (cur->prev && ft_strcmp(cur->prev->content, "<<") == 0)
 	{
 		cur->category = DELIMITER;
@@ -57,21 +56,15 @@ static void	classify_word(t_entry *entry, t_token *cur, int *cmd_found)
 	else if (cur->prev && ft_strcmp(cur->prev->content, ">>") == 0)
 		cur->category = APP_OUTFILE;
 	else
-	{
 		determine_command(cur, cmd_found);
-	}
 }
 
-void	classify_tokens(t_entry *entry)
+static void	classify_all(t_entry *entry)
 {
 	t_token	*cur;
 	t_token	*next;
 	int		cmd_found;
 
-	if (!entry->token)
-		return ;
-	upd_token(entry, entry->token);
-	remove_null(&entry->token);
 	cur = entry->token;
 	cmd_found = 0;
 	while (cur)
@@ -81,14 +74,23 @@ void	classify_tokens(t_entry *entry)
 			classify_word(entry, cur, &cmd_found);
 		else if (cur->type == OPERATOR)
 			classify_operator(cur);
-		if (sig_stat == 2)
+		if (!entry->token)
 			return ;
 		if (cur && cur->next && cur->next->block != cur->block)
 			cmd_found = 0;
 		cur = next;
-		if (!entry->token)
-			return ;
 	}
+}
+
+void	classify_tokens(t_entry *entry)
+{
+	if (!entry->token)
+		return ;
+	upd_token(entry, entry->token);
+	remove_null(&entry->token);
+	classify_all(entry);
+	if (!entry->token)
+		return ;
 	remove_operator(&entry->token);
 	upd_token_heads_and_indexes(entry->token);
 }

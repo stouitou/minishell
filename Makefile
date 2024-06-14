@@ -96,6 +96,7 @@ SRC =	minishell.c \
 		handle_status.c \
 		classify_tokens.c \
 		go_heredoc.c \
+		expand_heredoc.c \
 		upd_token.c \
 		separate_content.c \
 		join_contents.c \

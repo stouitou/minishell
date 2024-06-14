@@ -24,7 +24,9 @@ void	files_clear(t_files **file)
 	{
 		next = cur->next;
 		free(cur->content);
+		cur->content = NULL;
 		free(cur);
+		cur = NULL;
 		cur = next;
 	}
 	*file = NULL;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   go_heredoc.c                                       :+:      :+:    :+:   */
+/*   expand_heredoc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:36:51 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/07 16:34:55 by stouitou         ###   ########.fr       */
+/*   Created: 2024/06/11 10:40:52 by stouitou          #+#    #+#             */
+/*   Updated: 2024/06/14 17:30:11 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,10 @@ static void	extract_expand(t_entry *entry, char *str, int *index, int fd)
 	else
 		ft_fprintf(fd, "");
 	free(dup);
+	dup = NULL;
 }
 
-static void	expand_heredoc(t_entry *entry, char *str, char **env, int fd)
+void	expand_heredoc(t_entry *entry, char *str, char **env, int fd)
 {
 	int		i;
 
@@ -78,61 +79,4 @@ static void	expand_heredoc(t_entry *entry, char *str, char **env, int fd)
 			expand_heredoc(entry, str + i, env, fd);
 		}
 	}
-}
-
-static void	handle_signal_in_hd(int sgn)
-{
-	char	c;
-
-	c = EOF;
-	if (sgn == SIGINT)
-	{
-		// ft_printf("hd");
-		rl_replace_line(&c, 0);
-		ft_printf("\n");
-		sig_stat = 2;
-	}
-}
-
-void	go_heredoc(t_entry *entry, t_token *cur)
-{
-	int		fd;
-	char	*str;
-	char	*infile;
-
-	fd = open(H_FILE, O_CREAT | O_RDWR | O_TRUNC, 00666);
-	if (fd == -1)
-		free_token_and_exit(entry, strerror(errno), cur->content, 1);
-	entry->heredoc = true;
-	while (1)
-	{
-		entry->sign.sa_handler = handle_signal_in_hd;
-		sigaction(SIGINT, &(entry->sign), NULL);
-		str = readline(H_PROMPT);
-		ft_printf("here in go heredoc\n");
-		if (str == NULL)
-		{
-			ft_printf("warning: here-document delimited by end-of-file (wanted `%s')\n", cur->content);
-			break ;
-		}
-		if (sig_stat == 2)
-		{
-			close(fd);
-			token_clear(&(entry->token));
-			return ;
-		}
-		if (ft_strcmp(str, cur->content) == 0)
-			break ;
-		if (!cur->quotes && ft_strchr(str, '$'))
-			expand_heredoc(entry, str, entry->env, fd);
-		else
-			write(fd, str, ft_strlen(str));
-		write(fd, "\n", 1);
-	}
-	infile = ft_strdup(H_FILE);
-	if (!infile)
-		free_token_and_exit(entry, strerror(errno), cur->content, 1);
-	close(fd);
-	free(cur->content);
-	cur->content = infile;
 }

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 09:52:32 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/07 11:56:34 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:31:07 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ static char	*protected_itoa(int prev_status, char *s1, char *s2, t_entry *entry)
 	char	*ret;
 	int		status;
 
-	if (sig_stat)
-		status = sig_stat;
+	if (g_sig)
+		status = g_sig;
 	else
 		status = prev_status;
 	ret = ft_itoa(status);
-	sig_stat = 0;
+	g_sig = 0;
 	if (!ret)
 	{
 		free(s1);
+		s1 = NULL;
 		free_token_and_exit(entry, ERR_MALLOC, s2, EXIT_FAILURE);
 	}
-	
 	return (ret);
 }
 

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:28:18 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/06 10:04:25 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:58:36 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	check_cmd_content(t_exe *exe, char *arg)
 	return (0);
 }
 
-static bool	beyond_limits(const char *nb)
+static bool	arg_too_long(const char *nb)
 {
 	int	i;
 
@@ -43,7 +43,7 @@ static bool	beyond_limits(const char *nb)
 	return (false);
 }
 
-static int	iterate(char *nb)
+static int	iterate(char *nb, int *sign)
 {
 	int	i;
 
@@ -51,18 +51,41 @@ static int	iterate(char *nb)
 	while (ft_isspace(nb[i]))
 		i++;
 	if (nb[i] == '+' || nb[i] == '-')
+	{
+		if (nb[i] == '-')
+			*sign = -1;
 		i++;
+	}
 	return (i);
+}
+
+static int	is_beyond_limits(unsigned long res, int sign)
+{
+	unsigned long	mask;
+
+	if (res <= LONG_MAX)
+		return (0);
+	mask = 1UL << 63;
+	if (res & mask)
+	{
+		if (sign > 0)
+			return (1);
+		if (res & ~mask)
+			return (1);
+	}
+	return (0);
 }
 
 static int	check_exit_status(t_exe *exe, char *arg)
 {
 	unsigned long	res;
 	int				i;
+	int				sign;
 
-	i = iterate(arg);
+	sign = 1;
+	i = iterate(arg, &sign);
 	res = 0;
-	if (beyond_limits(arg + i))
+	if (arg_too_long(arg + i))
 	{
 		init_error(exe, "numeric argument required", arg, 2);
 		exit_builtin(exe, "exit");
@@ -72,11 +95,13 @@ static int	check_exit_status(t_exe *exe, char *arg)
 		res = res * 10 + arg[i] - '0';
 		i++;
 	}
-	if (res > LONG_MAX)
+	if (is_beyond_limits(res, sign))
 	{
-		init_error(exe, "numeric argument required", arg, 2);
-		exit_builtin(exe, "exit");
+		ft_fprintf(2, "exit: %s: numeric argument required\n", arg);
+		return (2);
 	}
+	if (sign < 0)
+		res = 256 - (res % 256);
 	return (res % (unsigned)256);
 }
 

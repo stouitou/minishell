@@ -1586,3 +1586,411 @@ cat << ok > out
 ;llwd;lwdk
 cat | rev
 sleep 3 | sleep 3 | sleep 3
+       
+echo Hola comment ca va ?
+cat < Makefile > outfile
+		
+<<<<<
+><
+      
+        
+			
+ehco Hola
+echoHola
+echo-nHola
+echo Hola que tal
+echo          Hola
+echo       Hola         que      tal
+echo "         " | cat -e
+echo        | cta -e
+echo        | cat -e
+echo -nnnnnn
+echo -n -nnn -nnnn
+echo -n-nnn -nnnn
+echo -n -nnn hola -nnnn
+echo -n -nnn-nnnn
+echo ---------n
+echo -nnn -----------n
+echo -nnn -----------nn---nnnn
+echo -nnn --------------nnnn
+echo $
+echo $?$
+echo $? | echo $? | echo $?
+echo $:$= | cat -e
+echo " $ " | cat -e
+echo ' $ ' | cat -e
+echo $HOME
+echo my shit terminal is [$TERM]
+echo my shit terminal is [$TERM4
+echo my shit terminal is [$TERM4]
+echo $UID
+echo $HOME9
+echo $9HOME
+echo $952412HOME
+echo [$TERM]
+echo [$TERM4]
+echo $HOME%
+echo $hola
+echo $LANG$HOME
+echo Le path de mon HOME est $HOME
+echo $USER$var\$USER$USER\$USERtest$USER
+echo -nnnn $hola
+echo > <
+echo | |
+EechoE
+.echo
+>echo>
+<echo<
+|echo|
+|echo -n hola
+echo $""
+echo "$"""
+echo '$'''
+echo $"HOME"
+echo $''HOME
+echo $""HOME
+echo "$HO"ME
+echo '$HO'ME
+echo "$HO""ME"
+echo '$HO''ME'
+echo "'$HO''ME'"
+echo ""$HOME
+echo "" $HOME
+echo ''$HOME
+echo '' $HOME
+echo $"HO""ME"
+echo $'HO''ME'
+echo $'HOME'
+echo "$"HOME
+echo $=HOME
+echo $"HOLA"
+echo $'HOLA'
+echo $SARAH HOLA
+echo "hola"
+echo 'hola'
+echo ''hola''
+echo ''h'o'la''
+echo "''h'o'la''"
+echo "'"h'o'la"'"
+echo "'hola'"
+echo '"hola"'
+echo '''ho"''''l"a'''
+echo hola""""""""""""
+echo hola"''''''''''"
+echo hola''''''''''''
+echo hola'""""""""""'
+e"cho hola"
+e'cho hola'
+echo "hola     " | cat -e
+echo ""hola
+echo "" hola
+echo ""             hola
+echo hola""bonjour
+"e"'c'ho 'b'"o"nj"o"'u'r
+""e"'c'ho 'b'"o"nj"o"'u'r"
+echo "$DONTEXIST""Makefile"
+echo "$DONTEXIST" "Makefile"
+export        HOLA=bonjour
+export Hola9hey
+export | grep "HOME:
+export HELLO
+export --HOLA=bonjour
+export HOLA-=bonjour
+export HOL.A=bonjour
+export HOLA=bonsoir
+export HOLA=bonretour
+export HOLA="bonjour   "
+export HOLA="     -n bonjour    "
+export HOLA ="bonjour     "/
+echo "  $HOLA " | cat -e
+export HOLA="cat Makefile | grep NAME"
+echo $HOLA$HOLA$HOLA=hey$HOLA
+export HOLA=" bonjour hey "
+echo """$HOLA""" | cat -e
+echo wesh"$HOLA" | cat -e
+echo wesh""$HOLA
+echo wesh$""HOLA
+echo $:$= | cat-e
+echo [$TERM4
+echo $"HO"ME
+echo''$HOME
+echo $DONTEXIST Hola
+echo "$DONTEXIST"Makefile
+export HOLA=bon$Jour
+export HOLA="bonjour        "
+export HOLA="      -n bonjour   "
+export HOLA-"bonjour    "/
+export HOLA ="  bonjour  hey  "
+export HOLA="  bonjour  hey  "
+echo wesh""$HOLA.
+echo wesh$""HOLA.
+echo wesh$"HOLA HOLA".
+export HOLA=" hola et $HOLA"
+export HOLA=' hola et $HOLA'
+export HOLA=" hola et $HOLA"$HOLA
+export HOLA="ls          -l          - a"
+export HOL=A=bonjour
+export HOL=A=""
+export TE+S+T
+export""=""
+export ""=""
+export ''=''
+export "="="="
+export HOLA=p
+export BYE=w
+"$HOLA"$"BYE"d
+"$HOLA""$BYE"d
+unset INEXISTANT
+unset
+unset OLDPWD
+env | grep OLPWD
+env | grep OLDPWD
+export bonjour=test
+unset export
+unset echo
+unset pwd
+unset cd
+unset unset
+unset sudo
+bin/env
+pwd hola
+pwd ./hola
+pwd hola que tal
+pwd -p
+pwd pwd pwd
+pwd ls
+pwd ls env
+cd ./
+cd ././././
+cd ../
+cd ../..
+cd ../.
+cd .././././.
+cd srcs
+cd src obj
+cd 'src'
+cd "src"
+cd '/etc'
+cd /e'tc'
+cd /e"tc"
+cd sr
+cd Makefile 
+cd ../minishell
+cd ../../../../../../..
+cd //////
+cd /mini
+cd /minishell
+cd _
+cd $HOME
+cd $HOME $HOME
+cd $HOME/Documents
+cd "$PWD/src"
+cd '$PWD/src'
+export HOME=
+cd minishell Docs crash
+cd / | echo $?
+./Makefile 
+./hola 
+rm hola
+env|"wc" -l
+env|"wc " -l
+env|"wc "-l
+exit -000042
+exit '2'666'32'
+echo oui | ehco non | echo hola | grep oui
+cd .. | echo "hola"
+ifconfig | grep":"
+whereis ls | cta -e | cat -e > /tmp/bonjour
+echo test.c | cat -e| cat -e| cat -e| cat -e| cat -e| cat -e| cat -e| cat -e|cat -e|cat -e|cat -e
+ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls
+|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls|ls
+echo hola | cat | cat | cat | cat | cat | grep hola
+echo hola| cat
+echo hola |cat
+echo hola|cat
+export HOLA=bonjour | cat -e | cat -e
+echo 4?
+export HOLA | echo hola
+..b echo que tal
+cat a | <b cat | cat > c | cat
+cta bonjour
+whereis
+whereis grep
+pwd >                   bonjour
+rm hey
+echo hola >  >  bonjour
+echo hola <  <  bonjour
+echo hola >>>  bonjour
+rm hello
+echo < bonjour < hello
+rm hello bonjour
+echo < hello < bonjour
+cat bonnjour
+echo hola bonjour
+>bonjour echo >hola>bonjour>hola>bonjour>hola hey >bonjour hola >hola
+rm bonjour hola
+rm hola1 hola2
+echo 2 >> hola1 > hola2
+rm pwd
+<pwd
+echo $>
+cat < pwd
+cat src/pwd
+rm ls1
+echo hola         >    bonjour
+cat     <          bonjour
+echo hola src/bonjour
+cat <src/bonjour
+echo hola > src/bonjour
+rm src/bonjour
+e'c'"h"o hola > bonjour
+cat 'bo'"n"jour
+echo hey > src/hello
+>src/bonjour >src/hello <prout
+cat src/bonjour src/hello
+>src/bonjour <prout >src/hello
+cat src/bonjour
+cat src/hello
+rm src/bonjour src/hello
+ls src
+>../bonjour <prout >../hello
+rm ../bonjour ../hello 
+rm ../bonjour 
+>src/bonjour >>src/hello <prout
+rm src/hello 
+>>src/bonjour >src/hello <prout
+rm src/bonjour src/hello 
+>>src/bonjour >>src/hello <prout
+>src/bonjour <prout >>src/hello
+>>src/bonjour <prout >src/hello
+>>src/bonjour <prout >>src/hello
+ehco $?
+cat src/bonjour 
+cat src/hello 
+<prout >>src/bonjour >>src/hello
+rm bonjour hello 
+rm bonjour 
+rm -f bonjour
+rm bonjour > bonjour
+ls -l bonjour
+export HOLA="bonjour hello"
+>$HOLA
+>$"HOLA"
+rm HOLA 
+>"$HOLA"
+rm 'bonjour hello'
+>$HOLA>hey
+rm bonjour hey
+>hey>$HOLA
+>hey>$HOLA>hey>hey
+export A=hey
+export A B=Hola D E C="Que tal"
+echo $PROUT$B$C > /tmp/a > /tmp/b > /tmp/c
+cat /tmp/a
+cat /tmp/b
+cat /tmp/c
+rm /tmp/a /tmp/b /tmp/c
+echo "Amour Tu es Horrible" > a
+echo "0123456789" > b
+echo "Prout" > c
+>a ls >b >>c >
+rm d
+ cat c
+cat dir/bonjour 
+rm -rf dir/
+rm d e
+cat << hola
+cat << 'hola'
+cat << "hola"
+cat << $HOME
+cat << hola > bonjour
+rm a b c
+cat << hola | rev
+<< hola
+<<hola
+cat <<
+cat << prout << lol << koala
+prout << lol << cat << koala
+<< $hola
+<< $"hola"$"b"
+<< $"$hola"$$"b"
+<< ho$la$"$a"$$"b"
+rm heredoc 
+cat | cat | cat
+cta
+pwd < fb
+pwd -sdn
+export HOME
+ls | exit -4
+ls | exit -9223372036854775808
+ls | exit -9223372036854775809
+<< $HOME
+cat << $LANG
+cat << "$HOME"
+cti Makefile
+             
+id
+uid
+user id
+echo HOME$
+echo HOME$"$"
+           
+cati ok.txt 
+ok"
+echo Hello | rev
+ls | cat
+cat | cat
+export _HOLA=hbf
+export -HOLA=hbf
+export @HOLA=hbfv
+cati Makefile
+>"bonjour hello"
+rm -rf 'bonjour hello'
+rm -rf 'bonjour'
+rm -rf en_US.UTF-8 
+ls | exit -9223372036855775908
+ls | exit -9223372036854775909
+ls | exit -9223372036854776809
+ls | exit -9223372036854778808
+ls | exit -9223372036854779908
+ls | exit -9223372036854775908
+ls | exit 3000
+exit 3000
+exit 2
+exit 255
+255
+exit 256
+exit 1235
+exit 92233720368547758
+exit 45
+
+xs
+9223372036854775898
+exit 9223372036854775898
+exit 
+exit -922337203685477580
+exit 9223372036854775810
+exit 9223372036854775814
+exit -9223372036854775810
+exit 	ft_printf("hello\n");
+
+-9223372036854775809
+-9223372036854775808
+exit -9223372036854775816
+exit 9223372036854775806
+ls | exit -9223372036854775807
+ls | exit 9223372036854775807
+ls | exit 9223372036854775808
+ls | exit 92233720368547758086537643546774254
+exit 12 24
+exit 12 abc
+exit abc def
+exit 12
+exit -9223372036854775908
+exit -9223372036854785808
+exit 9223372036854775809
+exit 9223372036854785808
+exit bcd abc
+   
+>>>>>>
+>> >>

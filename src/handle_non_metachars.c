@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:52:23 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/27 16:30:59 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:31:00 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ static int	get_token(const char *str, t_entry *entry, t_token *new, char *set)
 	if (!dup)
 		free_token_and_exit(entry, ERR_MALLOC, (char *)str, 1);
 	new->content = ft_strtrim(dup, set);
+	// new->content = dup;
 	free(dup);
+	dup = NULL;
 	if (!new->content)
 		free_token_and_exit(entry, ERR_MALLOC, (char *)str, 1);
 	if (new->quotes)

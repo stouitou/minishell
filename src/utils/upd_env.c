@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:15:44 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/05 17:41:17 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:12:27 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ char	**upd_env(t_exe *exe, t_env *env)
 	int		size;
 	int		i;
 
-	if (!env)
-		return (NULL);
 	size = env_size(env);
 	array = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!array)

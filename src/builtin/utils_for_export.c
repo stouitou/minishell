@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:48:27 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/05 14:03:13 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:34:24 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	upd_concatenating(t_exe *exe, t_env *env, char *key, char *value)
 	if (!new)
 		free_subshell_and_exit(exe, ERR_MALLOC, value, EXIT_FAILURE);
 	free(relevant->value);
+	relevant->value = NULL;
 	relevant->value = new;
 }
 
@@ -80,5 +81,6 @@ void	upd_replacing(t_exe *exe, t_env *env, char *key, char *value)
 	if (!new)
 		free_subshell_and_exit(exe, ERR_MALLOC, value, EXIT_FAILURE);
 	free(relevant->value);
+	relevant->value = NULL;
 	relevant->value = new;
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_exit_status.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: poriou <poriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 10:59:21 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/04 16:52:46 by poriou           ###   ########.fr       */
+/*   Updated: 2024/06/14 12:48:44 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static bool	beyond_limits(const char *nb)
+static bool	arg_too_long(const char *nb)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ static bool	beyond_limits(const char *nb)
 	return (false);
 }
 
-static int	iterate(char *nb)
+static int	iterate(char *nb, int *sign)
 {
 	int	i;
 
@@ -32,18 +32,41 @@ static int	iterate(char *nb)
 	while (ft_isspace(nb[i]))
 		i++;
 	if (nb[i] == '+' || nb[i] == '-')
+	{
+		if (nb[i] == '-')
+			*sign = -1;
 		i++;
+	}
 	return (i);
+}
+
+static int	is_beyond_limits(unsigned long res, int sign)
+{
+	unsigned long	mask;
+
+	mask = 1UL << 63;
+	if (res <= LONG_MAX)
+		return (0);
+	if (res & (mask))
+	{
+		if (sign > 0)
+			return (1);
+		if (res & (~(mask)))
+			return (1);
+	}
+	return (0);
 }
 
 int	get_exit_status(char *arg)
 {
 	unsigned long	res;
 	int				i;
+	int				sign;
 
-	i = iterate(arg);
+	sign = 1;
+	i = iterate(arg, &sign);
 	res = 0;
-	if (beyond_limits(arg + i))
+	if (arg_too_long(arg + i))
 	{
 		ft_fprintf(2, "exit: %s: numeric argument required\n", arg);
 		return (2);
@@ -53,10 +76,12 @@ int	get_exit_status(char *arg)
 		res = res * 10 + arg[i] - '0';
 		i++;
 	}
-	if (res > LONG_MAX)
+	if (is_beyond_limits(res, sign))
 	{
 		ft_fprintf(2, "exit: %s: numeric argument required\n", arg);
 		return (2);
 	}
+	if (sign < 0)
+		res = 256 - (res % 256);
 	return (res % (unsigned)256);
 }

@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:00:13 by stouitou          #+#    #+#             */
-/*   Updated: 2024/04/30 15:17:14 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:34:35 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	free_cmd(char **cmd)
 	while (cmd[i])
 	{
 		free(cmd[i]);
+		cmd[i] = NULL;
 		i++;
 	}
 	free(cmd);

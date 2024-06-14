@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:24:37 by stouitou          #+#    #+#             */
-/*   Updated: 2024/05/29 10:08:30 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:57:23 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	free_subshell_and_exit(t_exe *exe, char *msg, char *data, int status)
 		ft_fprintf(2, "%s", exe->error.msg);
 	if (exe->error.msg)
 		ft_fprintf(2, "\n");
+	free(data);
 	exit(exe->error.status);
 }

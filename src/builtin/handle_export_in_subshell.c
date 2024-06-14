@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 11:49:42 by stouitou          #+#    #+#             */
-/*   Updated: 2024/06/06 10:05:39 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:10:17 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	handle_export_in_subshell(t_exe *exe, char **cmd, t_env *env)
 		export_only(exe, env);
 	while (cmd[i])
 	{
-		export_variable(exe, env, cmd[i], &exit_status);
+		export_variable(exe, &env, cmd[i], &exit_status);
 		i++;
 	}
 	return (exit_status);
